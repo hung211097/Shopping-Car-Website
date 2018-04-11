@@ -1,0 +1,74 @@
+#logo
+{
+  width: 100%;
+}
+
+#mail
+{
+  margin-right: 15px;
+  color: black;
+  text-decoration: none;
+}
+
+#mail:hover
+{
+  color: #0076DB;
+  transition: 0.1s;
+}
+
+.center
+{
+  display: none;
+}
+
+.right-nav-text
+{
+  display: none;
+  color: white;
+}
+
+.right-top-head
+{
+  padding-top: 45px;
+  font-size: 16px;
+  padding-right: 30px;
+}
+
+.left-top-head
+{
+  padding-top: 15px;
+  padding-left: 40px;
+}
+
+.navbar
+{
+  border-radius: 0;
+  background-color: #444444;
+}
+
+.navbar-nav a
+{
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-nav a:hover
+{
+  background-color: white;
+  color: #444444;
+}
+
+.icon-bar
+{
+  background-color: white !important;
+}
+
+.bar-button:hover
+{
+  background-color: white !important;
+}
+
+.bar-button:hover .icon-bar
+{
+  background-color: #444444 !important;
+}
