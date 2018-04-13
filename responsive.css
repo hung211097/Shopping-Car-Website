@@ -4,6 +4,17 @@
   {
     padding-top: 37px;
   }
+
+  /* .owl-carousel .owl-item {
+    width: 262.5px !important;
+  } */
+}
+
+@media screen and (max-width: 1200px)
+{
+  .owl-carousel .owl-item {
+    width: 293.333px !important;
+  }
 }
 
 @media screen and (max-width: 990px)
@@ -13,7 +24,29 @@
     padding-top: 29px;
     font-size: 14px;
   }
+
+  .owl-carousel .owl-item {
+    width: 345px !important;
+  }
+
+  .newestInfo
+  {
+    width: 92.4%;
+    left: 3%;
+    height: 384px;
+  }
+
+  .infoNew
+  {
+    height: 384px;
+  }
+
+  .newest
+  {
+    left: 3%;
+  }
 }
+
 
 @media screen and (max-width: 770px)
 {
@@ -54,5 +87,115 @@
   #logo
   {
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 760px)
+{
+  .owl-carousel .owl-item {
+    width: 717px !important;
+  }
+
+  #newestCar
+  {
+    width: 92.4%;
+  }
+}
+
+@media screen and (max-width: 740px)
+{
+  #newestCar
+  {
+    height: 468px;
+  }
+}
+
+@media screen and (max-width: 720px)
+{
+  .owl-carousel .owl-item {
+    width: 646px !important;
+  }
+
+  #newestCar
+  {
+    height: 448px;
+  }
+}
+
+@media screen and (max-width: 700px)
+{
+  .owl-carousel .owl-item {
+    width: 626px !important;
+  }
+
+  #newestCar
+  {
+    height: 428px;
+  }
+}
+
+@media screen and (max-width: 653px)
+{
+  .owl-carousel .owl-item {
+    width: 602px !important;
+  }
+}
+
+@media screen and (max-width: 603px)
+{
+  .owl-carousel .owl-item {
+    width: 570px !important;
+  }
+}
+
+@media screen and (max-width: 553px)
+{
+  .owl-carousel .owl-item {
+    width: 509px !important;
+  }
+
+  .newest
+  {
+    height: auto !important;
+  }
+
+  .infoNew
+  {
+    height: auto !important;
+  }
+}
+
+@media screen and (max-width: 503px)
+{
+  .owl-carousel .owl-item {
+    width: 451px !important;
+  }
+}
+
+@media screen and (max-width: 453px)
+{
+  .owl-carousel .owl-item {
+    width: 419px !important;
+  }
+}
+
+@media screen and (max-width: 403px)
+{
+  .owl-carousel .owl-item {
+    width: 362px !important;
+  }
+}
+
+@media screen and (max-width: 353px)
+{
+  .owl-carousel .owl-item {
+    width: 312px !important;
+  }
+}
+
+@media screen and (max-width: 303px)
+{
+  .owl-carousel .owl-item {
+    width: 252px !important;
   }
 }

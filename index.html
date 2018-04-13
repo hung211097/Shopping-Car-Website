@@ -10,14 +10,18 @@
   <script src="./assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./assets/bootstrap-3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./index2.css">
   <link rel="stylesheet" href="./responsive.css">
+  <link rel="stylesheet" href="./animate.css">
   <link rel="stylesheet" href="./assets/hover/css/hover-min.css">
   <link rel="stylesheet" href="./assets/OwlCarousel/dist/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="./assets/OwlCarousel/dist/assets/owl.theme.default.min.css">
+  <link rel="icon" href="./image/car.ico">
   <title>DreamCar</title>
 </head>
 
 <body>
+  <!-- Start Header -->
   <div class="top-header">
     <div class="container">
       <div class="row">
@@ -39,7 +43,7 @@
     </div>
   </div>
   <header>
-    <nav class="navbar">
+    <nav class="navbar" data-spy="affix" data-offset-top="86">
       <div class="container">
         <div class="navbar-header">
           <span class="right-nav-text pull-right"><i class="fas fa-phone"></i> 0212343142</span>
@@ -54,12 +58,12 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Trang chủ</a></li>
-            <li><a href="#">Giới thiệu</a></li>
-            <li><a href="#">Mua xe</a></li>
-            <li><a href="#">Liên hệ</a></li>
+            <li class="active "><a href="#section1">Trang chủ</a></li>
+            <li><a href="#section2">Giới thiệu</a></li>
+            <li><a href="#section3">Sản phẩm</a></li>
+            <li><a href="#section4">Liên hệ</a></li>
           </ul>
-          <form class="navbar-form navbar-left" action="/action_page.php">
+          <form class="navbar-form navbar-left" action="">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Tìm kiếm">
               <div class="input-group-btn">
@@ -78,33 +82,876 @@
       </div>
     </nav>
   </header>
+  <!-- End Header -->
 
+  <!-- Start Slider -->
+  <div class="slider">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+      </ol>
 
-  <!-- <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#"><img src="./image/logo.png" alt="logo" id="logo"></a>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="./image/slide1.jpg" alt="Car 1">
+          <!-- <div class="carousel-caption">
+            <div class="container cap">
+              <h1 class="animated bounceInRight">MẠNH MẼ</h1>
+            </div>
+          </div> -->
         </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Page 1</a></li>
-          <li><a href="#">Page 2</a></li>
-        </ul>
-        <form class="navbar-form navbar-left" action="/action_page.php">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit">
-               <i class="glyphicon glyphicon-search"></i>
-             </button>
+
+        <div class="item">
+          <img src="./image/slide2.jpg" alt="Car 2">
+          <!-- <div class="carousel-caption">
+            <div class="container cap">
+              <h1 class="animated bounceInRight">SANG TRỌNG</h1>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="item">
+          <img src="./image/slide3.jpg" alt="Car 3">
+          <!-- <div class="carousel-caption">
+
+          </div> -->
+        </div>
+
+        <div class="item">
+          <img src="./image/slide4.jpg" alt="Car 4">
+          <!-- <div class="carousel-caption">
+
+          </div> -->
+        </div>
+
+        <div class="item">
+          <img src="./image/slide5.jpg" alt="Car 5">
+          <!-- <div class="carousel-caption">
+
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  <!-- End Slider -->
+
+  <!-- Start Banner -->
+  <div class="banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 bannerContainer">
+          <img src="./image/banner1.png" alt="banner1">
+        </div>
+        <div class="col-sm-6 bannerContainer">
+          <img src="./image/banner2.png" alt="banner2">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Banner -->
+
+  <!-- Start Best Seen Product -->
+  <div class="bestSeen">
+    <div class="container">
+      <div class="bestSeen-title">
+        <h2>SẢN PHẨM NỔI BẬT</h2>
+      </div>
+
+      <div class="bestSeen-content">
+        <div class="owl-carousel owl-theme owl-loaded owl-drag" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="1">
+          <div class="item">
+            <div class="product-box">
+              <div class="product-thumbnail">
+                <a href="javascript:;" title="Aston Martin DB11">
+                  <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                </a>
+                <div class="price-box clearfix">
+                  <div class="special-price">
+                    <span class="price product-price">
+                      4.829.000.000₫
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                </h3>
+              </div>
+              <div class="product-action clearfix ">
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                      <i class="fa fa-shopping-cart"></i>
+                      Mua hàng
+                    </button>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                      <i class="fa fa-eye"></i>
+                      Chi tiết
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-        </form>
+
+          <div class="item">
+            <div class="product-box">
+              <div class="product-thumbnail">
+                <a href="javascript:;" title="BMW 4 Series Convertible">
+                  <img src="./image/BestSeen/BMW 4 Series Convertible.jpg" alt="BMW 4 Series Convertible">
+                </a>
+                <div class="price-box clearfix">
+                  <div class="special-price">
+                    <span class="price product-price">
+                      1.116.000.000₫
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  <a href="javascript:;" title="BMW 4 Series Convertible">BMW 4 Series Convertible</a>
+                </h3>
+              </div>
+              <div class="product-action clearfix ">
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                      <i class="fa fa-shopping-cart"></i>
+                      Mua hàng
+                    </button>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                      <i class="fa fa-eye"></i>
+                      Chi tiết
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="product-box">
+              <div class="product-thumbnail">
+                <a href="javascript:;" title="Chevrolet Camaro LS 2017">
+                  <img src="./image/BestSeen/Chevrolet Camaro LS 2017.jpg" alt="Chevrolet Camaro LS 2017">
+                </a>
+                <div class="price-box clearfix">
+                  <div class="special-price">
+                    <span class="price product-price">
+                      3.200.000.000₫
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  <a href="javascript:;" title="Chevrolet Camaro LS 2017">Chevrolet Camaro LS 2017</a>
+                </h3>
+              </div>
+              <div class="product-action clearfix ">
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                      <i class="fa fa-shopping-cart"></i>
+                      Mua hàng
+                    </button>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                      <i class="fa fa-eye"></i>
+                      Chi tiết
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="product-box">
+              <div class="product-thumbnail">
+                <a href="javascript:;" title="Volkswagen Scirocco R 2017">
+                  <img src="./image/BestSeen/Volkswagen Scirocco R 2017.jpg" alt="Volkswagen Scirocco R 2017">
+                </a>
+                <div class="price-box clearfix">
+                  <div class="special-price">
+                    <span class="price product-price">
+                      1.600.000.000₫
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  <a href="javascript:;" title="Volkswagen Scirocco R 2017">Volkswagen Scirocco R 2017</a>
+                </h3>
+              </div>
+              <div class="product-action clearfix ">
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                      <i class="fa fa-shopping-cart"></i>
+                      Mua hàng
+                    </button>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                      <i class="fa fa-eye"></i>
+                      Chi tiết
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="product-box">
+              <div class="product-thumbnail">
+                <a href="javascript:;" title="Hyundai Grand i10 Sedan 1.2 MT 2018">
+                  <img src="./image/BestSeen/Hyundai Grand i10 Sedan 1.2 MT 2018.jpg" alt="Hyundai Grand i10 Sedan 1.2 MT 2018">
+                </a>
+                <div class="price-box clearfix">
+                  <div class="special-price">
+                    <span class="price product-price">
+                      400.000.000₫
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  <a href="javascript:;" title="Hyundai Grand i10 Sedan 1.2 MT 2018">Hyundai Grand i10 Sedan 1.2 MT 2018</a>
+                </h3>
+              </div>
+              <div class="product-action clearfix ">
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                      <i class="fa fa-shopping-cart"></i>
+                      Mua hàng
+                    </button>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                      <i class="fa fa-eye"></i>
+                      Chi tiết
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="product-box">
+              <div class="product-thumbnail">
+                <a href="javascript:;" title="Mazda 3 1.5 AT Sedan 2018">
+                  <img src="./image/BestSeen/Mazda 3 1.5 AT Sedan 2018.jpg" alt="Mazda 3 1.5 AT Sedan 2018">
+                </a>
+                <div class="price-box clearfix">
+                  <div class="special-price">
+                    <span class="price product-price">
+                      649.000.000₫
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  <a href="javascript:;" title="Mazda 3 1.5 AT Sedan 2018">Mazda 3 1.5 AT Sedan 2018</a>
+                </h3>
+              </div>
+              <div class="product-action clearfix ">
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                      <i class="fa fa-shopping-cart"></i>
+                      Mua hàng
+                    </button>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                      <i class="fa fa-eye"></i>
+                      Chi tiết
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="product-box">
+              <div class="product-thumbnail">
+                <a href="javascript:;" title="KIA Cerato 2.0 AT 2018">
+                  <img src="./image/BestSeen/KIA Cerato 2.0 AT 2018.jpg" alt="KIA Cerato 2.0 AT 2018">
+                </a>
+                <div class="price-box clearfix">
+                  <div class="special-price">
+                    <span class="price product-price">
+                      639.000.000₫
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  <a href="javascript:;" title="KIA Cerato 2.0 AT 2018">KIA Cerato 2.0 AT 2018</a>
+                </h3>
+              </div>
+              <div class="product-action clearfix ">
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                      <i class="fa fa-shopping-cart"></i>
+                      Mua hàng
+                    </button>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                      <i class="fa fa-eye"></i>
+                      Chi tiết
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="product-box">
+              <div class="product-thumbnail">
+                <a href="javascript:;" title="Ford EcoSport Titanium 1.5L AT 2018">
+                  <img src="./image/BestSeen/Ford EcoSport Titanium 1.5L AT 2018.jpg" alt="Ford EcoSport Titanium 1.5L AT 2018">
+                </a>
+                <div class="price-box clearfix">
+                  <div class="special-price">
+                    <span class="price product-price">
+                      648.000.000₫
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  <a href="javascript:;" title="Ford EcoSport Titanium 1.5L AT 2018">Ford EcoSport Titanium 1.5L AT 2018</a>
+                </h3>
+              </div>
+              <div class="product-action clearfix ">
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                      <i class="fa fa-shopping-cart"></i>
+                      Mua hàng
+                    </button>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                      <i class="fa fa-eye"></i>
+                      Chi tiết
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="product-box">
+              <div class="product-thumbnail">
+                <a href="javascript:;" title="Peugeot-5008-1-6L-Turbo">
+                  <img src="./image/BestSeen/Peugeot-5008-1-6L-Turbo.jpg" alt="Peugeot-5008-1-6L-Turbo">
+                </a>
+                <div class="price-box clearfix">
+                  <div class="special-price">
+                    <span class="price product-price">
+                      1.399.000.000₫
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  <a href="javascript:;" title="Peugeot-5008-1-6L-Turbo">Peugeot-5008-1-6L-Turbo</a>
+                </h3>
+              </div>
+              <div class="product-action clearfix ">
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                      <i class="fa fa-shopping-cart"></i>
+                      Mua hàng
+                    </button>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                      <i class="fa fa-eye"></i>
+                      Chi tiết
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="product-box">
+              <div class="product-thumbnail">
+                <a href="javascript:;" title="Audi TT 2.0 2007">
+                  <img src="./image/BestSeen/Audi TT 2.0 2007.jpg" alt="Audi TT 2.0 2007">
+                </a>
+                <div class="price-box clearfix">
+                  <div class="special-price">
+                    <span class="price product-price">
+                      700.000.000₫
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">
+                  <a href="javascript:;" title="Audi TT 2.0 2007">Audi TT 2.0 2007</a>
+                </h3>
+              </div>
+              <div class="product-action clearfix ">
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                      <i class="fa fa-shopping-cart"></i>
+                      Mua hàng
+                    </button>
+                    <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                      <i class="fa fa-eye"></i>
+                      Chi tiết
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </nav> -->
+    </div>
   </div>
+  <!-- End Best Seen Product -->
 
+  <!-- Start New Product -->
+  <div class="newProduct">
+    <div class="container">
+      <div class="bestSeen-title">
+        <h2>SẢN PHẨM MỚI</h2>
+      </div>
 
+      <div class="newProduct-content">
+        <div class="clearfix">
+          <div class="col-md-7 col-md-push-5 newest">
+            <a href="javascript:;">
+              <img src="./image/NewProduct/ToyotaCamry.jpg" id="newestCar" alt="ToyotaCamry">
+            </a>
+          </div>
+
+          <div class="col-md-5 col-md-pull-7 newestInfo">
+            <div class="infoNew">
+              <h3><a href="javascript:;">Toyota Camry</a></h3>
+              <div class="desc" style="line-height: 1.7; letter-spacing: 0.25px;">
+                <div>
+                  <ul>
+                    <li>Xăng 1.5L Duratec 16 Van</li>
+                    <li>Hệ thống nhiên liệu phun đa điểm</li>
+                    <li>Hệ thống lái trợ lực điện điều khiển điện tử</li>
+                    <li>Hộp số tự động 6 cấp PowerShift</li>
+                  </ul>
+                  <p style="margin-bottom: 10px">Hoan nghênh cho các thế hệ trên khắp thế giới về chất lượng tuyệt vời, độ bền và độ tin cậy của nó, là Camry tiến hóa để hình thành thế hệ tiếp theo thoải mái, hiệu quả và sự an tâm, mà kháng cáo cho cả hai người đứng đầu và trái tim.Sự phát triển của một ...</p>
+                </div>
+                <a href="javascript:;" class="color-featured">Xem thêm</a>
+              </div>
+              <div class="price-box clearfix">
+                <div class="special-price">
+                  <span class="price product-price">
+                    2.000.000.000₫
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix someNewProducts">
+          <div class="newProduct-content">
+            <div class="owl-carousel owl-theme owl-loaded owl-drag" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="1">
+              <div class="item">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                      <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                    </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                          4.829.000.000₫
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                      <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                    </h3>
+                  </div>
+                  <div class="product-action clearfix ">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                          <i class="fa fa-shopping-cart"></i>
+                          Mua hàng
+                        </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                          <i class="fa fa-eye"></i>
+                          Chi tiết
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="BMW 4 Series Convertible">
+                      <img src="./image/BestSeen/BMW 4 Series Convertible.jpg" alt="BMW 4 Series Convertible">
+                    </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                          1.116.000.000₫
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                      <a href="javascript:;" title="BMW 4 Series Convertible">BMW 4 Series Convertible</a>
+                    </h3>
+                  </div>
+                  <div class="product-action clearfix ">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                          <i class="fa fa-shopping-cart"></i>
+                          Mua hàng
+                        </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                          <i class="fa fa-eye"></i>
+                          Chi tiết
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Chevrolet Camaro LS 2017">
+                      <img src="./image/BestSeen/Chevrolet Camaro LS 2017.jpg" alt="Chevrolet Camaro LS 2017">
+                    </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                          3.200.000.000₫
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                      <a href="javascript:;" title="Chevrolet Camaro LS 2017">Chevrolet Camaro LS 2017</a>
+                    </h3>
+                  </div>
+                  <div class="product-action clearfix ">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                          <i class="fa fa-shopping-cart"></i>
+                          Mua hàng
+                        </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                          <i class="fa fa-eye"></i>
+                          Chi tiết
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Volkswagen Scirocco R 2017">
+                      <img src="./image/BestSeen/Volkswagen Scirocco R 2017.jpg" alt="Volkswagen Scirocco R 2017">
+                    </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                          1.600.000.000₫
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                      <a href="javascript:;" title="Volkswagen Scirocco R 2017">Volkswagen Scirocco R 2017</a>
+                    </h3>
+                  </div>
+                  <div class="product-action clearfix ">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                          <i class="fa fa-shopping-cart"></i>
+                          Mua hàng
+                        </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                          <i class="fa fa-eye"></i>
+                          Chi tiết
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Hyundai Grand i10 Sedan 1.2 MT 2018">
+                      <img src="./image/BestSeen/Hyundai Grand i10 Sedan 1.2 MT 2018.jpg" alt="Hyundai Grand i10 Sedan 1.2 MT 2018">
+                    </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                          400.000.000₫
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                      <a href="javascript:;" title="Hyundai Grand i10 Sedan 1.2 MT 2018">Hyundai Grand i10 Sedan 1.2 MT 2018</a>
+                    </h3>
+                  </div>
+                  <div class="product-action clearfix ">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                          <i class="fa fa-shopping-cart"></i>
+                          Mua hàng
+                        </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                          <i class="fa fa-eye"></i>
+                          Chi tiết
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Mazda 3 1.5 AT Sedan 2018">
+                      <img src="./image/BestSeen/Mazda 3 1.5 AT Sedan 2018.jpg" alt="Mazda 3 1.5 AT Sedan 2018">
+                    </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                          649.000.000₫
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                      <a href="javascript:;" title="Mazda 3 1.5 AT Sedan 2018">Mazda 3 1.5 AT Sedan 2018</a>
+                    </h3>
+                  </div>
+                  <div class="product-action clearfix ">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                          <i class="fa fa-shopping-cart"></i>
+                          Mua hàng
+                        </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                          <i class="fa fa-eye"></i>
+                          Chi tiết
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="KIA Cerato 2.0 AT 2018">
+                      <img src="./image/BestSeen/KIA Cerato 2.0 AT 2018.jpg" alt="KIA Cerato 2.0 AT 2018">
+                    </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                          639.000.000₫
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                      <a href="javascript:;" title="KIA Cerato 2.0 AT 2018">KIA Cerato 2.0 AT 2018</a>
+                    </h3>
+                  </div>
+                  <div class="product-action clearfix ">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                          <i class="fa fa-shopping-cart"></i>
+                          Mua hàng
+                        </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                          <i class="fa fa-eye"></i>
+                          Chi tiết
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Ford EcoSport Titanium 1.5L AT 2018">
+                      <img src="./image/BestSeen/Ford EcoSport Titanium 1.5L AT 2018.jpg" alt="Ford EcoSport Titanium 1.5L AT 2018">
+                    </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                          648.000.000₫
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                      <a href="javascript:;" title="Ford EcoSport Titanium 1.5L AT 2018">Ford EcoSport Titanium 1.5L AT 2018</a>
+                    </h3>
+                  </div>
+                  <div class="product-action clearfix ">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                          <i class="fa fa-shopping-cart"></i>
+                          Mua hàng
+                        </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                          <i class="fa fa-eye"></i>
+                          Chi tiết
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Peugeot-5008-1-6L-Turbo">
+                      <img src="./image/BestSeen/Peugeot-5008-1-6L-Turbo.jpg" alt="Peugeot-5008-1-6L-Turbo">
+                    </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                          1.399.000.000₫
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                      <a href="javascript:;" title="Peugeot-5008-1-6L-Turbo">Peugeot-5008-1-6L-Turbo</a>
+                    </h3>
+                  </div>
+                  <div class="product-action clearfix ">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                          <i class="fa fa-shopping-cart"></i>
+                          Mua hàng
+                        </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                          <i class="fa fa-eye"></i>
+                          Chi tiết
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Audi TT 2.0 2007">
+                      <img src="./image/BestSeen/Audi TT 2.0 2007.jpg" alt="Audi TT 2.0 2007">
+                    </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                          700.000.000₫
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                      <a href="javascript:;" title="Audi TT 2.0 2007">Audi TT 2.0 2007</a>
+                    </h3>
+                  </div>
+                  <div class="product-action clearfix ">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                          <i class="fa fa-shopping-cart"></i>
+                          Mua hàng
+                        </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                          <i class="fa fa-eye"></i>
+                          Chi tiết
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- End New Product -->
+  <br><br><br><br><br><br><br>
   <script type="text/javascript" src="./index.js"></script>
   <script type="text/javascript" src="./assets/fontawesome-all.js"></script>
   <script src="./assets/OwlCarousel/dist/owl.carousel.min.js"></script>
