@@ -11,6 +11,8 @@
   <link rel="stylesheet" type="text/css" href="./assets/bootstrap-3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="./index2.css">
+  <link rel="stylesheet" href="./index3.css">
+  <link rel="stylesheet" href="./index4.css">
   <link rel="stylesheet" href="./responsive.css">
   <link rel="stylesheet" href="./animate.css">
   <link rel="stylesheet" href="./assets/hover/css/hover-min.css">
@@ -74,8 +76,8 @@
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span style="font-size: 16px;"><i class="fas fa-user-plus"></i></span> Đăng ký</a></li>
-            <li><a href="#"><span><i class="fas fa-user"></i></span> Đăng nhập</a></li>
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal" id="SignUpNavBtn"><span style="font-size: 16px;"><i class="fas fa-user-plus"></i></span> Đăng ký</a></li>
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal" id="SignInNavBtn"><span><i class="fas fa-user"></i></span> Đăng nhập</a></li>
             <li><a href="#"><span><i class="fas fa-shopping-cart"></i></span> Giỏ hàng</a></li>
           </ul>
         </div>
@@ -83,6 +85,106 @@
     </nav>
   </header>
   <!-- End Header -->
+
+  <!-- Start Modal Sign Up -->
+  <div id="SignUpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Đăng Ký Tài Khoản</h4>
+        </div>
+        <div class="modal-body">
+          <form class="formSignUp" action="" method="post" name="SignUp">
+            <div class="form-group">
+              <label for="HoTen">Họ và Tên</label>
+              <input type="text" class="form-control" id="HoTen" placeholder="" name="HoTen">
+            </div>
+
+            <div class="form-group">
+              <label for="ID">Tên tài khoản</label>
+              <input type="text" class="form-control" id="ID" placeholder="" name="ID">
+            </div>
+
+            <div class="form-group">
+              <label for="Pass">Mật khẩu</label>
+              <input type="password" class="form-control" id="Pass" placeholder="" name="Pass">
+            </div>
+
+            <div class="form-group">
+              <label for="Email">Email</label>
+              <input type="email" class="form-control" id="Email" placeholder="" name="Email">
+            </div>
+            <div class="text-center">
+              <button class="btn btn-SignUp" type="submit" name="button-SignUp">Đăng Ký</button>
+              <p>Bạn đã có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignInModal">Đăng nhập</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Sign Up -->
+
+  <!-- Start Modal Sign In -->
+  <div id="SignInModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Đăng Nhập Tài Khoản</h4>
+        </div>
+        <div class="modal-body">
+          <form class="formSignIn" action="" method="post" name="SignIn">
+            <div class="form-group">
+              <label for="ID">Tên tài khoản</label>
+              <input type="text" class="form-control" id="ID" placeholder="" name="ID">
+            </div>
+
+            <div class="form-group">
+              <label for="Pass">Mật khẩu</label>
+              <input type="password" class="form-control" id="Pass" placeholder="" name="Pass">
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-SignIn" type="button" name="button-SignIn">Đăng Nhập</button>
+              <p><a href="javascript:;" id="OptionBtnForget" data-dismiss="modal" data-toggle="modal" data-target="#ForgetPassModal">Quên Mật Khẩu</a></p>
+              <p>Bạn chưa có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Sign In -->
+
+  <!-- Start Forget Pass -->
+  <div id="ForgetPassModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Lấy Lại Mật Khẩu</h4>
+        </div>
+        <div class="modal-body">
+          <form class="formForgetPass" action="" method="post" name="ForgetPass">
+            <p>
+              Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.
+            </p>
+            <div class="form-group">
+              <label for="Email">Email</label>
+              <input type="email" class="form-control" id="Email" placeholder="" name="Email">
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-ForgetPass" type="button" name="button-ForgetPass">XÁC NHẬN</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Forget Pass -->
 
   <!-- Start Slider -->
   <div class="slider">
@@ -174,8 +276,8 @@
       </div>
 
       <div class="bestSeen-content">
-        <div class="owl-carousel owl-theme owl-loaded owl-drag" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="1">
-          <div class="item">
+        <div id="BSeen" class="owl-carousel owl-theme owl-loaded owl-drag">
+          <!-- <div class="item">
             <div class="product-box">
               <div class="product-thumbnail">
                 <a href="javascript:;" title="Aston Martin DB11">
@@ -209,9 +311,9 @@
                 </form>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="item">
+          <!-- <div class="item">
             <div class="product-box">
               <div class="product-thumbnail">
                 <a href="javascript:;" title="BMW 4 Series Convertible">
@@ -245,9 +347,9 @@
                 </form>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="item">
+          <!-- <div class="item">
             <div class="product-box">
               <div class="product-thumbnail">
                 <a href="javascript:;" title="Chevrolet Camaro LS 2017">
@@ -281,9 +383,9 @@
                 </form>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="item">
+          <!-- <div class="item">
             <div class="product-box">
               <div class="product-thumbnail">
                 <a href="javascript:;" title="Volkswagen Scirocco R 2017">
@@ -317,9 +419,9 @@
                 </form>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="item">
+          <!-- <div class="item">
             <div class="product-box">
               <div class="product-thumbnail">
                 <a href="javascript:;" title="Hyundai Grand i10 Sedan 1.2 MT 2018">
@@ -353,9 +455,9 @@
                 </form>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="item">
+          <!-- <div class="item">
             <div class="product-box">
               <div class="product-thumbnail">
                 <a href="javascript:;" title="Mazda 3 1.5 AT Sedan 2018">
@@ -389,9 +491,9 @@
                 </form>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="item">
+          <!-- <div class="item">
             <div class="product-box">
               <div class="product-thumbnail">
                 <a href="javascript:;" title="KIA Cerato 2.0 AT 2018">
@@ -425,9 +527,9 @@
                 </form>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="item">
+          <!-- <div class="item">
             <div class="product-box">
               <div class="product-thumbnail">
                 <a href="javascript:;" title="Ford EcoSport Titanium 1.5L AT 2018">
@@ -461,9 +563,9 @@
                 </form>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="item">
+          <!-- <div class="item">
             <div class="product-box">
               <div class="product-thumbnail">
                 <a href="javascript:;" title="Peugeot-5008-1-6L-Turbo">
@@ -497,9 +599,9 @@
                 </form>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="item">
+          <!-- <div class="item">
             <div class="product-box">
               <div class="product-thumbnail">
                 <a href="javascript:;" title="Audi TT 2.0 2007">
@@ -533,7 +635,7 @@
                 </form>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -543,11 +645,11 @@
   <!-- Start New Product -->
   <div class="newProduct">
     <div class="container">
-      <div class="bestSeen-title">
+      <div>
         <h2>SẢN PHẨM MỚI</h2>
       </div>
 
-      <div class="newProduct-content">
+      <div class="newProduct-contain">
         <div class="clearfix">
           <div class="col-md-7 col-md-push-5 newest">
             <a href="javascript:;">
@@ -566,7 +668,8 @@
                     <li>Hệ thống lái trợ lực điện điều khiển điện tử</li>
                     <li>Hộp số tự động 6 cấp PowerShift</li>
                   </ul>
-                  <p style="margin-bottom: 10px">Hoan nghênh cho các thế hệ trên khắp thế giới về chất lượng tuyệt vời, độ bền và độ tin cậy của nó, là Camry tiến hóa để hình thành thế hệ tiếp theo thoải mái, hiệu quả và sự an tâm, mà kháng cáo cho cả hai người đứng đầu và trái tim.Sự phát triển của một ...</p>
+                  <p style="margin-bottom: 10px">Hoan nghênh cho các thế hệ trên khắp thế giới về chất lượng tuyệt vời, độ bền và độ tin cậy của nó, là Camry tiến hóa để hình thành thế hệ tiếp theo thoải mái, hiệu quả và sự an tâm, mà kháng cáo cho cả hai người đứng đầu và trái tim.Sự
+                    phát triển của một ...</p>
                 </div>
                 <a href="javascript:;" class="color-featured">Xem thêm</a>
               </div>
@@ -583,12 +686,12 @@
 
         <div class="clearfix someNewProducts">
           <div class="newProduct-content">
-            <div class="owl-carousel owl-theme owl-loaded owl-drag" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="1">
-              <div class="item">
+            <div id="NewProd" class="owl-carousel owl-theme owl-loaded owl-drag">
+              <!-- <div class="item">
                 <div class="product-box">
                   <div class="product-thumbnail">
                     <a href="javascript:;" title="Aston Martin DB11">
-                      <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      <img src="./image/NewProduct/Aston Martin DB11.jpg" alt="Aston Martin DB11">
                     </a>
                     <div class="price-box clearfix">
                       <div class="special-price">
@@ -618,13 +721,13 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="item">
+              <!-- <div class="item">
                 <div class="product-box">
                   <div class="product-thumbnail">
                     <a href="javascript:;" title="BMW 4 Series Convertible">
-                      <img src="./image/BestSeen/BMW 4 Series Convertible.jpg" alt="BMW 4 Series Convertible">
+                      <img src="./image/NewProduct/BMW 4 Series Convertible.jpg" alt="BMW 4 Series Convertible">
                     </a>
                     <div class="price-box clearfix">
                       <div class="special-price">
@@ -654,13 +757,13 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="item">
+              <!-- <div class="item">
                 <div class="product-box">
                   <div class="product-thumbnail">
                     <a href="javascript:;" title="Chevrolet Camaro LS 2017">
-                      <img src="./image/BestSeen/Chevrolet Camaro LS 2017.jpg" alt="Chevrolet Camaro LS 2017">
+                      <img src="./image/NewProduct/Chevrolet Camaro LS 2017.jpg" alt="Chevrolet Camaro LS 2017">
                     </a>
                     <div class="price-box clearfix">
                       <div class="special-price">
@@ -690,13 +793,13 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="item">
+              <!-- <div class="item">
                 <div class="product-box">
                   <div class="product-thumbnail">
                     <a href="javascript:;" title="Volkswagen Scirocco R 2017">
-                      <img src="./image/BestSeen/Volkswagen Scirocco R 2017.jpg" alt="Volkswagen Scirocco R 2017">
+                      <img src="./image/NewProduct/Volkswagen Scirocco R 2017.jpg" alt="Volkswagen Scirocco R 2017">
                     </a>
                     <div class="price-box clearfix">
                       <div class="special-price">
@@ -726,13 +829,13 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="item">
+              <!-- <div class="item">
                 <div class="product-box">
                   <div class="product-thumbnail">
                     <a href="javascript:;" title="Hyundai Grand i10 Sedan 1.2 MT 2018">
-                      <img src="./image/BestSeen/Hyundai Grand i10 Sedan 1.2 MT 2018.jpg" alt="Hyundai Grand i10 Sedan 1.2 MT 2018">
+                      <img src="./image/NewProduct/Hyundai Grand i10 Sedan 1.2 MT 2018.jpg" alt="Hyundai Grand i10 Sedan 1.2 MT 2018">
                     </a>
                     <div class="price-box clearfix">
                       <div class="special-price">
@@ -762,13 +865,13 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="item">
+              <!-- <div class="item">
                 <div class="product-box">
                   <div class="product-thumbnail">
                     <a href="javascript:;" title="Mazda 3 1.5 AT Sedan 2018">
-                      <img src="./image/BestSeen/Mazda 3 1.5 AT Sedan 2018.jpg" alt="Mazda 3 1.5 AT Sedan 2018">
+                      <img src="./image/NewProduct/Mazda 3 1.5 AT Sedan 2018.jpg" alt="Mazda 3 1.5 AT Sedan 2018">
                     </a>
                     <div class="price-box clearfix">
                       <div class="special-price">
@@ -798,13 +901,13 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="item">
+              <!-- <div class="item">
                 <div class="product-box">
                   <div class="product-thumbnail">
                     <a href="javascript:;" title="KIA Cerato 2.0 AT 2018">
-                      <img src="./image/BestSeen/KIA Cerato 2.0 AT 2018.jpg" alt="KIA Cerato 2.0 AT 2018">
+                      <img src="./image/NewProduct/KIA Cerato 2.0 AT 2018.jpg" alt="KIA Cerato 2.0 AT 2018">
                     </a>
                     <div class="price-box clearfix">
                       <div class="special-price">
@@ -834,13 +937,13 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="item">
+              <!-- <div class="item">
                 <div class="product-box">
                   <div class="product-thumbnail">
                     <a href="javascript:;" title="Ford EcoSport Titanium 1.5L AT 2018">
-                      <img src="./image/BestSeen/Ford EcoSport Titanium 1.5L AT 2018.jpg" alt="Ford EcoSport Titanium 1.5L AT 2018">
+                      <img src="./image/NewProduct/Ford EcoSport Titanium 1.5L AT 2018.jpg" alt="Ford EcoSport Titanium 1.5L AT 2018">
                     </a>
                     <div class="price-box clearfix">
                       <div class="special-price">
@@ -870,13 +973,13 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="item">
+              <!-- <div class="item">
                 <div class="product-box">
                   <div class="product-thumbnail">
                     <a href="javascript:;" title="Peugeot-5008-1-6L-Turbo">
-                      <img src="./image/BestSeen/Peugeot-5008-1-6L-Turbo.jpg" alt="Peugeot-5008-1-6L-Turbo">
+                      <img src="./image/NewProduct/Peugeot-5008-1-6L-Turbo.jpg" alt="Peugeot-5008-1-6L-Turbo">
                     </a>
                     <div class="price-box clearfix">
                       <div class="special-price">
@@ -906,13 +1009,13 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="item">
+              <!-- <div class="item">
                 <div class="product-box">
                   <div class="product-thumbnail">
                     <a href="javascript:;" title="Audi TT 2.0 2007">
-                      <img src="./image/BestSeen/Audi TT 2.0 2007.jpg" alt="Audi TT 2.0 2007">
+                      <img src="./image/NewProduct/Audi TT 2.0 2007.jpg" alt="Audi TT 2.0 2007">
                     </a>
                     <div class="price-box clearfix">
                       <div class="special-price">
@@ -942,7 +1045,7 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -951,7 +1054,659 @@
     </div>
   </div>
   <!-- End New Product -->
-  <br><br><br><br><br><br><br>
+
+  <!-- Start Best Sell Product -->
+  <div class="bestSell">
+    <div class="bestSell-contain">
+      <div class="container">
+        <div>
+          <h2>SẢN PHẨM BÁN CHẠY NHẤT</h2>
+        </div>
+
+        <div class="bestSell-content">
+          <div id="BSell" class="owl-carousel owl-theme owl-loaded owl-drag">
+            <!-- <div class="item">
+              <div class="prod-grid">
+                <a href="javascript:;" title="Aston Martin DB11">
+                  <img src="./image/BestSell/Aston Martin DB11.jpg" data-lazyload="./image/BestSell/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                </a>
+                <div class="infoBestSell">
+                  <h3><a href="javascript:;">Aston Martin DB11</a></h3>
+                  <div class="clearfix">
+                    <div class="special-price">
+                      <span class="price product-price">
+                        4.829.000.000₫
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div class="group">
+                    <button type="button" class="button square hvr-rectangle-out" name="Purchase">
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button type="button" class="button square hvr-rectangle-out" name="Detail">
+                    <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div> -->
+
+            <!-- <div class="item">
+              <div class="prod-grid">
+                <a href="javascript:;" title="BMW 4 Series Convertible">
+                  <img src="./image/BestSell/BMW 4 Series Convertible.jpg" data-lazyload="./image/BestSell/BMW 4 Series Convertible.jpg" alt="BMW 4 Series Convertible">
+                </a>
+                <div class="infoBestSell">
+                  <h3><a href="javascript:;">BMW 4 Series Convertible</a></h3>
+                  <div class="clearfix">
+                    <div class="special-price">
+                      <span class="price product-price">
+                        1.116.000.000₫
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div class="group">
+                    <button type="button" class="button square hvr-rectangle-out" name="Purchase">
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button type="button" class="button square hvr-rectangle-out" name="Detail">
+                    <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div> -->
+
+            <!-- <div class="item">
+              <div class="prod-grid">
+                <a href="javascript:;" title="Chevrolet Camaro LS 2017">
+                  <img src="./image/BestSell/Chevrolet Camaro LS 2017.jpg" data-lazyload="./image/BestSell/Chevrolet Camaro LS 2017.jpg" alt="Chevrolet Camaro LS 2017">
+                </a>
+                <div class="infoBestSell">
+                  <h3><a href="javascript:;">Chevrolet Camaro LS 2017</a></h3>
+                  <div class="clearfix">
+                    <div class="special-price">
+                      <span class="price product-price">
+                        3.200.000.000₫
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div class="group">
+                    <button type="button" class="button square hvr-rectangle-out" name="Purchase">
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button type="button" class="button square hvr-rectangle-out" name="Detail">
+                    <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div> -->
+
+            <!-- <div class="item">
+              <div class="prod-grid">
+                <a href="javascript:;" title="Volkswagen Scirocco R 2017">
+                  <img src="./image/BestSell/Volkswagen Scirocco R 2017.jpg" data-lazyload="./image/BestSell/Volkswagen Scirocco R 2017.jpg" alt="Volkswagen Scirocco R 2017">
+                </a>
+                <div class="infoBestSell">
+                  <h3><a href="javascript:;">Volkswagen Scirocco R 2017</a></h3>
+                  <div class="clearfix">
+                    <div class="special-price">
+                      <span class="price product-price">
+                          1.600.000.000₫
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div class="group">
+                    <button type="button" class="button square hvr-rectangle-out" name="Purchase">
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button type="button" class="button square hvr-rectangle-out" name="Detail">
+                    <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div> -->
+
+            <!-- <div class="item">
+              <div class="prod-grid">
+                <a href="javascript:;" title="Hyundai Grand i10 Sedan 1.2 MT 2018">
+                  <img src="./image/BestSell/Hyundai Grand i10 Sedan 1.2 MT 2018.jpg" data-lazyload="./image/BestSell/Hyundai Grand i10 Sedan 1.2 MT 2018.jpg" alt="Hyundai Grand i10 Sedan 1.2 MT 2018">
+                </a>
+                <div class="infoBestSell">
+                  <h3><a href="javascript:;">Hyundai Grand i10 Sedan 1.2 MT 2018</a></h3>
+                  <div class="clearfix">
+                    <div class="special-price">
+                      <span class="price product-price">
+                          400.000.000₫
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div class="group">
+                    <button type="button" class="button square hvr-rectangle-out" name="Purchase">
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button type="button" class="button square hvr-rectangle-out" name="Detail">
+                    <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div> -->
+
+            <!-- <div class="item">
+              <div class="prod-grid">
+                <a href="javascript:;" title="Mazda 3 1.5 AT Sedan 2018">
+                  <img src="./image/BestSell/Mazda 3 1.5 AT Sedan 2018.jpg" data-lazyload="./image/BestSell/Mazda 3 1.5 AT Sedan 2018.jpg" alt="Mazda 3 1.5 AT Sedan 2018">
+                </a>
+                <div class="infoBestSell">
+                  <h3><a href="javascript:;">Mazda 3 1.5 AT Sedan 2018</a></h3>
+                  <div class="clearfix">
+                    <div class="special-price">
+                      <span class="price product-price">
+                        649.000.000₫
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div class="group">
+                    <button type="button" class="button square hvr-rectangle-out" name="Purchase">
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button type="button" class="button square hvr-rectangle-out" name="Detail">
+                    <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div> -->
+
+            <!-- <div class="item">
+              <div class="prod-grid">
+                <a href="javascript:;" title="KIA Cerato 2.0 AT 2018">
+                  <img src="./image/BestSell/KIA Cerato 2.0 AT 2018.jpg" data-lazyload="./image/BestSell/KIA Cerato 2.0 AT 2018.jpg" alt="KIA Cerato 2.0 AT 2018">
+                </a>
+                <div class="infoBestSell">
+                  <h3><a href="javascript:;">KIA Cerato 2.0 AT 2018</a></h3>
+                  <div class="clearfix">
+                    <div class="special-price">
+                      <span class="price product-price">
+                        639.000.000₫
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div class="group">
+                    <button type="button" class="button square hvr-rectangle-out" name="Purchase">
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button type="button" class="button square hvr-rectangle-out" name="Detail">
+                    <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div> -->
+
+            <!-- <div class="item">
+              <div class="prod-grid">
+                <a href="javascript:;" title="Ford EcoSport Titanium 1.5L AT 2018">
+                  <img src="./image/BestSell/Ford EcoSport Titanium 1.5L AT 2018.jpg" data-lazyload="./image/BestSell/Ford EcoSport Titanium 1.5L AT 2018.jpg" alt="Ford EcoSport Titanium 1.5L AT 2018">
+                </a>
+                <div class="infoBestSell">
+                  <h3><a href="javascript:;">Ford EcoSport Titanium 1.5L AT 2018</a></h3>
+                  <div class="clearfix">
+                    <div class="special-price">
+                      <span class="price product-price">
+                        648.000.000₫
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div class="group">
+                    <button type="button" class="button square hvr-rectangle-out" name="Purchase">
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button type="button" class="button square hvr-rectangle-out" name="Detail">
+                    <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div> -->
+
+            <!-- <div class="item">
+              <div class="prod-grid">
+                <a href="javascript:;" title="Peugeot-5008-1-6L-Turbo">
+                  <img src="./image/BestSell/Peugeot-5008-1-6L-Turbo.jpg" data-lazyload="./image/BestSell/Peugeot-5008-1-6L-Turbo.jpg" alt="Peugeot-5008-1-6L-Turbo">
+                </a>
+                <div class="infoBestSell">
+                  <h3><a href="javascript:;">Peugeot-5008-1-6L-Turbo</a></h3>
+                  <div class="clearfix">
+                    <div class="special-price">
+                      <span class="price product-price">
+                        1.399.000.000₫
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div class="group">
+                    <button type="button" class="button square hvr-rectangle-out" name="Purchase">
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button type="button" class="button square hvr-rectangle-out" name="Detail">
+                    <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div> -->
+
+            <!-- <div class="item">
+              <div class="prod-grid">
+                <a href="javascript:;" title="Audi TT 2.0 2007">
+                  <img src="./image/BestSell/Audi TT 2.0 2007.jpg" data-lazyload="./image/BestSell/Audi TT 2.0 2007.jpg" alt="Audi TT 2.0 2007">
+                </a>
+                <div class="infoBestSell">
+                  <h3><a href="javascript:;">Audi TT 2.0 2007</a></h3>
+                  <div class="clearfix">
+                    <div class="special-price">
+                      <span class="price product-price">
+                        700.000.000₫
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <form class="products-view-grid" action="" method="post" data-id="">
+                  <div class="group">
+                    <button type="button" class="button square hvr-rectangle-out" name="Purchase">
+                      <i class="fa fa-shopping-cart"></i>
+                    </button>
+                    <button type="button" class="button square hvr-rectangle-out" name="Detail">
+                    <i class="fa fa-eye"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- End Best Sell Product -->
+
+  <!-- Start Introduction -->
+  <div class="introduction">
+    <div class="container">
+      <div>
+        <h2>GIỚI THIỆU</h2>
+      </div>
+      <div class="clearfix">
+        <div class="info">
+          <h3>DREAMCAR</h3>
+          <p class="desc">
+            Với 15 năm kinh nghiệm với tất cả các hãng xe hàng đầu thế giới. Chúng tôi - DreamCar tự hào là cơ sở duy nhất đáp ứng mọi nhu cầu của khách hàng.
+          </p>
+          <a href="javascript:;" class="color-featured">Xem thêm <i class="fa fa-angle-right"></i></a>
+        </div>
+        <div class="image-home">
+          <img src="./image/home-about-img.jpg" alt="Dreamcar">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Introduction -->
+
+  <!-- Start Service -->
+  <div class="service">
+    <div class="container">
+      <div>
+        <h2>DỊCH VỤ CUNG CẤP</h2>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <img src="./image/wrench.svg" alt="Bảo hành">
+          <h3>Bảo hành</h3>
+          <p class="desc">
+            Dịch vụ bảo hành ở tất cả các
+            <br> đại lý trên toàn quốc
+          </p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <img src="./image/dollar.svg" alt="Bảo hành">
+          <h3>Trả góp</h3>
+          <p class="desc">
+            Xử lý trong vòng 24h sau khi
+            <br> tiếp nhận hồ sơ mua xe
+          </p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <img src="./image/wheel.svg" alt="Bảo hành">
+          <h3>Lái thử</h3>
+          <p class="desc">
+            DreamCar có dịch vụ lái thử xe
+            <br> tại các đại lý trên toàn quốc
+          </p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <img src="./image/cycle.svg" alt="Bảo hành">
+          <h3>Đổi trả</h3>
+          <p class="desc">
+            Hoàn trả trong vòng 10 ngày
+            <br> kể từ ngày nhận xe
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Service -->
+
+  <!-- Start Customer Opinion -->
+  <div class="CustomerOpi">
+    <div class="testimonial">
+      <div class="container">
+
+        <div>
+          <h2>Ý kiến khách hàng</h2>
+        </div>
+        <div class="row">
+          <div id="Opinion" class="owl-testimonial owl-carousel owl-loaded owl-drag">
+            <div class="item">
+              <div class="testimonial-box">
+                <div class="image">
+                  <img src="./image/avatar1.jpg" class="img-fix" alt="Ngô Hoàng Long">
+                </div>
+                <div class="info">
+                  <h3>Ngô Hoàng Long</h3>
+                  <p class="content">
+                    “Tôi rất hài lòng với chất lượng dịch vụ tại đây. Dưới sự tư vấn của nhân viên DREAMCAR, tôi đã tìm mua được cho mình một chiếc xe ưng ý.”
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="testimonial-box">
+                <div class="image">
+                  <img src="./image/avatar2.jpg" class="img-fix" alt="Lê Đức Anh">
+                </div>
+                <div class="info">
+                  <h3>Lê Đức Anh</h3>
+                  <p class="content">
+                    "Dịch vụ sau bán hàng của DREAMCAR rất chuyên nghiệp. Bảo hành, chế độ hậu mãi về sau rất tốt. Tôi rất hài lòng. Cảm ơn DREAMCAR!"
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="testimonial-box">
+                <div class="image">
+                  <img src="./image/avatar3.jpg" class="img-fix" alt="Lê Trọng Hiếu">
+                </div>
+                <div class="info">
+                  <h3>Lê Trọng Hiếu</h3>
+                  <p class="content">
+                    “Tôi rất hài lòng với chất lượng dịch vụ tại đây. Dưới sự tư vấn của nhân viên DREAMCAR, tôi đã tìm mua được cho mình một chiếc xe ưng ý.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- End Customer Opinion -->
+
+  <!-- Start Brand -->
+  <div class="brands">
+    <div class="container">
+      <div>
+        <h2>THƯƠNG HIỆU NỔI BẬT</h2>
+      </div>
+      <div id="owl-brands" class="owl-carousel owl-loaded owl-drag">
+        <div class="col-xs-12">
+          <div class="item-brand">
+            <div class="image-brand">
+              <img src="./image/brand/brand1.png" alt="Ford" title="Ford">
+            </div>
+            <h3 class="title-brand">
+                Ford
+              </h3>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="item-brand">
+            <div class="image-brand">
+              <img src="./image/brand/brand2.png" alt="Toyota" title="Toyota">
+            </div>
+            <h3 class="title-brand">
+                Toyota
+              </h3>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="item-brand">
+            <div class="image-brand">
+              <img src="./image/brand/brand3.png" alt="Mercedes Benz" title="Mercedes Benz">
+            </div>
+            <h3 class="title-brand">
+                Mercedes Benz
+              </h3>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="item-brand">
+            <div class="image-brand">
+              <img src="./image/brand/brand4.png" alt="Honda" title="Honda">
+            </div>
+            <h3 class="title-brand">
+                Honda
+              </h3>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="item-brand">
+            <div class="image-brand">
+              <img src="./image/brand/brand5.png" alt="BWM" title="BWM">
+            </div>
+            <h3 class="title-brand">
+                BWM
+              </h3>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="item-brand">
+            <div class="image-brand">
+              <img src="./image/brand/brand6.png" alt="Chevrolet" title="Chevrolet">
+            </div>
+            <h3 class="title-brand">
+                Chevrolet
+              </h3>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="item-brand">
+            <div class="image-brand">
+              <img src="./image/brand/brand7.png" alt="Audi" title="Audi">
+            </div>
+            <h3 class="title-brand">
+                Audi
+              </h3>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="item-brand">
+            <div class="image-brand">
+              <img src="./image/brand/brand8.png" alt="KIA" title="KIA">
+            </div>
+            <h3 class="title-brand">
+                KIA
+              </h3>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="item-brand">
+            <div class="image-brand">
+              <img src="./image/brand/brand9.png" alt="Aston Martin" title="Aston Martin">
+            </div>
+            <h3 class="title-brand">
+                Aston Martin
+              </h3>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="item-brand">
+            <div class="image-brand">
+              <img src="./image/brand/brand10.png" alt="Peugeot" title="Peugeot">
+            </div>
+            <h3 class="title-brand">
+                Peugeot
+              </h3>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <div class="item-brand">
+            <div class="image-brand">
+              <img src="./image/brand/brand11.png" alt="Mazda" title="Mazda">
+            </div>
+            <h3 class="title-brand">
+                Mazda
+              </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Brand -->
+
+  <!-- Start footer -->
+  <div class="footer">
+    <div class="top-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Showroom</b>
+            <p>Thành phố Hồ Chí Minh, Việt Nam</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Giờ mở cửa</b>
+            <p>
+              Thứ 2 - Thứ 6: 8:00 - 21:00
+              <br> Thứ 7 - Chủ nhật: 8:30 - 22:30
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Hỗ trợ tư vấn</b>
+            <p>Thành phố Hồ Chí Minh, Việt Nam</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Email</b>
+            <p><a id="mail" href="mailto:dreamcar@gmail.com">dreamcar@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mid-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>THÔNG TIN</h4>
+            <ul class="list-unstyled">
+              <li><a href="javascript:;">Trang chủ</a></li>
+              <li><a href="javascript:;">Sản phẩm</a></li>
+              <li><a href="javascript:;">Giới thiệu</a></li>
+              <li><a href="javascript:;">Liên hệ</a></li>
+              <li><a href="javascript:;">Tìm kiếm</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>TÀI KHOẢN</h4>
+            <ul class="list-unstyled">
+              <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal">Đăng nhập</a></li>
+              <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></li>
+              <li><a href="javascript:;" data-toggle="modal" data-target="#ForgetPassModal">Lấy lại mật khẩu</a></li>
+              <li><a href="javascript:;">Giỏ hàng</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>CHÍNH SÁCH</h4>
+            <ul class="list-unstyled">
+              <li><a href="javascript:;">Chính sách bảo mật</a></li>
+              <li><a href="javascript:;">Chính sách vận chuyển</a></li>
+              <li><a href="javascript:;">Chính sách đổi trả</a></li>
+              <li><a href="javascript:;">Điều khoản dịch vụ</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>TIN MỚI</h4>
+            <div class="subscribe-box">
+              <div style="margin-bottom: 20px;">
+                <p style="color: #A1A1A1;">Hãy đăng ký với chúng tôi để nhận thông tin mới nhất về các mẫu xe trên thế giới và trong nước!</p>
+              </div>
+              <form class="" action="" method="post" name="subscribe" target="_blank">
+                <input class="form-control" type="email" name="emailSubscribe" value="" placeholder="Nhập Email của bạn ...">
+                <button class="btn btn-Subscribe" type="button" name="buttonSub">THEO DÕI</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-5 col-sm-push-7">
+            <ul class="list-unstyled social">
+              <li><a href="javascript:;"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-linkedin-in"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-google-plus-g"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-7 col-sm-pull-5">
+            <span class="copyright">
+                © Bản quyền thuộc về Team 14 | Cung cấp bởi Bizweb
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End footer -->
   <script type="text/javascript" src="./index.js"></script>
   <script type="text/javascript" src="./assets/fontawesome-all.js"></script>
   <script src="./assets/OwlCarousel/dist/owl.carousel.min.js"></script>

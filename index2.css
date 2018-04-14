@@ -1,17 +1,21 @@
 /* New Product */
 /* Title */
-.newProduct
+.newProduct, .bestSell, .introduction
 {
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-.newProduct h2 {
+.newProduct h2, .bestSell h2, .introduction h2,
+.service h2, .CustomerOpi h2, .brands h2 {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
 }
 
-.newProduct h2::after {
+.newProduct h2::after, .bestSell h2::after,
+.introduction h2::after, .service h2::after,
+.CustomerOpi h2::after, .brands h2::after {
   content: "";
   display: block;
   background: #00a2d1 center center no-repeat;
@@ -89,7 +93,7 @@
   font-size: 14px;
 }
 
-.infoNew .product-price {
+.infoNew .product-price, .infoBestSell .product-price {
     color: #fff;
     display: block;
     font-size: 1.2em;
@@ -105,4 +109,213 @@
 {
   height: auto;
   width: auto;
+}
+
+/* Best sell product*/
+.bestSell-contain
+{
+  margin-top: 60px;
+  padding: 40px 0 40px;
+  background-color: #ededed;
+}
+
+.prod-grid
+{
+  position: relative;
+  text-align: center;
+  line-height: 1.7;
+  letter-spacing: 0.25px;
+}
+
+.prod-grid:hover form{
+    opacity: 1;
+}
+
+.prod-grid:hover h3 > a{
+    color: white !important;
+}
+
+/* Info */
+.infoBestSell
+{
+  position: relative;
+  z-index: 11;
+  transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+}
+
+.infoBestSell h3
+{
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 20px 0 15px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0;
+}
+
+.infoBestSell a
+{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 150ms ease-in-out;
+  background-color: transparent;
+}
+
+.prod-grid .infoBestSell .price {
+    font-size: 15px;
+    font-weight: 700;
+    color: #00a2d1;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 12px;
+}
+
+/* Button */
+.prod-grid form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.6);
+    margin-bottom: 0;
+    opacity: 0;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+
+.prod-grid form .group {
+    display: table;
+    position: absolute;
+    top: 40%;
+    margin-top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+.prod-grid form .button {
+    margin: 0 5px;
+}
+
+.prod-grid form .button:hover {
+    color: white;
+}
+
+.button {
+    display: inline-block;
+    color: #636363;
+    border: 0;
+    outline: none;
+    background-color: #ededed;
+    width: 125px;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.button.square {
+    width: 40px;
+    height: 40px;
+}
+
+.hvr-rectangle-out::before {
+  background:  #00a2d1 !important;
+}
+
+.hvr-rectangle-out:focus
+{
+  background: #ededed !important;
+  color: black;
+}
+
+/* Introduction */
+.introduction .info {
+    position: relative;
+    width: 43.0769%;
+    float: left;
+    padding: 27px 0 27px 30px;
+    background-color: #2a2a2a;
+    height: 240px;
+}
+
+.introduction .info::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -67px;
+    width: 0;
+    height: 0;
+    border-top: 0 solid transparent;
+    border-bottom: 240px solid transparent;
+    border-left: 67px solid #2a2a2a;
+}
+
+.introduction .info h3 {
+    font-size: 18px !important;
+    font-weight: 400;
+    color: #fff;
+    margin: 0;
+    margin-bottom: 17px;
+}
+
+.introduction .desc {
+    color: #989898;
+    line-height: 22px;
+}
+
+.introduction .image-home
+{
+  width: 56.9231%;
+  float: left;
+  height: 240px;
+  overflow: hidden;
+}
+
+.image-home img
+{
+  width: 100%;
+}
+
+/* Services */
+.service
+{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.service h3
+{
+  font-size: 16px;
+  font-weight: 700;
+  margin: 25px 0 12px;
+}
+
+.service img
+{
+  width: 25%;
+}
+
+.service .desc {
+    text-align: center;
+    line-height: 24px;
+    margin-bottom: 0;
+    padding: 0;
+    color: black;
+    border: 0;
+}
+
+.service div.row > div
+{
+  margin-top: 40px;
 }

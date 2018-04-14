@@ -1,201 +1,142 @@
-@media screen and (max-width: 1280px)
-{
-  .right-top-head
-  {
+@media screen and (max-width: 1280px) {
+  .right-top-head {
     padding-top: 37px;
   }
-
-  /* .owl-carousel .owl-item {
-    width: 262.5px !important;
-  } */
 }
 
-@media screen and (max-width: 1200px)
-{
-  .owl-carousel .owl-item {
-    width: 293.333px !important;
-  }
-}
-
-@media screen and (max-width: 990px)
-{
-  .right-top-head
-  {
+@media screen and (max-width: 990px) {
+  .right-top-head {
     padding-top: 29px;
     font-size: 14px;
   }
-
-  .owl-carousel .owl-item {
-    width: 345px !important;
-  }
-
-  .newestInfo
-  {
+  .newestInfo {
     width: 92.4%;
     left: 3%;
     height: 384px;
   }
-
-  .infoNew
-  {
+  .infoNew {
     height: 384px;
   }
-
-  .newest
-  {
+  .newest {
     left: 3%;
+  }
+  .introduction .info {
+    width: 100%;
+    float: none;
+    height: auto;
+    padding: 30px 15px;
+  }
+  .introduction .info::after {
+    display: none;
+  }
+
+  .introduction .image-home {
+    width: 100%;
+    float: none;
+    height: auto;
   }
 }
 
-
-@media screen and (max-width: 770px)
-{
-  .right-nav-text
-  {
+@media screen and (max-width: 770px) {
+  .right-nav-text {
     display: inline;
     margin-top: 15px;
     margin-right: 10px;
   }
-
-  .right-nav-text a
-  {
+  .right-nav-text a {
     color: white !important;
   }
-
-  .right-nav-text a:hover
-  {
+  .right-nav-text a:hover {
     color: #0076DB !important;
   }
-
-  .left-top-head
-  {
+  .left-top-head {
     display: none;
   }
-
-  .right-top-head
-  {
+  .right-top-head {
     display: none;
   }
-
-  .center
-  {
+  .center {
     display: block;
     text-align: center;
     margin: 0 auto;
     padding-left: 50px;
   }
-  #logo
-  {
+  #logo {
     width: 80%;
   }
 }
 
-@media screen and (max-width: 760px)
-{
-  .owl-carousel .owl-item {
-    width: 717px !important;
-  }
-
-  #newestCar
-  {
+@media screen and (max-width: 760px) {
+  #newestCar {
     width: 92.4%;
   }
 }
 
-@media screen and (max-width: 740px)
-{
-  #newestCar
-  {
+@media screen and (max-width: 740px) {
+  #newestCar {
     height: 468px;
   }
 }
 
-@media screen and (max-width: 720px)
-{
-  .owl-carousel .owl-item {
-    width: 646px !important;
-  }
-
-  #newestCar
-  {
+@media screen and (max-width: 720px) {
+  #newestCar {
     height: 448px;
   }
 }
 
-@media screen and (max-width: 700px)
-{
-  .owl-carousel .owl-item {
-    width: 626px !important;
-  }
-
-  #newestCar
-  {
+@media screen and (max-width: 700px) {
+  #newestCar {
     height: 428px;
   }
 }
 
-@media screen and (max-width: 653px)
-{
-  .owl-carousel .owl-item {
-    width: 602px !important;
-  }
-}
-
-@media screen and (max-width: 603px)
-{
-  .owl-carousel .owl-item {
-    width: 570px !important;
-  }
-}
-
-@media screen and (max-width: 553px)
-{
-  .owl-carousel .owl-item {
-    width: 509px !important;
-  }
-
-  .newest
-  {
+@media screen and (max-width: 553px) {
+  .newest {
     height: auto !important;
   }
-
-  .infoNew
-  {
+  .infoNew {
     height: auto !important;
   }
 }
 
-@media screen and (max-width: 503px)
-{
-  .owl-carousel .owl-item {
-    width: 451px !important;
+@media screen and (max-width: 460px) {
+  .someNewProducts
+  {
+    margin-top: 60px;
   }
 }
 
-@media screen and (max-width: 453px)
-{
-  .owl-carousel .owl-item {
-    width: 419px !important;
+@media screen and (max-width: 455px) {
+
+  .someNewProducts
+  {
+    margin-top: 80px;
   }
 }
 
-@media screen and (max-width: 403px)
-{
-  .owl-carousel .owl-item {
-    width: 362px !important;
+@media screen and (max-width: 403px) {
+  .someNewProducts
+  {
+    margin-top: 95px !important;
   }
 }
 
-@media screen and (max-width: 353px)
-{
-  .owl-carousel .owl-item {
-    width: 312px !important;
+@media screen and (max-width: 353px) {
+  .someNewProducts
+  {
+    margin-top: 155px !important;
   }
 }
 
-@media screen and (max-width: 303px)
-{
-  .owl-carousel .owl-item {
-    width: 252px !important;
+@media screen and (max-width: 333px) {
+  .someNewProducts{
+    margin-top: 175px !important;
+  }
+}
+
+@media screen and (max-width: 303px) {
+
+  .someNewProducts{
+    margin-top: 200px !important;
   }
 }

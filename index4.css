@@ -1,0 +1,60 @@
+#SignUpModal .modal-title,
+#SignInModal .modal-title,
+#ForgetPassModal .modal-title
+{
+  text-align: center;
+  font-weight: 700;
+  color: #00a2d1;
+}
+
+#SignUpModal .modal-dialog,
+#SignInModal .modal-dialog,
+#ForgetPassModal .modal-dialog
+{
+  width: 35% !important;
+}
+
+#SignUpModal .modal-body,
+#SignInModal .modal-body,
+#ForgetPassModal .modal-body
+{
+  padding: 15px 35px;
+}
+
+.formSignUp, .formSignIn, .formForgetPass
+{
+  padding: 0 20px;
+}
+
+.btn-SignUp, .btn-SignIn, .btn-ForgetPass
+{
+  background: #00a2d1;
+  color: white;
+  transition: 0.2s;
+  padding: 10px 60px;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.btn-SignUp:hover, .btn-SignIn:hover,
+.btn-ForgetPass:hover
+{
+  background: white;
+  color: #00a2d1;
+  border: 1px solid #00a2d1;
+}
+
+.formSignUp div.text-center p,
+.formSignIn div.text-center p,
+.formForgetPass div.text-center p
+{
+  margin-top: 15px;
+}
+
+.formSignUp div.text-center p a,
+.formSignIn div.text-center p a,
+.formForgetPass div.text-center p a
+{
+  text-decoration: none;
+}

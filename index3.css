@@ -1,0 +1,249 @@
+/* Customer Opinion */
+.CustomerOpi
+{
+  margin-bottom: 50px;
+}
+
+.CustomerOpi h2
+{
+  color: white;
+}
+
+.testimonial
+{
+  padding: 53px 0 20px;
+  background-image: url("./image/bg-testimonial-min.jpg");
+  background-attachment: fixed;
+  background-position: 0 50%;
+}
+
+.testimonial .testimonial-box {
+    position: relative;
+    color: #fff;
+    padding: 30px 25px 30px 80px;
+    min-height: 120px;
+}
+
+.testimonial .testimonial-box::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: #00a2d1;
+    opacity: .6;
+    transform: skew(-20deg);
+    -ms-transform: skew(-20deg);
+    -webkit-transform: skew(-20deg);
+}
+
+.testimonial .testimonial-box .image {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 50%;
+    top: 50%;
+    margin-top: -57px;
+    left: -45px;
+}
+
+.testimonial .owl-item {
+    padding: 0 45px !important;
+}
+
+.owl-carousel .owl-item img {
+    width: auto;
+    display: block;
+    -webkit-transform-style: preserve-3d;
+}
+
+.owl-testimonial.owl-carousel .owl-dots .owl-dot.active {
+    background: #00a2d1;
+}
+
+.owl-testimonial.owl-carousel .owl-dots .owl-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+.owl-testimonial.owl-carousel .owl-dots
+{
+    text-align: center;
+    margin-top: 48px;
+    position: static;
+}
+.testimonial .testimonial-box .info h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.testimonial .testimonial-box .info .content {
+    margin-bottom: 0;
+}
+
+/* Brands */
+.brands
+{
+  margin-bottom: 30px;
+}
+
+.item-brand
+{
+  display: table;
+  width: 100%;
+}
+
+.image-brand {
+    display: table-cell;
+    height: 109px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    border: solid 1px #ebebeb;
+}
+
+.image-brand img {
+    max-height: 100%;
+    max-width: 100%;
+    display: inline-block !important;
+    width: auto !important;
+}
+
+.title-brand {
+    display: table-row;
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+#owl-brands.owl-carousel .owl-nav .owl-prev,
+#owl-brands.owl-carousel .owl-nav .owl-next {
+  top: 50%;
+}
+
+/* Footer */
+.footer {
+    margin-top: 30px;
+    background-color: #313131;
+}
+
+/* top footer */
+.footer .top-footer {
+    background-color: #ededed;
+    padding: 40px 0;
+}
+
+.top-footer b {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* mid footer */
+.mid-footer {
+    border-top: solid 1px #494949;
+    padding: 45px 0;
+    font-family: Arial;
+}
+
+.mid-footer h4 {
+    font-size: 14px;
+    color: white;
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 15px;
+}
+
+.mid-footer a
+{
+  text-decoration: none;
+  background: transparent;
+  color: #A1A1A1;
+  transition: all 150ms ease-in-out;
+}
+
+.mid-footer a:hover
+{
+  color: #00a2d1;
+}
+
+.mid-footer li {
+    padding: 15px 0;
+    border-bottom: solid 1px #363636;
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+.btn-Subscribe
+{
+  padding: 5px 12px;
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  position: relative;
+  width: 100%;
+  background-color: #00a2d1;
+  color: white;
+  transition: 0.2s;
+}
+
+.btn-Subscribe:hover
+{
+  background-color: white;
+  color: #00a2d1;
+}
+
+/* bottom footer */
+.bottom-footer {
+    background-color: #212121;
+    padding: 12px 0;
+}
+
+.social
+{
+  text-align: right;
+}
+
+.social
+{
+  margin: 0;
+}
+
+.bottom-footer .social li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.bottom-footer .social li a {
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #A1A1A1;
+    background-color: #363636;
+    transition: 0.2s;
+}
+
+.bottom-footer .social li a:hover {
+    color: white;
+    background-color: #00a2d1;
+}
+
+.bottom-footer .copyright {
+    line-height: 34px;
+    color: #A1A1A1;
+}
