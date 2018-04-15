@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <script src="./assets/jquery-3.1.1.min.js"></script>
+  <script src="./assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/bootstrap-3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./index2.css">
+  <link rel="stylesheet" href="./index3.css">
+  <link rel="stylesheet" href="./index4.css">
+  <link rel="stylesheet" href="./introduction.css">
+  <link rel="stylesheet" href="./responsive.css">
+  <link rel="stylesheet" href="./animate.css">
+  <link rel="stylesheet" href="./assets/hover/css/hover-min.css">
+  <link rel="icon" href="./image/car.ico">
+  <title>Contact</title>
+</head>
+
+<body>
+  <!-- Start Header -->
+  <div class="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 center">
+          <a href="index.html"><img src="./image/logo.png" alt="png" id="logo"></a>
+        </div>
+
+        <div class="col-xs-4 pull-left left-top-head">
+          <a href="index.html"><img src="./image/logo.png" alt="png" id="logo"></a>
+        </div>
+
+        <div class="col-xs-8 right-top-head">
+          <div class="pull-right top-text">
+            <span><a href="mailto: dreamcar@gmail.com" id="mail"><i class="fas fa-envelope"></i> dreamcar@gmail.com</a></span>
+            <span><i class="fas fa-phone"></i> 0212343142</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header>
+    <nav class="navbar" data-spy="affix" data-offset-top="86">
+      <div class="container">
+        <div class="navbar-header">
+          <span class="right-nav-text pull-right"><i class="fas fa-phone"></i> 0212343142</span>
+          <span class="nav navbar-right right-nav-text pull-right"><a href="mailto: dreamcar@gmail.com" id="mail"><i class="fas fa-envelope"></i> dreamcar@gmail.com</a></span>
+
+          <button type="button" class="navbar-toggle pull-left bar-button" data-toggle="collapse" data-target="#myNavbar">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+          <!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active "><a href="index.html">Trang chủ</a></li>
+            <li><a href="introduction.html">Giới thiệu</a></li>
+            <li id="prodHid"><a href="javascript:;">Sản phẩm</a></li>
+            <li class="drop-down">
+              <a href="javascript:;" id="prod">Sản phẩm <i class="fa fa-caret-down"></i></a>
+              <div class="dropdown-content">
+                <div class="container megaMenu">
+                  <div class="row search">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <form class="form-inline SearchField" action="" name="SearchForm">
+                        <div class="form-group">
+                          <label for="find">Tìm kiếm sản phẩm</label>
+                          <div class="input-group">
+                            <input type="text" id="find" class="form-control" size="40" placeholder="Tìm kiếm ..." name="search-input">
+                            <div class="input-group-btn">
+                              <button class="btn btn-default" type="submit">
+                                 <i class="fas fa-search"></i>
+                               </button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="row listToChoose">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <h3>Hãng xe nổi tiếng</h3>
+                      <div class="row text-center row1-brand">
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo1.png" alt="Ford" title="Ford">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo2.png" alt="Toyota" title="Toyota">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo3.png" alt="Mercedes Benz" title="Mercedes Benz">
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="row text-center row2-brand">
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo4.png" alt="Honda" title="Honda">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img id="bmw" src="./image/logo/logo5.png" alt="BMW" title="BMW">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo6.png" alt="Chevrolet" title="Chevrolet">
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="row text-center row3-brand">
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo7.png" alt="Audi" title="Audi">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo8.png" alt="KIA" title="KIA">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo9.png" alt="Aston Martin" title="Aston Martin">
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <h3>Các dòng xe</h3>
+                      <div class="row text-center row1-type">
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/cabriolet.png" alt="cabriolet" title="cabriolet">
+                              <p>Cabriolet</p>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/coupe.png" alt="coupe" title="coupe">
+                              <p>Coupe</p>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/sedan.png" alt="sedan" title="sedan">
+                              <p>Sedan</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="row text-center row2-type">
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/hatchback.png" alt="hatchback" title="hatchback">
+                              <p>Hatchback</p>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/SUV.png" alt="SUV" title="SUV">
+                              <p>SUV/Crossover</p>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/truck.png" alt="truck" title="truck">
+                              <p>Truck</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="row text-center row3-type">
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/van.png" alt="van" title="van">
+                              <p>Van/Minivan</p>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img id="limousine" src="./image/type/limousine.png" alt="limousine" title="limousine">
+                              <p>Limousine</p>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/wagon.png" alt="wagon" title="wagon">
+                              <p>Wagon</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="contact.html">Liên hệ</a></li>
+            <form class="form-inline SearchFieldHid" action="" name="SearchForm">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Tìm kiếm ..." name="search-input">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    <i class="fas fa-search"></i>
+                 </button>
+                </div>
+              </div>
+            </form>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal" id="SignUpNavBtn"><i class="fas fa-user-plus" style="font-size: 16px;"></i> Đăng ký</a></li>
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal" id="SignInNavBtn"><i class="fas fa-user"></i> Đăng nhập</a></li>
+            <li><a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- End Header -->
+
+  <!-- Start Modal Sign Up -->
+  <div id="SignUpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Đăng Ký Tài Khoản</h4>
+        </div>
+        <div class="modal-body">
+          <form class="formSignUp" action="" method="post" name="SignUp">
+            <div class="form-group">
+              <label for="HoTen">Họ và Tên</label>
+              <input type="text" class="form-control" id="HoTen" placeholder="" name="HoTen">
+            </div>
+
+            <div class="form-group">
+              <label for="ID">Tên tài khoản</label>
+              <input type="text" class="form-control" id="ID" placeholder="" name="ID">
+            </div>
+
+            <div class="form-group">
+              <label for="Pass">Mật khẩu</label>
+              <input type="password" class="form-control" id="Pass" placeholder="" name="Pass">
+            </div>
+
+            <div class="form-group">
+              <label for="Email">Email</label>
+              <input type="email" class="form-control" id="Email" placeholder="" name="Email">
+            </div>
+            <div class="text-center">
+              <button class="btn btn-SignUp" type="submit" name="button-SignUp">Đăng Ký</button>
+              <p>Bạn đã có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignInModal">Đăng nhập</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Sign Up -->
+
+  <!-- Start Modal Sign In -->
+  <div id="SignInModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Đăng Nhập Tài Khoản</h4>
+        </div>
+        <div class="modal-body">
+          <form class="formSignIn" action="" method="post" name="SignIn">
+            <div class="form-group">
+              <label for="ID">Tên tài khoản</label>
+              <input type="text" class="form-control" id="ID" placeholder="" name="ID">
+            </div>
+
+            <div class="form-group">
+              <label for="Pass">Mật khẩu</label>
+              <input type="password" class="form-control" id="Pass" placeholder="" name="Pass">
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-SignIn" type="button" name="button-SignIn">Đăng Nhập</button>
+              <p><a href="javascript:;" id="OptionBtnForget" data-dismiss="modal" data-toggle="modal" data-target="#ForgetPassModal">Quên Mật Khẩu</a></p>
+              <p>Bạn chưa có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Sign In -->
+
+  <!-- Start Forget Pass -->
+  <div id="ForgetPassModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Lấy Lại Mật Khẩu</h4>
+        </div>
+        <div class="modal-body">
+          <form class="formForgetPass" action="" method="post" name="ForgetPass">
+            <p>
+              Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.
+            </p>
+            <div class="form-group">
+              <label for="Email">Email</label>
+              <input type="email" class="form-control" id="Email" placeholder="" name="Email">
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-ForgetPass" type="button" name="button-ForgetPass">XÁC NHẬN</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Forget Pass -->
+
+  <!-- Start Breadcrumb -->
+  <div class="bread-crumb">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="breadcrumb">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li>Liên hệ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Breadcrumb -->
+
+  <!-- Start Introduction -->
+  <div class="introduction-content">
+    <div class="container">
+      <div class="intro-title">
+        <h1 class="title-head">
+          LIÊN HỆ
+        </h1>
+      </div>
+      <div class="row">
+        <div class="content-intro">
+          <div class="col-xs-12 col-md-7 col-sm-6">
+            <p>Nếu bạn có lời nhắn với chúng tôi xin hãy viết vào form dưới đây. Chúng tôi sẽ trả lời ngay sau khi nhận được lời nhắn của bạn.</p>
+            <div class="feedback" style="margin-bottom: 50px;">
+              <form accept-charset="UTF-8" action="" method="post">
+                <div class="form-group">
+                  <label for="NameFeedback">Tên <span class="required">*</span></label>
+                  <input type="text" class="form-control" id="NameFeedback" name="NameFeedback" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="EmailFeedback">Email <span class="required">*</span></label>
+                  <input type="text" class="form-control" id="EmailFeedback" name="EmailFeedback" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="ContentFeedback">Nội dung <span class="required">*</span></label>
+                  <textarea name="comment" id="comment" class="form-control" cols="30" rows="6"></textarea>
+                </div>
+                <div class="pull-xs-left pull-left" style="margin-bottom: 20px">
+                  <button class="btn btn-feedback" type="submit" name="button">Gửi liên hệ</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-5 col-sm-6">
+          <div class="box-map">
+            <div class="google-map">
+              <div class="map" id="contact_map">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Edn Introduction -->
+
+  <!-- Start footer -->
+  <div class="footer">
+    <div class="top-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Showroom</b>
+            <p>Thành phố Hồ Chí Minh, Việt Nam</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Giờ mở cửa</b>
+            <p>
+              Thứ 2 - Thứ 6: 8:00 - 21:00
+              <br> Thứ 7 - Chủ nhật: 8:30 - 22:30
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Hỗ trợ tư vấn</b>
+            <p>0212343142</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Email</b>
+            <p><a id="mail" href="mailto:dreamcar@gmail.com">dreamcar@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mid-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>THÔNG TIN</h4>
+            <ul class="list-unstyled">
+              <li><a href="index.html">Trang chủ</a></li>
+              <li><a href="javascript:;">Sản phẩm</a></li>
+              <li><a href="introduction.html">Giới thiệu</a></li>
+              <li><a href="contact.html">Liên hệ</a></li>
+              <li><a href="javascript:;">Tìm kiếm</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>TÀI KHOẢN</h4>
+            <ul class="list-unstyled">
+              <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal">Đăng nhập</a></li>
+              <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></li>
+              <li><a href="javascript:;" data-toggle="modal" data-target="#ForgetPassModal">Lấy lại mật khẩu</a></li>
+              <li><a href="cart.html">Giỏ hàng</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>CHÍNH SÁCH</h4>
+            <ul class="list-unstyled">
+              <li><a href="Policy.html">Chính sách bảo mật</a></li>
+              <li><a href="Policy.html">Chính sách vận chuyển</a></li>
+              <li><a href="Policy.html">Chính sách đổi trả</a></li>
+              <li><a href="ServiceTerm.html">Điều khoản dịch vụ</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>TIN MỚI</h4>
+            <div class="subscribe-box">
+              <div style="margin-bottom: 20px;">
+                <p style="color: #A1A1A1;">Hãy đăng ký với chúng tôi để nhận thông tin mới nhất về các mẫu xe trên thế giới và trong nước!</p>
+              </div>
+              <form class="" action="" method="post" name="subscribe" target="_blank">
+                <input class="form-control" type="email" name="emailSubscribe" value="" placeholder="Nhập Email của bạn ...">
+                <button class="btn btn-Subscribe" type="button" name="buttonSub">THEO DÕI</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-5 col-sm-push-7">
+            <ul class="list-unstyled social">
+              <li><a href="javascript:;"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-linkedin-in"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-google-plus-g"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-7 col-sm-pull-5">
+            <span class="copyright">
+                © Bản quyền thuộc về Team 14 | Cung cấp bởi Bizweb
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End footer -->
+  <script type="text/javascript" src="./index.js"></script>
+  <script type="text/javascript" src="./map.js"></script>
+  <script type="text/javascript" src="./assets/fontawesome-all.js"></script>
+</body>
+
+</html>

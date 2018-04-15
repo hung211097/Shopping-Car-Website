@@ -11,7 +11,9 @@
 #SignInModal .modal-dialog,
 #ForgetPassModal .modal-dialog
 {
-  width: 35% !important;
+  margin: 0 auto;
+  width: 35%;
+  top: 5%;
 }
 
 #SignUpModal .modal-body,
@@ -31,7 +33,7 @@
   background: #00a2d1;
   color: white;
   transition: 0.2s;
-  padding: 10px 60px;
+  padding: 10px 50px;
   margin-top: 10px;
   font-weight: 700;
   font-size: 15px;
@@ -57,4 +59,160 @@
 .formForgetPass div.text-center p a
 {
   text-decoration: none;
+}
+
+/* Mega Menu */
+#prodHid
+{
+  display: none;
+}
+
+#prod
+{
+  line-height: 20px;
+  display: block;
+  position: relative;
+  padding: 15px 15px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#prod:hover, .drop-down:hover #prod
+{
+  color: black;
+  background-color: white;
+}
+
+.dropdown-content
+{
+  display: none;
+  position: absolute;
+  width: 100%;
+  right: 200%;
+  /* top: 102%; */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.drop-down:hover .dropdown-content {
+    display: block;
+}
+
+.megaMenu
+{
+  background-color: white;
+}
+
+.megaMenu h3
+{
+  font-weight: bold;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.megaMenu .listToChoose h3::after
+{
+  content: "";
+  display: block;
+  width: 200px;
+  height: 1px;
+  margin-top: 10px;
+  background:  #BABABA;
+}
+
+.search
+{
+  border-bottom: 1px solid black;
+  padding: 15px 40px;
+}
+
+ .listToChoose
+ {
+    padding: 10px 40px;
+ }
+
+ .listToChoose a
+ {
+   text-decoration: none;
+   color: black;
+ }
+
+.SearchField .input-group
+{
+  margin-left: 50px;
+}
+
+.SearchField label
+{
+  font-size: 16px;;
+}
+
+.SearchFieldHid
+{
+  display: none;
+}
+
+.brand-box img
+{
+  width: 75%;
+}
+
+.brand-box:hover
+{
+  border: 1px solid black;
+}
+
+.type-box img
+{
+  width: 75%;
+}
+
+.type-box:hover
+{
+  /* border: 1px solid black; */
+}
+
+#bmw
+{
+  width: 50%;
+}
+
+.row2-brand
+{
+  line-height: 103px;
+}
+
+.row1-brand, .row2-brand, .row3-brand
+{
+  margin-left: -45px;
+}
+
+.row1-type
+{
+  padding-top: 30px;
+}
+
+.row2-type
+{
+    padding-top: 47px;
+}
+
+.row3-type
+{
+    padding-top: 35px;
+}
+
+.type-box p
+{
+  font-weight:bold;
+  font-size: 15px;
+  margin: 0;
+  margin-top:10px;
+}
+
+#limousine
+{
+  width: 95%;
+  margin-top: 18px;
 }

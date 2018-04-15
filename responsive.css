@@ -4,6 +4,27 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .brand-box img
+  {
+    width: 80%;
+  }
+
+  #limousine
+  {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  #SignUpModal .modal-dialog,
+  #SignInModal .modal-dialog,
+  #ForgetPassModal .modal-dialog
+  {
+    width: 50%;
+  }
+}
+
 @media screen and (max-width: 990px) {
   .right-top-head {
     padding-top: 29px;
@@ -35,6 +56,21 @@
     float: none;
     height: auto;
   }
+
+  .brand-box img
+  {
+    width: 100%;
+  }
+
+  #bmw
+  {
+    width: 60%;
+  }
+
+  #limousine
+  {
+    margin-top: 10px;
+  }
 }
 
 @media screen and (max-width: 770px) {
@@ -64,6 +100,25 @@
   #logo {
     width: 80%;
   }
+
+  .SearchFieldHid
+  {
+    display: block;
+  }
+
+  .drop-down:hover .dropdown-content {
+    display: none;
+  }
+
+  #prod
+  {
+    display: none;
+  }
+
+  #prodHid
+  {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 760px) {
@@ -87,6 +142,13 @@
 @media screen and (max-width: 700px) {
   #newestCar {
     height: 428px;
+  }
+
+  #SignUpModal .modal-dialog,
+  #SignInModal .modal-dialog,
+  #ForgetPassModal .modal-dialog
+  {
+    width: auto;
   }
 }
 

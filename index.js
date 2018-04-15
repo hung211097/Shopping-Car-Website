@@ -445,3 +445,15 @@ $('#OptionBtnForget').on('click', function(){
   $('body').css('padding-right', '-17px !important');
   document.ForgetPass.reset();
 });
+
+function myMap() {
+var mapProp= {
+    center:new google.maps.LatLng(10.764122,106.682473),
+    zoom:17,
+};
+
+var map=new google.maps.Map(document.getElementById("contact_map"),mapProp);
+var marker = new google.maps.Marker({position: mapProp.center});
+
+marker.setMap(map);
+}
