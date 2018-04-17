@@ -335,7 +335,11 @@
             </div>
 
             <div class="text-center">
+<<<<<<< HEAD
               <button id="btnSI" class="btn btn-SignIn" type="button" name="button-SignIn">Đăng Nhập</button>
+=======
+                <button id="btnSI" class="btn btn-SignIn" type="button" name="button-SignIn">Đăng Nhập</button>
+>>>>>>> NTHung
               <p><a href="javascript:;" id="OptionBtnForget" data-dismiss="modal" data-toggle="modal" data-target="#ForgetPassModal">Quên Mật Khẩu</a></p>
               <p>Bạn chưa có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></p>
             </div>

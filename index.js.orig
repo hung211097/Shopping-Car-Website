@@ -373,8 +373,13 @@ function AddBestSeendProd(ten, gia) {
           <a class="btn btn-gray hvr-rectangle-out" name="button-Buy-` + ten + `" title="Mua hàng" data-toggle="modal" data-target="#QuickBuy">
             <i class="fa fa-shopping-cart"></i>
             Mua hàng
+<<<<<<< HEAD
           </a>
           <a class="btn btn-gray hvr-rectangle-out" name="button" title="Chi tiết" style="float: right">
+=======
+          </button>
+          <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Ch�?n sản phẩm" style="float: right">
+>>>>>>> NTHung
             <i class="fa fa-eye"></i>
             Chi tiết
           </a>
@@ -412,9 +417,14 @@ function AddNewProd(ten, gia) {
           <a class="btn btn-gray hvr-rectangle-out" name="button-Buy-` + ten + `" title="Mua hàng" data-toggle="modal" data-target="#QuickBuy">
             <i class="fa fa-shopping-cart"></i>
             Mua hàng
+<<<<<<< HEAD
           </a>
 
           <a class="btn btn-gray hvr-rectangle-out" name="button" title="Chi tiết" style="float: right">
+=======
+          </button>
+          <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Ch�?n sản phẩm" style="float: right">
+>>>>>>> NTHung
             <i class="fa fa-eye"></i>
             Chi tiết
           </a>
@@ -523,6 +533,7 @@ function Inc(input_name) {
   IncreaseNumCar();
 }
 
+<<<<<<< HEAD
 function Dec(input_name) {
   var value = $(input_name).val();
   if ($(input_name).val() > 1)
@@ -701,8 +712,7 @@ $(document).ready(function() {
   CartUpdate();
   var dem = $(document).find('.cartCount');
   dem.text("" + sessionStorage.count);
-});
-
+=======
 $('#btnSI').on('click', function(){
   var username = 'Xin chào ' + $('#txtID').val();
   $('#SignInModal').modal('toggle');
@@ -718,4 +728,5 @@ $('#SignOutNavBtn').on('click', function(){
   $('#SignOutNavBtn').fadeOut('fast');
   $('#SignUpNavBtn').fadeIn('fast');
   $('#SignInNavBtn').fadeIn('fast');
+>>>>>>> NTHung
 });
