@@ -705,17 +705,26 @@ $(document).ready(function() {
 
 $('#btnSI').on('click', function(){
   var username = 'Xin chào ' + $('#txtID').val();
-  $('#SignInModal').modal('toggle');
-  $('#SignUpNavBtn').fadeOut('normal');
-  $('#SignInNavBtn').fadeOut('normal');
-  $('#InfoUserBtn').html(username);
-  $('#InfoUserBtn').fadeIn('normal');
-  $('#SignOutNavBtn').fadeIn('normal');
+  // $('#SignInModal').modal('toggle');
+  $('#SignUpNavBtn').css('display', 'none');
+  $('#SignInNavBtn').css('display', 'none');
+
+  // $('#SignUpNavBtn').fadeOut('normal');
+  // $('#SignInNavBtn').fadeOut('normal');
+  $('#InfoUserBtn').text(username);
+  $('#InfoUserBtn').css('display', 'block');
+  // $('#InfoUserBtn').fadeIn('normal');
+  // $('#SignOutNavBtn').fadeIn('normal');
+   $('#SignOutNavBtn').css('display', 'block');
 });
 
-$('#SignOutNavBtn').on('click', function(){  
-  $('#InfoUserBtn').fadeOut('fast');
-  $('#SignOutNavBtn').fadeOut('fast');
-  $('#SignUpNavBtn').fadeIn('fast');
-  $('#SignInNavBtn').fadeIn('fast');
+$('#SignOutNavBtn').on('click', function(){
+  $('#SignUpNavBtn').css('display', 'block');
+  $('#SignInNavBtn').css('display', 'block');
+  $('#InfoUserBtn').css('display', 'none');
+  $('#SignOutNavBtn').css('display', 'none');
+  // $('#InfoUserBtn').fadeOut('fast');
+  // $('#SignOutNavBtn').fadeOut('fast');
+  // $('#SignUpNavBtn').fadeIn('fast');
+  // $('#SignInNavBtn').fadeIn('fast');
 });

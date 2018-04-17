@@ -327,3 +327,14 @@
     width: 100%;
     font-weight: bold;
 }
+
+
+#InfoUserBtn
+{
+  display: none;
+}
+
+#SignOutNavBtn
+{
+  display: none;
+}
