@@ -4,6 +4,13 @@
 
 body { padding-right: 0 !important }
 
+.hvr-rectangle-out::before:hover
+{
+  color: black;
+  outline: none !important;
+  background: red !important;
+}
+
 /* Header - logo */
 
 #logo {

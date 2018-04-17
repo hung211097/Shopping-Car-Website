@@ -71,6 +71,12 @@
   {
     margin-top: 10px;
   }
+
+  .cart-page
+  {
+    /* margin-top: -40px; */
+    min-height: auto !important;
+  }
 }
 
 @media screen and (max-width: 770px) {

@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="./assets/OwlCarousel/dist/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="./assets/OwlCarousel/dist/assets/owl.theme.default.min.css">
   <link rel="icon" href="./image/car.ico">
+
   <title>DreamCar</title>
 </head>
 
@@ -331,7 +332,7 @@
             </div>
 
             <div class="text-center">
-              <button class="btn btn-SignIn" type="button" name="button-SignIn">Đăng Nhập</button>
+              <button id="btnSI" class="btn btn-SignIn" type="button" name="button-SignIn">Đăng Nhập</button>
               <p><a href="javascript:;" id="OptionBtnForget" data-dismiss="modal" data-toggle="modal" data-target="#ForgetPassModal">Quên Mật Khẩu</a></p>
               <p>Bạn chưa có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></p>
             </div>
@@ -369,6 +370,40 @@
     </div>
   </div>
   <!-- End Forget Pass -->
+
+  <!-- Start Quick Buy -->
+  <div id="QuickBuy" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">
+            <span><i class="fa fa-check"></i></span>
+            Thêm vào giỏ hàng thành công
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="media">
+            <div class="media-left">
+              <div class="thumb-1x1">
+                <img src="./image/all/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+              </div>
+            </div>
+            <div class="media-body">
+              <div class="product-title">Aston Martin DB11</div>
+              <div class="product-new-price">
+                <input type="hidden" name="product-new-price" value="4829000000">
+                <span>4.829.000.000đ</span>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline-red" name="button-Quick" data-dismiss="modal">Tiếp tục mua hàng</button>
+          <a href="cart.html" class="btn btn-red">Tiến hành thanh toán »</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Quick Buy -->
 
   <!-- Start Slider -->
   <div class="slider">
