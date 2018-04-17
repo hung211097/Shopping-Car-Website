@@ -259,10 +259,13 @@
             </form>
           </ul>
 
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" id="rightNavBarHeader">
             <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal" id="SignUpNavBtn"><i class="fas fa-user-plus" style="font-size: 16px;"></i> Đăng ký</a></li>
             <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal" id="SignInNavBtn"><i class="fas fa-user"></i> Đăng nhập</a></li>
             <li><a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">0</span></a></li>
+            <li>&nbsp;&nbsp;&nbsp;</li>
+            <li><a href="javascript:;" id="InfoUserBtn"></a></li>
+            <li><a href="javascript:;" id="SignOutNavBtn"style="display: none"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
           </ul>
         </div>
       </div>
@@ -322,7 +325,7 @@
           <form class="formSignIn" action="" method="post" name="SignIn">
             <div class="form-group">
               <label for="ID">Tên tài khoản</label>
-              <input type="text" class="form-control" id="ID" placeholder="" name="ID">
+              <input type="text" class="form-control" id="txtID" placeholder="" name="ID">
             </div>
 
             <div class="form-group">
@@ -331,7 +334,7 @@
             </div>
 
             <div class="text-center">
-              <button class="btn btn-SignIn" type="button" name="button-SignIn">Đăng Nhập</button>
+                <button id="btnSI" class="btn btn-SignIn" type="button" name="button-SignIn">Đăng Nhập</button>
               <p><a href="javascript:;" id="OptionBtnForget" data-dismiss="modal" data-toggle="modal" data-target="#ForgetPassModal">Quên Mật Khẩu</a></p>
               <p>Bạn chưa có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></p>
             </div>

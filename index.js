@@ -348,7 +348,7 @@ function AddBestSeendProd(ten, gia) {
             <i class="fa fa-shopping-cart"></i>
             Mua hàng
           </button>
-          <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+          <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Ch�?n sản phẩm" style="float: right">
             <i class="fa fa-eye"></i>
             Chi tiết
           </button>
@@ -415,7 +415,7 @@ function AddNewProd(ten, gia) {
             <i class="fa fa-shopping-cart"></i>
             Mua hàng
           </button>
-          <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+          <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Ch�?n sản phẩm" style="float: right">
             <i class="fa fa-eye"></i>
             Chi tiết
           </button>
@@ -457,3 +457,20 @@ var marker = new google.maps.Marker({position: mapProp.center});
 
 marker.setMap(map);
 }
+
+$('#btnSI').on('click', function(){
+  var username = 'Xin chào ' + $('#txtID').val();
+  $('#SignInModal').modal('toggle');
+  $('#SignUpNavBtn').fadeOut('normal');
+  $('#SignInNavBtn').fadeOut('normal');
+  $('#InfoUserBtn').html(username);
+  $('#InfoUserBtn').fadeIn('normal');
+  $('#SignOutNavBtn').fadeIn('normal');
+});
+
+$('#SignOutNavBtn').on('click', function(){  
+  $('#InfoUserBtn').fadeOut('fast');
+  $('#SignOutNavBtn').fadeOut('fast');
+  $('#SignUpNavBtn').fadeIn('fast');
+  $('#SignInNavBtn').fadeIn('fast');
+});
