@@ -1,8 +1,16 @@
 $(document).ready(function() {
-  if($(window).scrollTop() >= 86)
-  {
+  if ($(window).scrollTop() >= 86) {
     $('.modal-dialog').css('z-index', '9999 !important');
   }
+  // sessionStorage.removeItem('mangXe');
+  // sessionStorage.removeItem('count');
+  if(!sessionStorage.count)
+    sessionStorage.count = 0;
+  var dem = $(document).find('.cartCount');
+  dem.text("" + sessionStorage.count);
+
+  if (!sessionStorage.mangXe)
+    sessionStorage.mangXe = mang;
 
   var owl = $('#BSeen');
   // owl.on('initialize.owl.carousel initialized.owl.carousel ' +
@@ -190,10 +198,27 @@ $(document).ready(function() {
   for (var i = 0; i < NewProdArr.length; i++)
     AddBestSellProd(BSellArr[i].ten, BSellArr[i].gia);
 
+  if(!sessionStorage.mangXe)
+    for (var i = 0; i < BSeenArr.length; i++) {
+      var xe = {
+        tenxe: BSeenArr[i].ten,
+        num: 0,
+        gia: parseInt(BSeenArr[i].gia)
+      };
+      mang.push(xe);
+      sessionStorage.mangXe = JSON.stringify(mang);
+    }
 
-      document.SignIn.reset();
-      document.SignUp.reset();
+  document.SignIn.reset();
+  document.SignUp.reset();
+  // CartUpdate();
 });
+
+var mang = [];
+
+function insert(str, index, value) {
+  return str.substr(0, index) + value + str.substr(index);
+}
 
 var BSeenArr = [{
     ten: 'Aston Martin DB11',
@@ -536,6 +561,7 @@ var AllProd = [
 ]
 
 function AddBestSeendProd(ten, gia) {
+  var price = PriceToSring(gia);
   var boxHinh = $('#BSeen');
   boxHinh.owlCarousel('add', `<div class="product-box">
     <div class="product-thumbnail">
@@ -545,7 +571,7 @@ function AddBestSeendProd(ten, gia) {
       <div class="price-box clearfix">
         <div class="special-price">
           <span class="price product-price">
-            ` + gia + `₫
+            ` + price + `
           </span>
         </div>
       </div>
@@ -558,14 +584,54 @@ function AddBestSeendProd(ten, gia) {
     <div class="product-action clearfix ">
       <form class="products-view-grid" action="" method="post" data-id="">
         <div>
-          <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+          <a class="btn btn-gray hvr-rectangle-out" name="button-Buy-` + ten + `" title="Mua hàng" data-toggle="modal" data-target="#QuickBuy">
             <i class="fa fa-shopping-cart"></i>
             Mua hàng
-          </button>
-          <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Ch�?n sản phẩm" style="float: right">
+          </a>
+          <a class="btn btn-gray hvr-rectangle-out" name="button" title="Chi tiết" style="float: right">
             <i class="fa fa-eye"></i>
             Chi tiết
-          </button>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>`).owlCarousel('update');
+  boxHinh.find('.owl-nav').removeClass('disabled');
+}
+
+function AddNewProd(ten, gia) {
+  var price = PriceToSring(gia);
+  var boxHinh = $('#NewProd');
+  boxHinh.owlCarousel('add', `<div class="product-box">
+    <div class="product-thumbnail">
+      <a href="javascript:;" title="` + ten + `">
+        <img src="./image/NewProduct/` + ten + `.jpg" alt="` + ten + `">
+      </a>
+      <div class="price-box clearfix">
+        <div class="special-price">
+          <span class="price product-price">
+            ` + price + `
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="product-info">
+      <h3 class="product-name">
+        <a href="javascript:;" title="` + ten + `">` + ten + `</a>
+      </h3>
+    </div>
+    <div class="product-action clearfix ">
+      <form class="products-view-grid" action="" method="post" data-id="">
+        <div>
+          <a class="btn btn-gray hvr-rectangle-out" name="button-Buy-` + ten + `" title="Mua hàng" data-toggle="modal" data-target="#QuickBuy">
+            <i class="fa fa-shopping-cart"></i>
+            Mua hàng
+          </a>
+
+          <a class="btn btn-gray hvr-rectangle-out" name="button" title="Chi tiết" style="float: right">
+            <i class="fa fa-eye"></i>
+            Chi tiết
+          </a>
         </div>
       </form>
     </div>
@@ -574,6 +640,7 @@ function AddBestSeendProd(ten, gia) {
 }
 
 function AddBestSellProd(ten, gia) {
+  var price = PriceToSring(gia);
   var boxHinh = $('#BSell');
   boxHinh.owlCarousel('add', `<div class="prod-grid">
     <a href="javascript:;" title="` + ten + `">
@@ -584,92 +651,70 @@ function AddBestSellProd(ten, gia) {
       <div class="clearfix">
         <div class="special-price">
           <span class="price product-price">
-            ` + gia + `₫
+            ` + price + `
           </span>
         </div>
       </div>
     </div>
     <form class="products-view-grid" action="" method="post" data-id="">
       <div class="group">
-        <button type="button" class="button square hvr-rectangle-out" name="Purchase">
+        <a class="button square hvr-rectangle-out" name="button-Buy-` + ten + `" data-toggle="modal" data-target="#QuickBuy">
           <i class="fa fa-shopping-cart"></i>
-        </button>
-        <button type="button" class="button square hvr-rectangle-out" name="Detail">
+        </a>
+        <a class="button square hvr-rectangle-out" name="Detail">
         <i class="fa fa-eye"></i>
-        </button>
+        </a>
       </div>
     </form>
   </div>`).owlCarousel('update');
+  $('a[name="button-Buy-' + ten + '"]').on('click', function() {
+    var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+    hinh.attr('src', './image/all/' + ten + '.jpg');
+    hinh.attr('alt', ten);
+    $('#QuickBuy').find('.product-title').text(ten);
+    $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
+    $('#QuickBuy').find('div.product-new-price').find('span').text(price);
+
+    IncreaseNumCar();
+    var temp = JSON.parse(sessionStorage.mangXe);
+    for (var i = 0; i < temp.length; i++)
+      if (temp[i].tenxe == ten)
+        temp[i].num += 1;
+    sessionStorage.mangXe = JSON.stringify(temp);
+  });
 }
 
-function AddNewProd(ten, gia) {
-  var boxHinh = $('#NewProd');
-  boxHinh.owlCarousel('add', `<div class="product-box">
-    <div class="product-thumbnail">
-      <a href="javascript:;" title="` + ten + `">
-        <img src="./image/NewProduct/` + ten + `.jpg" alt="` + ten + `">
-      </a>
-      <div class="price-box clearfix">
-        <div class="special-price">
-          <span class="price product-price">
-            ` + gia + `₫
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="product-info">
-      <h3 class="product-name">
-        <a href="javascript:;" title="` + ten + `">` + ten + `</a>
-      </h3>
-    </div>
-    <div class="product-action clearfix ">
-      <form class="products-view-grid" action="" method="post" data-id="">
-        <div>
-          <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
-            <i class="fa fa-shopping-cart"></i>
-            Mua hàng
-          </button>
-          <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Ch�?n sản phẩm" style="float: right">
-            <i class="fa fa-eye"></i>
-            Chi tiết
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>`).owlCarousel('update');
-  boxHinh.find('.owl-nav').removeClass('disabled');
-}
-
-$('#SignUpNavBtn').on('click', function(){
+$('#SignUpNavBtn').on('click', function() {
   document.SignUp.reset();
 });
 
-$('#SignInNavBtn').on('click', function(){
+$('#SignInNavBtn').on('click', function() {
   document.SignIn.reset();
 });
 
-$('#OptionBtn').on('click', function(){
+$('#OptionBtn').on('click', function() {
   document.SignUp.reset();
   document.SignIn.reset();
   document.ForgetPass.reset();
 });
 
-
-$('#OptionBtnForget').on('click', function(){
+$('#OptionBtnForget').on('click', function() {
   $('body').css('padding-right', '-17px !important');
   document.ForgetPass.reset();
 });
 
 function myMap() {
-var mapProp= {
-    center:new google.maps.LatLng(10.764122,106.682473),
-    zoom:17,
-};
+  var mapProp = {
+    center: new google.maps.LatLng(10.764122, 106.682473),
+    zoom: 17,
+  };
 
-var map=new google.maps.Map(document.getElementById("contact_map"),mapProp);
-var marker = new google.maps.Marker({position: mapProp.center});
+  var map = new google.maps.Map(document.getElementById("contact_map"), mapProp);
+  var marker = new google.maps.Marker({
+    position: mapProp.center
+  });
 
-marker.setMap(map);
+  marker.setMap(map);
 }
 
 function PriceToSring(price) {
