@@ -705,7 +705,6 @@ $(document).ready(function() {
 
 $('#btnSI').on('click', function(){
   var username = 'Xin chào ' + $('#txtID').val();
-  // $('#SignInModal').modal('toggle');
   $('#SignUpNavBtn').css('display', 'none');
   $('#SignInNavBtn').css('display', 'none');
 
@@ -719,10 +718,12 @@ $('#btnSI').on('click', function(){
 });
 
 $('#SignOutNavBtn').on('click', function(){
+  $('#SignInModal').modal('toggle');
   $('#SignUpNavBtn').css('display', 'block');
   $('#SignInNavBtn').css('display', 'block');
   $('#InfoUserBtn').css('display', 'none');
   $('#SignOutNavBtn').css('display', 'none');
+
   // $('#InfoUserBtn').fadeOut('fast');
   // $('#SignOutNavBtn').fadeOut('fast');
   // $('#SignUpNavBtn').fadeIn('fast');
