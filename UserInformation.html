@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="./assets/OwlCarousel/dist/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="./assets/OwlCarousel/dist/assets/owl.theme.default.min.css">
   <link rel="icon" href="./image/car.ico">
+  <link rel="stylesheet" href="./userInformation.css">
   <title>DreamCar</title>
 </head>
 
@@ -273,27 +274,20 @@
   <!-- End Header -->
 
   <!-- Start Body -->  
-  <div class="container-fluid">
+  <div class="container-fluid" style="margin-top: 50px">
         <div class="row">
 
             <!--  Left content   -->
 
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Danh sách đăng kí</h3>
+                <div class="panel panel-default" style="border-color: #4caf50">
+                    <div class="panel-heading" style="background-color: #ddd;">
+                        <h3 class="panel-title">Thông tin khách hàng</h3>
                     </div>
-                    <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th>Họ và tên</th>
-                            <th>MSSV</th>
-                            <th>Môn học</th>
-                          </tr>
-                        </thead>
-                        <tbody id="danhsach">
-                        </tbody>
-                      </table>
+                    <ul class="vertical-menu">
+                        <li><a class="active" href="javascript:;">Thông tin khách hàng</a></li>
+                        <li><a href="javascript:;">Lịch sử mua hàng</a></li>
+                    </ul>
                 </div>
             </div>
 
@@ -302,13 +296,9 @@
             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                 <div class="panel panel-primary" style="border-color: #35AA47;"> 
                     <div class="panel-heading" style="background-color: #35AA47; border-color: #35AA47;"> 
-                        <h3 class="panel-title">
-                            <a href="#"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span></a>
-                            Đăng kí học phần
-                            <a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right;"></span></a>
-                            <a href="#"><span class="glyphicon glyphicon-refresh" aria-hidden="true" style="float: right;">&nbsp;</span></a>
-                            <a href="#"><span class="glyphicon glyphicon-wrench" aria-hidden="true" style="float: right;">&nbsp;</span></a>
-                            <a href="#"><span class="glyphicon glyphicon-menu-down" aria-hidden="true" style="float: right;">&nbsp;</span></a>
+                        <h3 class="panel-title" style="text-align: center" id="infoName">
+                            Thông tin cá nhân
+                            <a href="javascript:;"><span class="fas fa-edit" aria-hidden="true" style="float: right;"></span></a>
                         </h3> 
                     </div> 
                     <div class="panel-body" style="margin-bottom: 20px;"> 
@@ -316,54 +306,27 @@
                         <!--  Info   -->
 
                         <div class="page-header" style="margin-top: 0px;">
-                            <h3 style="margin: 0;">Thông tin đăng kí</h3>
+                            <h3 style="margin: 0;">Thông tin cá nhân</h3>
                         </div>
                         <!--  Info1   -->
-                        <div class="row">
-                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right; padding-top: 8px; font-size: 18px;">
-                                Họ và tên
+                        <div class="row" style="padding-top: 8px; font-size: 18px;">
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">
+                                Họ và tên:
                             </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <input type="text" class="form-control" placeholder="Họ tên sinh viên" style="border-radius: 4px;" id="txtTen">
-                                <small class="form-text text-muted">Không bỏ trống, nên ghi có dấu</small>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="realName">
+                                Nguyễn Văn A
                             </div>
                         </div>
                         <!--  Info2   -->
-                        <div class="row" style="padding-top: 20px;">
-                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right; padding-top: 8px; font-size: 18px;">
-                                MSSV
+                        <div class="row" style="padding-top: 20px; padding-top: 8px; font-size: 18px;">
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">
+                                Password:
                             </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <input type="text" class="form-control" placeholder="MSSV 7 kí tự" style="border-radius: 4px;" id="txtMSSV"> 
-                                <small class="form-text text-muted">Không bỏ trống</small>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="passWord">
+                                ******
                             </div>                              
                         </div>
-                        <!--  Info3   -->
-                        <div class="row" style="padding-top: 20px;">
-                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right; padding-top: 8px; font-size: 18px;">
-                                Môn học đăng kí
-                            </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <input type="text" class="form-control" placeholder="Tên môn đăng kí" style="border-radius: 4px;" id="txtMon">
-                                <small class="form-text text-muted">Không bỏ trống</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--  Button   -->
-
-                    <nav class="navbar navbar-default" style="margin: 0; border-radius: 0px 0px 4px 4px; padding-top: 20px; padding-bottom: 20px;">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                    <button type="button" class="btn btn-success" id="btnDK" onclick="DK()">
-                                        Đăng kí
-                                    </button>
-                                </div>
-                            </div>              
-                        </div>
-                    </nav>                    
+                    </div>                   
                 </div>
             </div>
         </div>
@@ -467,6 +430,7 @@
   </div>
   <!-- End footer -->
   <script type="text/javascript" src="./index.js"></script>  
+  <script type="text/javascript" src="./loadNavHead.js"></script>
   <script type="text/javascript" src="./userInformation.js"></script>
   <script type="text/javascript" src="./assets/fontawesome-all.js"></script>
   <script src="./assets/OwlCarousel/dist/owl.carousel.min.js"></script>
