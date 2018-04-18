@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <script src="./assets/jquery-3.1.1.min.js"></script>
+  <script src="./assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/bootstrap-3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./index2.css">
+  <link rel="stylesheet" href="./index3.css">
+  <link rel="stylesheet" href="./index4.css">
+  <link rel="stylesheet" href="./introduction.css">
+  <link rel="stylesheet" href="./product.css">
+  <link rel="stylesheet" href="./responsive.css">
+  <link rel="stylesheet" href="./animate.css">
+  <link rel="stylesheet" href="./assets/hover/css/hover-min.css">
+  <link rel="icon" href="./image/car.ico">
+  <title>Product</title>
+</head>
+
+<body>
+  <!-- Start Header -->
+  <div class="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 center">
+          <a href="index.html"><img src="./image/logo.png" alt="png" id="logo"></a>
+        </div>
+
+        <div class="col-xs-4 pull-left left-top-head">
+          <a href="index.html"><img src="./image/logo.png" alt="png" id="logo"></a>
+        </div>
+
+        <div class="col-xs-8 right-top-head">
+          <div class="pull-right top-text">
+            <span><a href="mailto: dreamcar@gmail.com" id="mail"><i class="fas fa-envelope"></i> dreamcar@gmail.com</a></span>
+            <span><i class="fas fa-phone"></i> 0212343142</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header>
+    <nav class="navbar" data-spy="affix" data-offset-top="86">
+      <div class="container">
+        <div class="navbar-header">
+          <span class="right-nav-text pull-right"><i class="fas fa-phone"></i> 0212343142</span>
+          <span class="nav navbar-right right-nav-text pull-right"><a href="mailto: dreamcar@gmail.com" id="mail"><i class="fas fa-envelope"></i> dreamcar@gmail.com</a></span>
+
+          <button type="button" class="navbar-toggle pull-left bar-button" data-toggle="collapse" data-target="#myNavbar">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+          <!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active "><a href="index.html">Trang chủ</a></li>
+            <li><a href="introduction.html">Giới thiệu</a></li>
+            <li id="prodHid"><a href="javascript:;">Sản phẩm</a></li>
+            <li class="drop-down">
+              <a href="javascript:;" id="prod">Sản phẩm <i class="fa fa-caret-down"></i></a>
+              <div class="dropdown-content">
+                <div class="container megaMenu">
+                  <div class="row search">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <form class="form-inline SearchField" action="" name="SearchForm">
+                        <div class="form-group">
+                          <label for="find">Tìm kiếm sản phẩm</label>
+                          <div class="input-group">
+                            <input type="text" id="find" class="form-control" size="40" placeholder="Tìm kiếm ..." name="search-input">
+                            <div class="input-group-btn">
+                              <button class="btn btn-default" type="submit">
+                                 <i class="fas fa-search"></i>
+                               </button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="row listToChoose">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <h3>Hãng xe nổi tiếng</h3>
+                      <div class="row text-center row1-brand">
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo1.png" alt="Ford" title="Ford">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo2.png" alt="Toyota" title="Toyota">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo3.png" alt="Mercedes Benz" title="Mercedes Benz">
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="row text-center row2-brand">
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo4.png" alt="Honda" title="Honda">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img id="bmw" src="./image/logo/logo5.png" alt="BMW" title="BMW">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo6.png" alt="Chevrolet" title="Chevrolet">
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="row text-center row3-brand">
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo7.png" alt="Audi" title="Audi">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo8.png" alt="KIA" title="KIA">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="brand-box">
+                              <img src="./image/logo/logo9.png" alt="Aston Martin" title="Aston Martin">
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <h3>Các dòng xe</h3>
+                      <div class="row text-center row1-type">
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/cabriolet.png" alt="cabriolet" title="cabriolet">
+                              <p>Cabriolet</p>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/coupe.png" alt="coupe" title="coupe">
+                              <p>Coupe</p>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/sedan.png" alt="sedan" title="sedan">
+                              <p>Sedan</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="row text-center row2-type">
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/hatchback.png" alt="hatchback" title="hatchback">
+                              <p>Hatchback</p>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/SUV.png" alt="SUV" title="SUV">
+                              <p>SUV/Crossover</p>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/truck.png" alt="truck" title="truck">
+                              <p>Truck</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="row text-center row3-type">
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/van.png" alt="van" title="van">
+                              <p>Van/Minivan</p>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img id="limousine" src="./image/type/limousine.png" alt="limousine" title="limousine">
+                              <p>Limousine</p>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                          <a href="javascript:;">
+                            <div class="type-box">
+                              <img src="./image/type/wagon.png" alt="wagon" title="wagon">
+                              <p>Wagon</p>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="contact.html">Liên hệ</a></li>
+            <form class="form-inline SearchFieldHid" action="" name="SearchForm">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Tìm kiếm ..." name="search-input">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                    <i class="fas fa-search"></i>
+                 </button>
+                </div>
+              </div>
+            </form>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal" id="SignUpNavBtn"><i class="fas fa-user-plus" style="font-size: 16px;"></i> Đăng ký</a></li>
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal" id="SignInNavBtn"><i class="fas fa-user"></i> Đăng nhập</a></li>
+            <li><a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">0</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- End Header -->
+
+  <!-- Start Modal Sign Up -->
+  <div id="SignUpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Đăng Ký Tài Khoản</h4>
+        </div>
+        <div class="modal-body">
+          <form class="formSignUp" action="" method="post" name="SignUp">
+            <div class="form-group">
+              <label for="HoTen">Họ và Tên</label>
+              <input type="text" class="form-control" id="HoTen" placeholder="" name="HoTen">
+            </div>
+
+            <div class="form-group">
+              <label for="ID">Tên tài khoản</label>
+              <input type="text" class="form-control" id="ID" placeholder="" name="ID">
+            </div>
+
+            <div class="form-group">
+              <label for="Pass">Mật khẩu</label>
+              <input type="password" class="form-control" id="Pass" placeholder="" name="Pass">
+            </div>
+
+            <div class="form-group">
+              <label for="Email">Email</label>
+              <input type="email" class="form-control" id="Email" placeholder="" name="Email">
+            </div>
+            <div class="text-center">
+              <button class="btn btn-SignUp" type="submit" name="button-SignUp">Đăng Ký</button>
+              <p>Bạn đã có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignInModal">Đăng nhập</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Sign Up -->
+
+  <!-- Start Modal Sign In -->
+  <div id="SignInModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Đăng Nhập Tài Khoản</h4>
+        </div>
+        <div class="modal-body">
+          <form class="formSignIn" action="" method="post" name="SignIn">
+            <div class="form-group">
+              <label for="ID">Tên tài khoản</label>
+              <input type="text" class="form-control" id="ID" placeholder="" name="ID">
+            </div>
+
+            <div class="form-group">
+              <label for="Pass">Mật khẩu</label>
+              <input type="password" class="form-control" id="Pass" placeholder="" name="Pass">
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-SignIn" type="button" name="button-SignIn">Đăng Nhập</button>
+              <p><a href="javascript:;" id="OptionBtnForget" data-dismiss="modal" data-toggle="modal" data-target="#ForgetPassModal">Quên Mật Khẩu</a></p>
+              <p>Bạn chưa có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Sign In -->
+
+  <!-- Start Forget Pass -->
+  <div id="ForgetPassModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Lấy Lại Mật Khẩu</h4>
+        </div>
+        <div class="modal-body">
+          <form class="formForgetPass" action="" method="post" name="ForgetPass">
+            <p>
+              Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.
+            </p>
+            <div class="form-group">
+              <label for="Email">Email</label>
+              <input type="email" class="form-control" id="Email" placeholder="" name="Email">
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-ForgetPass" type="button" name="button-ForgetPass">XÁC NHẬN</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Forget Pass -->
+
+  <!-- Start Breadcrumb -->
+  <div class="bread-crumb">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="breadcrumb">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li>Sản phẩm</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Breadcrumb -->
+
+  <!-- Start Product -->
+  <div class="container product-page">
+    <div class="row">
+      <div class="collection col-lg-9 col-lg-push-3">
+        <div class="intro-title">
+          <h1 class="title-head" style="margin-top: 0">
+              TẤT CẢ SẢN PHẨM
+          </h1>
+        </div>
+        <div class="category-products">
+          <div class="sortPagiBar">
+            <div class="row">
+              <div class="col-xs-4 col-sm-4"></div>
+              <div class="col-xs-8 col-sm-8 text-xs-left text-sm-right">
+                <form class="form-inline filterForm" action="" method="post" style="margin-bottom: 0; float: right">
+                  <div class="form-group" style="padding-bottom: 0px">
+                    <select class="sort-by" name="sort-box">
+                      <option value="default">Mặc định</option>
+                      <option value="price-asc">Giá tăng dần</option>
+                      <option value="price-desc">Giá giảm dần</option>
+                      <option value="alpha-asc">Từ A-Z</option>
+                      <option value="alpha-desc">Từ Z-A</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="products-view">
+            <div class="row">
+              <!-- <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                        <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                            4.829.000.000₫
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h3>
+                  </div>
+                  <div class="product-action clearfix " style="margin-top: 15px">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                        <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                            4.829.000.000₫
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h3>
+                  </div>
+                  <div class="product-action clearfix " style="margin-top: 15px">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                        <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                            4.829.000.000₫
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h3>
+                  </div>
+                  <div class="product-action clearfix " style="margin-top: 15px">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                        <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                            4.829.000.000₫
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h3>
+                  </div>
+                  <div class="product-action clearfix " style="margin-top: 15px">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                        <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                            4.829.000.000₫
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h3>
+                  </div>
+                  <div class="product-action clearfix " style="margin-top: 15px">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                        <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                            4.829.000.000₫
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h3>
+                  </div>
+                  <div class="product-action clearfix " style="margin-top: 15px">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                        <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                            4.829.000.000₫
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h3>
+                  </div>
+                  <div class="product-action clearfix " style="margin-top: 15px">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                        <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                            4.829.000.000₫
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h3>
+                  </div>
+                  <div class="product-action clearfix " style="margin-top: 15px">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                        <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                            4.829.000.000₫
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h3>
+                  </div>
+                  <div class="product-action clearfix " style="margin-top: 15px">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                        <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                            4.829.000.000₫
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h3>
+                  </div>
+                  <div class="product-action clearfix " style="margin-top: 15px">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                        <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                            4.829.000.000₫
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h3>
+                  </div>
+                  <div class="product-action clearfix " style="margin-top: 15px">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="product-box">
+                  <div class="product-thumbnail">
+                    <a href="javascript:;" title="Aston Martin DB11">
+                        <img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    <div class="price-box clearfix">
+                      <div class="special-price">
+                        <span class="price product-price">
+                            4.829.000.000₫
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h3>
+                  </div>
+                  <div class="product-action clearfix " style="margin-top: 15px">
+                    <form class="products-view-grid" action="" method="post" data-id="">
+                      <div>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Mua sản phẩm">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </button>
+                        <button class="btn btn-gray hvr-rectangle-out" type="button" name="button" title="Chọn sản phẩm" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+            <div class="text-xs-center">
+              <nav class="clearfix text-center">
+                <ul class="pagination clearfix">
+                  <!-- <li class="disabled"><a href="#" id="first" class="page-link">&laquo;</a></li>
+                  <li class="active page-item"><a href="#" class="page-link" id="page-first">1</a></li>
+                  <li class="page-item"><a href="#" class="page-link" id="page-second">2</a></li>
+                  <li class="page-item"><a href="#" class="page-link" id="page-third">3</a></li>
+                  <li><a href="#" class="page-link" id="last">&raquo;</a></li> -->
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar col-lg-3 col-lg-pull-9 col-xs-12">
+        <div class="aside-collection">
+          <h2>HÃNG XE</h2>
+          <ul class="list-cate">
+            <li><a href="javascript:;">Aston Martin</a></li>
+            <li><a href="javascript:;">Audi</a></li>
+            <li><a href="javascript:;">BMW</a></li>
+            <li><a href="javascript:;">Chevrolet</a></li>
+            <li><a href="javascript:;">Ford</a></li>
+            <li><a href="javascript:;">Honda</a></li>
+            <li><a href="javascript:;">Huyndai</a></li>
+            <li><a href="javascript:;">KIA</a></li>
+            <li><a href="javascript:;">Mazda</a></li>
+            <li><a href="javascript:;">Mercedes</a></li>
+            <li><a href="javascript:;">Peugeot</a></li>
+            <li><a href="javascript:;">Toyota</a></li>
+            <li><a href="javascript:;">Volkswagen</a></li>
+          </ul>
+        </div><div class="aside-collection">
+          <h2>DÒNG XE</h2>
+          <ul class="list-type">
+            <li><a href="javascript:;">Cabriolet</a></li>
+            <li><a href="javascript:;">Coupe</a></li>
+            <li><a href="javascript:;">Hatchback</a></li>
+            <li><a href="javascript:;">Limousine</a></li>
+            <li><a href="javascript:;">Sedan</a></li>
+            <li><a href="javascript:;">SUV/Crossover</a></li>
+            <li><a href="javascript:;">Truck</a></li>
+            <li><a href="javascript:;">Van/Minivan</a></li>
+            <li><a href="javascript:;">Wagon</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Product -->
+
+  <!-- Start footer -->
+  <div class="footer">
+    <div class="top-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Showroom</b>
+            <p>Thành phố Hồ Chí Minh, Việt Nam</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Giờ mở cửa</b>
+            <p>
+              Thứ 2 - Thứ 6: 8:00 - 21:00
+              <br> Thứ 7 - Chủ nhật: 8:30 - 22:30
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Hỗ trợ tư vấn</b>
+            <p>0212343142</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Email</b>
+            <p><a id="mail" href="mailto:dreamcar@gmail.com">dreamcar@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mid-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>THÔNG TIN</h4>
+            <ul class="list-unstyled">
+              <li><a href="index.html">Trang chủ</a></li>
+              <li><a href="javascript:;">Sản phẩm</a></li>
+              <li><a href="introduction.html">Giới thiệu</a></li>
+              <li><a href="contact.html">Liên hệ</a></li>
+              <li><a href="javascript:;">Tìm kiếm</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>TÀI KHOẢN</h4>
+            <ul class="list-unstyled">
+              <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal">Đăng nhập</a></li>
+              <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></li>
+              <li><a href="javascript:;" data-toggle="modal" data-target="#ForgetPassModal">Lấy lại mật khẩu</a></li>
+              <li><a href="cart.html">Giỏ hàng</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>CHÍNH SÁCH</h4>
+            <ul class="list-unstyled">
+              <li><a href="Policy.html">Chính sách bảo mật</a></li>
+              <li><a href="Policy.html">Chính sách vận chuyển</a></li>
+              <li><a href="Policy.html">Chính sách đổi trả</a></li>
+              <li><a href="ServiceTerm.html">Điều khoản dịch vụ</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>TIN MỚI</h4>
+            <div class="subscribe-box">
+              <div style="margin-bottom: 20px;">
+                <p style="color: #A1A1A1;">Hãy đăng ký với chúng tôi để nhận thông tin mới nhất về các mẫu xe trên thế giới và trong nước!</p>
+              </div>
+              <form class="" action="" method="post" name="subscribe" target="_blank">
+                <input class="form-control" type="email" name="emailSubscribe" value="" placeholder="Nhập Email của bạn ...">
+                <button class="btn btn-Subscribe" type="button" name="buttonSub">THEO DÕI</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-5 col-sm-push-7">
+            <ul class="list-unstyled social">
+              <li><a href="javascript:;"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-linkedin-in"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-google-plus-g"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-7 col-sm-pull-5">
+            <span class="copyright">
+                © Bản quyền thuộc về Team 14 | Cung cấp bởi Bizweb
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End footer -->
+  <script type="text/javascript" src="./index.js"></script>
+  <script type="text/javascript" src="./assets/fontawesome-all.js"></script>
+</body>
+
+</html>
