@@ -62,9 +62,9 @@
           <ul class="nav navbar-nav">
             <li class="active "><a href="index.html">Trang chủ</a></li>
             <li><a href="introduction.html">Giới thiệu</a></li>
-            <li id="prodHid"><a href="javascript:;">Sản phẩm</a></li>
+            <li id="prodHid"><a href="product.html">Sản phẩm</a></li>
             <li class="drop-down">
-              <a href="javascript:;" id="prod">Sản phẩm <i class="fa fa-caret-down"></i></a>
+              <a href="product.html" id="prod">Sản phẩm <i class="fa fa-caret-down"></i></a>
               <div class="dropdown-content">
                 <div class="container megaMenu">
                   <div class="row search">
@@ -261,19 +261,19 @@
 
           <ul class="nav navbar-nav navbar-right" id="rightNavBarHeader">
 <<<<<<< HEAD
-            <li style="padding-right: 12px;"><a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">0</span></a></li>
-            <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal" id="SignUpNavBtn"><i class="fas fa-user-plus" style="font-size: 16px;"></i> Đăng ký</a></li>
-            <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal" id="SignInNavBtn"><i class="fas fa-user"></i> Đăng nhập</a></li>
-            <li><a href="javascript:;" id="InfoUserBtn"></a></li>
-            <li><a href="javascript:;" id="SignOutNavBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
-=======
             <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal" id="SignUpNavBtn" style="display: none"><i class="fas fa-user-plus" style="font-size: 16px;"></i> Đăng ký</a></li>
             <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal" id="SignInNavBtn" style="display: none"><i class="fas fa-user"></i> Đăng nhập</a></li>
             <li><a href="cart.html" style="display: none" id="CartBtn"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">0</span></a></li>
             <li>&nbsp;&nbsp;&nbsp;</li>
             <li><a href="UserInformation.html" id="InfoUserBtn"></a></li>
             <li><a href="javascript:;" id="SignOutNavBtn" style="display: none"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
->>>>>>> origin/NTHung
+=======
+            <li style="padding-right: 12px;"><a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">0</span></a></li>
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal" id="SignUpNavBtn"><i class="fas fa-user-plus" style="font-size: 16px;"></i> Đăng ký</a></li>
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal" id="SignInNavBtn"><i class="fas fa-user"></i> Đăng nhập</a></li>
+            <li><a href="javascript:;" id="InfoUserBtn"></a></li>
+            <li><a href="javascript:;" id="SignOutNavBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+>>>>>>> TaNguyenHung
           </ul>
         </div>
       </div>

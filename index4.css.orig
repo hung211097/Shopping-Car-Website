@@ -92,7 +92,7 @@
   right: 200%;
   /* top: 102%; */
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 10;
+  z-index: 100;
 }
 
 .drop-down:hover .dropdown-content {
@@ -155,7 +155,7 @@
 
 .brand-box img
 {
-  width: 75%;
+  width: 70%;
 }
 
 .brand-box:hover
@@ -216,82 +216,20 @@
   width: 95%;
   margin-top: 18px;
 }
+
+
+
+#InfoUserBtn
+{
+  display: none;
+}
+
+#SignOutNavBtn
+{
 <<<<<<< HEAD
-
-/* Modal Quick Buy */
-#QuickBuy .modal-dialog
-{
-  width: 600px;
-  margin: 30px auto;
-  position: relative;
+  display: none;
 }
-
-#QuickBuy .modal-header
-{
-  background-color: #00a2d1;
-  color: #fff;
-  padding: 15px;
-  border-bottom: 1px solid #e5e5e5;
-  min-height: 16.42857143px;
-}
-
-#QuickBuy .close
-{
-  border: 0;
-  color: white;
-  padding: 0;
-  background: transparent;
-  position: relative;
-  z-index: 9;
-  opacity: 1;
-  margin-top: -2px;
-}
-
-#QuickBuy .modal-title {
-    padding-left: 6rem;
-    position: relative;
-    min-height: 44px;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: normal;
-    margin: 0;
-    padding-right: 15px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-}
-
-#QuickBuy .modal-header .modal-title span {
-    width: 44px;
-    height: 44px;
-    border-radius: 100%;
-    font-size: 23px;
-    text-align: center;
-    line-height: 44px;
-    color: #00a2d1;
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: block;
-    background-color: #fff;
-}
-
-.media .media-left {
-    padding-right: 2rem;
-    display: table-cell;
-    vertical-align: top;
-}
-
-.media .thumb-1x1 {
-    width: 7.7rem;
-}
-
-.media .thumb-1x1 img {
-    width: 100%;
-}
-
-.media .media-body
-{
+=======
   display: table-cell;
   vertical-align: top;
   width: 100%;
@@ -339,5 +277,4 @@
 {
   display: none;
 }
-=======
->>>>>>> origin/NTHung
+>>>>>>> TaNguyenHung

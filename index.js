@@ -197,128 +197,342 @@ $(document).ready(function() {
 
 var BSeenArr = [{
     ten: 'Aston Martin DB11',
-    gia: '4.829.000.000'
+    gia: '4829000000',
+    hang: 'Aston Martin',
+    dong: 'cabriolet'
   },
   {
     ten: 'BMW 4 Series Convertible',
-    gia: '1.116.000.000'
+    gia: '1116000000',
+    hang: 'BMW',
+    dong: 'cabriolet'
   },
   {
     ten: 'Chevrolet Camaro LS 2017',
-    gia: '3.200.000.000'
+    gia: '3200000000',
+    hang: 'Chevrolet',
+    dong: 'coupe'
   },
   {
     ten: 'Volkswagen Scirocco R 2017',
-    gia: '1.600.000.000'
+    gia: '1600000000',
+    hang: 'Volkswagen',
+    dong: 'coupe'
   },
   {
     ten: 'Hyundai Grand i10 Sedan 1.2 MT 2018',
-    gia: '400.000.000'
+    gia: '400000000',
+    hang: 'Huyndai',
+    dong: 'sedan'
   },
   {
     ten: 'Mazda 3 1.5 AT Sedan 2018',
-    gia: '649.000.000'
+    gia: '649000000',
+    hang: 'Mazda',
+    dong: 'sedan'
   },
   {
     ten: 'KIA Cerato 2.0 AT 2018',
-    gia: '639.000.000'
+    gia: '639000000',
+    hang: 'KIA',
+    dong: 'sedan'
   },
   {
     ten: 'Ford EcoSport Titanium 1.5L AT 2018',
-    gia: '648.000.000'
+    gia: '648000000',
+    hang: 'Ford',
+    dong: 'SUV'
   },
   {
     ten: 'Peugeot-5008-1-6L-Turbo',
-    gia: '1.399.000.000'
+    gia: '1399000000',
+    hang: 'Peugeot',
+    dong: 'SUV'
   },
   {
     ten: 'Audi TT 2.0 2007',
-    gia: '700.000.000'
+    gia: '700000000',
+    hang: 'Audi',
+    dong: 'coupe'
   }
 ]
 
 var BSellArr = [{
     ten: 'Aston Martin DB11',
-    gia: '4.829.000.000'
+    gia: '4829000000',
+    hang: 'Aston Martin',
+    dong: 'cabriolet'
   },
   {
     ten: 'BMW 4 Series Convertible',
-    gia: '1.116.000.000'
+    gia: '1116000000',
+    hang: 'BMW',
+    dong: 'cabriolet'
   },
   {
     ten: 'Chevrolet Camaro LS 2017',
-    gia: '3.200.000.000'
+    gia: '3200000000',
+    hang: 'Chevrolet',
+    dong: 'coupe'
   },
   {
     ten: 'Volkswagen Scirocco R 2017',
-    gia: '1.600.000.000'
+    gia: '1600000000',
+    hang: 'Volkswagen',
+    dong: 'coupe'
   },
   {
     ten: 'Hyundai Grand i10 Sedan 1.2 MT 2018',
-    gia: '400.000.000'
+    gia: '400000000',
+    hang: 'Huyndai',
+    dong: 'sedan'
   },
   {
     ten: 'Mazda 3 1.5 AT Sedan 2018',
-    gia: '649.000.000'
+    gia: '649000000',
+    hang: 'Mazda',
+    dong: 'sedan'
   },
   {
     ten: 'KIA Cerato 2.0 AT 2018',
-    gia: '639.000.000'
+    gia: '639000000',
+    hang: 'KIA',
+    dong: 'sedan'
   },
   {
     ten: 'Ford EcoSport Titanium 1.5L AT 2018',
-    gia: '648.000.000'
+    gia: '648000000',
+    hang: 'Ford',
+    dong: 'SUV'
   },
   {
     ten: 'Peugeot-5008-1-6L-Turbo',
-    gia: '1.399.000.000'
+    gia: '1399000000',
+    hang: 'Peugeot',
+    dong: 'SUV'
   },
   {
     ten: 'Audi TT 2.0 2007',
-    gia: '700.000.000'
+    gia: '700000000',
+    hang: 'Audi',
+    dong: 'coupe'
   }
 ]
 
 var NewProdArr = [{
     ten: 'Aston Martin DB11',
-    gia: '4.829.000.000'
+    gia: '4829000000',
+    hang: 'Aston Martin',
+    dong: 'cabriolet'
   },
   {
     ten: 'BMW 4 Series Convertible',
-    gia: '1.116.000.000'
+    gia: '1116000000',
+    hang: 'BMW',
+    dong: 'cabriolet'
   },
   {
     ten: 'Chevrolet Camaro LS 2017',
-    gia: '3.200.000.000'
+    gia: '3200000000',
+    hang: 'Chevrolet',
+    dong: 'coupe'
   },
   {
     ten: 'Volkswagen Scirocco R 2017',
-    gia: '1.600.000.000'
+    gia: '1600000000',
+    hang: 'Volkswagen',
+    dong: 'coupe'
   },
   {
     ten: 'Hyundai Grand i10 Sedan 1.2 MT 2018',
-    gia: '400.000.000'
+    gia: '400000000',
+    hang: 'Huyndai',
+    dong: 'sedan'
   },
   {
     ten: 'Mazda 3 1.5 AT Sedan 2018',
-    gia: '649.000.000'
+    gia: '649000000',
+    hang: 'Mazda',
+    dong: 'sedan'
   },
   {
     ten: 'KIA Cerato 2.0 AT 2018',
-    gia: '639.000.000'
+    gia: '639000000',
+    hang: 'KIA',
+    dong: 'sedan'
   },
   {
     ten: 'Ford EcoSport Titanium 1.5L AT 2018',
-    gia: '648.000.000'
+    gia: '648000000',
+    hang: 'Ford',
+    dong: 'SUV'
   },
   {
     ten: 'Peugeot-5008-1-6L-Turbo',
-    gia: '1.399.000.000'
+    gia: '1399000000',
+    hang: 'Peugeot',
+    dong: 'SUV'
   },
   {
     ten: 'Audi TT 2.0 2007',
-    gia: '700.000.000'
+    gia: '700000000',
+    hang: 'Audi',
+    dong: 'coupe'
   }
+]
+
+var AllProd = [
+  {
+      ten: 'Aston Martin DB11',
+      gia: '4829000000',
+      hang: 'Aston Martin',
+      dong: 'cabriolet'
+    },
+    {
+      ten: 'BMW 4 Series Convertible',
+      gia: '1116000000',
+      hang: 'BMW',
+      dong: 'cabriolet'
+    },
+    {
+      ten: 'Chevrolet Camaro LS 2017',
+      gia: '3200000000',
+      hang: 'Chevrolet',
+      dong: 'coupe'
+    },
+    {
+      ten: 'Volkswagen Scirocco R 2017',
+      gia: '1600000000',
+      hang: 'Volkswagen',
+      dong: 'coupe'
+    },
+    {
+      ten: 'Hyundai Grand i10 Sedan 1.2 MT 2018',
+      gia: '400000000',
+      hang: 'Huyndai',
+      dong: 'sedan'
+    },
+    {
+      ten: 'Mazda 3 1.5 AT Sedan 2018',
+      gia: '649000000',
+      hang: 'Mazda',
+      dong: 'sedan'
+    },
+    {
+      ten: 'KIA Cerato 2.0 AT 2018',
+      gia: '639000000',
+      hang: 'KIA',
+      dong: 'sedan'
+    },
+    {
+      ten: 'Ford EcoSport Titanium 1.5L AT 2018',
+      gia: '648000000',
+      hang: 'Ford',
+      dong: 'SUV'
+    },
+    {
+      ten: 'Peugeot-5008-1-6L-Turbo',
+      gia: '1399000000',
+      hang: 'Peugeot',
+      dong: 'SUV'
+    },
+    {
+      ten: 'Audi TT 2.0 2007',
+      gia: '700000000',
+      hang: 'Audi',
+      dong: 'coupe'
+    },
+    // //////////////////////////
+    {
+      ten: 'Hyundai Genesis Coupe 2.0T',
+      gia: '630000000',
+      hang: 'Huyndai',
+      dong: 'coupe'
+    },
+    {
+      ten: 'BMW 6-series Gran Coupe',
+      gia: '1867000000',
+      hang: 'BMW',
+      dong: 'coupe'
+    },
+    {
+      ten: 'BMW 4-series Gran Coupe',
+      gia: '1000000000',
+      hang: 'BMW',
+      dong: 'coupe'
+    },
+    {
+      ten: 'Mercedes C200 Cabriolet',
+      gia: '2800000000',
+      hang: 'Mercedes',
+      dong: 'cabriolet'
+    },
+    {
+      ten: 'BMW 420i Cabriolet',
+      gia: '2700000000',
+      hang: 'BMW',
+      dong: 'cabriolet'
+    },
+    {
+      ten: 'Audi A3 Cabriolet',
+      gia: '1900000000',
+      hang: 'Audi',
+      dong: 'cabriolet'
+    },
+    {
+      ten: 'Mercedes Benz CLK 320 Cabriolet',
+      gia: '650000000',
+      hang: 'Mercedes',
+      dong: 'cabriolet'
+    },
+    {
+      ten: 'Volkswagen Beetle R-Line',
+      gia: '1500000000',
+      hang: 'Volkswagen',
+      dong: 'coupe'
+    },
+    {
+      ten: 'KIA-Sorento-DATH-2WD',
+      gia: '949000000',
+      hang: 'KIA',
+      dong: 'SUV'
+    },
+    {
+      ten: 'Mazda-CX-5-2-5L-AWD',
+      gia: '999000000',
+      hang: 'Mazda',
+      dong: 'SUV'
+    },
+    {
+      ten: 'Honda-CR-V-E',
+      gia: '958000000',
+      hang: 'Honda',
+      dong: 'SUV'
+    },
+    {
+      ten: 'Peugeot-3008-1-6L-Turbo',
+      gia: '1399000000',
+      hang: 'Peugeot',
+      dong: 'SUV'
+    },
+    {
+      ten: 'KIA Optima 2.4 GT Line',
+      gia: '915000000',
+      hang: 'KIA',
+      dong: 'sedan'
+    },
+    {
+      ten: 'Toyota Corolla Altis 1.8G CVT',
+      gia: '731000000',
+      hang: 'Toyota',
+      dong: 'sedan'
+    },
+    {
+      ten: 'Toyota Vios 1.5E MT',
+      gia: '500000000',
+      hang: 'Toyota',
+      dong: 'sedan'
+    }
 ]
 
 function AddBestSeendProd(ten, gia) {
@@ -656,31 +870,201 @@ $(document).ready(function() {
   CartUpdate();
   var dem = $(document).find('.cartCount');
   dem.text("" + sessionStorage.count);
+  LoadProd();
 });
 
 $('#btnSI').on('click', function(){
   var username = 'Xin chào ' + $('#txtID').val();
+  $('#SignInModal').modal('toggle');
   $('#SignUpNavBtn').css('display', 'none');
   $('#SignInNavBtn').css('display', 'none');
-
-  // $('#SignUpNavBtn').fadeOut('normal');
-  // $('#SignInNavBtn').fadeOut('normal');
   $('#InfoUserBtn').text(username);
   $('#InfoUserBtn').css('display', 'block');
-  // $('#InfoUserBtn').fadeIn('normal');
-  // $('#SignOutNavBtn').fadeIn('normal');
    $('#SignOutNavBtn').css('display', 'block');
 });
 
 $('#SignOutNavBtn').on('click', function(){
-  $('#SignInModal').modal('toggle');
   $('#SignUpNavBtn').css('display', 'block');
   $('#SignInNavBtn').css('display', 'block');
   $('#InfoUserBtn').css('display', 'none');
   $('#SignOutNavBtn').css('display', 'none');
-
-  // $('#InfoUserBtn').fadeOut('fast');
-  // $('#SignOutNavBtn').fadeOut('fast');
-  // $('#SignUpNavBtn').fadeIn('fast');
-  // $('#SignInNavBtn').fadeIn('fast');
 });
+
+const NumPerPage = 12;
+function CreatePagination(arrXe)
+{
+    var paginate = $('.products-view').find('.pagination');
+    var NumPage;
+    if(arrXe.length % 12 == 0)
+      NumPage = parseInt(arrXe.length / 12);
+    else
+      NumPage = parseInt(arrXe.length / 12) + 1;
+
+    for(var i = 0; i < NumPerPage && i < arrXe.length; i++)
+      AddProduct(arrXe[i].ten, arrXe[i].gia);
+
+    paginate.append('<li class="disabled"><a href="#" id="first" class="page-link">&laquo;</a></li>');
+    if(arrXe.length <= 12)
+      paginate.append('<li class="active page-item"><a href="#" class="page-link" id="page-first">1</a></li>');
+    else
+      if(arrXe.length > 12 && arrXe.length <= 24)
+      {
+        paginate.append('<li class="active page-item"><a href="#" class="page-link" id="page-first">1</a></li>');
+        paginate.append('<li class="page-item"><a href="#" class="page-link" id="page-second">2</a></li>');
+      }
+      else
+      {
+        paginate.append('<li class="active page-item"><a href="#" class="page-link" id="page-first">1</a></li>');
+        paginate.append('<li class="page-item"><a href="#" class="page-link" id="page-second">2</a></li>');
+        paginate.append('<li class="page-item"><a href="#" class="page-link" id="page-third">3</a></li>');
+      }
+
+    paginate.append('  <li><a href="#" class="page-link" id="last">&raquo;</a></li>');
+
+    var first = $('#first');
+    var page_first = $('#page-first');
+    var page_second = $('#page-second');
+    var page_third = $('#page-third');
+    var last = $('#last');
+    var contain = $('.products-view').find('.row');
+
+    first.on('click', function() {
+      contain.find('.div').remove();
+      for(var i = 0; i < NumPerPage && i < arrXe.length; i++)
+        AddProduct(arrXe[i].ten, arrXe[i].gia);
+      page_first.text('1');
+      page_first.parent().addClass('active');
+      page_second.parent().removeClass('active');
+      page_third.parent().removeClass('active');
+      page_second.text('2');
+      page_third.text('3');
+      $(this).parent().addClass('disabled');
+      last.parents().removeClass('disabled');
+    });
+
+    page_first.on('click', function() {
+      var n1 = parseInt(page_first.text());
+      last.parent().removeClass('disabled');
+      if(n1 == 1)
+      {
+          first.parent().addClass('disabled');
+          $(this).parent().addClass('active');
+          page_second.parent().removeClass('active');
+          page_third.parent().removeClass('active');
+      }
+      else
+      {
+        var n2 = parseInt(page_second.text());
+        $(this).parent().removeClass('active');
+        page_second.parent().addClass('active');
+        page_third.parent().removeClass('active');
+        page_third.text(n2 +'');
+        page_second.text(n1 + '');
+        page_first.text(--n1 + '');
+      }
+      contain.find('.div').remove();
+      for(var i = (n1 - 1) * NumPerPage; i < NumPerPage && i < arrXe.length; i++)
+        AddProduct(arrXe[i].ten, arrXe[i].gia);
+    });
+
+    page_second.on('click', function() {
+      var n2 = parseInt(page_first.text());
+      first.parent().removeClass('disabled');
+      last.parent().removeClass('disabled');
+      $(this).parent().addClass('active');
+      page_first.parent().removeClass('active');
+      page_third.parent().removeClass('active');
+      // page_third.text(n2 +'');
+      // page_second.text(n1 + '');
+      // page_first.text(--n1 + '');
+      contain.find('.div').remove();
+      for(var i = (n2 - 1) * NumPerPage; i < NumPerPage && i < arrXe.length; i++)
+        AddProduct(arrXe[i].ten, arrXe[i].gia);
+    });
+
+    page_third.on('click', function() {
+      var n3 = parseInt(page_first.text());
+      first.parent().removeClass('disabled');
+      if(n3 == NumPage)
+      {
+          last.parent().addClass('disabled');
+          $(this).parent().addClass('active');
+          page_second.parent().removeClass('active');
+          page_first.parent().removeClass('active');
+      }
+      else
+      {
+        var n2 = parseInt(page_second.text());
+        $(this).parent().removeClass('active');
+        page_second.parent().addClass('active');
+        page_third.parent().removeClass('active');
+        page_first.text(n2 + '');
+        page_second.text(n3 + '');
+        page_third.text(++n3 +'');
+      }
+      contain.find('.div').remove();
+      for(var i = (n3 - 1) * NumPerPage; i < NumPerPage && i < arrXe.length; i++)
+        AddProduct(arrXe[i].ten, arrXe[i].gia);
+    });
+
+    last.on('click', function() {
+      contain.find('.div').remove();
+      for(var i = (NumPerPage - 1) * NumPerPage; i < NumPerPage && i < arrXe.length; i++)
+        AddProduct(arrXe[i].ten, arrXe[i].gia);
+      page_first.text((NumPage - 2) + '');
+      page_first.parent().removeClass('active');
+      page_second.parent().removeClass('active');
+      page_third.parent().addClass('active');
+      page_second.text((NumPage - 1) + '');
+      page_third.text(NumPage + '');
+      $(this).parent().addClass('disabled');
+      first.parent().remove('disabled');
+    });
+}
+
+function AddProduct(ten, gia)
+{
+  var price = PriceToSring(gia);
+  var item = $(`<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="product-box">
+    <div class="product-thumbnail">
+      <a href="javascript:;" title="` + ten + `">
+        <img src="./image/all/` + ten + `.jpg" alt="` + ten + `">
+      </a>
+      <div class="price-box clearfix">
+        <div class="special-price">
+          <span class="price product-price">
+            ` + price + `
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="product-info">
+      <h3 class="product-name">
+        <a href="javascript:;" title="` + ten + `">` + ten + `</a>
+      </h3>
+    </div>
+    <div class="product-action clearfix" style="margin-top: 15px>
+      <form class="products-view-grid" action="" method="post" data-id="">
+        <div>
+          <a class="btn btn-gray hvr-rectangle-out" name="button-Buy-` + ten + `" title="Mua hàng" data-toggle="modal" data-target="#QuickBuy">
+            <i class="fa fa-shopping-cart"></i>
+            Mua hàng
+          </a>
+          <a class="btn btn-gray hvr-rectangle-out" name="button" title="Chi tiết" style="float: right">
+            <i class="fa fa-eye"></i>
+            Chi tiết
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>`);
+
+  $('.products-view').find('.row').append(item);
+}
+
+function LoadProd()
+{
+  CreatePagination(AllProd);
+}

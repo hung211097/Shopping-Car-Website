@@ -14,11 +14,12 @@
   <link rel="stylesheet" href="./index3.css">
   <link rel="stylesheet" href="./index4.css">
   <link rel="stylesheet" href="./introduction.css">
+  <link rel="stylesheet" href="./cart.css">
   <link rel="stylesheet" href="./responsive.css">
   <link rel="stylesheet" href="./animate.css">
   <link rel="stylesheet" href="./assets/hover/css/hover-min.css">
   <link rel="icon" href="./image/car.ico">
-  <title>Policy</title>
+  <title>Contact</title>
 </head>
 
 <body>
@@ -245,7 +246,7 @@
                 </div>
               </div>
             </li>
-            <li><a href="javascript:;">Liên hệ</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
             <form class="form-inline SearchFieldHid" action="" name="SearchForm">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="Tìm kiếm ..." name="search-input">
@@ -259,11 +260,20 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li style="padding-right: 12px;"><a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">0</span></a></li>
+<<<<<<< HEAD
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal" id="SignUpNavBtn" style="display: none"><i class="fas fa-user-plus" style="font-size: 16px;"></i> Đăng ký</a></li>
             <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal" id="SignInNavBtn" style="display: none"><i class="fas fa-user"></i> Đăng nhập</a></li>
             <li><a href="cart.html" style="display: none" id="CartBtn"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">0</span></a></li>
-            <li><a href="UserInformation.html id="InfoUserBtn"></a></li>
+            <li>&nbsp;&nbsp;&nbsp;</li>
+            <li><a href="UserInformation.html" id="InfoUserBtn"></a></li>
+            <li><a href="javascript:;" id="SignOutNavBtn" style="display: none"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+=======
+            <li style="padding-right: 12px;"><a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">0</span></a></li>
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal" id="SignUpNavBtn"><i class="fas fa-user-plus" style="font-size: 16px;"></i> Đăng ký</a></li>
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal" id="SignInNavBtn"><i class="fas fa-user"></i> Đăng nhập</a></li>
+            <li><a href="javascript:;" id="InfoUserBtn"></a></li>
             <li><a href="javascript:;" id="SignOutNavBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+>>>>>>> TaNguyenHung
           </ul>
         </div>
       </div>
@@ -332,7 +342,11 @@
             </div>
 
             <div class="text-center">
+<<<<<<< HEAD
+              <button id="btnSI" class="btn btn-SignIn" type="button" name="button-SignIn">Đăng Nhập</button>
+=======
               <button class="btn btn-SignIn" id="btnSI" type="button" name="button-SignIn">Đăng Nhập</button>
+>>>>>>> TaNguyenHung
               <p><a href="javascript:;" id="OptionBtnForget" data-dismiss="modal" data-toggle="modal" data-target="#ForgetPassModal">Quên Mật Khẩu</a></p>
               <p>Bạn chưa có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></p>
             </div>
@@ -378,7 +392,7 @@
         <div class="col-xs-12">
           <ul class="breadcrumb">
             <li><a href="index.html">Trang chủ</a></li>
-            <li>Chính sách</li>
+            <li>Giỏ hàng</li>
           </ul>
         </div>
       </div>
@@ -389,34 +403,58 @@
   <!-- Start Introduction -->
   <div class="introduction-content">
     <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-          <div class="intro-title">
-            <h1 class="title-head">
-              CHÍNH SÁCH
-            </h1>
-          </div>
-          <div class="content-intro">
-            <p>Cám ơn quý khách đã quan tâm và truy cập vào website. Chúng tôi tôn trọng và cam kết sẽ bảo mật những thông tin mang tính riêng tư của Quý khách.</p>
-            <p>Chính sách bảo mật sẽ giải thích cách chúng tôi tiếp nhận, sử dụng và (trong trường hợp nào đó) tiết lộ thông tin cá nhân của Quý khách.</p>
-            <p>Bảo vệ dữ liệu cá nhân và gây dựng được niềm tin cho quý khách là vấn đề rất quan trọng với chúng tôi. Vì vậy, chúng tôi sẽ dùng tên và các thông tin khác liên quan đến quý khách tuân thủ theo nội dung của Chính sách bảo mật. Chúng tôi chỉ thu thập những thông tin cần thiết liên quan đến giao dịch mua bán.</p>
-            <p>Chúng tôi sẽ giữ thông tin của khách hàng trong thời gian luật pháp quy định hoặc cho mục đích nào đó. Quý khách có thể truy cập vào website và trình duyệt mà không cần phải cung cấp chi tiết cá nhân. Lúc đó, Quý khách đang ẩn danh và chúng tôi không thể biết bạn là ai nếu Quý khách không đăng nhập vào tài khoản của mình.</p>
-            <p><b>I. THU THẬP THÔNG TIN CÁ NHÂN</b></p>
-            <p>- Chúng tôi thu thập, lưu trữ và xử lý thông tin của bạn cho quá trình mua hàng và cho những thông báo sau này liên quan đến đơn hàng, và để cung cấp dịch vụ, bao gồm một số thông tin cá nhân: danh hiệu, tên, giới tính, ngày sinh, email, địa chỉ, địa chỉ giao hàng, số điện thoại, fax, chi tiết thanh toán, chi tiết thanh toán bằng thẻ hoặc chi tiết tài khoản ngân hàng.</p>
-            <p>- Chúng tôi sẽ dùng thông tin quý khách đã cung cấp để xử lý đơn đặt hàng, cung cấp các dịch vụ và thông tin yêu cầu thông qua website và theo yêu cầu của bạn.</p>
-            <p>- Hơn nữa, chúng tôi sẽ sử dụng các thông tin đó để quản lý tài khoản của bạn; xác minh và thực hiện giao dịch trực tuyến, nhận diện khách vào web, nghiên cứu nhân khẩu học, gửi thông tin bao gồm thông tin sản phẩm và dịch vụ. Nếu quý khách không muốn nhận bất cứ thông tin tiếp thị của chúng tôi thì có thể từ chối bất cứ lúc nào.</p>
-            <p>- Chúng tôi có thể chuyển tên và địa chỉ cho bên thứ ba để họ giao hàng cho bạn (ví dụ cho bên chuyển phát nhanh hoặc nhà cung cấp).</p>
-            <p>- Chi tiết đơn đặt hàng của bạn được chúng tôi lưu giữ nhưng vì lí do bảo mật nên chúng tôi không công khai trực tiếp được. Tuy nhiên, quý khách có thể tiếp cận thông tin bằng cách đăng nhập tài khoản trên web. Tại đây, quý khách sẽ thấy chi tiết đơn đặt hàng của mình, những sản phẩm đã nhận và những sản phẩm đã gửi và chi tiết email, ngân hàng và bản tin mà bạn đặt theo dõi dài hạn.</p>
-            <p>- Quý khách cam kết bảo mật dữ liệu cá nhân và không được phép tiết lộ cho bên thứ ba. Chúng tôi không chịu bất kỳ trách nhiệm nào cho việc dùng sai mật khẩu nếu đây không phải lỗi của chúng tôi.</p>
-            <p>- Chúng tôi có thể dùng thông tin cá nhân của bạn để nghiên cứu thị trường. mọi thông tin chi tiết sẽ được ẩn và chỉ được dùng để thống kê. Quý khách có thể từ chối không tham gia bất cứ lúc nào.</p>
-            <p><b>II. BẢO MẬT</b></p>
-            <p>- Chúng tôi có biện pháp thích hợp về kỹ thuật và an ninh để ngăn chặn truy cập trái phép hoặc trái pháp luật hoặc mất mát hoặc tiêu hủy hoặc thiệt hại cho thông tin của bạn.</p>
-            <p>- Chúng tôi khuyên quý khách không nên đưa thông tin chi tiết về việc thanh toán với bất kỳ ai bằng e-mail, chúng tôi không chịu trách nhiệm về những mất mát quý khách có thể gánh chịu trong việc trao đổi thông tin của quý khách qua internet hoặc email.</p>
-            <p>- Quý khách tuyệt đối không sử dụng bất kỳ chương trình, công cụ hay hình thức nào khác để can thiệp vào hệ thống hay làm thay đổi cấu trúc dữ liệu. Nghiêm cấm việc phát tán, truyền bá hay cổ vũ cho bất kỳ hoạt động nào nhằm can thiệp, phá hoại hay xâm nhập vào dữ liệu của hệ thống website. Mọi vi phạm sẽ bị tước bỏ mọi quyền lợi cũng như sẽ bị truy tố trước pháp luật nếu cần thiết.</p>
-            <p>- Mọi thông tin giao dịch sẽ được bảo mật nhưng trong trường hợp cơ quan pháp luật yêu cầu, chúng tôi sẽ buộc phải cung cấp những thông tin này cho các cơ quan pháp luật.</p>
-            <p>Các điều kiện, điều khoản và nội dung của trang web này được điều chỉnh bởi luật pháp Việt Nam và tòa án Việt Nam có thẩm quyền xem xét.</p>
-            <p><b>III. QUYỀN LỢI KHÁCH HÀNG</b></p>
-            <p>- Quý khách có quyền yêu cầu truy cập vào dữ liệu cá nhân của mình, có quyền yêu cầu chúng tôi sửa lại những sai sót trong dữ liệu của bạn mà không mất phí. Bất cứ lúc nào bạn cũng có quyền yêu cầu chúng tôi ngưng sử dụng dữ liệu cá nhân của bạn cho mục đích tiếp thị.</p>
+      <div class="intro-title">
+        <h1 class="title-head">
+          GIỎ HÀNG
+        </h1>
+      </div>
+    </div>
+
+    <div class="cart-page">
+      <div class="container">
+        <div class="col-main cart-main">
+          <!-- <p>Không có sản phẩm nào trong giỏ hàng. Quay lại <a href="index.html">Cửa Hàng</a> để tiếp tục mua sắm.</p> -->
+          <div class="cart">
+            <form class="formCart" action="" method="post" name="cartCar">
+              <div class="bg-scroll">
+                <div class="cart-thead">
+                  <div style="width: 17%">Ảnh sản phẩm</div>
+                  <div style="width: 33%">Tên sản phẩm</div>
+                  <div style="width: 15%">Đơn giá</div>
+                  <div style="width: 14%">Số lượng</div>
+                  <div style="width: 15%">Thành tiền</div>
+                  <div style="width: 6%">Xóa</div>
+                </div>
+                <div class="cart-tbody">
+                  <div class="item-cart">
+                    <div class="car-image" style="width: 17%">
+                      <a href="javascript:;" class="product-image" title="Aston Martin DB11">
+                        <img src="./image/all/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                      </a>
+                    </div>
+                    <div class="fix-flex" style="width: 33%">
+                      <h2 class="car-name">
+                        <a href="javascript:;" title="Aston Martin DB11">Aston Martin DB11</a>
+                      </h2>
+                    </div>
+                    <div class="fix-flex" style="width: 15%"><span class="item-price">4.829.000.000₫</span></div>
+                    <div style="width: 14%">
+                      <div class="input_qty_pr">
+                        <button class="items-count btn-minus" type="button" name="button">-</button>
+                        <input id="ID_Aston Martin DB11" class="number-sidebar" type="text" name="Name_Aston Martin DB11" size="4" min="0" maxlength="12" value="1">
+                        <button class="items-count btn-plus" type="button" name="button">+</button>
+                      </div>
+                    </div>
+                    <div class="fix-flex" style="width: 15%">
+                      <span class="total-price">4.829.000.000₫</span>
+                    </div>
+                    <div class="fix-flex" style="width: 6%; padding: 10px 0 6px; position: relative">
+                      <a href="javascript:;" class="btn-remove remove-item" title="Xóa"></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -460,7 +498,7 @@
               <li><a href="index.html">Trang chủ</a></li>
               <li><a href="javascript:;">Sản phẩm</a></li>
               <li><a href="introduction.html">Giới thiệu</a></li>
-              <li><a href="javascript:;">Liên hệ</a></li>
+              <li><a href="contact.html">Liên hệ</a></li>
               <li><a href="javascript:;">Tìm kiếm</a></li>
             </ul>
           </div>
@@ -525,6 +563,7 @@
   <!-- End footer -->
   <script type="text/javascript" src="./index.js"></script>
   <script type="text/javascript" src="./loadNavHead.js"></script>
+  <script type="text/javascript" src="./map.js"></script>
   <script type="text/javascript" src="./assets/fontawesome-all.js"></script>
 </body>
 

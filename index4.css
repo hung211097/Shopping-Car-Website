@@ -92,7 +92,7 @@
   right: 200%;
   /* top: 102%; */
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 10;
+  z-index: 100;
 }
 
 .drop-down:hover .dropdown-content {
@@ -217,6 +217,17 @@
   margin-top: 18px;
 }
 
+
+
+#InfoUserBtn
+{
+  display: none;
+}
+
+#SignOutNavBtn
+{
+  display: none;
+}
 
 
 #InfoUserBtn
