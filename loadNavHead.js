@@ -7,24 +7,24 @@
 function changeSignIn()
 {
   var username = localStorage.getItem('username');
-  $('#SignUpNavBtn').fadeOut('fast');
-  $('#SignInNavBtn').fadeOut('fast');
+  $('#SignUpNavBtn').css('display', 'none');
+  $('#SignInNavBtn').css('display', 'none');
+  $('#InfoUserBtn').text(username);
+  $('#InfoUserBtn').css('display', 'block');
+  $('#SignOutNavBtn').css('display', 'block');
   $('#footerSignIn').fadeOut('fast');
   $('#footerSignUp').fadeOut('fast');
   $('#footerForgetPass').fadeOut('fast');
-  $('#InfoUserBtn').html(username);
-  $('#InfoUserBtn').fadeIn('fast');
-  $('#SignOutNavBtn').fadeIn('fast');
   $('#footerSignOut').fadeIn('fast');
 };
 
 function changeSignOut()
 {
-  $('#InfoUserBtn').fadeOut('fast');
-  $('#SignOutNavBtn').fadeOut('fast');
+  $('#SignUpNavBtn').css('display', 'block');
+  $('#SignInNavBtn').css('display', 'block');
+  $('#InfoUserBtn').css('display', 'none');
+  $('#SignOutNavBtn').css('display', 'none');
   $('#footerSignOut').fadeOut('fast');
-  $('#SignUpNavBtn').fadeIn('fast');
-  $('#SignInNavBtn').fadeIn('fast');
   $('#footerSignIn').fadeIn('fast');
   $('#footerSignUp').fadeIn('fast');
   $('#footerForgetPass').fadeIn('fast');

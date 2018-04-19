@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="./assets/OwlCarousel/dist/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="./assets/OwlCarousel/dist/assets/owl.theme.default.min.css">
   <link rel="icon" href="./image/car.ico">
+  <link rel="stylesheet" href="./userInformation.css">
   <title>DreamCar</title>
 </head>
 
@@ -273,27 +274,20 @@
   <!-- End Header -->
 
   <!-- Start Body -->  
-  <div class="container-fluid">
+  <div class="container-fluid" style="margin-top: 50px">
         <div class="row">
 
             <!--  Left content   -->
 
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Danh sách đăng kí</h3>
+                <div class="panel panel-default" style="border-color: #4caf50">
+                    <div class="panel-heading" style="background-color: #ddd;">
+                        <h3 class="panel-title">Thông tin khách hàng</h3>
                     </div>
-                    <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th>Họ và tên</th>
-                            <th>MSSV</th>
-                            <th>Môn học</th>
-                          </tr>
-                        </thead>
-                        <tbody id="danhsach">
-                        </tbody>
-                      </table>
+                    <ul class="vertical-menu">
+                        <li><a class="active" href="javascript:;" id="infoUser">Thông tin khách hàng</a></li>
+                        <li><a href="javascript:;" id="historyBuying">Lịch sử mua hàng</a></li>
+                    </ul>
                 </div>
             </div>
 
@@ -302,73 +296,219 @@
             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                 <div class="panel panel-primary" style="border-color: #35AA47;"> 
                     <div class="panel-heading" style="background-color: #35AA47; border-color: #35AA47;"> 
-                        <h3 class="panel-title">
-                            <a href="#"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span></a>
-                            Đăng kí học phần
-                            <a href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right;"></span></a>
-                            <a href="#"><span class="glyphicon glyphicon-refresh" aria-hidden="true" style="float: right;">&nbsp;</span></a>
-                            <a href="#"><span class="glyphicon glyphicon-wrench" aria-hidden="true" style="float: right;">&nbsp;</span></a>
-                            <a href="#"><span class="glyphicon glyphicon-menu-down" aria-hidden="true" style="float: right;">&nbsp;</span></a>
+                        <h3 class="panel-title" style="text-align: center" id="infoName">                            
                         </h3> 
                     </div> 
-                    <div class="panel-body" style="margin-bottom: 20px;"> 
+                    <div class="panel-body" style="margin-bottom: 20px;" id="BodyInfo"> 
 
-                        <!--  Info   -->
-
-                        <div class="page-header" style="margin-top: 0px;">
-                            <h3 style="margin: 0;">Thông tin đăng kí</h3>
-                        </div>
-                        <!--  Info1   -->
-                        <div class="row">
-                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right; padding-top: 8px; font-size: 18px;">
-                                Họ và tên
+                        <!--  InfoUser   -->
+                        <div id="InfoUser">
+                            <div class="page-header" style="margin-top: 0px;">
+                                <h3 style="margin: 0;">Thông tin cá nhân</h3>
                             </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <input type="text" class="form-control" placeholder="Họ tên sinh viên" style="border-radius: 4px;" id="txtTen">
-                                <small class="form-text text-muted">Không bỏ trống, nên ghi có dấu</small>
-                            </div>
-                        </div>
-                        <!--  Info2   -->
-                        <div class="row" style="padding-top: 20px;">
-                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right; padding-top: 8px; font-size: 18px;">
-                                MSSV
-                            </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <input type="text" class="form-control" placeholder="MSSV 7 kí tự" style="border-radius: 4px;" id="txtMSSV"> 
-                                <small class="form-text text-muted">Không bỏ trống</small>
-                            </div>                              
-                        </div>
-                        <!--  Info3   -->
-                        <div class="row" style="padding-top: 20px;">
-                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right; padding-top: 8px; font-size: 18px;">
-                                Môn học đăng kí
-                            </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                <input type="text" class="form-control" placeholder="Tên môn đăng kí" style="border-radius: 4px;" id="txtMon">
-                                <small class="form-text text-muted">Không bỏ trống</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--  Button   -->
-
-                    <nav class="navbar navbar-default" style="margin: 0; border-radius: 0px 0px 4px 4px; padding-top: 20px; padding-bottom: 20px;">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                    <button type="button" class="btn btn-success" id="btnDK" onclick="DK()">
-                                        Đăng kí
-                                    </button>
+                            <!--  Info1   -->
+                            <div class="row" style="padding-top: 8px; font-size: 18px;">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">Họ và tên:</div>
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="realName">Nguyễn Văn A</div>
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#editNameModal" id="editNameBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
                                 </div>
-                            </div>              
+                            </div>
+                            <!--  Info2   -->
+                            <div class="row" style="padding-top: 30px; font-size: 18px;">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">Password:</div>
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">******</div>     
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" id="editPassBtn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#editPassModal" id="editPassBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
+                                </div>
+                            </div>
+                            <!--  Info3   -->
+                            <div class="row" style="padding-top: 30px; font-size: 18px;">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">Số điện thoại:</div>
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">09xx xxxx xxx</div>        
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" id="editSdtBtn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#editPhoneModal" id="editSDTBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
+                                </div>
+                            </div>
                         </div>
-                    </nav>                    
+                        
+                        <!--  HistoryBuying   -->
+                        <div id="HistoryBuying" style="display: none">
+                            <div class="page-header" style="margin-top: 0px;">
+                                <h3 style="margin: 0;">Danh sách hóa đơn</h3>
+                            </div>
+                            <div class="panel-heading">
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Mã hóa đơn</th>
+                                        <th>Ngày đặt hóa đơn</th>
+                                        <th>Số lượng xe</th>
+                                        <th>Tình trạng</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="danhsach">
+                                    <tr>
+                                        <th><a href="javascript:;" data-toggle="modal" data-target="#billDetail" class="billDetailBtn">#001</a></th>
+                                        <th>24/14/2017</th>
+                                        <th>2</th>
+                                        <th>Đã thanh toán</th>
+                                    </tr>
+                                    <tr>
+                                        <th><a href="javascript:;" data-toggle="modal" data-target="#billDetail" class="billDetailBtn">#002</a></th>
+                                        <th>20/02/2018</th>
+                                        <th>1</th>
+                                        <th>Chưa thanh toán</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>                   
                 </div>
             </div>
         </div>
   </div>
   <!-- End Body -->
+  
+  <!-- Start Edit IDname modal -->
+  <div id="editIDNameModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thay đổi tên tài khoản</h4>
+        </div>
+        <div class="modal-body">
+          <form class="" action="" method="post" name="EditIDName">
+            <div class="form-group">
+              <label for="IDName">Tên mới</label>
+              <input type="text" class="form-control" id="txtIDName" placeholder="" name="IDName">
+            </div>
+            <div class="text-center">
+              <button id="btnEI" class="btn btn-SignIn" type="button" name="button-editName">Xác nhận</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit IDname modal -->
+  
+  <!-- Start Edit name modal -->
+  <div id="editNameModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thay đổi tên khách hàng</h4>
+        </div>
+        <div class="modal-body">
+          <form class="" action="" method="post" name="EditName">
+            <div class="form-group">
+              <label for="Name">Họ và tên mới</label>
+              <input type="text" class="form-control" id="txtRealName" placeholder="" name="Name">
+            </div>
+            <div class="text-center">
+              <button id="btnEN" class="btn btn-SignIn" type="button" name="button-editName">Xác nhận</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit name modal -->
+  
+  <!-- Start Edit pass modal -->
+  <div id="editPassModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thay đổi mật khẩu</h4>
+        </div>
+        <div class="modal-body">
+          <form class="" action="" method="post" name="EditPass">
+            <div class="form-group">
+              <label for="OldPass">Mật khẩu cũ</label>
+              <input type="password" class="form-control" id="txtUserOldPass" placeholder="" name="OldPass">
+            </div>
+            <div class="form-group">
+              <label for="NewPass">Mật khẩu mới</label>
+              <input type="password" class="form-control" id="txtUserNewPass" placeholder="" name="NewPass">
+            </div>
+            <div class="form-group">
+              <label for="ReNewPass">Nhập lại mật khẩu mới</label>
+              <input type="password" class="form-control" id="txtUserReNewPass" placeholder="" name="ReNewPass">
+            </div>
+            <div class="text-center">
+              <button id="btnEP" class="btn btn-SignIn" type="button" name="button-editName">Xác nhận</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit pass modal -->
+  
+  <!-- Start Edit phone modal -->
+  <div id="editPhoneModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thay đổi số điện thoại</h4>
+        </div>
+        <div class="modal-body">
+          <form class="" action="" method="post" name="EditPhone">
+            <div class="form-group">
+              <label for="OldPhone">Số điện thoại cũ</label>
+              <input type="text" class="form-control" id="txtOldPhone" placeholder="" name="OldPhone">
+            </div>
+            <div class="form-group">
+              <label for="NewPhone">Số điện thoại mới</label>
+              <input type="text" class="form-control" id="txtNewPhone" placeholder="" name="NewPhone">
+            </div>
+            <div class="text-center">
+              <button id="btnEPh" class="btn btn-SignIn" type="button" name="button-editName">Xác nhận</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit phone modal -->
+  
+  <!-- Start Edit phone modal -->
+  <div id="billDetail" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thông tin chi tiết hóa đơn</h4>
+        </div>
+        <div class="modal-body">
+            <form class="" action="" method="post" name="EditPhone">
+                <div class="form-group">
+                    <div class="owl-carousel owl-theme" id="sliderDS">
+<!--                        <div class="item">
+                            <div class="containerUI">
+                                <div class="imageUI"><img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11"></div>
+
+                                <a type="button" class="button square hvr-rectangle-out middleUI" name="Detail" id="DetailBtn">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                            </div>
+                        </div>-->
+                        <!--<div class="item imageUI"><img src="./image/BestSeen/BMW 4 Series Convertible.jpg" alt="BMW 4 Series Convertible"></div>-->
+                    </div>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit phone modal -->
   
   <!-- Start footer -->
   <div class="footer">
@@ -415,7 +555,7 @@
             <h4>TÀI KHOẢN</h4>
             <ul class="list-unstyled">
               <li><a href="cart.html">Giỏ hàng</a></li>
-              <li><a href="index.html">Đăng xuất</a></li>
+              <li><a href="index.html" id="footerSignOut">Đăng xuất</a></li>
             </ul>
           </div>
 
@@ -467,9 +607,11 @@
   </div>
   <!-- End footer -->
   <script type="text/javascript" src="./index.js"></script>  
-  <script type="text/javascript" src="./userInformation.js"></script>
+  <script type="text/javascript" src="./loadNavHead.js"></script>  
+  
   <script type="text/javascript" src="./assets/fontawesome-all.js"></script>
-  <script src="./assets/OwlCarousel/dist/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="./assets/OwlCarousel/dist/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="./userInformation.js"></script>
 </body>
 
 </html>

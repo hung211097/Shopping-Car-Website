@@ -918,22 +918,22 @@ $(document).ready(function() {
   LoadProd();
 });
 
-$('#btnSI').on('click', function(){
-  var username = 'Xin chào ' + $('#txtID').val();
-  $('#SignInModal').modal('toggle');
-  $('#SignUpNavBtn').css('display', 'none');
-  $('#SignInNavBtn').css('display', 'none');
-  $('#InfoUserBtn').text(username);
-  $('#InfoUserBtn').css('display', 'block');
-   $('#SignOutNavBtn').css('display', 'block');
-});
-
-$('#SignOutNavBtn').on('click', function(){
-  $('#SignUpNavBtn').css('display', 'block');
-  $('#SignInNavBtn').css('display', 'block');
-  $('#InfoUserBtn').css('display', 'none');
-  $('#SignOutNavBtn').css('display', 'none');
-});
+//$('#btnSI').on('click', function(){
+//  var username = 'Xin chào ' + $('#txtID').val();
+//  $('#SignInModal').modal('toggle');
+//  $('#SignUpNavBtn').css('display', 'none');
+//  $('#SignInNavBtn').css('display', 'none');
+//  $('#InfoUserBtn').text(username);
+//  $('#InfoUserBtn').css('display', 'block');
+//   $('#SignOutNavBtn').css('display', 'block');
+//});
+//
+//$('#SignOutNavBtn').on('click', function(){
+//  $('#SignUpNavBtn').css('display', 'block');
+//  $('#SignInNavBtn').css('display', 'block');
+//  $('#InfoUserBtn').css('display', 'none');
+//  $('#SignOutNavBtn').css('display', 'none');
+//});
 
 const NumPerPage = 12;
 function CreatePagination(arrXe)
