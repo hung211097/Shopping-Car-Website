@@ -35,6 +35,10 @@
   overflow: hidden;
 }
 
+.products-view .col-lg-4:nth-child(3n+1) {
+    clear: left;
+}
+
 .products-view .product-box .product-thumbnail>a {
   display: block;
   width: 100%;
@@ -202,7 +206,17 @@
 }
 
 .pagination > .active > a:hover {
-  color: #00a2d1 !important;
+  color: white;
+}
+
+#allproduct
+{
+  padding: 10px 15px;
+}
+
+#allproduct:hover
+{
+  border-color: #00a2d1;
+  color: #00a2d1;
   background-color: white;
-  border-color: #00a2d1 !important;
 }
