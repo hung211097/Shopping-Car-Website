@@ -24,6 +24,7 @@
 	<link rel="stylesheet" href="./index2.css">
 	<link rel="stylesheet" href="./index3.css">
 	<link rel="stylesheet" href="./index4.css">
+	<link rel="stylesheet" type="text/css" href="manage_car.css">
 
 	<!--right slidebar-->
 	<link href="css/slidebars.css" rel="stylesheet">
@@ -268,17 +269,15 @@
 						Thêm xe	mới vào danh sách
 					</button>
 				</div>
-
 				<!-- Modal -->
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">Thêm xe mới</h4>
+								<h4 class="modal-title">Thêm xe mới</h4>
 							</div>
 							<div class="modal-body">
-								<img src="" alt="" id="file_name">
 								<form action="">
 									<div class="form-group">
 										<h4><strong>Chọn hình ảnh xe:</strong></h4>
@@ -286,49 +285,49 @@
 									</div>
 									<div class="form-group">
 										<h4><strong>Dòng xe:</strong></h4>
-										<input type="text" class="form-control" id="email">
+										<input type="text" class="form-control" id="dong">
 									</div>
 									<div class="form-group">
 										<h4><strong>Tên xe:</strong></h4>
-										<input type="text" class="form-control" id="pwd">
+										<input type="text" class="form-control" id="ten">
 									</div>
 									<div class="form-group">
 										<h4><strong>Giá:</strong></h4>
-										<input type="text" class="form-control" id="email">
+										<input type="text" class="form-control" id="gia">
 									</div>
 									<div class="form-group">
 										<h4><strong>Xuất xứ:</strong></h4>
-										<input type="text" class="form-control" id="email">
+										<input type="text" class="form-control" id="xuatXu">
 									</div>
 									<div class="form-group">
 										<h4><strong>Mô tả:</strong></h4>
-										<textarea class="form-control" rows="5" id="comment"></textarea>
+										<textarea class="form-control" rows="5" id="moTa"></textarea>
 									</div>
 									<div class="form-group">
 										<h4><strong>Nhiên liệu:</strong></h4>
-										<input type="text" class="form-control" id="email">
+										<input type="text" class="form-control" id="nhienLieu">
 									</div>
 									<div class="form-group">
 										<h4><strong>Loại hộp số:</strong></h4>
-										<input type="text" class="form-control" id="email">
+										<input type="text" class="form-control" id="hopSo">
 									</div>
 									<div class="form-group">
 										<h4><strong>Màu sắc:</strong></h4>
-										<input type="text" class="form-control" id="email">
+										<input type="text" class="form-control" id="mau">
 									</div>
 									<div class="form-group">
 										<h4><strong>Số cửa:</strong></h4>
-										<input type="text" class="form-control" id="email">
+										<input type="text" class="form-control" id="soCua">
 									</div>
 									<div class="form-group">
 										<h4><strong>Số chỗ:</strong></h4>
-										<input type="text" class="form-control" id="email">
+										<input type="text" class="form-control" id="soCho">
 									</div>
 								</form>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-								<button type="button" class="btn btn-primary">Thêm</button>
+								<button type="button" class="btn btn-primary" id="add">Thêm</button>
 							</div>
 						</div>
 					</div>
@@ -339,325 +338,294 @@
 				<div>
 					<h2>DANH SÁCH XE</h2>
 				</div>
-
-
-				<div class="row">
-					<div class="container-fluid">
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							<div class="item">
-								<div class="prod-grid">
-									<a href="javascript:;" title="Aston Martin DB11" class="thumbnail">
-										<img src="./image/BestSell/Aston Martin DB11.jpg" data-lazyload="./image/BestSell/Aston Martin DB11.jpg" alt="Aston Martin DB11">
-									</a>
-									<div class="infoBestSell">
-										<h3><a href="javascript:;">Aston Martin DB11</a></h3>
-										<div class="clearfix">
-											<div class="special-price">
-												<span class="price product-price">
-													4.829.000.000₫
-												</span>
-											</div>
+				
+				<div class="row rowAdd" id="infor_car">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="item">
+							<div class="prod-grid">
+								<a href="javascript:;" title="Aston Martin DB11" class="thumbnail">
+									<img src="./image/BestSell/Aston Martin DB11.jpg" data-lazyload="./image/BestSell/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+								</a>
+								<div class="infoBestSell">
+									<h3><a href="javascript:;">Aston Martin DB11</a></h3>
+									<div class="clearfix">
+										<div class="special-price">
+											<span class="price product-price">
+												4.829.000.000₫
+											</span>
 										</div>
 									</div>
-									<form class="products-view-grid" action="" method="post" data-id="">
-										<div class="group">
-											<button type="button" class="button square hvr-rectangle-out" name="Delete">
-												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Update">
-												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Detail">
-												<i class="fa fa-eye"></i>
-											</button>
-										</div>
-									</form>
 								</div>
-							</div>
-						</div>
-
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							<div class="item">
-								<div class="prod-grid">
-									<a href="javascript:;" title="BMW 4 Series Convertible" class="thumbnail">
-										<img src="./image/BestSell/BMW 4 Series Convertible.jpg" data-lazyload="./image/BestSell/BMW 4 Series Convertible.jpg" alt="BMW 4 Series Convertible">
-									</a>
-									<div class="infoBestSell">
-										<h3><a href="javascript:;">BMW 4 Series Convertible</a></h3>
-										<div class="clearfix">
-											<div class="special-price">
-												<span class="price product-price">
-													1.116.000.000₫
-												</span>
-											</div>
-										</div>
+								<form class="products-view-grid" action="" method="post" data-id="">
+									<div class="group">
+										<button type="button" class="button square hvr-rectangle-out" name="Delete">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Update">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Detail">
+											<i class="fa fa-eye"></i>
+										</button>
 									</div>
-									<form class="products-view-grid" action="" method="post" data-id="">
-										<div class="group">
-											<button type="button" class="button square hvr-rectangle-out" name="Delete">
-												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Update">
-												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Detail">
-												<i class="fa fa-eye"></i>
-											</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							<div class="item">
-								<div class="prod-grid">
-									<a href="javascript:;" title="Chevrolet Camaro LS 2017" class="thumbnail">
-										<img src="./image/BestSell/Chevrolet Camaro LS 2017.jpg" data-lazyload="./image/BestSell/Chevrolet Camaro LS 2017.jpg" alt="Chevrolet Camaro LS 2017">
-									</a>
-									<div class="infoBestSell">
-										<h3><a href="javascript:;">Chevrolet Camaro LS 2017</a></h3>
-										<div class="clearfix">
-											<div class="special-price">
-												<span class="price product-price">
-													3.200.000.000₫
-												</span>
-											</div>
-										</div>
-									</div>
-									<form class="products-view-grid" action="" method="post" data-id="">
-										<div class="group">
-											<button type="button" class="button square hvr-rectangle-out" name="Delete">
-												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Update">
-												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Detail">
-												<i class="fa fa-eye"></i>
-											</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							<div class="item">
-								<div class="prod-grid">
-									<a href="javascript:;" title="Volkswagen Scirocco R 2017" class="thumbnail">
-										<img src="./image/BestSell/Volkswagen Scirocco R 2017.jpg" data-lazyload="./image/BestSell/Volkswagen Scirocco R 2017.jpg" alt="Volkswagen Scirocco R 2017">
-									</a>
-									<div class="infoBestSell">
-										<h3><a href="javascript:;">Volkswagen Scirocco R 2017</a></h3>
-										<div class="clearfix">
-											<div class="special-price">
-												<span class="price product-price">
-													1.600.000.000₫
-												</span>
-											</div>
-										</div>
-									</div>
-									<form class="products-view-grid" action="" method="post" data-id="">
-										<div class="group">
-											<button type="button" class="button square hvr-rectangle-out" name="Delete">
-												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Update">
-												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Detail">
-												<i class="fa fa-eye"></i>
-											</button>
-										</div>
-									</form>
-								</div>
+								</form>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="row">
-					<div class="container-fluid">
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							<div class="item">
-								<div class="prod-grid">
-									<a href="javascript:;" title="Hyundai Grand i10 Sedan 1.2 MT 2018" class="thumbnail">
-										<img src="./image/BestSell/Hyundai Grand i10 Sedan 1.2 MT 2018.jpg" data-lazyload="./image/BestSell/Hyundai Grand i10 Sedan 1.2 MT 2018.jpg" alt="Hyundai Grand i10 Sedan 1.2 MT 2018">
-									</a>
-									<div class="infoBestSell">
-										<h3><a href="javascript:;">Hyundai Grand i10 Sedan 1.2 MT 2018</a></h3>
-										<div class="clearfix">
-											<div class="special-price">
-												<span class="price product-price">
-													400.000.000₫
-												</span>
-											</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="item">
+							<div class="prod-grid">
+								<a href="javascript:;" title="BMW 4 Series Convertible" class="thumbnail">
+									<img src="./image/BestSell/BMW 4 Series Convertible.jpg" data-lazyload="./image/BestSell/BMW 4 Series Convertible.jpg" alt="BMW 4 Series Convertible">
+								</a>
+								<div class="infoBestSell">
+									<h3><a href="javascript:;">BMW 4 Series Convertible</a></h3>
+									<div class="clearfix">
+										<div class="special-price">
+											<span class="price product-price">
+												1.116.000.000₫
+											</span>
 										</div>
 									</div>
-									<form class="products-view-grid" action="" method="post" data-id="">
-										<div class="group">
-											<button type="button" class="button square hvr-rectangle-out" name="Delete">
-												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Update">
-												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Detail">
-												<i class="fa fa-eye"></i>
-											</button>
-										</div>
-									</form>
 								</div>
-							</div>
-						</div>
-
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							<div class="item">
-								<div class="prod-grid">
-									<a href="javascript:;" title="Mazda 3 1.5 AT Sedan 2018" class="thumbnail">
-										<img src="./image/BestSell/Mazda 3 1.5 AT Sedan 2018.jpg" data-lazyload="./image/BestSell/Mazda 3 1.5 AT Sedan 2018.jpg" alt="Mazda 3 1.5 AT Sedan 2018">
-									</a>
-									<div class="infoBestSell">
-										<h3><a href="javascript:;">Mazda 3 1.5 AT Sedan 2018</a></h3>
-										<div class="clearfix">
-											<div class="special-price">
-												<span class="price product-price">
-													649.000.000₫
-												</span>
-											</div>
-										</div>
+								<form class="products-view-grid" action="" method="post" data-id="">
+									<div class="group">
+										<button type="button" class="button square hvr-rectangle-out" name="Delete">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Update">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Detail">
+											<i class="fa fa-eye"></i>
+										</button>
 									</div>
-									<form class="products-view-grid" action="" method="post" data-id="">
-										<div class="group">
-											<button type="button" class="button square hvr-rectangle-out" name="Delete">
-												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Update">
-												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Detail">
-												<i class="fa fa-eye"></i>
-											</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							<div class="item">
-								<div class="prod-grid">
-									<a href="javascript:;" title="KIA Cerato 2.0 AT 2018" class="thumbnail">
-										<img src="./image/BestSell/KIA Cerato 2.0 AT 2018.jpg" data-lazyload="./image/BestSell/KIA Cerato 2.0 AT 2018.jpg" alt="KIA Cerato 2.0 AT 2018">
-									</a>
-									<div class="infoBestSell">
-										<h3><a href="javascript:;">KIA Cerato 2.0 AT 2018</a></h3>
-										<div class="clearfix">
-											<div class="special-price">
-												<span class="price product-price">
-													639.000.000₫
-												</span>
-											</div>
-										</div>
-									</div>
-									<form class="products-view-grid" action="" method="post" data-id="">
-										<div class="group">
-											<button type="button" class="button square hvr-rectangle-out" name="Delete">
-												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Update">
-												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Detail">
-												<i class="fa fa-eye"></i>
-											</button>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							<div class="item">
-								<div class="prod-grid">
-									<a href="javascript:;" title="Ford EcoSport Titanium 1.5L AT 2018" class="thumbnail">
-										<img src="./image/BestSell/Ford EcoSport Titanium 1.5L AT 2018.jpg" data-lazyload="./image/BestSell/Ford EcoSport Titanium 1.5L AT 2018.jpg" alt="Ford EcoSport Titanium 1.5L AT 2018">
-									</a>
-									<div class="infoBestSell">
-										<h3><a href="javascript:;">Ford EcoSport Titanium 1.5L AT 2018</a></h3>
-										<div class="clearfix">
-											<div class="special-price">
-												<span class="price product-price">
-													648.000.000₫
-												</span>
-											</div>
-										</div>
-									</div>
-									<form class="products-view-grid" action="" method="post" data-id="">
-										<div class="group">
-											<button type="button" class="button square hvr-rectangle-out" name="Delete">
-												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Update">
-												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Detail">
-												<i class="fa fa-eye"></i>
-											</button>
-										</div>
-									</form>
-								</div>
+								</form>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="row">
-					<div class="container-fluid">
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							<div class="item">
-								<div class="prod-grid">
-									<a href="javascript:;" title="Peugeot-5008-1-6L-Turbo" class="thumbnail">
-										<img src="./image/BestSell/Peugeot-5008-1-6L-Turbo.jpg" data-lazyload="./image/BestSell/Peugeot-5008-1-6L-Turbo.jpg" alt="Peugeot-5008-1-6L-Turbo">
-									</a>
-									<div class="infoBestSell">
-										<h3><a href="javascript:;">Peugeot-5008-1-6L-Turbo</a></h3>
-										<div class="clearfix">
-											<div class="special-price">
-												<span class="price product-price">
-													1.399.000.000₫
-												</span>
-											</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="item">
+							<div class="prod-grid">
+								<a href="javascript:;" title="Chevrolet Camaro LS 2017" class="thumbnail">
+									<img src="./image/BestSell/Chevrolet Camaro LS 2017.jpg" data-lazyload="./image/BestSell/Chevrolet Camaro LS 2017.jpg" alt="Chevrolet Camaro LS 2017">
+								</a>
+								<div class="infoBestSell">
+									<h3><a href="javascript:;">Chevrolet Camaro LS 2017</a></h3>
+									<div class="clearfix">
+										<div class="special-price">
+											<span class="price product-price">
+												3.200.000.000₫
+											</span>
 										</div>
 									</div>
-									<form class="products-view-grid" action="" method="post" data-id="">
-										<div class="group">
-											<button type="button" class="button square hvr-rectangle-out" name="Delete">
-												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Update">
-												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Detail">
-												<i class="fa fa-eye"></i>
-											</button>
-										</div>
-									</form>
 								</div>
+								<form class="products-view-grid" action="" method="post" data-id="">
+									<div class="group">
+										<button type="button" class="button square hvr-rectangle-out" name="Delete">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Update">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Detail">
+											<i class="fa fa-eye"></i>
+										</button>
+									</div>
+								</form>
 							</div>
 						</div>
-
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="item">
+							<div class="prod-grid">
+								<a href="javascript:;" title="Volkswagen Scirocco R 2017" class="thumbnail">
+									<img src="./image/BestSell/Volkswagen Scirocco R 2017.jpg" data-lazyload="./image/BestSell/Volkswagen Scirocco R 2017.jpg" alt="Volkswagen Scirocco R 2017">
+								</a>
+								<div class="infoBestSell">
+									<h3><a href="javascript:;">Volkswagen Scirocco R 2017</a></h3>
+									<div class="clearfix">
+										<div class="special-price">
+											<span class="price product-price">
+												1.600.000.000₫
+											</span>
+										</div>
+									</div>
+								</div>
+								<form class="products-view-grid" action="" method="post" data-id="">
+									<div class="group">
+										<button type="button" class="button square hvr-rectangle-out" name="Delete">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Update">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Detail">
+											<i class="fa fa-eye"></i>
+										</button>
+									</div>
+								</form>
+							</div>
 						</div>
-
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="item">
+							<div class="prod-grid">
+								<a href="javascript:;" title="Hyundai Grand i10 Sedan 1.2 MT 2018" class="thumbnail">
+									<img src="./image/BestSell/Hyundai Grand i10 Sedan 1.2 MT 2018.jpg" data-lazyload="./image/BestSell/Hyundai Grand i10 Sedan 1.2 MT 2018.jpg" alt="Hyundai Grand i10 Sedan 1.2 MT 2018">
+								</a>
+								<div class="infoBestSell">
+									<h3><a href="javascript:;">Hyundai Grand i10 Sedan 1.2 MT 2018</a></h3>
+									<div class="clearfix">
+										<div class="special-price">
+											<span class="price product-price">
+												400.000.000₫
+											</span>
+										</div>
+									</div>
+								</div>
+								<form class="products-view-grid" action="" method="post" data-id="">
+									<div class="group">
+										<button type="button" class="button square hvr-rectangle-out" name="Delete">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Update">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Detail">
+											<i class="fa fa-eye"></i>
+										</button>
+									</div>
+								</form>
+							</div>
 						</div>
-
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="item">
+							<div class="prod-grid">
+								<a href="javascript:;" title="Mazda 3 1.5 AT Sedan 2018" class="thumbnail">
+									<img src="./image/BestSell/Mazda 3 1.5 AT Sedan 2018.jpg" data-lazyload="./image/BestSell/Mazda 3 1.5 AT Sedan 2018.jpg" alt="Mazda 3 1.5 AT Sedan 2018">
+								</a>
+								<div class="infoBestSell">
+									<h3><a href="javascript:;">Mazda 3 1.5 AT Sedan 2018</a></h3>
+									<div class="clearfix">
+										<div class="special-price">
+											<span class="price product-price">
+												649.000.000₫
+											</span>
+										</div>
+									</div>
+								</div>
+								<form class="products-view-grid" action="" method="post" data-id="">
+									<div class="group">
+										<button type="button" class="button square hvr-rectangle-out" name="Delete">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Update">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Detail">
+											<i class="fa fa-eye"></i>
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="item">
+							<div class="prod-grid">
+								<a href="javascript:;" title="KIA Cerato 2.0 AT 2018" class="thumbnail">
+									<img src="./image/BestSell/KIA Cerato 2.0 AT 2018.jpg" data-lazyload="./image/BestSell/KIA Cerato 2.0 AT 2018.jpg" alt="KIA Cerato 2.0 AT 2018">
+								</a>
+								<div class="infoBestSell">
+									<h3><a href="javascript:;">KIA Cerato 2.0 AT 2018</a></h3>
+									<div class="clearfix">
+										<div class="special-price">
+											<span class="price product-price">
+												639.000.000₫
+											</span>
+										</div>
+									</div>
+								</div>
+								<form class="products-view-grid" action="" method="post" data-id="">
+									<div class="group">
+										<button type="button" class="button square hvr-rectangle-out" name="Delete">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Update">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Detail">
+											<i class="fa fa-eye"></i>
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="item">
+							<div class="prod-grid">
+								<a href="javascript:;" title="Ford EcoSport Titanium 1.5L AT 2018" class="thumbnail">
+									<img src="./image/BestSell/Ford EcoSport Titanium 1.5L AT 2018.jpg" data-lazyload="./image/BestSell/Ford EcoSport Titanium 1.5L AT 2018.jpg" alt="Ford EcoSport Titanium 1.5L AT 2018">
+								</a>
+								<div class="infoBestSell">
+									<h3><a href="javascript:;">Ford EcoSport Titanium 1.5L AT 2018</a></h3>
+									<div class="clearfix">
+										<div class="special-price">
+											<span class="price product-price">
+												648.000.000₫
+											</span>
+										</div>
+									</div>
+								</div>
+								<form class="products-view-grid" action="" method="post" data-id="">
+									<div class="group">
+										<button type="button" class="button square hvr-rectangle-out" name="Delete">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Update">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Detail">
+											<i class="fa fa-eye"></i>
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="item">
+							<div class="prod-grid">
+								<a href="javascript:;" title="Peugeot-5008-1-6L-Turbo" class="thumbnail">
+									<img src="./image/BestSell/Peugeot-5008-1-6L-Turbo.jpg" data-lazyload="./image/BestSell/Peugeot-5008-1-6L-Turbo.jpg" alt="Peugeot-5008-1-6L-Turbo">
+								</a>
+								<div class="infoBestSell">
+									<h3><a href="javascript:;">Peugeot-5008-1-6L-Turbo</a></h3>
+									<div class="clearfix">
+										<div class="special-price">
+											<span class="price product-price">
+												1.399.000.000₫
+											</span>
+										</div>
+									</div>
+								</div>
+								<form class="products-view-grid" action="" method="post" data-id="">
+									<div class="group">
+										<button type="button" class="button square hvr-rectangle-out" name="Delete">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Update">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Detail">
+											<i class="fa fa-eye"></i>
+										</button>
+									</div>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -868,7 +836,7 @@
 
   </script>
 
-  <script type="text/javascript" src="./index.js"></script>
+  <!-- <script type="text/javascript" src="./index.js"></script> -->
   <script src="./assets/OwlCarousel/dist/owl.carousel.min.js"></script>
   <script src="admin.js"></script>
 
