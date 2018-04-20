@@ -1043,6 +1043,7 @@ $(document).ready(function() {
       mang.push(xe);
       sessionStorage.mangXe = JSON.stringify(mang);
     }
+
   if(!sessionStorage.Hang)
       sessionStorage.Hang = "";
   if(!sessionStorage.Dong)
@@ -1055,23 +1056,6 @@ $(document).ready(function() {
   CreateCompanyList();
   CreateTypeList();
 });
-
-$('#btnSI').on('click', function() {
-//  var username = 'Xin chào ' + $('#txtID').val();
-//  $('#SignInModal').modal('toggle');
-//  $('#SignUpNavBtn').css('display', 'none');
-//  $('#SignInNavBtn').css('display', 'none');
-//  $('#InfoUserBtn').text(username);
-//  $('#InfoUserBtn').css('display', 'block');
-  $('#SignOutNavBtn').css('display', 'block');
-//});
-//
-$('#SignOutNavBtn').on('click', function() {
-//  $('#SignUpNavBtn').css('display', 'block');
-//  $('#SignInNavBtn').css('display', 'block');
-//  $('#InfoUserBtn').css('display', 'none');
-//  $('#SignOutNavBtn').css('display', 'none');
-//});
 
 var NumPerPage = 12;
 
