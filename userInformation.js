@@ -98,16 +98,38 @@ $('#sliderDS').owlCarousel({
     }
 });
 
-function AddDetail(ten)
+function AddDetail(ten, gia)
 {
+    var price = PriceToSring(gia);
+    
     $('#sliderDS').owlCarousel('add',
                 `<div class="item">
                     <div class="containerUI">
-                        <div class="imageUI"><img src="./image/BestSeen/` + ten + `.jpg" alt="` + ten + `"></div>
-
-                        <a type="button" class="button square hvr-rectangle-out middleUI" name="Detail" class="DetailBtn">
-                            <i class="fa fa-eye"></i>
-                        </a>
+                        <div class="imageUI">
+                            <a href="javascript:;" title="` + ten + `"><img src="./image/BestSeen/` + ten + `.jpg" alt="` + ten + `"></a>
+                            
+                        </div>
+    
+                        <div class="product-info clearfix" style="text-align: center;">
+                            <h3 class="product-name">
+                              <a href="javascript:;" title="` + ten + `">` + ten + `</a>
+                            </h3>
+                        </div>
+    
+                        <div class="clearfix priceArea">
+                            <div class="special-price">
+                                <span class="price product-price">
+                                    <i class="fas fa-money-bill-alt"></i>
+                                    : ` + price + `  
+                                </span>
+                            </div>
+                        </div>
+                
+                        <div class=" middleUI">
+                            <a type="button" class="button square hvr-rectangle-out" name="Detail" class="DetailBtn">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>`).owlCarousel('update');
 };
@@ -121,11 +143,11 @@ $('.billDetailBtn').on('click', function(){
     
     if ($(this).text() === '#001')
     {
-        AddDetail('Aston Martin DB11');  
-        AddDetail('BMW 4 Series Convertible');
+        AddDetail('Aston Martin DB11', '4829000000');  
+        AddDetail('BMW 4 Series Convertible', '1116000000');
     }
     else
     {
-        AddDetail('Chevrolet Camaro LS 2017');
+        AddDetail('Chevrolet Camaro LS 2017', '3200000000');
     }
 });

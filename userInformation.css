@@ -22,7 +22,7 @@ and open the template in the editor.
 }
 
 .vertical-menu a.active {
-    background-color: #4CAF50; 
+    background-color: #00a2d1; 
     color: white;
 }
 
@@ -58,4 +58,15 @@ and open the template in the editor.
 
 .containerUI:hover .middleUI {
   opacity: 1;
+}
+
+.priceArea {
+    color: gold;
+    text-align: center;
+}
+
+.douDots:after {
+    content: ':';
+    position: absolute;
+    right: 0;
 }

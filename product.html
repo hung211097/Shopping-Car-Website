@@ -8,6 +8,7 @@
 
   <script src="./assets/jquery-3.1.1.min.js"></script>
   <script src="./assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
   <link rel="stylesheet" type="text/css" href="./assets/bootstrap-3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="./index2.css">
@@ -301,7 +302,8 @@
               <label for="Email">Email</label>
               <input type="email" class="form-control" id="Email" placeholder="" name="Email">
             </div>
-            <div class="text-center">
+            <div class="text-center">                
+              <div class="g-recaptcha" data-sitekey="6LdhdlQUAAAAAClavUgx9vWtbjf8sa-bTH8Goty7"></div>
               <button class="btn btn-SignUp" type="button" name="button-SignUp" id="btnSU">Đăng Ký</button>
               <p>Bạn đã có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignInModal">Đăng nhập</a></p>
             </div>
