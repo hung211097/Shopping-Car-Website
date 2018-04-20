@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18 Apr, 2018, 11:53:00 PM
+    Author     : Pavilion
+*/
+
+.vertical-menu a {
+    background-color: #fff;
+    color: black;
+    display: block; 
+    padding: 12px; 
+    text-decoration: none; 
+}
+
+.vertical-menu a:hover {
+    background-color: #555;
+    color: white;
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50; 
+    color: white;
+}
+
+.vertical-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+<<<<<<< HEAD
+}
+
+
+
+.imageUI {
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middleUI {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.containerUI:hover .imageUI {
+  opacity: 0.3;
+}
+
+.containerUI:hover .middleUI {
+  opacity: 1;
+=======
+>>>>>>> 5ee0f9dceef5061e138b62cb43d8b8d34f7599cf
+}

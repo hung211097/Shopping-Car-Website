@@ -285,8 +285,13 @@
                         <h3 class="panel-title">Thông tin khách hàng</h3>
                     </div>
                     <ul class="vertical-menu">
+<<<<<<< HEAD
                         <li><a class="active" href="javascript:;" id="infoUser">Thông tin khách hàng</a></li>
                         <li><a href="javascript:;" id="historyBuying">Lịch sử mua hàng</a></li>
+=======
+                        <li><a class="active" href="javascript:;">Thông tin khách hàng</a></li>
+                        <li><a href="javascript:;">Lịch sử mua hàng</a></li>
+>>>>>>> 5ee0f9dceef5061e138b62cb43d8b8d34f7599cf
                     </ul>
                 </div>
             </div>
@@ -296,11 +301,18 @@
             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                 <div class="panel panel-primary" style="border-color: #35AA47;"> 
                     <div class="panel-heading" style="background-color: #35AA47; border-color: #35AA47;"> 
+<<<<<<< HEAD
                         <h3 class="panel-title" style="text-align: center" id="infoName">                            
+=======
+                        <h3 class="panel-title" style="text-align: center" id="infoName">
+                            Thông tin cá nhân
+                            <a href="javascript:;"><span class="fas fa-edit" aria-hidden="true" style="float: right;"></span></a>
+>>>>>>> 5ee0f9dceef5061e138b62cb43d8b8d34f7599cf
                         </h3> 
                     </div> 
                     <div class="panel-body" style="margin-bottom: 20px;" id="BodyInfo"> 
 
+<<<<<<< HEAD
                         <!--  InfoUser   -->
                         <div id="InfoUser">
                             <div class="page-header" style="margin-top: 0px;">
@@ -364,6 +376,31 @@
                                 </tbody>
                             </table>
                         </div>
+=======
+                        <!--  Info   -->
+
+                        <div class="page-header" style="margin-top: 0px;">
+                            <h3 style="margin: 0;">Thông tin cá nhân</h3>
+                        </div>
+                        <!--  Info1   -->
+                        <div class="row" style="padding-top: 8px; font-size: 18px;">
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">
+                                Họ và tên:
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="realName">
+                                Nguyễn Văn A
+                            </div>
+                        </div>
+                        <!--  Info2   -->
+                        <div class="row" style="padding-top: 20px; padding-top: 8px; font-size: 18px;">
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">
+                                Password:
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="passWord">
+                                ******
+                            </div>                              
+                        </div>
+>>>>>>> 5ee0f9dceef5061e138b62cb43d8b8d34f7599cf
                     </div>                   
                 </div>
             </div>
@@ -607,8 +644,13 @@
   </div>
   <!-- End footer -->
   <script type="text/javascript" src="./index.js"></script>  
+<<<<<<< HEAD
   <script type="text/javascript" src="./loadNavHead.js"></script>  
   
+=======
+  <script type="text/javascript" src="./loadNavHead.js"></script>
+  <script type="text/javascript" src="./userInformation.js"></script>
+>>>>>>> 5ee0f9dceef5061e138b62cb43d8b8d34f7599cf
   <script type="text/javascript" src="./assets/fontawesome-all.js"></script>
   <script type="text/javascript" src="./assets/OwlCarousel/dist/owl.carousel.min.js"></script>
   <script type="text/javascript" src="./userInformation.js"></script>

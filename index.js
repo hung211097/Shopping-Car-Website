@@ -1057,21 +1057,21 @@ $(document).ready(function() {
 });
 
 $('#btnSI').on('click', function() {
-  var username = 'Xin chào ' + $('#txtID').val();
-  $('#SignInModal').modal('toggle');
-  $('#SignUpNavBtn').css('display', 'none');
-  $('#SignInNavBtn').css('display', 'none');
-  $('#InfoUserBtn').text(username);
-  $('#InfoUserBtn').css('display', 'block');
+//  var username = 'Xin chào ' + $('#txtID').val();
+//  $('#SignInModal').modal('toggle');
+//  $('#SignUpNavBtn').css('display', 'none');
+//  $('#SignInNavBtn').css('display', 'none');
+//  $('#InfoUserBtn').text(username);
+//  $('#InfoUserBtn').css('display', 'block');
   $('#SignOutNavBtn').css('display', 'block');
-});
-
+//});
+//
 $('#SignOutNavBtn').on('click', function() {
-  $('#SignUpNavBtn').css('display', 'block');
-  $('#SignInNavBtn').css('display', 'block');
-  $('#InfoUserBtn').css('display', 'none');
-  $('#SignOutNavBtn').css('display', 'none');
-});
+//  $('#SignUpNavBtn').css('display', 'block');
+//  $('#SignInNavBtn').css('display', 'block');
+//  $('#InfoUserBtn').css('display', 'none');
+//  $('#SignOutNavBtn').css('display', 'none');
+//});
 
 var NumPerPage = 12;
 

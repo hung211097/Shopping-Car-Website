@@ -7,11 +7,16 @@
 $('#InfoUserBtn').text(localStorage.getItem('username'));
 
 $('#infoName').html(localStorage.getItem('username').substring(9, localStorage.getItem('username').length - 1)
+<<<<<<< HEAD
         + `<a href="javascript:;" data-toggle="modal" data-target="#editIDNameModal" id="editIDNameBtn"><span class="fas fa-edit" aria-hidden="true" style="float: right;"></span></a>`);
+=======
+        + `<a href="javascript:;"><span class="fas fa-edit" aria-hidden="true" style="float: right;"></span></a>`);
+>>>>>>> 5ee0f9dceef5061e138b62cb43d8b8d34f7599cf
 
 $('.vertical-menu li a').on('click', function() {
     $('.vertical-menu a').removeClass();
     $(this).addClass('active');
+<<<<<<< HEAD
 });
 
 $('#btnEI').on('click', function(){
@@ -129,3 +134,6 @@ $('.billDetailBtn').on('click', function(){
         AddDetail('Chevrolet Camaro LS 2017');
     }
 });
+=======
+});
+>>>>>>> 5ee0f9dceef5061e138b62cb43d8b8d34f7599cf
