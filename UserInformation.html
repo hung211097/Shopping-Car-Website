@@ -274,18 +274,18 @@
   <!-- End Header -->
 
   <!-- Start Body -->  
-  <div class="container-fluid" style="margin-top: 50px">
+  <div class="container" style="margin-top: 50px">
         <div class="row">
 
             <!--  Left content   -->
 
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <div class="panel panel-default" style="border-color: #4caf50">
+                <div class="panel panel-default" style="border-color: #00a2d1">
                     <div class="panel-heading" style="background-color: #ddd;">
-                        <h3 class="panel-title">Thông tin khách hàng</h3>
+                        <h3 class="panel-title" style="text-align: center; font-weight: bold;">Thông tin khách hàng</h3>
                     </div>
                     <ul class="vertical-menu">
-                        <li><a class="active" href="javascript:;" id="infoUser">Thông tin khách hàng</a></li>
+                        <li><a class="active" href="javascript:;" id="infoUser">Thông tin cơ bản</a></li>
                         <li><a href="javascript:;" id="historyBuying">Lịch sử mua hàng</a></li>
                     </ul>
                 </div>
@@ -294,8 +294,8 @@
             <!--  Right content   -->
 
             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                <div class="panel panel-primary" style="border-color: #35AA47;"> 
-                    <div class="panel-heading" style="background-color: #35AA47; border-color: #35AA47;"> 
+                <div class="panel panel-primary" style="border-color: #00a2d1;"> 
+                    <div class="panel-heading" style="background-color: #00a2d1; border-color: #00a2d1;"> 
                         <h3 class="panel-title" style="text-align: center" id="infoName">                            
                         </h3> 
                     </div> 
@@ -308,7 +308,7 @@
                             </div>
                             <!--  Info1   -->
                             <div class="row" style="padding-top: 8px; font-size: 18px;">
-                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">Họ và tên:</div>
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Họ và tên</div>
                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="realName">Nguyễn Văn A</div>
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                                     <a href="javascript:;" data-toggle="modal" data-target="#editNameModal" id="editNameBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
@@ -316,7 +316,7 @@
                             </div>
                             <!--  Info2   -->
                             <div class="row" style="padding-top: 30px; font-size: 18px;">
-                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">Password:</div>
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Password</div>
                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">******</div>     
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" id="editPassBtn">
                                     <a href="javascript:;" data-toggle="modal" data-target="#editPassModal" id="editPassBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
@@ -324,7 +324,7 @@
                             </div>
                             <!--  Info3   -->
                             <div class="row" style="padding-top: 30px; font-size: 18px;">
-                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" style="text-align: right;">Số điện thoại:</div>
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Số điện thoại</div>
                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">09xx xxxx xxx</div>        
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" id="editSdtBtn">
                                     <a href="javascript:;" data-toggle="modal" data-target="#editPhoneModal" id="editSDTBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
@@ -345,21 +345,24 @@
                                         <th>Mã hóa đơn</th>
                                         <th>Ngày đặt hóa đơn</th>
                                         <th>Số lượng xe</th>
+                                        <th>Tổng giá tiền</th>
                                         <th>Tình trạng</th>
                                     </tr>
                                 </thead>
                                 <tbody id="danhsach">
                                     <tr>
-                                        <th><a href="javascript:;" data-toggle="modal" data-target="#billDetail" class="billDetailBtn">#001</a></th>
-                                        <th>24/14/2017</th>
-                                        <th>2</th>
-                                        <th>Đã thanh toán</th>
+                                        <td><a href="javascript:;" data-toggle="modal" data-target="#billDetail" class="billDetailBtn">#001</a></td>
+                                        <td>24/14/2017</td>
+                                        <td>2</td>
+                                        <td>xxx</td>
+                                        <td>Đã thanh toán</td>
                                     </tr>
                                     <tr>
-                                        <th><a href="javascript:;" data-toggle="modal" data-target="#billDetail" class="billDetailBtn">#002</a></th>
-                                        <th>20/02/2018</th>
-                                        <th>1</th>
-                                        <th>Chưa thanh toán</th>
+                                        <td><a href="javascript:;" data-toggle="modal" data-target="#billDetail" class="billDetailBtn">#002</a></td>
+                                        <td>20/02/2018</td>
+                                        <td>1</td>
+                                        <td>yyy</td>
+                                        <td>Chưa thanh toán</td>
                                     </tr>
                                 </tbody>
                             </table>
