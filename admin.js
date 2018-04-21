@@ -98,8 +98,17 @@ $('#soCho').on('blur', function() {
 	}
 });
 
+$('#tenDong').on('blur', function() {
+	if ($('#tenDong').val() == "")
+	{
+		$('#tenDong').after('<span id="helpBlock" class="help-block">Bạn chưa nhập thông tin trên</span>');
+		$('#tenDong').parent().removeClass('form-group');
+		$('#tenDong').parent().addClass('form-group has-error');
+	}
+});
 
-$('#add').on('click', function() {
+
+$('#addCar').on('click', function() {
 	var dong = $('#dong').val();
 	var ten = $('#ten').val();
 	var gia = $('#gia').val();
@@ -145,3 +154,36 @@ $('#add').on('click', function() {
 	$('#myModal').modal("toggle");
 });
 
+$('#addKindOfCar').on('click', function() {
+	var tenDong = $('#tenDong').val();
+	$('#info_KindOfCar').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<div class="item">
+								<div class="prod-grid">
+									<a href="javascript:;" title="` + tenDong + `" class="thumbnail">
+										<img src="` + patch + `" data-lazyload="` + patch + `" alt="` + tenDong + `">
+									</a>
+									<div class="infoBestSell">
+										<h3><a href="javascript:;">` + tenDong + `</a></h3>
+									</div>
+									<form class="products-view-grid" action="" method="post" data-id="">
+										<div class="group">
+											<button type="button" class="button square hvr-rectangle-out" name="Delete">
+												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+											</button>
+											<button type="button" class="button square hvr-rectangle-out" name="Update">
+												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+											</button>
+											<button type="button" class="button square hvr-rectangle-out" name="Detail">
+												<i class="fa fa-eye"></i>
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>`);
+	$('#myModal').modal("toggle");
+});
+
+$('button[name="Delete"]').on('click', function() {
+	$(this).parent().parent().parent().parent().parent().remove();
+});
