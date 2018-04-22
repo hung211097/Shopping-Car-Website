@@ -7,7 +7,7 @@
 }
 
 .newProduct h2, .bestSell h2, .introduction h2,
-.service h2, .CustomerOpi h2, .brands h2 {
+.service h2, .CustomerOpi h2, .brands h2, .related-product h2 {
   text-align: center;
   font-size: 20px;
   font-weight: bold;
@@ -15,7 +15,8 @@
 
 .newProduct h2::after, .bestSell h2::after,
 .introduction h2::after, .service h2::after,
-.CustomerOpi h2::after, .brands h2::after {
+.CustomerOpi h2::after, .brands h2::after,
+.related-product h2::after {
   content: "";
   display: block;
   background: #00a2d1 center center no-repeat;

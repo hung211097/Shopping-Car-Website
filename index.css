@@ -97,7 +97,7 @@ body { padding-right: 0 !important }
   background-color: #444444 !important;
 }
 
-.navbar-collapse .navbar-nav li:hover a {
+.navbar-collapse .navbar-nav li a:hover {
   background-color: white !important;
   /* border-left: 1px solid; */
 }
