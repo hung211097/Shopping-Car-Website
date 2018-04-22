@@ -77,6 +77,11 @@
     /* margin-top: -40px; */
     min-height: auto !important;
   }
+
+  #img01 img, #img02 img
+  {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 770px) {
@@ -130,6 +135,18 @@
 @media screen and (max-width: 760px) {
   #newestCar {
     width: 92.4%;
+  }
+
+  .cartCount
+  {
+    top: 72%;
+    right: 0;
+    left: 33px;
+  }
+
+  #img01 img, #img02 img
+  {
+    width: 100%;
   }
 }
 
