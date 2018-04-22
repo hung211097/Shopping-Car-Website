@@ -242,14 +242,14 @@
 					</li>
 
 					<li class="sub-menu">
-						<a class="active" href="manage_manufacturer.html" >
+						<a href="manage_manufacturer.html" >
 							<i class="fa fa-cogs"></i>
 							<span>Quản lí hãng xe</span>
 						</a>
 					</li>
 
 					<li class="sub-menu">
-						<a href="manage_order.html" >
+						<a class="active" href="manage_order.html" >
 							<i class="fa fa-shopping-cart"></i>
 							<span>Quản lí đơn đặt hàng</span>
 						</a>
@@ -263,41 +263,40 @@
 		<section id="main-content">
 			<section class="wrapper">
 				
-				<div class="row" style="text-align: center">
-					<!-- Button trigger modal -->
-					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-						Thêm dòng xe mới vào danh sách
-					</button>
-				</div>
-
-				<!-- Modal -->
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title">Thêm hãng xe mới</h4>
-							</div>
-							<div class="modal-body">
-								<form action="">
-									<div class="form-group">
-										<h4><strong>Chọn hình ảnh hãng xe:</strong></h4>
-										<input type="file" id="i_file"/>
-									</div>
-									<div class="form-group">
-										<h4><strong>Tên hãng xe:</strong></h4>
-										<input type="text" class="form-control" id="hangXe">
-									</div>
-								</form>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-								<button type="button" class="btn btn-primary" id="addManufacturer">Thêm</button>
-							</div>
-						</div>
-					</div>
-				</div>
-
+				<table class="table table-hover table-bordered">
+					<thead>
+						<tr>
+							<th>Mã hóa đơn</th>
+							<th>Mã khách hàng</th>
+							<th>Khách hàng</th>
+							<th>Số lượng sản phẩm mua</th>
+							<th>Chi tiết hóa đơn</th>
+							<th>Tổng tiền</th>
+							<th>Ngày lập hóa đơn</th>
+							<th>Tình trạng</th>
+						</tr>
+					</thead>
+					<tbody id="list">
+						<tr class="success">
+							<td>#0001</td>
+							<td>000000001</td>
+							<td>Lê Văn Luyện</td>
+							<td>2</td>
+							<td style="text-align: center">
+								<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
+									<i class="fa fa-eye"></i>
+								</button>
+							</td>
+							<td>1.200.000.000đ</td>
+							<td>24/03/2018</td>
+							<td data-name="DaGiao">Đã giao
+								<button type="button" class="button square hvr-rectangle-out" name="editStatus">
+									<i class="fa fa-edit"></i>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 
 				<div class="modal fade" id="boxDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					<div class="modal-dialog" role="document">
@@ -316,298 +315,6 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<br>
-				<br>
-				<div>
-					<h2>DANH SÁCH CÁC HÃNG XE</h2>
-				</div>
-
-
-				<div class="row rowAdd" id="info_manufacturer">
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<div class="item">
-							<div class="prod-grid">
-								<a href="javascript:;" title="Ford" class="thumbnail">
-									<img src="image/logo/logo1.png" data-lazyload="image/logo/logo1.png" alt="Ford">
-								</a>
-								<div class="infoBestSell">
-									<h3><a href="javascript:;">Ford</a></h3>
-								</div>
-								<form class="products-view-grid" action="" method="post" data-id="">
-									<div class="group">
-										<button type="button" class="button square hvr-rectangle-out" name="Delete">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update">
-											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
-											<i class="fa fa-eye"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<div class="item">
-							<div class="prod-grid">
-								<a href="javascript:;" title="Toyota" class="thumbnail">
-									<img src="image/logo/logo2.png" data-lazyload="image/logo/logo2.png" alt="Toyota">
-								</a>
-								<div class="infoBestSell">
-									<h3><a href="javascript:;">Toyota</a></h3>
-								</div>
-								<form class="products-view-grid" action="" method="post" data-id="">
-									<div class="group">
-										<button type="button" class="button square hvr-rectangle-out" name="Delete">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update">
-											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
-											<i class="fa fa-eye"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<div class="item">
-							<div class="prod-grid">
-								<a href="javascript:;" title="Mercedes-Benz" class="thumbnail">
-									<img src="image/logo/logo3.png" data-lazyload="image/logo/logo3.png" alt="Mercedes-Benz">
-								</a>
-								<div class="infoBestSell">
-									<h3><a href="javascript:;">Mercedes-Benz</a></h3>
-								</div>
-								<form class="products-view-grid" action="" method="post" data-id="">
-									<div class="group">
-										<button type="button" class="button square hvr-rectangle-out" name="Delete">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update">
-											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
-											<i class="fa fa-eye"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<div class="item">
-							<div class="prod-grid">
-								<a href="javascript:;" title="Honda" class="thumbnail">
-									<img src="image/logo/logo4.png" data-lazyload="image/logo/logo4.png" alt="Honda">
-								</a>
-								<div class="infoBestSell">
-									<h3><a href="javascript:;">Honda</a></h3>
-								</div>
-								<form class="products-view-grid" action="" method="post" data-id="">
-									<div class="group">
-										<button type="button" class="button square hvr-rectangle-out" name="Delete">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update">
-											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
-											<i class="fa fa-eye"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<div class="item">
-							<div class="prod-grid">
-								<a href="javascript:;" title="BMW" class="thumbnail">
-									<img src="image/logo/logo5.png" data-lazyload="image/logo/logo5.png" alt="BMW">
-								</a>
-								<div class="infoBestSell">
-									<h3><a href="javascript:;">BMW</a></h3>
-								</div>
-								<form class="products-view-grid" action="" method="post" data-id="">
-									<div class="group">
-										<button type="button" class="button square hvr-rectangle-out" name="Delete">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update">
-											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
-											<i class="fa fa-eye"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<div class="item">
-							<div class="prod-grid">
-								<a href="javascript:;" title="Chevrolet" class="thumbnail">
-									<img src="image/logo/logo6.png" data-lazyload="image/logo/logo6.png" alt="Chevrolet">
-								</a>
-								<div class="infoBestSell">
-									<h3><a href="javascript:;">Chevrolet</a></h3>
-								</div>
-								<form class="products-view-grid" action="" method="post" data-id="">
-									<div class="group">
-										<button type="button" class="button square hvr-rectangle-out" name="Delete">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update">
-											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
-											<i class="fa fa-eye"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<div class="item">
-							<div class="prod-grid">
-								<a href="javascript:;" title="Audi" class="thumbnail">
-									<img src="image/logo/logo7.png" data-lazyload="image/logo/logo7.png" alt="Audi">
-								</a>
-								<div class="infoBestSell">
-									<h3><a href="javascript:;">Audi</a></h3>
-								</div>
-								<form class="products-view-grid" action="" method="post" data-id="">
-									<div class="group">
-										<button type="button" class="button square hvr-rectangle-out" name="Delete">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update">
-											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
-											<i class="fa fa-eye"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<div class="item">
-							<div class="prod-grid">
-								<a href="javascript:;" title="KIA" class="thumbnail">
-									<img src="image/logo/logo8.png" data-lazyload="image/logo/logo8.png" alt="Kia">
-								</a>
-								<div class="infoBestSell">
-									<h3><a href="javascript:;">Kia</a></h3>
-								</div>
-								<form class="products-view-grid" action="" method="post" data-id="">
-									<div class="group">
-										<button type="button" class="button square hvr-rectangle-out" name="Delete">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update">
-											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
-											<i class="fa fa-eye"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<div class="item">
-							<div class="prod-grid">
-								<a href="javascript:;" title="Aston Martin" class="thumbnail">
-									<img src="image/logo/logo9.png" data-lazyload="image/logo/logo9.png" alt="Aston Martin">
-								</a>
-								<div class="infoBestSell">
-									<h3><a href="javascript:;">Aston Martin</a></h3>
-								</div>
-								<form class="products-view-grid" action="" method="post" data-id="">
-									<div class="group">
-										<button type="button" class="button square hvr-rectangle-out" name="Delete">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update">
-											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
-											<i class="fa fa-eye"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<div class="item">
-							<div class="prod-grid">
-								<a href="javascript:;" title="Mazda" class="thumbnail">
-									<img src="image/logo/logo10.png" data-lazyload="image/logo/logo10.png" alt="Mazda">
-								</a>
-								<div class="infoBestSell">
-									<h3><a href="javascript:;">Mazda</a></h3>
-								</div>
-								<form class="products-view-grid" action="" method="post" data-id="">
-									<div class="group">
-										<button type="button" class="button square hvr-rectangle-out" name="Delete">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update">
-											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
-											<i class="fa fa-eye"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<div class="item">
-							<div class="prod-grid">
-								<a href="javascript:;" title="Hyundai" class="thumbnail">
-									<img src="image/logo/logo11.png" data-lazyload="image/logo/logo11.png" alt="Hyundai">
-								</a>
-								<div class="infoBestSell">
-									<h3><a href="javascript:;">Hyundai</a></h3>
-								</div>
-								<form class="products-view-grid" action="" method="post" data-id="">
-									<div class="group">
-										<button type="button" class="button square hvr-rectangle-out" name="Delete">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update">
-											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
-											<i class="fa fa-eye"></i>
-										</button>
-									</div>
-								</form>
 							</div>
 						</div>
 					</div>

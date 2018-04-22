@@ -143,8 +143,8 @@ $('#addCar').on('click', function() {
 											<button type="button" class="button square hvr-rectangle-out" name="Update">
 												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Detail">
-												<i class="fa fa-eye"></i>
+											<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
+											<i class="fa fa-eye"></i>
 											</button>
 										</div>
 									</form>
@@ -153,6 +153,8 @@ $('#addCar').on('click', function() {
 						</div>`);
 	$('#myModal').modal("toggle");
 });
+
+
 
 $('#addKindOfCar').on('click', function() {
 	var tenDong = $('#tenDong').val();
@@ -173,8 +175,8 @@ $('#addKindOfCar').on('click', function() {
 											<button type="button" class="button square hvr-rectangle-out" name="Update">
 												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Detail">
-												<i class="fa fa-eye"></i>
+											<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
+											<i class="fa fa-eye"></i>
 											</button>
 										</div>
 									</form>
@@ -184,6 +186,57 @@ $('#addKindOfCar').on('click', function() {
 	$('#myModal').modal("toggle");
 });
 
-$('button[name="Delete"]').on('click', function() {
+$('#addManufacturer').on('click', function() {
+	var hangXe = $('#hangXe').val();
+	$('#info_manufacturer').append(`<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<div class="item">
+								<div class="prod-grid">
+									<a href="javascript:;" title="` + hangXe + `" class="thumbnail">
+										<img src="` + patch + `" data-lazyload="` + patch + `" alt="` + hangXe + `">
+									</a>
+									<div class="infoBestSell">
+										<h3><a href="javascript:;">` + hangXe + `</a></h3>
+									</div>
+									<form class="products-view-grid" action="" method="post" data-id="">
+										<div class="group">
+											<button type="button" class="button square hvr-rectangle-out" name="Delete">
+												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+											</button>
+											<button type="button" class="button square hvr-rectangle-out" name="Update">
+												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+											</button>
+											<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
+											<i class="fa fa-eye"></i>
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>`);
+	$('#myModal').modal("toggle");
+});
+
+$('.rowAdd').on('click', 'button[name="Delete"]', function () {
 	$(this).parent().parent().parent().parent().parent().remove();
+});
+
+$('#list').on('click', 'button[name="editStatus"]', function() {
+	if($(this).closest('td').attr('data-name') == "DaGiao")
+	{
+		$(this).closest('td').attr('data-name', 'ChuaGiao');
+		$(this).closest('tr').removeClass('success').addClass('danger');
+		$(this).parent().html(`Chưa giao
+								<button type="button" class="button square hvr-rectangle-out" name="editStatus">
+									<i class="fa fa-edit"></i>
+								</button>`);
+	}
+	else
+	{
+		$(this).closest('td').attr('data-name', 'DaGiao');
+		$(this).closest('tr').removeClass('danger').addClass('success');
+		$(this).parent().html(`Đã giao
+								<button type="button" class="button square hvr-rectangle-out" name="editStatus">
+									<i class="fa fa-edit"></i>
+								</button>`);
+	}
 });
