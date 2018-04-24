@@ -8,16 +8,65 @@ $(document).ready(function() {
   var dem = $(document).find('.cartCount');
   dem.text("" + sessionStorage.count);
 
-  var owl = $('#BSeen');
-  owl.owlCarousel({
+  if (!sessionStorage.mangXe)
+    for (var i = 0; i < AllProd.length; i++) {
+      var xe = {
+        tenxe: AllProd[i].ten,
+        num: 0,
+        gia: parseInt(AllProd[i].gia),
+        xem: parseInt(AllProd[i].xem),
+        ban: parseInt(AllProd[i].ban),
+        nlieu: AllProd[i].nlieu,
+        mau: AllProd[i].mau,
+        hopso: AllProd[i].hopso,
+        cua: AllProd[i].cua,
+        cho: AllProd[i].cho
+      };
+      mang.push(xe);
+      sessionStorage.mangXe = JSON.stringify(mang);
+    }
+  if(!sessionStorage.detailXe)
+    sessionStorage.detailXe = "";
+  if(!sessionStorage.Hang)
+      sessionStorage.Hang = "";
+  if(!sessionStorage.Dong)
+      sessionStorage.Dong = "";
+  if(!sessionStorage.search)
+      sessionStorage.search = "";
+
+  var dem = $(document).find('.cartCount');
+  dem.text("" + sessionStorage.count);
+  $('.sort-by').prop('selectedIndex', 0);
+
+  $('.breadcrumb').find('li').eq(2).text(ten);
+  $('#zoom').attr('href', './image/all/' + ten + '.jpg');
+  $('#zoom').find('img').attr('src', './image/all/' + ten + '.jpg');
+  $('#zoom').find('img').attr('alt', ten);
+  $('.title-head').text(ten);
+  $('.price').text(PriceToSring(gia));
+  $('#NSX').text(CarObj.hang);
+  $('#NumSeen').text(CarObj.xem);
+  $('#NumSold').text(CarObj.ban);
+  $('#kieu').text(CarObj.dong);
+  $('#nlieu').text(CarObj.nlieu);
+  $('#loaihop').text(CarObj.hopso);
+  $('#mau').text(CarObj.mau);
+  $('#cua').text(CarObj.cua + ' cửa');
+  $('#chongoi').text(CarObj.cho + ' chỗ');
+  $('#img01').find('img').attr('src', './image/all/' + ten + '/' + ten + '_2.jpg');
+  $('#img02').find('img').attr('src', './image/all/' + ten + '/' + ten + '_3.jpg');
+
+  LoadMoreImage();
+
+  var owl6 = $('#SameTypeProduct');
+  owl6.owlCarousel({
     loop: true,
     nav: true,
-    items: 10,
+    items: 5,
     dots: false,
     navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
     lazyLoad: false,
     margin: 30,
-    video: false,
     autoWidth: false,
     responsiveClass: true,
     responsiveRefreshRate: true,
@@ -43,16 +92,15 @@ $(document).ready(function() {
     }
   });
 
-  var owl2 = $('#NewProd');
-  owl2.owlCarousel({
+  var owl7 = $('#SameNSXProduct');
+  owl7.owlCarousel({
     loop: true,
     nav: true,
-    items: 10,
+    items: 5,
     dots: false,
     navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
     lazyLoad: false,
     margin: 30,
-    video: false,
     autoWidth: false,
     responsiveClass: true,
     responsiveRefreshRate: true,
@@ -78,126 +126,30 @@ $(document).ready(function() {
     }
   });
 
-  var owl3 = $('#BSell');
-  owl3.owlCarousel({
-    loop: true,
-    nav: false,
-    items: 10,
-    dots: false,
-    navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
-    lazyLoad: false,
-    margin: 30,
-    video: false,
-    autoWidth: false,
-    responsiveClass: true,
-    responsiveRefreshRate: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      600: {
-        items: 2
-      },
-      970: {
-        items: 2
-      },
-      1175: {
-        items: 3
-      },
-      1366: {
-        items: 4
-      },
-      1920: {
-        items: 4
-      }
+var check = 0;
+  for(var i = 0; i < AllProd.length; i++)
+    if(AllProd[i].dong == CarObj.dong && AllProd[i].ten != CarObj.ten)
+    {
+      check++;
+      AddToCarousel(AllProd[i].ten, AllProd[i].gia, '#SameTypeProduct');
+      if(check == 5)
+        break;
     }
-  });
 
-  var owl4 = $('#Opinion');
-  owl4.owlCarousel({
-    items: 3,
-    dots: true,
-    lazyLoad: false,
-    margin: 30,
-    video: false,
-    autoWidth: false,
-    responsive: {
-      0: {
-        items: 1
-      },
-      600: {
-        items: 1
-      },
-      700: {
-        items: 2
-      },
-      1140: {
-        items: 2
-      },
-      1366: {
-        items: 2
-      }
+  check = 0;
+  for(var i = 0; i < AllProd.length; i++)
+    if(AllProd[i].hang == CarObj.hang  && AllProd[i].ten != CarObj.ten)
+    {
+      check++;
+      AddToCarousel(AllProd[i].ten, AllProd[i].gia, '#SameNSXProduct');
+      if(check == 5)
+        break;
     }
-  });
-
-  var owl5 = $('#owl-brands');
-  owl5.owlCarousel({
-    loop: true,
-    nav: true,
-    navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
-    items: 11,
-    dots: false,
-    lazyLoad: false,
-    margin: 10,
-    video: false,
-    autoWidth: false,
-    responsive: {
-      0: {
-        items: 1
-      },
-      750: {
-        items: 1
-      },
-      980: {
-        items: 4
-      },
-      1366: {
-        items: 6
-      }
-    }
-  });
-
-BSeenArr = AllProd.slice().sort(function(a, b){
-  return a.xem < b.xem;
-})
-
-BSellArr = AllProd.slice().sort(function(a, b){
-  return a.ban < b.ban;
-})
-
-  for (var i = 0; i < MaxCar; i++)
-    AddToCarousel(BSeenArr[i].ten, BSeenArr[i].gia, '#BSeen');
-
-  for (var i = 0; i < MaxCar; i++)
-    AddToCarousel(AllProd[i].ten, AllProd[i].gia, '#NewProd');
-
-  for (var i = 0; i < MaxCar; i++)
-    AddBestSellProd(BSellArr[i].ten, BSellArr[i].gia);
-
   document.SignIn.reset();
   document.SignUp.reset();
 });
 
 var mang = [];
-
-function insert(str, index, value) {
-  return str.substr(0, index) + value + str.substr(index);
-}
-
-var BSeenArr = [];
-var BSellArr = [];
-var NewProdArr = [];
-var MaxCar = 10;
 var AllProd = [{
     ten: 'Aston Martin DB11',
     gia: '4829000000',
@@ -576,7 +528,7 @@ var AllProd = [{
     cho: '4'
   },
   {
-    ten: 'Aston Martin Vanquish S Ultimate Edition',
+    ten: 'Aston Martin Vanquish S Ultimate',
     gia: '38000000000',
     hang: 'Aston Martin',
     dong: 'Coupe',
@@ -733,7 +685,7 @@ var AllProd = [{
   },
   {
     ten: 'Honda Civic LX',
-    gia: '190000000',
+    gia: '1900000000',
     hang: 'Honda',
     dong: 'Coupe',
     ban: '87',
@@ -993,7 +945,7 @@ var AllProd = [{
   },
   {
     ten: 'Toyota Camry',
-    gia: '1300000000',
+    gia: '2000000000',
     hang: 'Toyota',
     dong: 'Sedan',
     ban: '100',
@@ -1068,8 +1020,302 @@ var AllProd = [{
     mau: 'Đỏ',
     cua: '4',
     cho: '5'
+  },
+  {
+    ten: 'Honda Insight Prototype',
+    gia: '1500000000',
+    hang: 'Honda',
+    dong: 'Coupe',
+    ban: '45',
+    xem: '84376',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Xám',
+    cua: '4',
+    cho: '5'
+  },
+  {
+    ten: 'BMW 330i Sports Wagon 2017',
+    gia: '950000000',
+    hang: 'BMW',
+    dong: 'Wagon',
+    ban: '30',
+    xem: '45376',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Xanh dương',
+    cua: '4',
+    cho: '5'
+  },
+  {
+    ten: 'Ford Transit Connect Minivan 2018',
+    gia: '700000000',
+    hang: 'Ford',
+    dong: 'Van/Minivan',
+    ban: '25',
+    xem: '64986',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 7 cấp',
+    mau: 'Đỏ',
+    cua: '5',
+    cho: '7'
+  },
+  {
+    ten: 'Audi A4 Allroad 2017',
+    gia: '1000000000',
+    hang: 'Audi',
+    dong: 'Wagon',
+    ban: '53',
+    xem: '76876',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Trắng',
+    cua: '4',
+    cho: '5'
+  },
+  {
+    ten: 'Aston Martin Vantage',
+    gia: '4300000000',
+    hang: 'Aston Martin',
+    dong: 'Coupe',
+    ban: '10',
+    xem: '92376',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 7 cấp',
+    mau: 'Xanh vàng',
+    cua: '2',
+    cho: '2'
+  },
+  {
+    ten: 'Chevrolet Sonic 2015',
+    gia: '2500000000',
+    hang: 'Chevrolet',
+    dong: 'Sedan',
+    ban: '32',
+    xem: '104376',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 7 cấp',
+    mau: 'Trắng',
+    cua: '4',
+    cho: '4'
+  },
+  {
+    ten: 'Hyundai i800',
+    gia: '1800000000',
+    hang: 'Huyndai',
+    dong: 'Van/Minivan',
+    ban: '40',
+    xem: '59376',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Đen',
+    cua: '5',
+    cho: '7'
+  },
+  {
+    ten: 'Mercedes Benz Gla Class 2018',
+    gia: '2500000000',
+    hang: 'Mercedes',
+    dong: 'SUV/Crossover',
+    ban: '55',
+    xem: '89456',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Xám',
+    cua: '4',
+    cho: '5'
+  },
+  {
+    ten: 'Peugeot 208 GTi Prestige',
+    gia: '1900000000',
+    hang: 'Peugeot',
+    dong: 'Hatchback',
+    ban: '63',
+    xem: '98765',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Trắng',
+    cua: '2',
+    cho: '5'
+  },
+  {
+    ten: 'Toyota Hilux Vigo Champ',
+    gia: '2800000000',
+    hang: 'Toyota',
+    dong: 'Truck',
+    ban: '24',
+    xem: '4376',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Trắng',
+    cua: '4',
+    cho: '5'
+  },
+  {
+    ten: 'Volkswagen Golf Gti Dsg',
+    gia: '2500000000',
+    hang: 'Volkswagen',
+    dong: 'SUV/Crossover',
+    ban: '30',
+    xem: '43056',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Trắng',
+    cua: '2',
+    cho: '5'
   }
 ]
+
+
+function AddMoreImage(x, count) {
+  mySwiper.appendSlide(`<div class="swiper-slide bethua">
+  <a href="javascript:;" name="more-`+ x +`-`+ count +`" class="thumb-link">
+    <img src="./image/all/` + x + `/` + x + `_` + count + `.jpg" alt="`+  x +`" onerror="this.parentNode.style.display = 'none'">
+  </a>
+  </div>`);
+  mySwiper.update();
+
+  $('a[name="more-' + x + '-' + count +'"]').on('click', function() {
+    var a = $('#zoom');
+    a.attr('href', './image/all/' + x + '/' + x + '_' + count + '.jpg');
+    var image = a.find('img');
+    image.attr('src', './image/all/' + x + '/' + x + '_' + count + '.jpg');
+    image.attr('alt', './image/all/' + x + '.jpg');
+  });
+}
+
+var mySwiper;
+function LoadMoreImage() {
+    mySwiper = new Swiper('#gallery_01', {
+      speed: 400,
+      slidesPerView: 5,
+      direction: 'vertical',
+      spaceBetween: 20,
+      grabCursor: true,
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+    });
+
+    for(var i = 0; i < NumMore; i++)
+      AddMoreImage(sessionStorage.detailXe, i + 1);
+}
+
+var NumMore = 5;
+
+var CarObj = AllProd.find(function(temp){
+  return temp.ten == sessionStorage.detailXe;
+});
+
+var ten = CarObj.ten;
+var gia = CarObj.gia;
+
+$('.btn-cart').on('click', function() {
+  $(this).blur();
+});
+
+$('.qtyminus').on('click', function() {
+  var temp = $('#qty').val();
+  if(temp > 1)
+    $('#qty').val(--temp);
+});
+
+$('.qtyplus').on('click', function() {
+  var temp = $('#qty').val();
+  $('#qty').val(++temp);
+});
+
+$('.btn-cart').on('click', function() {
+  var price = PriceToSring(gia);
+  var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+  hinh.attr('src', './image/all/' + ten + '.jpg');
+  hinh.attr('alt', ten);
+  $('#QuickBuy').find('.product-title').text(ten);
+  $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
+  $('#QuickBuy').find('div.product-new-price').find('span').text(price);
+  var num = parseInt($('#qty').val());
+  IncreaseNumCar(num);
+  var temp = JSON.parse(sessionStorage.mangXe);
+  for (var i = 0; i < temp.length; i++)
+    if (temp[i].tenxe == ten)
+      temp[i].num += num;
+  sessionStorage.mangXe = JSON.stringify(temp);
+});
+
+function insert(str, index, value) {
+  return str.substr(0, index) + value + str.substr(index);
+}
+
+$('#SignUpNavBtn').on('click', function() {
+  document.SignUp.reset();
+});
+
+$('#SignInNavBtn').on('click', function() {
+  document.SignIn.reset();
+});
+
+$('#OptionBtn').on('click', function() {
+  document.SignUp.reset();
+  document.SignIn.reset();
+  document.ForgetPass.reset();
+});
+
+$('#OptionBtnForget').on('click', function() {
+  $('body').css('padding-right', '-17px !important');
+  document.ForgetPass.reset();
+});
+
+function PriceToSring(price) {
+  var str = "" + price;
+  var dot = 0;
+  for (var i = str.length - 1; i >= 0; i--) {
+    dot++;
+    if (dot == 3 && i != 0) {
+      str = insert(str, i, '.');
+      dot = 0;
+    }
+  }
+  str += '₫';
+  return str;
+}
+
+function DecreaseNumCar() {
+  if (sessionStorage.count)
+    sessionStorage.count = Number(sessionStorage.count) - 1;
+  var dem = $(document).find('.cartCount');
+  dem.text("" + sessionStorage.count);
+}
+
+function IncreaseNumCar(x) {
+  if (sessionStorage.count)
+    sessionStorage.count = Number(sessionStorage.count) + x;
+  var dem = $(document).find('.cartCount');
+  dem.text("" + sessionStorage.count);
+}
+
+$('#prodHid').on('click', function() {
+  sessionStorage.Hang = "";
+  sessionStorage.Dong = "";
+});
+
+$('#prod').on('click', function() {
+  sessionStorage.Hang = "";
+  sessionStorage.Dong = "";
+});
+
+$('#prodFoot').on('click', function() {
+  sessionStorage.Hang = "";
+  sessionStorage.Dong = "";
+});
+
+$('#allproduct').on('click', function() {
+  sessionStorage.Hang = "";
+  sessionStorage.Dong = "";
+});
+
+$('#breadPro').on('click', function() {
+  sessionStorage.Hang = "";
+  sessionStorage.Dong = "";
+});
 
 function AddToCarousel(ten, gia, contain) {
   var price = PriceToSring(gia);
@@ -1117,7 +1363,7 @@ function AddToCarousel(ten, gia, contain) {
     $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
     $('#QuickBuy').find('div.product-new-price').find('span').text(price);
 
-    IncreaseNumCar();
+    IncreaseNumCar(1);
     var temp = JSON.parse(sessionStorage.mangXe);
     for (var i = 0; i < temp.length; i++)
       if (temp[i].tenxe == ten)
@@ -1135,348 +1381,104 @@ function AddToCarousel(ten, gia, contain) {
   });
 }
 
-function AddBestSellProd(ten, gia) {
-  var price = PriceToSring(gia);
-  var boxHinh = $('#BSell');
-  boxHinh.owlCarousel('add', `<div class="prod-grid">
-    <a href="javascript:;" title="` + ten + `">
-      <img src="./image/all/` + ten + `.jpg" data-lazyload="./image/BestSell/` + ten + `.jpg" alt="` + ten + `">
-    </a>
-    <div class="infoBestSell">
-      <h3><a href="javascript:;">` + ten + `</a></h3>
-      <div class="clearfix">
-        <div class="special-price">
-          <span class="price product-price">
-            ` + price + `
-          </span>
-        </div>
-      </div>
-    </div>
-    <form class="products-view-grid" action="" method="post" data-id="">
-      <div class="group">
-        <a class="button square hvr-rectangle-out" name="button-Buy-` + ten + `" data-toggle="modal" data-target="#QuickBuy">
-          <i class="fa fa-shopping-cart"></i>
-        </a>
-        <a href="detail.html" class="button square hvr-rectangle-out" name="button-Detail-` + ten +`">
-        <i class="fa fa-eye"></i>
-        </a>
-      </div>
-    </form>
-  </div>`).owlCarousel('update');
-  $('a[name="button-Buy-' + ten + '"]').on('click', function() {
-    var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-    hinh.attr('src', './image/all/' + ten + '.jpg');
-    hinh.attr('alt', ten);
-    $('#QuickBuy').find('.product-title').text(ten);
-    $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
-    $('#QuickBuy').find('div.product-new-price').find('span').text(price);
 
-    IncreaseNumCar();
-    var temp = JSON.parse(sessionStorage.mangXe);
-    for (var i = 0; i < temp.length; i++)
-      if (temp[i].tenxe == ten)
-        temp[i].num += 1;
-    sessionStorage.mangXe = JSON.stringify(temp);
-  });
-
-  $('a[name="button-Detail-' + ten +'"]').on('click', function(){
-    sessionStorage.detailXe = ten;
-  });
-}
-
-$('#SignUpNavBtn').on('click', function() {
-  document.SignUp.reset();
+$('#btn-Search').on('click', function() {
+  sessionStorage.search = $('input#find').val();
+  sessionStorage.SearchPrice = 0;
+  sessionStorage.SearchBrand = 0;
+  sessionStorage.SearchType = 0;
+  var keyword = sessionStorage.search;
+  if(keyword == "")
+    sessionStorage.SearchResult = AllProd.length;
+  else
+  {
+    var dem = 0;
+    var key = new RegExp(keyword, 'i');
+    for(var i = 0; i < AllProd.length; i++)
+      if(AllProd[i].ten.search(key) > -1)
+        dem++;
+    sessionStorage.SearchResult = dem;
+  }
 });
 
-$('#SignInNavBtn').on('click', function() {
-  document.SignIn.reset();
+$('#btn-Search-Collapse').on('click', function() {
+  sessionStorage.search = $('input#findCollapse').val();
+  sessionStorage.SearchPrice = 0;
+  sessionStorage.SearchBrand = 0;
+  sessionStorage.SearchType = 0;
+  var keyword = sessionStorage.search;
+  if(keyword == "")
+    sessionStorage.SearchResult = AllProd.length;
+  else
+  {
+    var dem = 0;
+    var key = new RegExp(keyword, 'i');
+    for(var i = 0; i < AllProd.length; i++)
+      if(AllProd[i].ten.search(key) > -1)
+        dem++;
+    sessionStorage.SearchResult = dem;
+  }
 });
 
-$('#OptionBtn').on('click', function() {
-  document.SignUp.reset();
-  document.SignIn.reset();
-  document.ForgetPass.reset();
+$('#btn-Search-Foot').on('click', function() {
+  sessionStorage.search = "";
+  sessionStorage.SearchPrice = 0;
+  sessionStorage.SearchBrand = 0;
+  sessionStorage.SearchType = 0;
+  var keyword = sessionStorage.search;
+  if(keyword == "")
+    sessionStorage.SearchResult = AllProd.length;
+  else
+  {
+    var dem = 0;
+    var key = new RegExp(keyword, 'i');
+    for(var i = 0; i < AllProd.length; i++)
+      if(AllProd[i].ten.search(key) > -1)
+        dem++;
+    sessionStorage.SearchResult = dem;
+  }
 });
 
-$('#OptionBtnForget').on('click', function() {
-  $('body').css('padding-right', '-17px !important');
-  document.ForgetPass.reset();
-});
-
-function myMap() {
-  var mapProp = {
-    center: new google.maps.LatLng(10.764122, 106.682473),
-    zoom: 17,
-  };
-
-  var map = new google.maps.Map(document.getElementById("contact_map"), mapProp);
-  var marker = new google.maps.Marker({
-    position: mapProp.center
-  });
-
-  marker.setMap(map);
-}
-
-function PriceToSring(price) {
-  var str = "" + price;
-  var dot = 0;
-  for (var i = str.length - 1; i >= 0; i--) {
-    dot++;
-    if (dot == 3 && i != 0) {
-      str = insert(str, i, '.');
-      dot = 0;
+$('#find').bind('keypress', function(e) {
+  if(e.keyCode == 13)
+  {
+    sessionStorage.search = $(this).val();
+    sessionStorage.SearchPrice = 0;
+    sessionStorage.SearchBrand = 0;
+    sessionStorage.SearchType = 0;
+    var keyword = sessionStorage.search;
+    if(keyword == "")
+      sessionStorage.SearchResult = AllProd.length;
+    else
+    {
+      var dem = 0;
+      var key = new RegExp(keyword, 'i');
+      for(var i = 0; i < AllProd.length; i++)
+        if(AllProd[i].ten.search(key) > -1)
+          dem++;
+      sessionStorage.SearchResult = dem;
     }
   }
-  str += '₫';
-  return str;
-}
+});
 
-function Inc(input_name) {
-  var value = $(input_name).val();
-  $(input_name).val(++value);
-  IncreaseNumCar();
-}
-
-function Dec(input_name) {
-  var value = $(input_name).val();
-  if ($(input_name).val() > 1) {
-    $(input_name).val(--value);
-    DecreaseNumCar();
-  }
-}
-
-function AddCart(ten, price, sluong) {
-  var gia = PriceToSring(price);
-  var item = $(`<div class="car-image" style="width: 17%" data-name="` + ten + `">
-    <a href="javascript:;" class="product-image" title="` + ten + `">
-      <img src="./image/all/` + ten + `.jpg" alt="` + ten + `">
-    </a>
-  </div>
-  <div class="fix-flex" style="width: 33%" data-name="` + ten + `">
-    <h2 class="car-name">
-      <a href="javascript:;" title="` + ten + `">` + ten + `</a>
-    </h2>
-  </div>
-  <div class="fix-flex" style="width: 15%" data-name="` + ten + `">
-    <input type="hidden" name="price_` + ten + `" value="` + price + `">
-    <span class="item-price">` + gia + `</span>
-  </div>
-  <div style="width: 14%" data-name="` + ten + `">
-    <div class="input_qty_pr">
-      <button class="items-count btn-minus" type="button" name="minus_` + ten + `">-</button>
-      <input class="number-sidebar" type="text" disabled="disabled" size="4" min="0" maxlength="12" value="` + sluong + `" name="num_` + ten + `">
-      <button class="items-count btn-plus" type="button" name="plus_` + ten + `">+</button>
-    </div>
-  </div>
-  <div class="fix-flex" style="width: 15%" data-name="` + ten + `">
-    <input type="hidden" name="eachTotalPrice" data-name="eachTotalPrice_`+ten+`" value="` + price + `">
-    <span class="total-price" data-name="total-price-`+ten+`">` + gia + `</span>
-  </div>
-  <div class="fix-flex" style="width: 6%; padding: 10px 0 6px; position: relative" data-name="` + ten + `">
-    <a href="javascript:;" class="btn-remove remove-item" title="Xóa" data-name="delete_` + ten + `"></a>
-  </div>
-</div>`);
-
-  var item_mobile = $(`<div class="item-product" data-name="` + ten + `">
-  <div class="item-product-cart-mobile">
-    <a href="javascript:;" title="` + ten + `"><img src="./image/all/` + ten + `.jpg" alt="` + ten + `"></a>
-  </div>
-  <div class="title-product-cart-mobile">
-    <h3><a href="javascript:;" title="` + ten + `">` + ten + `</a></h3>
-    <p>Giá: <span class="item-price">` + gia + `</span></p>
-  </div>
-  <div class="select-item-qty-mobile">
-    <div class="txt_center">
-      <button class="items-count btn-minus" type="button" name="minus_` + ten + `">-</button>
-      <input class="number-sidebar" type="text" disabled="disabled"  name="num_` + ten + `" size="4" min="0" maxlength="12" value="` + sluong + `">
-      <button class="items-count btn-plus" type="button" name="plus_` + ten + `">+</button>
-    </div>
-    <a href="javascript:;" class="btn-remove remove-item" title="Xóa" data-name="delete_` + ten + `"></a>
-  </div>
-</div>`);
-
-  $('.item-cart').append(item);
-  var num = parseInt($('input[name="num_'+ ten +'"]').val());
-  var priceItem = parseInt($('input[name="price_' + ten +'"]').val());
-  var temp = num * priceItem;
-  var totalPriceItem = $('input[data-name="eachTotalPrice_' + ten +'"]').val(temp);
-  $('span[data-name="total-price-'+ten+'"]').text(PriceToSring(temp));
-
-  UpdateTotalPrice();
-
-  $('.content-product-list').append(item_mobile);
-  $(document).on('click', 'button[name="minus_' + ten + '"]', function() {
-    var value = $(document).find('input[name="num_' + ten + '"]');
-    Dec(value);
-    var giaItem = parseInt($(document).find('input[name="price_' + ten + '"]').val());
-    var soluong = parseInt($(document).find('input[name="num_' + ten + '"]').val());
-    var tong = giaItem * soluong;
-    $(document).find('div[data-name="' + ten + '"]').find('input[name="eachTotalPrice"]').val(tong);
-    var chuoiTong = PriceToSring(tong);
-    $(document).find('div[data-name="' + ten + '"]').find('.total-price').text(chuoiTong);
-
-    UpdateListCar(ten, soluong);
-    UpdateTotalPrice();
-  });
-
-  $(document).on('click', 'button[name="plus_' + ten + '"]', function() {
-    var value = $(document).find('input[name="num_' + ten + '"]');
-    Inc(value);
-    var giaItem = parseInt($(document).find('input[name="price_' + ten + '"]').val());
-    var soluong = parseInt($(document).find('input[name="num_' + ten + '"]').val());
-    var tong = giaItem * soluong;
-    $(document).find('div[data-name="' + ten + '"]').find('input[name="eachTotalPrice"]').val(tong);
-    var chuoiTong = PriceToSring(tong);
-    $(document).find('div[data-name="' + ten + '"]').find('.total-price').text(chuoiTong);
-
-    UpdateListCar(ten, soluong);
-    UpdateTotalPrice();
-  });
-
-  $(document).on('click', 'a[data-name="delete_' + ten + '"]', function() {
-    var bigiam = parseInt(sessionStorage.count);
-    var giam = $('input[name="num_' + ten + '"]').val();
-    bigiam -= giam;
-    sessionStorage.count = bigiam;
-
-    var dem = $(document).find('.cartCount');
-    dem.text("" + sessionStorage.count);
-
-    UpdateListCar(ten, 0);
-    $(document).find('div[data-name="' + ten + '"]').remove();
-    UpdateTotalPrice();
-  });
-}
-
-function DecreaseNumCar() {
-  if (sessionStorage.count)
-    sessionStorage.count = Number(sessionStorage.count) - 1;
-  var dem = $(document).find('.cartCount');
-  dem.text("" + sessionStorage.count);
-}
-
-function IncreaseNumCar() {
-  if (sessionStorage.count)
-    sessionStorage.count = Number(sessionStorage.count) + 1;
-  var dem = $(document).find('.cartCount');
-  dem.text("" + sessionStorage.count);
-}
-
-function UpdateListCar(ten, sluong) {
-  var temp = JSON.parse(sessionStorage.mangXe);
-  for (var i = 0; i < temp.length; i++)
-    if (temp[i].tenxe == ten)
-      temp[i].num = sluong;
-  sessionStorage.mangXe = JSON.stringify(temp);
-}
-
-function UpdateTotalPrice() {
-  var eachItem = $('input[name="eachTotalPrice"]');
-  var total = 0;
-  for (var i = 0; i < eachItem.length; i++) {
-    total += parseInt(eachItem[i].value);
-  }
-  $('input[name="totalprice"]').val(total);
-  total = PriceToSring(total);
-  $('.all-total-price').text(total);
-}
-
-function CartUpdate() {
-  var isHave = parseInt(sessionStorage.count);
-  if (isHave == 0) {
-    $('.cart-page').find('div:first').find('p:first').css('display', 'block');
-    $('.cart').css('display', 'none');
-    $('.cart-mobile').css('display', 'none');
-    $('.cart-submit-desktop').css('display', 'none');
-    $('.cart-price-mobile').css('display', 'none');
-  } else {
-    $('.cart-page').find('div:first').find('p:first').css('display', 'none');
-    $('.cart').css('display', 'block');
-    $('.cart-mobile').css('display', 'block');
-    $('.cart-submit-desktop').css('display', 'block');
-    $('.cart-price-mobile').css('display', 'block');
-    var temp = JSON.parse(sessionStorage.mangXe);
-    for (var i = 0; i < temp.length; i++) {
-      if (temp[i].num > 0)
-        AddCart(temp[i].tenxe, temp[i].gia, temp[i].num);
+$('#findCollapse').bind('keypress', function(e) {
+  if(e.keyCode == 13)
+  {
+    sessionStorage.search = $(this).val();
+    sessionStorage.SearchPrice = 0;
+    sessionStorage.SearchBrand = 0;
+    sessionStorage.SearchType = 0;
+    var keyword = sessionStorage.search;
+    if(keyword == "")
+      sessionStorage.SearchResult = AllProd.length;
+    else
+    {
+      var dem = 0;
+      var key = new RegExp(keyword, 'i');
+      for(var i = 0; i < AllProd.length; i++)
+        if(AllProd[i].ten.search(key) > -1)
+          dem++;
+      sessionStorage.SearchResult = dem;
     }
   }
-
-  var eachItem = $('input[name="eachTotalPrice"]');
-  var total = 0;
-  for (var i = 0; i < eachItem.length; i++) {
-    total += parseInt(eachItem[i].value);
-  }
-  $('input[name="totalprice"]').val(total);
-  total = PriceToSring(total);
-  $('.all-total-price').text(total);
-}
-
-$(document).ready(function() {
-  if (!sessionStorage.mangXe)
-    for (var i = 0; i < AllProd.length; i++) {
-      var xe = {
-        tenxe: AllProd[i].ten,
-        num: 0,
-        gia: parseInt(AllProd[i].gia),
-        xem: parseInt(AllProd[i].xem),
-        ban: parseInt(AllProd[i].ban),
-        nlieu: AllProd[i].nlieu,
-        mau: AllProd[i].mau,
-        hopso: AllProd[i].hopso,
-        cua: AllProd[i].cua,
-        cho: AllProd[i].cho
-      };
-      mang.push(xe);
-      sessionStorage.mangXe = JSON.stringify(mang);
-    }
-  if(!sessionStorage.detailXe)
-    sessionStorage.detailXe = "";
-  if(!sessionStorage.Hang)
-      sessionStorage.Hang = "";
-  if(!sessionStorage.Dong)
-      sessionStorage.Dong = "";
-  CartUpdate();
-  var dem = $(document).find('.cartCount');
-  dem.text("" + sessionStorage.count);
-  // $('.sort-by').prop('selectedIndex', 0);
-  // LoadProd(0);
-  // CreateCompanyList();
-  // CreateTypeList();
-  // alert(sessionStorage.mangXe);
 });
-
-$('#prodHid').on('click', function() {
-  sessionStorage.Hang = "";
-  sessionStorage.Dong = "";
-});
-
-$('#prod').on('click', function() {
-  sessionStorage.Hang = "";
-  sessionStorage.Dong = "";
-});
-
-$('#prodFoot').on('click', function() {
-  sessionStorage.Hang = "";
-  sessionStorage.Dong = "";
-});
-
-$('#allproduct').on('click', function() {
-  sessionStorage.Hang = "";
-  sessionStorage.Dong = "";
-});
-
-$('#breadPro').on('click', function() {
-  sessionStorage.Hang = "";
-  sessionStorage.Dong = "";
-});
-
-function SetCompany(str) {
-  sessionStorage.Hang = str;
-  sessionStorage.Dong = "";
-}
-
-function SetType(str) {
-  sessionStorage.Dong = str;
-  sessionStorage.Hang = "";
-}

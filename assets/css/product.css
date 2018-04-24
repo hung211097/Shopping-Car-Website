@@ -10,7 +10,7 @@
   appearance: none;
   height: 40px;
   border-radius: 0px;
-  background-image: url("./image/ico-select.png");
+  background-image: url("../../image/ico-select.png");
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-color: #fff !important;
@@ -27,7 +27,8 @@
   border: 0;
 }
 
-.products-view .product-box {
+.products-view .product-box,
+.products-view-grid .product-box {
   text-align: left;
   margin-bottom: 30px;
   background: #fff;
@@ -39,28 +40,33 @@
     clear: left;
 }
 
-.products-view .product-box .product-thumbnail>a {
+.products-view .product-box .product-thumbnail>a,
+.products-view-grid .product-box .product-thumbnail > a {
   display: block;
   width: 100%;
 }
 
-.products-view .product-box .product-thumbnail a img {
+.products-view .product-box .product-thumbnail a img,
+.products-view-grid .product-box .product-thumbnail a img {
   width: 100%;
   height: auto;
 }
 
-.products-view .product-box .product-info {
+.products-view .product-box .product-info,
+.products-view-grid .product-box .product-info {
   z-index: 10;
   position: relative;
   padding: 15px 0;
   border-bottom: solid 1px #ebebeb;
 }
 
-.products-view .product-box .product-name {
+.products-view .product-box .product-name,
+.products-view-grid .product-box .product-name {
   margin: 0;
 }
 
-.products-view .product-box .product-name a {
+.products-view .product-box .product-name a,
+.products-view-grid .product-box .product-name a {
   color: #555555;
   text-decoration: none;
 }
@@ -108,55 +114,55 @@
 }
 
 .aside-collection .list-cate li:nth-of-type(1) a::before {
-  background-image: url("./image/logo-small/icon1-min.png");
+  background-image: url("../../image/logo-small/icon1-min.png");
 }
 
 .aside-collection .list-cate li:nth-of-type(2) a::before {
-  background-image: url("./image/logo-small/icon2-min.png");
+  background-image: url("../../image/logo-small/icon2-min.png");
 }
 
 .aside-collection .list-cate li:nth-of-type(3) a::before {
-  background-image: url("./image/logo-small/icon3-min.png");
+  background-image: url("../../image/logo-small/icon3-min.png");
 }
 
 .aside-collection .list-cate li:nth-of-type(4) a::before {
-  background-image: url("./image/logo-small/icon4-min.png");
+  background-image: url("../../image/logo-small/icon4-min.png");
 }
 
 .aside-collection .list-cate li:nth-of-type(5) a::before {
-  background-image: url("./image/logo-small/icon5-min.png");
+  background-image: url("../../image/logo-small/icon5-min.png");
 }
 
 .aside-collection .list-cate li:nth-of-type(6) a::before {
-  background-image: url("./image/logo-small/icon6-min.png");
+  background-image: url("../../image/logo-small/icon6-min.png");
 }
 
 .aside-collection .list-cate li:nth-of-type(7) a::before {
-  background-image: url("./image/logo-small/icon7-min.png");
+  background-image: url("../../image/logo-small/icon7-min.png");
 }
 
 .aside-collection .list-cate li:nth-of-type(8) a::before {
-  background-image: url("./image/logo-small/icon8-min.png");
+  background-image: url("../../image/logo-small/icon8-min.png");
 }
 
 .aside-collection .list-cate li:nth-of-type(9) a::before {
-  background-image: url("./image/logo-small/icon9-min.png");
+  background-image: url("../../image/logo-small/icon9-min.png");
 }
 
 .aside-collection .list-cate li:nth-of-type(10) a::before {
-  background-image: url("./image/logo-small/icon10-min.png");
+  background-image: url("../../image/logo-small/icon10-min.png");
 }
 
 .aside-collection .list-cate li:nth-of-type(11) a::before {
-  background-image: url("./image/logo-small/icon11-min.png");
+  background-image: url("../../image/logo-small/icon11-min.png");
 }
 
 .aside-collection .list-cate li:nth-of-type(12) a::before {
-  background-image: url("./image/logo-small/icon12-min.png");
+  background-image: url("../../image/logo-small/icon12-min.png");
 }
 
 .aside-collection .list-cate li:nth-of-type(13) a::before {
-  background-image: url("./image/logo-small/icon13-min.png");
+  background-image: url("../../image/logo-small/icon13-min.png");
 }
 
 .aside-collection .list-cate li a, .aside-collection .list-type li a {
@@ -165,11 +171,13 @@
   text-decoration: none;
 }
 
-.products-view .pagination {
+.products-view .pagination,
+.products-view-grid .pagination {
   margin: 24px 0;
 }
 
-.products-view .pagination li {
+.products-view .pagination li,
+.products-view-grid .pagination li {
   display: inline;
 }
 

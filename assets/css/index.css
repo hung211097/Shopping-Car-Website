@@ -28,6 +28,11 @@ body { padding-right: 0 !important }
   transition: 0.2s;
 }
 
+#btn-Search
+{
+  color: #444444;
+}
+
 .center {
   display: none;
 }

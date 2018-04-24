@@ -178,7 +178,7 @@ a.remove-item {
     -webkit-transition: all 0.3s linear;
     border: none;
     background-color: #fff;
-    background-image: url('./image/bin.png');
+    background-image: url('../../image/bin.png');
     width: 22px;
     height: 26px;
     display: block;

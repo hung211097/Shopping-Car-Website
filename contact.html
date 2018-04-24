@@ -10,13 +10,13 @@
   <script src="./assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
   <script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
   <link rel="stylesheet" type="text/css" href="./assets/bootstrap-3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./index.css">
-  <link rel="stylesheet" href="./index2.css">
-  <link rel="stylesheet" href="./index3.css">
-  <link rel="stylesheet" href="./index4.css">
-  <link rel="stylesheet" href="./introduction.css">
-  <link rel="stylesheet" href="./responsive.css">
-  <link rel="stylesheet" href="./animate.css">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="stylesheet" href="./assets/css/index2.css">
+  <link rel="stylesheet" href="./assets/css/index3.css">
+  <link rel="stylesheet" href="./assets/css/index4.css">
+  <link rel="stylesheet" href="./assets/css/responsive.css">
+  <link rel="stylesheet" href="./assets/css/animate.css">
+  <link rel="stylesheet" href="./assets/css/introduction.css">
   <link rel="stylesheet" href="./assets/hover/css/hover-min.css">
   <link rel="icon" href="./image/car.ico">
   <title>Contact</title>
@@ -69,15 +69,15 @@
                 <div class="container megaMenu">
                   <div class="row search">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <form class="form-inline SearchField" action="" name="SearchForm">
+                      <form class="form-inline SearchField" action="./search.html" name="SearchForm">
                         <div class="form-group">
                           <label for="find">Tìm kiếm sản phẩm</label>
                           <div class="input-group">
-                            <input type="text" id="find" class="form-control" size="40" placeholder="Tìm kiếm ..." name="search-input">
+                            <input type="text" id="find" class="form-control" size="40" placeholder="Tìm kiếm theo tên sản phẩm ..." name="search-input">
                             <div class="input-group-btn">
-                              <button class="btn btn-default" type="submit">
+                              <a class="btn btn-default" href="search.html" id="btn-Search">
                                  <i class="fas fa-search"></i>
-                               </button>
+                               </a>
                             </div>
                           </div>
                         </div>
@@ -224,7 +224,7 @@
                             </div>
                           </a>
                         </div>
-                        
+
                         <div class="col-sm-4 col-md-4">
                           <a href="product.html">
                             <div class="type-box">
@@ -240,13 +240,13 @@
               </div>
             </li>
             <li><a href="contact.html">Liên hệ</a></li>
-            <form class="form-inline SearchFieldHid" action="" name="SearchForm">
+            <form class="form-inline SearchFieldHid" action="./search.html" name="SearchForm">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Tìm kiếm ..." name="search-input">
+                <input type="text" id="findCollapse" class="form-control" placeholder="Tìm kiếm theo tên sản phẩm ..." name="search-input">
                 <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit">
+                  <a href="search.html "class="btn btn-default" id="btn-Search-Collapse">
                     <i class="fas fa-search"></i>
-                 </button>
+                 </a>
                 </div>
               </div>
             </form>
@@ -465,7 +465,7 @@
               <li><a href="product.html" id="prodFoot">Sản phẩm</a></li>
               <li><a href="introduction.html">Giới thiệu</a></li>
               <li><a href="contact.html">Liên hệ</a></li>
-              <li><a href="javascript:;">Tìm kiếm</a></li>
+              <li><a href="search.html" id="btn-Search-Foot">Tìm kiếm</a></li>
             </ul>
           </div>
 
@@ -527,7 +527,7 @@
     </div>
   </div>
   <!-- End footer -->
-  <script type="text/javascript" src="./index.js"></script>
+  <script type="text/javascript" src="./assets/js/index.js"></script>
   <!-- <script type="text/javascript" src="./map.js"></script> -->
   <script type="text/javascript" src="./loadNavHead.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4u4WD7qyTzFfLC5LBoE-8RsvwqmSwK14&callback=myMap"></script>
