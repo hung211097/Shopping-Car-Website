@@ -25,22 +25,21 @@ $(document).ready(function() {
       mang.push(xe);
       sessionStorage.mangXe = JSON.stringify(mang);
     }
-  if(!sessionStorage.detailXe)
+  if (!sessionStorage.detailXe)
     sessionStorage.detailXe = "";
 
-  if(!sessionStorage.Hang)
-      sessionStorage.Hang = "";
-  if(!sessionStorage.Dong)
-      sessionStorage.Dong = "";
+  if (!sessionStorage.Hang)
+    sessionStorage.Hang = "";
+  if (!sessionStorage.Dong)
+    sessionStorage.Dong = "";
+  if (!sessionStorage.search)
+    sessionStorage.search = "";
 
-  var dem = $(document).find('.cartCount');
-  dem.text("" + sessionStorage.count);
-  $('.sort-by').prop('selectedIndex', 0);
+  $('select[name="SearchWithPrice"]').prop('selectedIndex', parseInt(sessionStorage.SearchPrice));
+  $('select[name="SearchWithBrand"]').prop('selectedIndex', parseInt(sessionStorage.SearchBrand));
+  $('select[name="SearchWithType"]').prop('selectedIndex', parseInt(sessionStorage.SearchType));
 
-  LoadProd(0);
-  CreateCompanyList();
-  CreateTypeList();
-
+  LoadProd();
   document.SignIn.reset();
   document.SignUp.reset();
 });
@@ -116,24 +115,24 @@ function UpdateTotalPrice() {
   $('.all-total-price').text(total);
 }
 
-var NumPerPage = 12;
+var NumPerPage = 16;
 
 function CreatePagination(arrXe) {
-  var paginate = $('.products-view').find('.pagination');
+  var paginate = $('.products-view-grid').find('.pagination');
   var NumPage;
-  if (arrXe.length % 12 == 0)
-    NumPage = parseInt(arrXe.length / 12);
+  if (arrXe.length % NumPerPage == 0)
+    NumPage = parseInt(arrXe.length / NumPerPage);
   else
-    NumPage = parseInt(arrXe.length / 12) + 1;
+    NumPage = parseInt(arrXe.length / NumPerPage) + 1;
 
   for (var i = 0; i < NumPerPage && i < arrXe.length; i++)
     AddProduct(arrXe[i].ten, arrXe[i].gia);
 
   paginate.append('<li class="disabled"><a href="#" id="first" class="page-link">&laquo;</a></li>');
-  if (arrXe.length <= 12)
+  if (arrXe.length <= NumPerPage)
     paginate.append('<li class="active page-item"><a href="#" class="page-link" id="page-first">1</a></li>');
   else
-  if (arrXe.length > 12 && arrXe.length <= 24) {
+  if (arrXe.length > NumPerPage && arrXe.length <= NumPerPage * 2) {
     paginate.append('<li class="active page-item"><a href="#" class="page-link" id="page-first">1</a></li>');
     paginate.append('<li class="page-item"><a href="#" class="page-link" id="page-second">2</a></li>');
   } else {
@@ -150,23 +149,20 @@ function CreatePagination(arrXe) {
   var page_second = $('#page-second');
   var page_third = $('#page-third');
   var last = $('#last');
-  if(arrXe.length <= 12)
-  {
+  if (arrXe.length <= NumPerPage) {
     last.parents().addClass('disabled');
     last.bind('click', false);
     page_first.on('click', function() {
-      var contain = $('.products-view').find('.row');
+      var contain = $('.products-view-grid').find('.row');
       var n1 = parseInt(page_first.text());
       contain.find('div').remove();
       for (var i = (n1 - 1) * NumPerPage; i < NumPerPage * n1 && i < arrXe.length; i++)
         AddProduct(arrXe[i].ten, arrXe[i].gia);
     });
-  }
-  else
-  if(arrXe.length > 12 && arrXe.length <= 24)
-  {
+  } else
+  if (arrXe.length > NumPerPage && arrXe.length <= NumPerPage * 2) {
     first.on('click', function() {
-      var contain = $('.products-view').find('.row');
+      var contain = $('.products-view-grid').find('.row');
       contain.find('div').remove();
       for (var i = 0; i < NumPerPage && i < arrXe.length; i++)
         AddProduct(arrXe[i].ten, arrXe[i].gia);
@@ -179,7 +175,7 @@ function CreatePagination(arrXe) {
     });
 
     page_first.on('click', function() {
-      var contain = $('.products-view').find('.row');
+      var contain = $('.products-view-grid').find('.row');
       var n1 = parseInt(page_first.text());
       last.parent().removeClass('disabled');
       last.unbind('click', false);
@@ -195,7 +191,7 @@ function CreatePagination(arrXe) {
     });
 
     page_second.on('click', function() {
-      var contain = $('.products-view').find('.row');
+      var contain = $('.products-view-grid').find('.row');
       var n2 = parseInt(page_second.text());
       first.parent().removeClass('disabled');
       first.unbind('click', false);
@@ -209,7 +205,7 @@ function CreatePagination(arrXe) {
     });
 
     last.on('click', function() {
-      var contain = $('.products-view').find('.row');
+      var contain = $('.products-view-grid').find('.row');
       contain.find('div').remove();
       for (var i = (NumPage - 1) * NumPerPage; i < arrXe.length; i++)
         AddProduct(arrXe[i].ten, arrXe[i].gia);
@@ -220,11 +216,9 @@ function CreatePagination(arrXe) {
       first.parent().removeClass('disabled');
       first.unbind('click', false);
     });
-  }
-  else
-  {
+  } else {
     first.on('click', function() {
-      var contain = $('.products-view').find('.row');
+      var contain = $('.products-view-grid').find('.row');
       contain.find('div').remove();
       for (var i = 0; i < NumPerPage && i < arrXe.length; i++)
         AddProduct(arrXe[i].ten, arrXe[i].gia);
@@ -241,7 +235,7 @@ function CreatePagination(arrXe) {
     });
 
     page_first.on('click', function() {
-      var contain = $('.products-view').find('.row');
+      var contain = $('.products-view-grid').find('.row');
       var n1 = parseInt(page_first.text());
       last.parent().removeClass('disabled');
       last.unbind('click', false);
@@ -268,7 +262,7 @@ function CreatePagination(arrXe) {
     });
 
     page_second.on('click', function() {
-      var contain = $('.products-view').find('.row');
+      var contain = $('.products-view-grid').find('.row');
       var n2 = parseInt(page_second.text());
       first.parent().removeClass('disabled');
       first.unbind('click', false);
@@ -284,7 +278,7 @@ function CreatePagination(arrXe) {
     });
 
     page_third.on('click', function() {
-      var contain = $('.products-view').find('.row');
+      var contain = $('.products-view-grid').find('.row');
       var n3 = parseInt(page_third.text());
       first.parent().removeClass('disabled');
       first.unbind('click', false);
@@ -312,7 +306,7 @@ function CreatePagination(arrXe) {
     });
 
     last.on('click', function() {
-      var contain = $('.products-view').find('.row');
+      var contain = $('.products-view-grid').find('.row');
       contain.find('div').remove();
       for (var i = (NumPage - 1) * NumPerPage; i < arrXe.length; i++)
         AddProduct(arrXe[i].ten, arrXe[i].gia);
@@ -332,7 +326,7 @@ function CreatePagination(arrXe) {
 
 function AddProduct(ten, gia) {
   var price = PriceToSring(gia);
-  var item = $(`<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="float: left">
+  var item = $(`<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
   <div class="product-box">
     <div class="product-thumbnail">
       <a href="javascript:;" title="` + ten + `">
@@ -359,7 +353,7 @@ function AddProduct(ten, gia) {
             Mua hàng
           </a>
 
-          <a href="detail.html" class="btn btn-gray hvr-rectangle-out" name="button-Detail-` + ten +`" title="Chi tiết" style="float: right">
+          <a href="detail.html" class="btn btn-gray hvr-rectangle-out" name="button-Detail-` + ten + `" title="Chi tiết" style="float: right">
             <i class="fa fa-eye"></i>
             Chi tiết
           </a>
@@ -369,7 +363,7 @@ function AddProduct(ten, gia) {
   </div>
   </div>`);
 
-  $('.products-view').find('.row').append(item);
+  $('.products-view-grid').find('.row').append(item);
   $('a[name="button-Buy-' + ten + '"]').on('click', function() {
     var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
     hinh.attr('src', './image/all/' + ten + '.jpg');
@@ -386,7 +380,7 @@ function AddProduct(ten, gia) {
     sessionStorage.mangXe = JSON.stringify(temp);
   });
 
-  $('a[name="button-Detail-' + ten +'"]').on('click', function(){
+  $('a[name="button-Detail-' + ten + '"]').on('click', function() {
     sessionStorage.detailXe = ten;
     var temp = JSON.parse(sessionStorage.mangXe);
     for (var i = 0; i < temp.length; i++)
@@ -396,121 +390,343 @@ function AddProduct(ten, gia) {
   });
 }
 
-function LoadProd(isSort) {
-  if(sessionStorage.Hang == "" && sessionStorage.Dong == "")
-  {
-    var temp = AllProd.slice(0);
-    if(isSort != 0)
-    {
-      switch(isSort)
-      {
-        case 1:
-          temp.sort(function(a, b){
-            return parseInt(a.gia) > parseInt(b.gia);
-          });
-          break;
-        case 2:
-          temp.sort(function(a, b){
-            return parseInt(a.gia) < parseInt(b.gia);
-          });
-          break;
-        case 3:
-          temp.sort(function(a, b){
-            return a.ten > b.ten;
-          });
-          break;
-        case 4:
-          temp.sort(function(a, b){
-            return a.ten < b.ten;
-          });
-          break;
+function LoadProd() {
+  if (sessionStorage.search == "") {
+    if (sessionStorage.SearchPrice == '0' && sessionStorage.SearchBrand == '0' && sessionStorage.SearchType == '0') {
+      CreatePagination(AllProd);
+      sessionStorage.SearchResult = AllProd.length;
+    } else {
+      var temp = [];
+      var temp2 = [];
+      var temp3 = [];
+      var res = [];
+      var price = parseInt(sessionStorage.SearchPrice);
+      var brand = parseInt(sessionStorage.SearchBrand);
+      var type = parseInt(sessionStorage.SearchType);
+
+      if (price != 0) {
+        switch (price) {
+          case 1:
+            for (var i = 0; i < AllProd.length; i++)
+              if (parseInt(AllProd[i].gia) < 500000000)
+                temp.push(AllProd[i]);
+            break;
+          case 2:
+            for (var i = 0; i < AllProd.length; i++)
+              if (parseInt(AllProd[i].gia) >= 500000000 && parseInt(AllProd[i].gia) <= 1000000000)
+                temp.push(AllProd[i]);
+            break;
+          case 3:
+            for (var i = 0; i < AllProd.length; i++)
+              if (parseInt(AllProd[i].gia) >= 1000000000 && parseInt(AllProd[i].gia) <= 2000000000)
+                temp.push(AllProd[i]);
+            break;
+          case 4:
+            for (var i = 0; i < AllProd.length; i++)
+              if (parseInt(AllProd[i].gia) > 2000000000)
+                temp.push(AllProd[i]);
+            break;
+        }
+        if (brand != 0) {
+          var tmp = $('select[name="SearchWithBrand"] :selected').val();
+          for (var i = 0; i < temp.length; i++)
+            if (temp[i].hang != tmp) {
+              temp.splice(i, 1);
+              i--;
+            }
+        }
+        if (type != 0) {
+          var tmp = $('select[name="SearchWithType"] :selected').val();
+          for (var i = 0; i < temp.length; i++)
+            if (temp[i].dong != tmp) {
+              temp.splice(i, 1);
+              i--;
+            }
+        }
+        res = temp;
+        sessionStorage.SearchResult = res.length;
+      } else
+      if (brand != 0) {
+        var tmp = $('select[name="SearchWithBrand"] :selected').val();
+        for (var i = 0; i < AllProd.length; i++)
+          if (AllProd[i].hang == tmp)
+            temp2.push(AllProd[i]);
+
+        if (price != 0) {
+          switch (price) {
+            case 1:
+              for (var i = 0; i < temp2.length; i++)
+                if (parseInt(temp2[i].gia) >= 500000000) {
+                  temp2.splice(i, 1);
+                  i--;
+                }
+              break;
+            case 2:
+              for (var i = 0; i < temp2.length; i++)
+                if (parseInt(temp2[i].gia) < 500000000 || parseInt(temp2[i].gia) > 1000000000) {
+                  temp2.splice(i, 1);
+                  i--;
+                }
+              break;
+            case 3:
+              for (var i = 0; i < temp2.length; i++)
+                if (parseInt(temp2[i].gia) < 1000000000 || parseInt(temp2[i].gia) > 2000000000) {
+                  i--;
+                  temp2.splice(i, 1);
+                }
+              break;
+            case 4:
+              for (var i = 0; i < temp2.length; i++)
+                if (parseInt(temp2[i].gia) <= 2000000000) {
+                  temp2.splice(i, 1);
+                  i--;
+                }
+              break;
+          }
+        }
+
+        if (type != 0) {
+          var tmp2 = $('select[name="SearchWithType"] :selected').val();
+          for (var i = 0; i < temp2.length; i++)
+            if (temp2[i].dong != tmp2) {
+              temp2.splice(i, 1);
+              i--;
+            }
+        }
+        res = temp2;
+        sessionStorage.SearchResult = res.length;
+      } else
+      if (type != 0) {
+        var tmp = $('select[name="SearchWithType"] :selected').val();
+        for (var i = 0; i < AllProd.length; i++)
+          if (AllProd[i].dong == tmp)
+            temp3.push(AllProd[i]);
+
+
+        if (price != 0) {
+          switch (price) {
+            case 1:
+              for (var i = 0; i < temp3.length; i++)
+                if (parseInt(temp3[i].gia) >= 500000000) {
+                  temp3.splice(i, 1);
+                  i--;
+                }
+              break;
+            case 2:
+              for (var i = 0; i < temp3.length; i++)
+                if (parseInt(temp3[i].gia) < 500000000 || parseInt(temp3[i].gia) > 1000000000) {
+                  temp3.splice(i, 1);
+                  i--;
+                }
+              break;
+            case 3:
+              for (var i = 0; i < temp3.length; i++)
+                if (parseInt(temp3[i].gia) < 1000000000 || parseInt(temp3[i].gia) > 2000000000) {
+                  temp3.splice(i, 1);
+                  i--;
+                }
+              break;
+            case 4:
+              for (var i = 0; i < temp3.length; i++)
+                if (parseInt(temp3[i].gia) <= 2000000000) {
+                  temp3.splice(i, 1);
+                  i--;
+                }
+              break;
+          }
+        }
+
+        if (brand != 0) {
+          var tmp2 = $('select[name="SearchWithBrand"] :selected').val();
+          for (var i = 0; i < temp3.length; i++)
+            if (temp3[i].hang != tmp2) {
+              temp3.splice(i, 1);
+              i--;
+            }
+        }
+        res = temp3;
+        sessionStorage.SearchResult = res.length;
       }
+
+      CreatePagination(res);
     }
-    CreatePagination(temp);
-  }
-  else
-  {
-    var temp = [];
-    if(sessionStorage.Hang != "" && sessionStorage.Dong == "")
+  } else {
+    var array = [];
+    var keyword = sessionStorage.search;
+
+    var dem = 0;
+    var key = new RegExp(keyword, 'i');
+    for (var i = 0; i < AllProd.length; i++)
+      if (AllProd[i].ten.search(key) > -1)
+        array.push(AllProd[i]);
+    sessionStorage.SearchResult = array.length;
+    if (sessionStorage.SearchPrice == '0' && sessionStorage.SearchBrand == '0' && sessionStorage.SearchType == '0')
     {
-      for(var i = 0; i < AllProd.length;i++)
-        if(AllProd[i].hang == sessionStorage.Hang)
-          temp.push(AllProd[i]);
-      $('.breadcrumb').find('li:eq(1)').text("Hãng xe " + sessionStorage.Hang);
-      $('.title-head').text('HÃNG XE ' + sessionStorage.Hang.toUpperCase());
+        CreatePagination(array);
     }
     else
-    if(sessionStorage.Hang == "" && sessionStorage.Dong != "")
     {
-      for(var i = 0; i < AllProd.length;i++)
-        if(AllProd[i].dong == sessionStorage.Dong)
-          temp.push(AllProd[i]);
-      $('.breadcrumb').find('li:eq(1)').text("Dòng xe " + sessionStorage.Dong);
-      $('.title-head').text('DÒNG XE ' + sessionStorage.Dong.toUpperCase());
-    }
+      var temp = [];
+      var temp2 = [];
+      var temp3 = [];
+      var res = [];
+      var price = parseInt(sessionStorage.SearchPrice);
+      var brand = parseInt(sessionStorage.SearchBrand);
+      var type = parseInt(sessionStorage.SearchType);
 
-    if(isSort != 0)
-    {
-      switch(isSort)
-      {
-        case 1:
-          temp.sort(function(a, b){
-            return parseInt(a.gia) > parseInt(b.gia);
-          });
-          break;
-        case 2:
-          temp.sort(function(a, b){
-            return parseInt(a.gia) < parseInt(b.gia);
-          });
-          break;
-        case 3:
-          temp.sort(function(a, b){
-            return a.ten > b.ten;
-          });
-          break;
-        case 4:
-          temp.sort(function(a, b){
-            return a.ten < b.ten;
-          });
-          break;
+      if (price != 0) {
+        switch (price) {
+          case 1:
+            for (var i = 0; i < array.length; i++)
+              if (parseInt(array[i].gia) < 500000000)
+                temp.push(array[i]);
+            break;
+          case 2:
+            for (var i = 0; i < array.length; i++)
+              if (parseInt(array[i].gia) >= 500000000 && parseInt(array[i].gia) <= 1000000000)
+                temp.push(array[i]);
+            break;
+          case 3:
+            for (var i = 0; i < array.length; i++)
+              if (parseInt(array[i].gia) >= 1000000000 && parseInt(array[i].gia) <= 2000000000)
+                temp.push(array[i]);
+            break;
+          case 4:
+            for (var i = 0; i < array.length; i++)
+              if (parseInt(array[i].gia) > 2000000000)
+                temp.push(array[i]);
+            break;
+        }
+        if (brand != 0) {
+          var tmp = $('select[name="SearchWithBrand"] :selected').val();
+          for (var i = 0; i < temp.length; i++)
+            if (temp[i].hang != tmp) {
+              temp.splice(i, 1);
+              i--;
+            }
+        }
+        if (type != 0) {
+          var tmp = $('select[name="SearchWithType"] :selected').val();
+          for (var i = 0; i < temp.length; i++)
+            if (temp[i].dong != tmp) {
+              temp.splice(i, 1);
+              i--;
+            }
+        }
+        res = temp;
+        sessionStorage.SearchResult = res.length;
+      } else
+      if (brand != 0) {
+        var tmp = $('select[name="SearchWithBrand"] :selected').val();
+        for (var i = 0; i < array.length; i++)
+          if (array[i].hang == tmp)
+            temp2.push(array[i]);
+
+        if (price != 0) {
+          switch (price) {
+            case 1:
+              for (var i = 0; i < temp2.length; i++)
+                if (parseInt(temp2[i].gia) >= 500000000) {
+                  temp2.splice(i, 1);
+                  i--;
+                }
+              break;
+            case 2:
+              for (var i = 0; i < temp2.length; i++)
+                if (parseInt(temp2[i].gia) < 500000000 || parseInt(temp2[i].gia) > 1000000000) {
+                  temp2.splice(i, 1);
+                  i--;
+                }
+              break;
+            case 3:
+              for (var i = 0; i < temp2.length; i++)
+                if (parseInt(temp2[i].gia) < 1000000000 || parseInt(temp2[i].gia) > 2000000000) {
+                  i--;
+                  temp2.splice(i, 1);
+                }
+              break;
+            case 4:
+              for (var i = 0; i < temp2.length; i++)
+                if (parseInt(temp2[i].gia) <= 2000000000) {
+                  temp2.splice(i, 1);
+                  i--;
+                }
+              break;
+          }
+        }
+
+        if (type != 0) {
+          var tmp2 = $('select[name="SearchWithType"] :selected').val();
+          for (var i = 0; i < temp2.length; i++)
+            if (temp2[i].dong != tmp2) {
+              temp2.splice(i, 1);
+              i--;
+            }
+        }
+        res = temp2;
+        sessionStorage.SearchResult = res.length;
+      } else
+      if (type != 0) {
+        var tmp = $('select[name="SearchWithType"] :selected').val();
+        for (var i = 0; i < array.length; i++)
+          if (array[i].dong == tmp)
+            temp3.push(array[i]);
+
+
+        if (price != 0) {
+          switch (price) {
+            case 1:
+              for (var i = 0; i < temp3.length; i++)
+                if (parseInt(temp3[i].gia) >= 500000000) {
+                  temp3.splice(i, 1);
+                  i--;
+                }
+              break;
+            case 2:
+              for (var i = 0; i < temp3.length; i++)
+                if (parseInt(temp3[i].gia) < 500000000 || parseInt(temp3[i].gia) > 1000000000) {
+                  temp3.splice(i, 1);
+                  i--;
+                }
+              break;
+            case 3:
+              for (var i = 0; i < temp3.length; i++)
+                if (parseInt(temp3[i].gia) < 1000000000 || parseInt(temp3[i].gia) > 2000000000) {
+                  temp3.splice(i, 1);
+                  i--;
+                }
+              break;
+            case 4:
+              for (var i = 0; i < temp3.length; i++)
+                if (parseInt(temp3[i].gia) <= 2000000000) {
+                  temp3.splice(i, 1);
+                  i--;
+                }
+              break;
+          }
+        }
+
+        if (brand != 0) {
+          var tmp2 = $('select[name="SearchWithBrand"] :selected').val();
+          for (var i = 0; i < temp3.length; i++)
+            if (temp3[i].hang != tmp2) {
+              temp3.splice(i, 1);
+              i--;
+            }
+        }
+        res = temp3;
+        sessionStorage.SearchResult = res.length;
       }
+
+      CreatePagination(res);
     }
-    CreatePagination(temp);
   }
-}
-
-var Company = ["Aston Martin", "Audi", "BMW", "Chevrolet", "Ford", "Honda", "Huyndai", "KIA", "Mazda", "Mercedes", "Peugeot", "Toyota", "Volkswagen"];
-var Type = ["Cabriolet", "Coupe", "Hatchback", "Limousine", "Sedan", "SUV/Crossover", "Truck", "Van/Minivan", "Wagon"];
-
-function AddCompany(com) {
-  var item = $(`<li><a href="product.html" name="` + com +`">` + com +`</a></li>`);
-  $('.list-cate').append(item);
-  $(document).on('click', 'a[name="' + com + '"]', function() {
-    sessionStorage.Hang = com;
-    sessionStorage.Dong = "";
-  });
-}
-
-function CreateCompanyList() {
-  for(var i = 0; i < Company.length; i++)
-  {
-    AddCompany(Company[i]);
-  }
-}
-
-function AddType(type) {
-  var item = $(`<li><a href="product.html" name="` + type +`">` + type +`</a></li>`);
-  $('.list-type').append(item);
-  $(document).on('click', 'a[name="' + type + '"]', function() {
-    sessionStorage.Dong = type;
-    sessionStorage.Hang= "";
-  });
-}
-
-function CreateTypeList() {
-  for(var i = 0; i < Type.length; i++)
-  {
-    AddType(Type[i]);
+  $('#keyword').text(sessionStorage.search);
+  if (parseInt(sessionStorage.SearchResult) > 0)
+    $('#resultFind').text('Có ' + sessionStorage.SearchResult + ' kết quả tìm kiếm phù hợp');
+  else if (parseInt(sessionStorage.SearchResult) == 0) {
+    $('#resultFind').text('Không tìm thấy bất kỳ kết quả nào với yêu cầu trên.');
+    $('.products-view-grid').css('display', 'none');
   }
 }
 
@@ -549,14 +765,138 @@ function SetType(str) {
   sessionStorage.Hang = "";
 }
 
-$('.sort-by').on('change', function() {
-  var x = $(this).prop('selectedIndex');
-  $('.products-view').find('.row').find('div').remove();
-  $('.pagination').find('li').remove();
-  LoadProd(x);
+$('#btn-Search').on('click', function() {
+  sessionStorage.search = $('input#find').val();
+  sessionStorage.SearchPrice = 0;
+  sessionStorage.SearchBrand = 0;
+  sessionStorage.SearchType = 0;
+  var keyword = sessionStorage.search;
+  if (keyword == "")
+    sessionStorage.SearchResult = AllProd.length;
+  else {
+    var dem = 0;
+    var key = new RegExp(keyword, 'i');
+    for (var i = 0; i < AllProd.length; i++)
+      if (AllProd[i].ten.search(key) > -1)
+        dem++;
+    sessionStorage.SearchResult = dem;
+  }
 });
 
+$('#btn-Search-Collapse').on('click', function() {
+  sessionStorage.search = $('input#findCollapse').val();
+  sessionStorage.SearchPrice = 0;
+  sessionStorage.SearchBrand = 0;
+  sessionStorage.SearchType = 0;
+  var keyword = sessionStorage.search;
+  if (keyword == "")
+    sessionStorage.SearchResult = AllProd.length;
+  else {
+    var dem = 0;
+    var key = new RegExp(keyword, 'i');
+    for (var i = 0; i < AllProd.length; i++)
+      if (AllProd[i].ten.search(key) > -1)
+        dem++;
+    sessionStorage.SearchResult = dem;
+  }
+});
 
+$('#btn-Search-Foot').on('click', function() {
+  sessionStorage.search = "";
+  sessionStorage.SearchPrice = 0;
+  sessionStorage.SearchBrand = 0;
+  sessionStorage.SearchType = 0;
+  var keyword = sessionStorage.search;
+  if (keyword == "")
+    sessionStorage.SearchResult = AllProd.length;
+  else {
+    var dem = 0;
+    var key = new RegExp(keyword, 'i');
+    for (var i = 0; i < AllProd.length; i++)
+      if (AllProd[i].ten.search(key) > -1)
+        dem++;
+    sessionStorage.SearchResult = dem;
+  }
+});
+
+$('#find').bind('keypress', function(e) {
+  if(e.keyCode == 13)
+  {
+    sessionStorage.search = $(this).val();
+    sessionStorage.SearchPrice = 0;
+    sessionStorage.SearchBrand = 0;
+    sessionStorage.SearchType = 0;
+    var keyword = sessionStorage.search;
+    if(keyword == "")
+      sessionStorage.SearchResult = AllProd.length;
+    else
+    {
+      var dem = 0;
+      var key = new RegExp(keyword, 'i');
+      for(var i = 0; i < AllProd.length; i++)
+        if(AllProd[i].ten.search(key) > -1)
+          dem++;
+      sessionStorage.SearchResult = dem;
+    }
+  }
+});
+
+$('#findCollapse').bind('keypress', function(e) {
+  if(e.keyCode == 13)
+  {
+    sessionStorage.search = $(this).val();
+    sessionStorage.SearchPrice = 0;
+    sessionStorage.SearchBrand = 0;
+    sessionStorage.SearchType = 0;
+    var keyword = sessionStorage.search;
+    if(keyword == "")
+      sessionStorage.SearchResult = AllProd.length;
+    else
+    {
+      var dem = 0;
+      var key = new RegExp(keyword, 'i');
+      for(var i = 0; i < AllProd.length; i++)
+        if(AllProd[i].ten.search(key) > -1)
+          dem++;
+      sessionStorage.SearchResult = dem;
+    }
+  }
+});
+
+$('#query').bind('keypress', function(e) {
+  if (e.keyCode == 13) {
+    sessionStorage.search = $(this).val();
+    var keyword = sessionStorage.search;
+    if(keyword == "")
+      sessionStorage.SearchResult = AllProd.length;
+    else
+    {
+      var dem = 0;
+      var key = new RegExp(keyword, 'i');
+      for(var i = 0; i < AllProd.length; i++)
+        if(AllProd[i].ten.search(key) > -1)
+          dem++;
+      sessionStorage.SearchResult = dem;
+    }
+    window.location = './search.html';
+  }
+});
+
+$('a[name="button-Search"]').on('click', function() {
+  sessionStorage.search = $('#query').val();
+});
+
+$('select[name="SearchWithPrice"]').on('change', function() {
+  sessionStorage.SearchPrice = $(this).prop('selectedIndex');
+});
+
+$('select[name="SearchWithBrand"]').on('change', function() {
+  sessionStorage.SearchBrand = $(this).prop('selectedIndex');
+});
+
+$('select[name="SearchWithType"]').on('change', function() {
+  sessionStorage.SearchType = $(this).prop('selectedIndex');
+});
 var mang = [];
 var AllProd = [{
     ten: 'Aston Martin DB11',
@@ -936,7 +1276,7 @@ var AllProd = [{
     cho: '4'
   },
   {
-    ten: 'Aston Martin Vanquish S Ultimate Edition',
+    ten: 'Aston Martin Vanquish S Ultimate',
     gia: '38000000000',
     hang: 'Aston Martin',
     dong: 'Coupe',
@@ -1093,7 +1433,7 @@ var AllProd = [{
   },
   {
     ten: 'Honda Civic LX',
-    gia: '190000000',
+    gia: '1900000000',
     hang: 'Honda',
     dong: 'Coupe',
     ban: '87',
@@ -1353,7 +1693,7 @@ var AllProd = [{
   },
   {
     ten: 'Toyota Camry',
-    gia: '1300000000',
+    gia: '2000000000',
     hang: 'Toyota',
     dong: 'Sedan',
     ban: '100',
@@ -1427,6 +1767,149 @@ var AllProd = [{
     hopso: 'Tự động 6 cấp',
     mau: 'Đỏ',
     cua: '4',
+    cho: '5'
+  },
+  {
+    ten: 'Honda Insight Prototype',
+    gia: '1500000000',
+    hang: 'Honda',
+    dong: 'Coupe',
+    ban: '45',
+    xem: '84376',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Xám',
+    cua: '4',
+    cho: '5'
+  },
+  {
+    ten: 'BMW 330i Sports Wagon 2017',
+    gia: '950000000',
+    hang: 'BMW',
+    dong: 'Wagon',
+    ban: '30',
+    xem: '45376',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Xanh dương',
+    cua: '4',
+    cho: '5'
+  },
+  {
+    ten: 'Ford Transit Connect Minivan 2018',
+    gia: '700000000',
+    hang: 'Ford',
+    dong: 'Van/Minivan',
+    ban: '25',
+    xem: '64986',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 7 cấp',
+    mau: 'Đỏ',
+    cua: '5',
+    cho: '7'
+  },
+  {
+    ten: 'Audi A4 Allroad 2017',
+    gia: '1000000000',
+    hang: 'Audi',
+    dong: 'Wagon',
+    ban: '53',
+    xem: '76876',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Trắng',
+    cua: '4',
+    cho: '5'
+  },
+  {
+    ten: 'Aston Martin Vantage',
+    gia: '4300000000',
+    hang: 'Aston Martin',
+    dong: 'Coupe',
+    ban: '10',
+    xem: '92376',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 7 cấp',
+    mau: 'Xanh vàng',
+    cua: '2',
+    cho: '2'
+  },
+  {
+    ten: 'Chevrolet Sonic 2015',
+    gia: '2500000000',
+    hang: 'Chevrolet',
+    dong: 'Sedan',
+    ban: '32',
+    xem: '104376',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 7 cấp',
+    mau: 'Trắng',
+    cua: '4',
+    cho: '4'
+  },
+  {
+    ten: 'Hyundai i800',
+    gia: '1800000000',
+    hang: 'Huyndai',
+    dong: 'Van/Minivan',
+    ban: '40',
+    xem: '59376',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Đen',
+    cua: '5',
+    cho: '7'
+  },
+  {
+    ten: 'Mercedes Benz Gla Class 2018',
+    gia: '2500000000',
+    hang: 'Mercedes',
+    dong: 'SUV/Crossover',
+    ban: '55',
+    xem: '89456',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Xám',
+    cua: '4',
+    cho: '5'
+  },
+  {
+    ten: 'Peugeot 208 GTi Prestige',
+    gia: '1900000000',
+    hang: 'Peugeot',
+    dong: 'Hatchback',
+    ban: '63',
+    xem: '98765',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Trắng',
+    cua: '2',
+    cho: '5'
+  },
+  {
+    ten: 'Toyota Hilux Vigo Champ',
+    gia: '2800000000',
+    hang: 'Toyota',
+    dong: 'Truck',
+    ban: '24',
+    xem: '4376',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Trắng',
+    cua: '4',
+    cho: '5'
+  },
+  {
+    ten: 'Volkswagen Golf Gti Dsg',
+    gia: '2500000000',
+    hang: 'Volkswagen',
+    dong: 'SUV/Crossover',
+    ban: '30',
+    xem: '43056',
+    nlieu: 'Xăng',
+    hopso: 'Tự động 6 cấp',
+    mau: 'Trắng',
+    cua: '2',
     cho: '5'
   }
 ]

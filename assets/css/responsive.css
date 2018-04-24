@@ -1,3 +1,9 @@
+@media screen and (max-width: 1920px) {
+  .search-main .products-view-grid .col-lg-3:nth-child(4n+1) {
+      clear: left;
+  }
+}
+
 @media screen and (max-width: 1280px) {
   .right-top-head {
     padding-top: 37px;
@@ -14,6 +20,13 @@
   {
     margin-top: 15px;
   }
+
+  .search-main .products-view-grid .col-md-4:nth-child(3n+1) {
+      clear: left;
+  }
+  .search-main .products-view-grid .col-lg-3:nth-child(4n+1) {
+      clear: none;
+  }
 }
 
 @media screen and (max-width: 1100px) {
@@ -22,6 +35,12 @@
   #ForgetPassModal .modal-dialog
   {
     width: 50%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .search-main .products-view-grid .col-md-4:nth-child(3n+1) {
+      clear: none;
   }
 }
 
@@ -82,6 +101,11 @@
   {
     width: 80%;
   }
+
+  .search-main .products-view-grid .col-sm-6:nth-child(2n+1) {
+      clear: left;
+  }
+
 }
 
 @media screen and (max-width: 770px) {
@@ -160,6 +184,10 @@
   #newestCar {
     height: 448px;
   }
+  .search-main select
+  {
+    width: 30%;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -172,6 +200,28 @@
   #ForgetPassModal .modal-dialog
   {
     width: auto;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .search-main select
+  {
+    width: 40%;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+
+  .search-main select[name="SearchWithBrand"]
+  {
+    margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 585px) {
+  .search-main .products-view-grid .col-xs-6
+  {
+    clear: left;
+    width: 100%;
   }
 }
 
@@ -196,6 +246,12 @@
   .someNewProducts
   {
     margin-top: 80px;
+  }
+
+  .search-main select
+  {
+    clear: both;
+    margin-left: 0 !important;
   }
 }
 

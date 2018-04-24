@@ -339,3 +339,7 @@
   height: auto;
   margin-bottom: 60px;
 }
+
+.swiper-slide {
+height: auto !important;
+}

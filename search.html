@@ -15,15 +15,12 @@
   <link rel="stylesheet" href="./assets/css/index4.css">
   <link rel="stylesheet" href="./assets/css/responsive.css">
   <link rel="stylesheet" href="./assets/css/animate.css">
-  <link rel="stylesheet" href="./assets/css/introduction.css">
+  <link rel="stylesheet" href="./assets/css/search.css">
   <link rel="stylesheet" href="./assets/css/product.css">
-  <link rel="stylesheet" href="./assets/css/detail.css">
-  <link rel="stylesheet" href="./assets/swiper.min.css">
+  <link rel="stylesheet" href="./assets/css/introduction.css">
   <link rel="stylesheet" href="./assets/hover/css/hover-min.css">
-  <link rel="stylesheet" href="./assets/OwlCarousel/dist/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="./assets/OwlCarousel/dist/assets/owl.theme.default.min.css">
   <link rel="icon" href="./image/car.ico">
-  <title>Detail</title>
+  <title>Search</title>
 </head>
 
 <body>
@@ -410,8 +407,7 @@
         <div class="col-xs-12">
           <ul class="breadcrumb">
             <li><a href="index.html">Trang chủ</a></li>
-            <li><a href="product.html" id="breadPro">Sản phẩm</a></li>
-            <li>Aston Martin DB11</li>
+            <li>Kết quả tìm kiếm với từ khóa "<span id="keyword"></span>"</li>
           </ul>
         </div>
       </div>
@@ -419,213 +415,83 @@
   </div>
   <!-- End Breadcrumb -->
 
-  <!-- Start Detail Product -->
-  <div class="detail-page">
+  <!-- Start Result Search -->
+  <div class="search-main">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 details-product">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="intro-title">
+            <h1 class="title-head">
+              TÌM KIẾM - CAR CENTER
+            </h1>
+            <div>
+              <h5 style="margin-bottom: 10px">Nhập từ khóa để tìm kiếm sản phẩm</h5>
+            </div>
+          </div>
+          <!-- <input type="text" class="form-control" id="query" name="query" value="" placeholder="Tìm kiếm ..."> -->
+          <form class="form-search" action="" method="post">
+            <fieldset class="form-group">
+              <input type="text" class="form-control" id="query" name="query" value="" placeholder="Tìm kiếm ...">
+              <a href="./search.html" type="button" class="btn btn-primary" name="button-Search" style="float: left">Tìm kiếm</a>
+              <select class="otherSearch" name="SearchWithPrice">
+                <option value="default">Giá</option>
+                <option value="500000000">Dưới 500 triệu</option>
+                <option value="1000000000">Từ 500 triệu - 1 tỷ</option>
+                <option value="2000000000">Từ 1 tỷ - 2 tỷ</option>
+                <option value="2000000000">Trên 2 tỷ</option>
+              </select>
+              <select class="otherSearch" name="SearchWithBrand">
+                <option value="default">Hãng xe</option>
+                <option value="Aston Martin">Aston Martin</option>
+                <option value="Audi">Audi</option>
+                <option value="BMW">BMW</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Ford">Ford</option>
+                <option value="Honda">Honda</option>
+                <option value="Huyndai">Huyndai</option>
+                <option value="KIA">KIA</option>
+                <option value="Mazda">Mazda</option>
+                <option value="Mercedes">Mercedes</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Volkswagen">Volkswagen</option>
+              </select>
+              <select class="otherSearch" name="SearchWithType">
+                <option value="default">Dòng xe</option>
+                <option value="Cabriolet">Cabriolet</option>
+                <option value="Coupe">Coupe</option>
+                <option value="Hatchback">Hatchback</option>
+                <option value="Sedan">Sedan</option>
+                <option value="SUV/Crossover">SUV/Crossover</option>
+                <option value="Truck">Truck</option>
+                <option value="Van/Minivan">Van/Minivan</option>
+                <option value="Wagon">Wagon</option>
+              </select>
+            </fieldset>
+          </form>
           <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 image-part">
-              <div class="large-image featured-image">
-                <a id="zoom" href="" data-rel="prettyPhoto[product-gallery]">
-                  <img src="" alt="">
-                </a>
-              </div>
-              <div id="gallery_01" class="swiper-container swiper-container-vertical more-views">
-                <div class="swiper-wrapper">
+            <div class="col-xs-12">
+              <h5 style="margin-bottom: 10px" id="resultFind"> </h5>
+            </div>
+            <div class="products-view-grid col-xs-12">
+              <div class="row row-gutter-14">
 
-                </div>
-                <div class="more-views">
-                  <div class="swiper-button-prev">
-                    <i class="fa fa-angle-up"></i>
-                  </div>
-                  <div class="swiper-button-next">
-                    <i class="fa fa-angle-down"></i>
-                  </div>
-                </div>
+              </div>
+              <div class="text-xs-center col-xs-12">
+                <nav class="clearfix text-center">
+                  <ul class="pagination clearfix">
+
+                  </ul>
+                </nav>
               </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-12 details-pro">
-              <div class="row">
-                <div class="col-lg-10">
-                  <div style="position: relative">
-                    <h1 class="title-head"> </h1>
-                    <div class="price-box clearfix">
-                      <div class="special-price">
-                        <span class="price product-price">
 
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div style="position: relative">
-                    <div class="detail-header-info">
-                      <div>
-                        <b>Mã sản phẩm: </b>
-                        <span>Đang cập nhật</span>
-                      </div>
-                      <div>
-                        <b>Nhà sản xuất: </b>
-                        <span id="NSX"> </span>
-                      </div>
-                      <div>
-                        <b>Số lượt xem: </b>
-                        <span id="NumSeen"> </span>
-                      </div>
-                      <div>
-                        <b>Số lượng bán: </b>
-                        <span id="NumSold"> </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <div class="product-statistic" style="margin-bottom: 10px">
-                    <h1 class="title-head">THÔNG SỐ CƠ BẢN</h1>
-                    <div class="statistic row">
-                      <ul class="ileft">
-                        <li>
-                          <i class="icox kieudang"></i>
-                          Kiểu dán:
-                          <span id="kieu"> </span>
-                        </li>
-                        <li>
-                          <i class="icox ttp"></i>
-                          Xuất xứ:
-                          <span id="xuatxu">Nước ngoài</span>
-                        </li>
-                        <li>
-                          <i class="icox nhienlieu"></i>
-                          Nhiên liệu:
-                          <span id="nlieu"> </span>
-                        </li>
-                        <li>
-                          <i class="icox hopso"></i>
-                          Loại hộp số:
-                          <span id="loaihop"> </span>
-                        </li>
-                      </ul>
-                      <ul class="iright">
-                        <li>
-                          <i class="icox mausac"></i>
-                          Màu sắc:
-                          <span id="mau"> </span>
-                        </li>
-                        <li>
-                          <i class="icox socua"></i>
-                          Số cửa:
-                          <span id="cua"> </span>
-                        </li>
-                        <li>
-                          <i class="icox socho"></i>
-                          Số chỗ:
-                          <span id="chongoi"> </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="purchase-product">
-                    <form class="add-to-cart" action="" method="post">
-                      <div class="form-group form-detail-action">
-                        <label for="">Số lượng:</label>
-                        <div class="custom-btn-number">
-                          <span class="qtyminus" data-field="quantity">-</span>
-                          <input id="qty" data-field="quantity" title="Số lượng" type="text" name="quantity" maxlength="12" value="1" disabled="disabled">
-                          <span class="qtyplus" data-field="quantity">+</span>
-                        </div>
-                        <a type="button" class="btn btn-lg btn-gray btn-cart hvr-rectangle-out" title="Mua hàng"  data-toggle="modal" data-target="#QuickBuy">
-                          <i class="fa fa-shopping-cart"></i> Mua hàng
-                        </a>
-                      </div>
-                    </form>
-                  </div>
-                  <div class="service-wrap">
-                    <div class="row">
-                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="service-body">
-                          <div class="icon fa fa-truck" style="margin-right: 10px"></div>
-                          <div>
-                            <h5>MIỄN PHÍ VẬN CHUYỂN</h5>
-                            <p>Với mẫu xe trên 1.000.000.000đ</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="service-body">
-                          <div class="icon fa fa-undo" style="margin-right: 10px"></div>
-                          <div>
-                            <h5>MIỄN PHÍ BẢO HÀNH</h5>
-                            <p>Với mẫu xe trên 1.000.000.000đ</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                        <div class="service-body">
-                          <div class="icon fa fa-users" style="margin-right: 10px"></div>
-                          <div>
-                            <h5>HỖ TRỢ MIỄN PHÍ</h5>
-                            <p>Với mẫu xe trên 1.000.000.000đ</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12">
-          <div class="row" style="margin-top: 40px">
-            <div class="col-xs-12 col-md-12 col-lg-12">
-              <div class="product-description">
-                <h1 class="title-head">MÔ TẢ</h1>
-                <div class="description">
-                  <div class="describe">
-                    <p class="content-des">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consectetur nulla quia assumenda minus quasi, eveniet sapiente eum voluptatem, dolor? Corporis vitae perferendis hic ex molestias, optio at aut vero.
-                    </p>
-                    <p class="content-des">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore accusantium nihil repellat a dicta voluptates autem iure possimus, exercitationem et! Quia incidunt voluptatibus possimus repudiandae porro numquam itaque sit atque!
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consequuntur, voluptatum, eveniet rerum tenetur beatae in tempore esse excepturi molestiae repellat enim aliquid aut rem odit numquam voluptatibus veniam obcaecati.
-                    </p>
-                    <div id="img01">
-                      <img src=" " alt=" ">
-                    </div>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.
-                    </p>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <div id="img02">
-                      <img src=" " alt=" ">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="related-product" style="margin-top: 40px">
-            <div>
-              <h2>SẢN PHẨM CÙNG LOẠI</h2>
-            </div>
-            <div id="SameTypeProduct" class="owl-carousel owl-theme owl-loaded owl-drag">
-
-            </div>
-
-            <div>
-              <h2>SẢN PHẨM CÙNG NHÀ SẢN XUẤT</h2>
-            </div>
-            <div id="SameNSXProduct" class="owl-carousel owl-theme owl-loaded owl-drag">
-
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- End Detail Product -->
+  <!-- End Result Search  -->
 
   <!-- Start footer -->
   <div class="footer">
@@ -717,18 +583,16 @@
           </div>
           <div class="col-xs-12 col-sm-7 col-sm-pull-5">
             <span class="copyright">
-          © Bản quyền thuộc về Team 14 | Cung cấp bởi Bizweb
-        </span>
+                © Bản quyền thuộc về Team 14 | Cung cấp bởi Bizweb
+              </span>
           </div>
         </div>
       </div>
     </div>
   </div>
   <!-- End footer -->
-  <script type="text/javascript" src="./assets/js/detail.js"></script>
+  <script type="text/javascript" src="./assets/js/search.js"></script>
   <script type="text/javascript" src="./assets/fontawesome-all.js"></script>
-  <script src="./assets/OwlCarousel/dist/owl.carousel.min.js"></script>
-  <script src="./assets/swiper.min.js"></script>
   <script type="text/javascript">
     sessionStorage.Hang = "";
     sessionStorage.Dong = "";
