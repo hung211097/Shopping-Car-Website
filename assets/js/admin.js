@@ -1,12 +1,3 @@
-var cars = [];
-
-cars.push({duongDan: "./image/all/Aston Martin DB11.jpg", ten: "Aston Martin DB11", gia: "4.829.000.000đ"});
-
-var patch;
-$('#i_file').on('change', function(event) {
-	patch = URL.createObjectURL(event.target.files[0]);
-});
-
 
 $('#dong').on('blur', function() {
 	if ($('#dong').val() == "")
@@ -107,6 +98,10 @@ $('#tenDong').on('blur', function() {
 	}
 });
 
+var patch;
+$('section[class="wrapper"]').on('change', '#i_file', function(event) {
+	patch = URL.createObjectURL(event.target.files[0]);
+});
 
 $('#addCar').on('click', function() {
 	var dong = $('#dong').val();
@@ -140,8 +135,8 @@ $('#addCar').on('click', function() {
 											<button type="button" class="button square hvr-rectangle-out" name="Delete">
 												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Update">
-												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+											<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateCar">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 											</button>
 											<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
 											<i class="fa fa-eye"></i>
@@ -172,7 +167,7 @@ $('#addKindOfCar').on('click', function() {
 											<button type="button" class="button square hvr-rectangle-out" name="Delete">
 												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 											</button>
-											<button type="button" class="button square hvr-rectangle-out" name="Update">
+											<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateKindOfCar">
 												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 											</button>
 											<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
@@ -218,6 +213,126 @@ $('#addManufacturer').on('click', function() {
 
 $('.rowAdd').on('click', 'button[name="Delete"]', function () {
 	$(this).parent().parent().parent().parent().parent().remove();
+});
+
+$('.rowAdd').on('click', 'button[name="Update"]', function () {
+	$(this).parent().parent().parent().parent().parent().attr('data-name', 'edit');
+	$('section[class="wrapper"]').on('click', 'button[name="btnSua"]', function () {
+		var dong = $('#dongUpdate').val();
+		var ten = $('#tenUpdate').val();
+		var gia = $('#giaUpdate').val();
+		var xuatXu = $('#xuatXuUpdate').val();
+		var moTa = $('#moTa').val();
+		var nhienLieu = $('#nhienLieuUpdate').val();
+		var hopSo = $('#hopSoUpdate').val();
+		var mau = $('#mauUpdate').val();
+		var soCua = $('#soCuaUpdate').val();
+		var soCho = $('#soChoUpdate').val();
+		$('div[data-name="edit"]').html(`
+								<div class="item">
+									<div class="prod-grid">
+										<a href="javascript:;" title="` + ten + `" class="thumbnail">
+											<img src="` + patch + `" data-lazyload="` + patch + `" alt="` + ten + `">
+										</a>
+										<div class="infoBestSell">
+											<h3><a href="javascript:;">` + ten + `</a></h3>
+											<div class="clearfix">
+												<div class="special-price">
+													<span class="price product-price">`
+														+ gia + `₫
+													</span>
+												</div>
+											</div>
+										</div>
+										<form class="products-view-grid" action="" method="post" data-id="">
+											<div class="group">
+												<button type="button" class="button square hvr-rectangle-out" name="Delete">
+													<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+												</button>
+												<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateCar">
+												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+												</button>
+												<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
+												<i class="fa fa-eye"></i>
+												</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>`);
+		$('div[data-name="edit"]').removeAttr('data-name');
+		$('#boxUpdateCar').modal("toggle");
+	});
+});
+
+
+$('.rowAdd').on('click', 'button[name="Update"]', function () {
+	$(this).parent().parent().parent().parent().parent().attr('data-name', 'edit');
+	$('section[class="wrapper"]').on('click', 'button[name="btnSuaDongXe"]', function () {
+		var tenDong = $('#tenDongUpdate').val();
+		$('div[data-name="edit"]').html(`
+								<div class="item">
+								<div class="prod-grid">
+									<a href="javascript:;" title="` + tenDong + `" class="thumbnail">
+										<img src="` + patch + `" data-lazyload="` + patch + `" alt="` + tenDong + `">
+									</a>
+									<div class="infoBestSell">
+										<h3><a href="javascript:;">` + tenDong + `</a></h3>
+									</div>
+									<form class="products-view-grid" action="" method="post" data-id="">
+										<div class="group">
+											<button type="button" class="button square hvr-rectangle-out" name="Delete">
+												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+											</button>
+											<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateKindOfCar">
+												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+											</button>
+											<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
+											<i class="fa fa-eye"></i>
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>`);
+		$('div[data-name="edit"]').removeAttr('data-name');
+		$('#boxUpdateKindOfCar').modal("toggle");
+	});
+});
+
+
+$('.rowAdd').on('click', 'button[name="Update"]', function () {
+	$(this).parent().parent().parent().parent().parent().attr('data-name', 'edit');
+	$('section[class="wrapper"]').on('click', 'button[name="btnSuaHangXe"]', function () {
+		var hangXe = $('#hangXeUpdate').val();
+		$('div[data-name="edit"]').html(`
+								<div class="item">
+								<div class="prod-grid">
+									<a href="javascript:;" title="` + hangXe + `" class="thumbnail">
+										<img src="` + patch + `" data-lazyload="` + patch + `" alt="` + hangXe + `">
+									</a>
+									<div class="infoBestSell">
+										<h3><a href="javascript:;">` + hangXe + `</a></h3>
+									</div>
+									<form class="products-view-grid" action="" method="post" data-id="">
+										<div class="group">
+											<button type="button" class="button square hvr-rectangle-out" name="Delete">
+												<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+											</button>
+											<button type="button" class="button square hvr-rectangle-out" name="Update">
+												<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+											</button>
+											<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
+											<i class="fa fa-eye"></i>
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>`);
+		$('div[data-name="edit"]').removeAttr('data-name');
+		$('#boxUpdateManufacturer').modal("toggle");
+	});
 });
 
 $('#list').on('click', 'button[name="editStatus"]', function() {
