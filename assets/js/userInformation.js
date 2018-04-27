@@ -106,7 +106,7 @@ function AddDetail(ten, gia)
                 `<div class="item">
                     <div class="containerUI">
                         <div class="imageUI">
-                            <a href="javascript:;" title="` + ten + `"><img src="./image/BestSeen/` + ten + `.jpg" alt="` + ten + `"></a>
+                            <a href="javascript:;" title="` + ten + `"><img src="./image/all/` + ten + `/` + ten + `_1.jpg" alt="` + ten + `"></a>
                             
                         </div>
     
@@ -126,12 +126,16 @@ function AddDetail(ten, gia)
                         </div>
                 
                         <div class=" middleUI">
-                            <a type="button" class="button square hvr-rectangle-out" name="Detail" class="DetailBtn">
+                            <a href="detail.html" class="button square hvr-rectangle-out" name="Detail-` + ten + `">
                                 <i class="fa fa-eye"></i>
                             </a>
                         </div>
                     </div>
                 </div>`).owlCarousel('update');
+				
+	$('a[name="Detail-' + ten +'"]').on('click', function(){
+		sessionStorage.detailXe = ten;
+	});
 };
 
 $('.billDetailBtn').on('click', function(){    
@@ -151,3 +155,4 @@ $('.billDetailBtn').on('click', function(){
         AddDetail('Chevrolet Camaro LS 2017', '3200000000');
     }
 });
+
