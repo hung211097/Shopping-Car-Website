@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <script src="/assets/jquery-3.1.1.min.js"></script>
+  <script src="/assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap-3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/index.css">
+  <link rel="stylesheet" href="/assets/css/index2.css">
+  <link rel="stylesheet" href="/assets/css/index3.css">
+  <link rel="stylesheet" href="/assets/css/index4.css">
+  <link rel="stylesheet" href="/assets/css/responsive.css">
+  <link rel="stylesheet" href="/assets/css/animate.css">
+  <link rel="stylesheet" href="/assets/hover/css/hover-min.css">
+  {{{_sections.css}}}
+
+  <link rel="icon" href="/image/car.ico">
+  {{{_sections.title}}}
+</head>
+
+<body>
+  <!-- Start Header -->
+  <div class="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 center">
+          <a href="/home"><img src="/image/logo.png" alt="png" id="logo"></a>
+        </div>
+
+        <div class="col-xs-4 pull-left left-top-head">
+          <a href="/home"><img src="/image/logo.png" alt="png" id="logo"></a>
+        </div>
+
+        <div class="col-xs-8 right-top-head">
+          <div class="pull-right top-text">
+            <span><a href="mailto: dreamcar@gmail.com" id="mail"><i class="fas fa-envelope"></i> dreamcar@gmail.com</a></span>
+            <span><i class="fas fa-phone"></i> 0212343142</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header>
+    <nav class="navbar" data-spy="affix" data-offset-top="86">
+      <div class="container">
+        <div class="navbar-header">
+          <span class="right-nav-text pull-right"><i class="fas fa-phone"></i> 0212343142</span>
+          <span class="nav navbar-right right-nav-text pull-right"><a href="mailto: dreamcar@gmail.com" id="mail"><i class="fas fa-envelope"></i> dreamcar@gmail.com</a></span>
+
+          <button type="button" class="navbar-toggle pull-left bar-button" data-toggle="collapse" data-target="#myNavbar">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+         </button>
+          <!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active "><a href="/home">Trang chủ</a></li>
+            <li><a href="/home/about">Giới thiệu</a></li>
+            <li id="prodHid"><a href="/products">Sản phẩm</a></li>
+            <li class="drop-down">
+              <a href="/products" id="prod">Sản phẩm <i class="fa fa-caret-down"></i></a>
+              <div class="dropdown-content">
+                <div class="container megaMenu">
+                  <div class="row search">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <form class="form-inline SearchField" action="./search.html" name="SearchForm">
+                        <div class="form-group">
+                          <label for="find">Tìm kiếm sản phẩm</label>
+                          <div class="input-group">
+                            <input type="text" id="find" class="form-control" size="40" placeholder="Tìm kiếm theo tên sản phẩm ..." name="search-input">
+                            <div class="input-group-btn">
+                              <a class="btn btn-default" href="search.html" id="btn-Search">
+                                 <i class="fas fa-search"></i>
+                               </a>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="row listToChoose">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <h3>Hãng xe nổi tiếng</h3>
+                      <div class="row text-center">
+                        {{#each topNSX}}
+                          <div class="NSX-item">
+                            <a href="/products/{{TenHangXe}}?isNSX=true">
+                              <div class="brand-box">
+                                <img src="{{DuongDan}}" alt="{{TenHangXe}}" title="{{TenHangXe}}">
+                              </div>
+                            </a>
+                          </div>
+                        {{/each}}
+                        <div class="NSX-item">
+                          <a href="/products" class="btn viewMore1">Xem thêm</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                      <h3>Các dòng xe</h3>
+                      <div class="row text-center">
+                        {{#each topType}}
+                          <div class="type-item">
+                            <a href="/products/{{TenDongXe}}?isType=true">
+                              <div class="type-box">
+                                <img src="{{DuongDan}}" alt="{{TenDongXe}}" title="{{TenDongXe}}">
+                                <p>{{TenDongXe}}</p>
+                              </div>
+                            </a>
+                          </div>
+                        {{/each}}
+                        <div class="NSX-item">
+                          <a href="/products" class="btn viewMore2">Xem thêm</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="/home/contact">Liên hệ</a></li>
+            <form class="form-inline SearchFieldHid" action="./search.html" name="SearchForm">
+              <div class="input-group">
+                <input type="text" id="findCollapse" class="form-control" placeholder="Tìm kiếm theo tên sản phẩm ..." name="search-input">
+                <div class="input-group-btn">
+                  <a href="search.html" class="btn btn-default" id="btn-Search-Collapse">
+                    <i class="fas fa-search"></i>
+                 </a>
+                </div>
+              </div>
+            </form>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right" id="rightNavBarHeader">
+            <li style="padding-right: 12px;"><a href="/home/cart"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">0</span></a></li>
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal" id="SignUpNavBtn"><i class="fas fa-user-plus" style="font-size: 16px;"></i> Đăng ký</a></li>
+            <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal" id="SignInNavBtn"><i class="fas fa-user"></i> Đăng nhập</a></li>
+            <li><a href="javascript:;" id="InfoUserBtn"></a></li>
+            <li><a href="javascript:;" id="SignOutNavBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- End Header -->
+
+  <!-- Start Modal Sign Up -->
+  <div id="SignUpModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Đăng Ký Tài Khoản</h4>
+        </div>
+        <div class="modal-body">
+          <form class="formSignUp" action="" method="post" name="SignUp">
+            <div class="form-group">
+              <label for="HoTen">Họ và Tên</label>
+              <input type="text" class="form-control" id="HoTen" placeholder="" name="HoTen">
+            </div>
+
+            <div class="form-group">
+              <label for="ID">Tên tài khoản</label>
+              <input type="text" class="form-control" id="ID" placeholder="" name="ID">
+            </div>
+
+            <div class="form-group">
+              <label for="Pass">Mật khẩu</label>
+              <input type="password" class="form-control" id="Pass" placeholder="" name="Pass">
+            </div>
+
+            <div class="form-group">
+              <label for="Email">Email</label>
+              <input type="email" class="form-control" id="Email" placeholder="" name="Email">
+            </div>
+            <div class="text-center">
+              <button class="btn btn-SignUp" type="submit" name="button-SignUp">Đăng Ký</button>
+              <p>Bạn đã có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignInModal">Đăng nhập</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Sign Up -->
+
+  <!-- Start Modal Sign In -->
+  <div id="SignInModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Đăng Nhập Tài Khoản</h4>
+        </div>
+        <div class="modal-body">
+          <form class="formSignIn" action="" method="post" name="SignIn">
+            <div class="form-group">
+              <label for="ID">Tên tài khoản</label>
+              <input type="text" class="form-control" id="txtID" placeholder="" name="ID">
+            </div>
+
+            <div class="form-group">
+              <label for="Pass">Mật khẩu</label>
+              <input type="password" class="form-control" id="Pass" placeholder="" name="Pass">
+            </div>
+
+            <div class="text-center">
+              <button id="btnSI" class="btn btn-SignIn" type="button" name="button-SignIn">Đăng Nhập</button>
+              <p><a href="javascript:;" id="OptionBtnForget" data-dismiss="modal" data-toggle="modal" data-target="#ForgetPassModal">Quên Mật Khẩu</a></p>
+              <p>Bạn chưa có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Sign In -->
+
+  <!-- Start Forget Pass -->
+  <div id="ForgetPassModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Lấy Lại Mật Khẩu</h4>
+        </div>
+        <div class="modal-body">
+          <form class="formForgetPass" action="" method="post" name="ForgetPass">
+            <p>
+              Chúng tôi sẽ gửi cho bạn một email để kích hoạt việc đặt lại mật khẩu.
+            </p>
+            <div class="form-group">
+              <label for="Email">Email</label>
+              <input type="email" class="form-control" id="Email" placeholder="" name="Email">
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-ForgetPass" type="button" name="button-ForgetPass">XÁC NHẬN</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Forget Pass -->
+
+  <!-- Start Quick Buy -->
+  <div id="QuickBuy" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">
+            <span><i class="fa fa-check"></i></span>
+            Thêm vào giỏ hàng thành công
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="media">
+            <div class="media-left">
+              <div class="thumb-1x1">
+                <img src="./image/all/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+              </div>
+            </div>
+            <div class="media-body">
+              <div class="product-title">Aston Martin DB11</div>
+              <div class="product-new-price">
+                <input type="hidden" name="product-new-price" value="4829000000">
+                <span>4.829.000.000đ</span>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline-red" name="button-Quick" data-dismiss="modal">Tiếp tục mua hàng</button>
+          <a href="cart.html" class="btn btn-red">Tiến hành thanh toán »</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Quick Buy -->
+
+  {{{body}}}
+
+  <!-- Start footer -->
+  <div class="footer">
+    <div class="top-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Showroom</b>
+            <p>Thành phố Hồ Chí Minh, Việt Nam</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Giờ mở cửa</b>
+            <p>
+              Thứ 2 - Thứ 6: 8:00 - 21:00
+              <br> Thứ 7 - Chủ nhật: 8:30 - 22:30
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Hỗ trợ tư vấn</b>
+            <p>0212343142</p>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <b class="color-featured">Email</b>
+            <p><a id="mail" href="mailto:dreamcar@gmail.com">dreamcar@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mid-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>THÔNG TIN</h4>
+            <ul class="list-unstyled">
+              <li><a href="/home">Trang chủ</a></li>
+              <li><a href="/products" id="prodFoot">Sản phẩm</a></li>
+              <li><a href="/home/about">Giới thiệu</a></li>
+              <li><a href="/home/contact">Liên hệ</a></li>
+              <li><a href="search.html" id="btn-Search-Foot">Tìm kiếm</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>TÀI KHOẢN</h4>
+            <ul class="list-unstyled">
+              <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal">Đăng nhập</a></li>
+              <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></li>
+              <li><a href="javascript:;" data-toggle="modal" data-target="#ForgetPassModal">Lấy lại mật khẩu</a></li>
+              <li><a href="/home/cart">Giỏ hàng</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>CHÍNH SÁCH</h4>
+            <ul class="list-unstyled">
+              <li><a href="/home/policy">Chính sách bảo mật</a></li>
+              <li><a href="/home/policy">Chính sách vận chuyển</a></li>
+              <li><a href="/home/policy">Chính sách đổi trả</a></li>
+              <li><a href="/home/service">Điều khoản dịch vụ</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            <h4>TIN MỚI</h4>
+            <div class="subscribe-box">
+              <div style="margin-bottom: 20px;">
+                <p style="color: #A1A1A1;">Hãy đăng ký với chúng tôi để nhận thông tin mới nhất về các mẫu xe trên thế giới và trong nước!</p>
+              </div>
+              <form class="" action="" method="post" name="subscribe" target="_blank">
+                <input class="form-control" type="email" name="emailSubscribe" value="" placeholder="Nhập Email của bạn ...">
+                <button class="btn btn-Subscribe" type="button" name="buttonSub">THEO DÕI</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-5 col-sm-push-7">
+            <ul class="list-unstyled social">
+              <li><a href="javascript:;"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-linkedin-in"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-google-plus-g"></i></a></li>
+              <li><a href="javascript:;"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-7 col-sm-pull-5">
+            <span class="copyright">
+                © Bản quyền thuộc về Team 14 | Cung cấp bởi Bizweb
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End footer -->
+  {{{_sections.js}}}
+  <script type="text/javascript" src="/assets/fontawesome-all.js"></script>
+  <script type="text/javascript" src="/assets/js/sweetalert.min.js"></script>
+  {{!-- <script type="text/javascript">
+    sessionStorage.Hang = "";
+    sessionStorage.Dong = "";
+  </script> --}}
+</body>
+
+</html>
