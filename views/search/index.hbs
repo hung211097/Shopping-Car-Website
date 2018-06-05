@@ -1,0 +1,182 @@
+{{#section 'title'}}
+  <title>Tìm kiếm</title>
+{{/section}}
+
+{{#section 'css'}}
+  <link rel="stylesheet" href="/assets/css/search.css">
+  <link rel="stylesheet" href="/assets/css/introduction.css">
+  <link rel="stylesheet" href="/assets/css/product.css">
+{{/section}}
+
+{{#section 'js'}}
+  <script type="text/javascript" src="/assets/js/search.js"></script>
+{{/section}}
+
+<!-- Start Breadcrumb -->
+<div class="bread-crumb">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="breadcrumb">
+          <li><a href="/home">Trang chủ</a></li>
+          <li>Kết quả tìm kiếm với từ khóa "<span id="keyword">{{Key}}</span>"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Breadcrumb -->
+
+<!-- Start Result Search -->
+<div class="search-main">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="intro-title">
+          <h1 class="title-head">
+            TÌM KIẾM - CAR CENTER
+          </h1>
+          <div>
+            <h5 style="margin-bottom: 10px">Nhập từ khóa để tìm kiếm sản phẩm</h5>
+          </div>
+        </div>
+        <!-- <input type="text" class="form-control" id="query" name="query" value="" placeholder="Tìm kiếm ..."> -->
+        <form class="form-search" action="/search" method="post" name="Query">
+          <fieldset class="form-group">
+            <input type="text" class="form-control" id="query" name="queryInput" value="" size="10" placeholder="Tìm kiếm ...">
+            <button type="submit" class="btn btn-primary" name="button-Search" style="float: left">Tìm kiếm</button>
+            <select class="otherSearch" name="SearchWithPrice">
+              {{#each searchPrice}}
+                {{#if isPrice}}
+                    <option value="{{valuePrice}}" selected>{{namePrice}}</option>
+                  {{else}}
+                    <option value="{{valuePrice}}">{{namePrice}}</option>
+                {{/if}}
+              {{/each}}
+            </select>
+            <select class="otherSearch" name="SearchWithBrand">
+              {{#if isDefaultBrand}}
+                <option value="default" selected>Hãng xe</option>
+              {{else}}
+                <option value="default">Hãng xe</option>
+              {{/if}}
+              {{#each searchBrand}}
+                {{#if isBrand}}
+                  <option value="{{valueBrand}}" selected> {{nameBrand}} </option>
+                {{else}}
+                  <option value="{{valueBrand}}">{{nameBrand}}</option>
+                {{/if}}
+              {{/each}}
+            </select>
+            <select class="otherSearch" name="SearchWithType">
+              {{#if isDefaultType}}
+                <option value="default" selected>Dòng xe</option>
+              {{else}}
+                <option value="default">Dòng xe</option>
+              {{/if}}
+              {{#each searchType}}
+                {{#if isType}}
+                  <option value="{{valueType}}" selected> {{nameType}} </option>
+                {{else}}
+                  <option value="{{valueType}}">{{nameType}}</option>
+                {{/if}}
+              {{/each}}
+            </select>
+          </fieldset>
+        </form>
+        <div class="row">
+          {{#if noProducts}}
+            <div class="col-xs-12">
+              <h5 style="margin-bottom: 10px" id="resultFind">Không tìm thấy bất kỳ kết quả nào với yêu cầu trên.</h5>
+            </div>
+          {{else}}
+            <div class="col-xs-12">
+              <h5 style="margin-bottom: 10px" id="resultFind">Có {{totalItem}} kết quả tìm kiếm phù hợp với yêu cầu</h5>
+            </div>
+            <div class="products-view-grid col-xs-12">
+              <div class="row row-gutter-14">
+                {{#each products}}
+                  <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                    <div class="product-box">
+                      <div class="product-thumbnail">
+                        <a href="/products/{{TenXe}}" title="{{TenXe}}">
+                          <img src="/image/all/{{TenXe}}.jpg" alt="{{TenXe}}">
+                        </a>
+                        <div class="price-box clearfix">
+                          <div class="special-price">
+                            <span class="price product-price">
+                              {{number_format Gia}}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-info">
+                        <h3 class="product-name">
+                          <a href="/products/{{TenXe}}" title="{{TenXe}}">{{TenXe}}</a>
+                        </h3>
+                      </div>
+                      <div class="product-action clearfix ">
+                        <form class="products-view-grid" action="" method="post" data-id="">
+                          <div>
+                            <a class="btn btn-gray hvr-rectangle-out" name="button-Buy-{{TenXe}}" title="Mua hàng" data-toggle="modal" data-target="#QuickBuy">
+                              <i class="fa fa-shopping-cart"></i>
+                              Mua hàng
+                            </a>
+
+                            <a href="/products/detail/{{TenXe}}" class="btn btn-gray hvr-rectangle-out" name="button-Detail-{{TenXe}}" title="Chi tiết" style="float: right">
+                              <i class="fa fa-eye"></i>
+                              Chi tiết
+                            </a>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
+              <div class="text-xs-center col-xs-12">
+                <nav class="clearfix text-center">
+                  <ul class="pagination clearfix">
+                    {{#if isFirst}}
+                      <li class="disabled"><a href="javascript:;" id="first" class="page-link">&laquo;</a></li>
+                    {{else}}
+                      {{#if isSearch}}
+                        <li><a href="?page=1&keyword={{Key}}&price={{price}}&brand={{brand}}&type={{type}}" id="first" class="page-link">&laquo;</a></li>
+                      {{else}}
+                        <li><a href="?page=1&keyword=&price={{price}}&brand={{brand}}&type={{type}}" id="first" class="page-link">&laquo;</a></li>
+                      {{/if}}
+                    {{/if}}
+
+                    {{#each page_numbers}}
+                      {{#if isCurPage}}
+                        <li class="active page-item"><a href="javascript:;" class="page-link">{{value}}</a></li>
+                      {{else}}
+                        {{#if isSearch}}
+                          <li class="page-item"><a href="?page={{value}}&keyword={{Key}}&price={{price}}&brand={{brand}}&type={{type}}" class="page-link">{{value}}</a></li>
+                        {{else}}
+                          <li class="page-item"><a href="?page={{value}}&keyword=&price={{price}}&brand={{brand}}&type={{type}}" class="page-link">{{value}}</a></li>
+                        {{/if}}
+                      {{/if}}
+                    {{/each}}
+
+                    {{#if isLast}}
+                      <li class="disabled"><a href="javascript:;" class="page-link" id="last">&raquo;</a></li>
+                    {{else}}
+                      {{#if isSearch}}
+                        <li><a href="?page={{last_page}}&keyword={{Key}}&price={{price}}&brand={{brand}}&type={{type}}" class="page-link" id="last">&raquo;</a></li>
+                      {{else}}
+                        <li><a href="?page={{last_page}}&keyword=&price={{price}}&brand={{brand}}&type={{type}}" class="page-link" id="last">&raquo;</a></li>
+                      {{/if}}
+                    {{/if}}
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          {{/if}}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Result Search  -->

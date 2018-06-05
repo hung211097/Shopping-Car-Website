@@ -106,14 +106,14 @@
 					</li>
 
 					<li class="sub-menu">
-						<a class="active" href="manage_kind_of_car.html" >
+						<a  href="manage_kind_of_car.html" >
 							<i class="fa fa-book"></i>
 							<span>Quản lí dòng xe</span>
 						</a>
 					</li>
 
 					<li class="sub-menu">
-						<a href="manage_manufacturer.html" >
+						<a class="active" href="manage_manufacturer.html" >
 							<i class="fa fa-cogs"></i>
 							<span>Quản lí hãng xe</span>
 						</a>
@@ -147,27 +147,28 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title">Thêm dòng xe mới</h4>
+								<h4 class="modal-title">Thêm hãng xe mới</h4>
 							</div>
 							<div class="modal-body">
 								<form action="">
 									<div class="form-group">
-										<h4><strong>Chọn hình ảnh dòng xe:</strong></h4>
+										<h4><strong>Chọn hình ảnh hãng xe:</strong></h4>
 										<input type="file" id="i_file"/>
 									</div>
 									<div class="form-group">
-										<h4><strong>Tên dòng xe:</strong></h4>
-										<input type="text" class="form-control" id="tenDong">
+										<h4><strong>Tên hãng xe:</strong></h4>
+										<input type="text" class="form-control" id="hangXe">
 									</div>
 								</form>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-								<button type="button" class="btn btn-primary" id="addKindOfCar">Thêm</button>
+								<button type="button" class="btn btn-primary" id="addManufacturer">Thêm</button>
 							</div>
 						</div>
 					</div>
 				</div>
+
 
 				<div class="modal fade" id="boxDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					<div class="modal-dialog" role="document">
@@ -191,29 +192,28 @@
 					</div>
 				</div>
 
-
-				<div class="modal fade" id="boxUpdateKindOfCar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal fade" id="boxUpdateManufacturer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title">Chỉnh sửa thông tin dòng xe</h4>
+								<h4 class="modal-title">Chỉnh sửa thông tin hãng xe</h4>
 							</div>
 							<div class="modal-body">
 								<form action="">
 									<div class="form-group">
-										<h4><strong>Chọn hình ảnh dòng xe:</strong></h4>
+										<h4><strong>Chọn hình ảnh hãng xe:</strong></h4>
 										<input type="file" id="i_file"/>
 									</div>
 									<div class="form-group">
-										<h4><strong>Tên dòng xe:</strong></h4>
-										<input type="text" class="form-control" id="tenDongUpdate">
+										<h4><strong>Tên hãng xe:</strong></h4>
+										<input type="text" class="form-control" id="hangXeUpdate">
 									</div>
 								</form>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-								<button type="button" class="btn btn-primary" name="btnSuaDongXe">Sửa</button>
+								<button type="button" class="btn btn-primary" name="btnSuaHangXe">Sửa</button>
 							</div>
 						</div>
 					</div>
@@ -222,26 +222,26 @@
 				<br>
 				<br>
 				<div>
-					<h2>DANH SÁCH CÁC DÒNG XE</h2>
+					<h2>DANH SÁCH CÁC HÃNG XE</h2>
 				</div>
 
 
-				<div class="row rowAdd" id="info_KindOfCar">
+				<div class="row rowAdd" id="info_manufacturer">
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 						<div class="item">
 							<div class="prod-grid">
-								<a href="javascript:;" title="Cabriolet" class="thumbnail">
-									<img src="image/type/cabriolet.png" data-lazyload="image/type/cabriolet.png" alt="Cabriolet">
+								<a href="javascript:;" title="Ford" class="thumbnail">
+									<img src="image/logo/logo1.png" data-lazyload="image/logo/logo1.png" alt="Ford">
 								</a>
 								<div class="infoBestSell">
-									<h3><a href="javascript:;">Cabriolet</a></h3>
+									<h3><a href="javascript:;">Ford</a></h3>
 								</div>
 								<form class="products-view-grid" action="" method="post" data-id="">
 									<div class="group">
 										<button type="button" class="button square hvr-rectangle-out" name="Delete">
 											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateKindOfCar">
+										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateManufacturer">
 											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 										</button>
 										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
@@ -256,18 +256,18 @@
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 						<div class="item">
 							<div class="prod-grid">
-								<a href="javascript:;" title="Coupe" class="thumbnail">
-									<img src="image/type/coupe.png" data-lazyload="image/type/coupe.png" alt="Coupe">
+								<a href="javascript:;" title="Toyota" class="thumbnail">
+									<img src="image/logo/logo2.png" data-lazyload="image/logo/logo2.png" alt="Toyota">
 								</a>
 								<div class="infoBestSell">
-									<h3><a href="javascript:;">Coupe</a></h3>
+									<h3><a href="javascript:;">Toyota</a></h3>
 								</div>
 								<form class="products-view-grid" action="" method="post" data-id="">
 									<div class="group">
 										<button type="button" class="button square hvr-rectangle-out" name="Delete">
 											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateKindOfCar">
+										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateManufacturer">
 											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 										</button>
 										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
@@ -282,18 +282,18 @@
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 						<div class="item">
 							<div class="prod-grid">
-								<a href="javascript:;" title="Sedan" class="thumbnail">
-									<img src="image/type/sedan.png" data-lazyload="image/type/sedan.png" alt="Sedan">
+								<a href="javascript:;" title="Mercedes-Benz" class="thumbnail">
+									<img src="image/logo/logo3.png" data-lazyload="image/logo/logo3.png" alt="Mercedes-Benz">
 								</a>
 								<div class="infoBestSell">
-									<h3><a href="javascript:;">Sedan</a></h3>
+									<h3><a href="javascript:;">Mercedes-Benz</a></h3>
 								</div>
 								<form class="products-view-grid" action="" method="post" data-id="">
 									<div class="group">
 										<button type="button" class="button square hvr-rectangle-out" name="Delete">
 											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateKindOfCar">
+										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateManufacturer">
 											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 										</button>
 										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
@@ -308,18 +308,18 @@
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 						<div class="item">
 							<div class="prod-grid">
-								<a href="javascript:;" title="Hatchback" class="thumbnail">
-									<img src="image/type/hatchback.png" data-lazyload="image/type/hatchback.png" alt="Hatchback">
+								<a href="javascript:;" title="Honda" class="thumbnail">
+									<img src="image/logo/logo4.png" data-lazyload="image/logo/logo4.png" alt="Honda">
 								</a>
 								<div class="infoBestSell">
-									<h3><a href="javascript:;">Hatchback</a></h3>
+									<h3><a href="javascript:;">Honda</a></h3>
 								</div>
 								<form class="products-view-grid" action="" method="post" data-id="">
 									<div class="group">
 										<button type="button" class="button square hvr-rectangle-out" name="Delete">
 											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateKindOfCar">
+										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateManufacturer">
 											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 										</button>
 										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
@@ -333,44 +333,18 @@
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 						<div class="item">
 							<div class="prod-grid">
-								<a href="javascript:;" title="SUV/Crossover" class="thumbnail">
-									<img src="image/type/SUV.png" data-lazyload="image/type/SUV.png" alt="SUV/Crossover">
+								<a href="javascript:;" title="BMW" class="thumbnail">
+									<img src="image/logo/logo5.png" data-lazyload="image/logo/logo5.png" alt="BMW">
 								</a>
 								<div class="infoBestSell">
-									<h3><a href="javascript:;">SUV/Crossover</a></h3>
+									<h3><a href="javascript:;">BMW</a></h3>
 								</div>
 								<form class="products-view-grid" action="" method="post" data-id="">
 									<div class="group">
 										<button type="button" class="button square hvr-rectangle-out" name="Delete">
 											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateKindOfCar">
-											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
-											<i class="fa fa-eye"></i>
-										</button>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-						<div class="item">
-							<div class="prod-grid">
-								<a href="javascript:;" title="Truck" class="thumbnail">
-									<img src="image/type/truck.png" data-lazyload="image/type/truck.png" alt="Truck">
-								</a>
-								<div class="infoBestSell">
-									<h3><a href="javascript:;">Truck</a></h3>
-								</div>
-								<form class="products-view-grid" action="" method="post" data-id="">
-									<div class="group">
-										<button type="button" class="button square hvr-rectangle-out" name="Delete">
-											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateKindOfCar">
+										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateManufacturer">
 											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 										</button>
 										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
@@ -385,18 +359,18 @@
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 						<div class="item">
 							<div class="prod-grid">
-								<a href="javascript:;" title="Van/Minivan" class="thumbnail">
-									<img src="image/type/van.png" data-lazyload="image/type/van.png" alt="Van/Minivan">
+								<a href="javascript:;" title="Chevrolet" class="thumbnail">
+									<img src="image/logo/logo6.png" data-lazyload="image/logo/logo6.png" alt="Chevrolet">
 								</a>
 								<div class="infoBestSell">
-									<h3><a href="javascript:;">Van/Minivan</a></h3>
+									<h3><a href="javascript:;">Chevrolet</a></h3>
 								</div>
 								<form class="products-view-grid" action="" method="post" data-id="">
 									<div class="group">
 										<button type="button" class="button square hvr-rectangle-out" name="Delete">
 											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateKindOfCar">
+										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateManufacturer">
 											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 										</button>
 										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
@@ -411,18 +385,18 @@
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 						<div class="item">
 							<div class="prod-grid">
-								<a href="javascript:;" title="Limousine" class="thumbnail">
-									<img src="image/type/limousine.png" data-lazyload="image/type/limousine.png" alt="Limousine">
+								<a href="javascript:;" title="Audi" class="thumbnail">
+									<img src="image/logo/logo7.png" data-lazyload="image/logo/logo7.png" alt="Audi">
 								</a>
 								<div class="infoBestSell">
-									<h3><a href="javascript:;">Limousine</a></h3>
+									<h3><a href="javascript:;">Audi</a></h3>
 								</div>
 								<form class="products-view-grid" action="" method="post" data-id="">
 									<div class="group">
 										<button type="button" class="button square hvr-rectangle-out" name="Delete">
 											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateKindOfCar">
+										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateManufacturer">
 											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 										</button>
 										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
@@ -437,18 +411,94 @@
 					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 						<div class="item">
 							<div class="prod-grid">
-								<a href="javascript:;" title="Wagon" class="thumbnail">
-									<img src="image/type/wagon.png" data-lazyload="image/type/wagon.png" alt="Wagon">
+								<a href="javascript:;" title="KIA" class="thumbnail">
+									<img src="image/logo/logo8.png" data-lazyload="image/logo/logo8.png" alt="Kia">
 								</a>
 								<div class="infoBestSell">
-									<h3><a href="javascript:;">Wagon</a></h3>
+									<h3><a href="javascript:;">Kia</a></h3>
 								</div>
 								<form class="products-view-grid" action="" method="post" data-id="">
 									<div class="group">
 										<button type="button" class="button square hvr-rectangle-out" name="Delete">
 											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 										</button>
-										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateKindOfCar">
+										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateManufacturer">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
+											<i class="fa fa-eye"></i>
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="item">
+							<div class="prod-grid">
+								<a href="javascript:;" title="Aston Martin" class="thumbnail">
+									<img src="image/logo/logo9.png" data-lazyload="image/logo/logo9.png" alt="Aston Martin">
+								</a>
+								<div class="infoBestSell">
+									<h3><a href="javascript:;">Aston Martin</a></h3>
+								</div>
+								<form class="products-view-grid" action="" method="post" data-id="">
+									<div class="group">
+										<button type="button" class="button square hvr-rectangle-out" name="Delete">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateManufacturer">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
+											<i class="fa fa-eye"></i>
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="item">
+							<div class="prod-grid">
+								<a href="javascript:;" title="Mazda" class="thumbnail">
+									<img src="image/logo/logo10.png" data-lazyload="image/logo/logo10.png" alt="Mazda">
+								</a>
+								<div class="infoBestSell">
+									<h3><a href="javascript:;">Mazda</a></h3>
+								</div>
+								<form class="products-view-grid" action="" method="post" data-id="">
+									<div class="group">
+										<button type="button" class="button square hvr-rectangle-out" name="Delete">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateManufacturer">
+											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
+											<i class="fa fa-eye"></i>
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						<div class="item">
+							<div class="prod-grid">
+								<a href="javascript:;" title="Hyundai" class="thumbnail">
+									<img src="image/logo/logo11.png" data-lazyload="image/logo/logo11.png" alt="Hyundai">
+								</a>
+								<div class="infoBestSell">
+									<h3><a href="javascript:;">Hyundai</a></h3>
+								</div>
+								<form class="products-view-grid" action="" method="post" data-id="">
+									<div class="group">
+										<button type="button" class="button square hvr-rectangle-out" name="Delete">
+											<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+										</button>
+										<button type="button" class="button square hvr-rectangle-out" name="Update" data-toggle="modal" data-target="#boxUpdateManufacturer">
 											<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
 										</button>
 										<button type="button" class="button square hvr-rectangle-out" name="Detail" data-toggle="modal" data-target="#boxDetail">
@@ -460,46 +510,46 @@
 						</div>
 					</div>
 				</div>
+			</section>
+		</section>
+		<!--main content end-->
+
+		<!--footer start-->
+		<footer class="site-footer">
+			<div class="text-center">
+				2018 &copy; DreamCar by Team14.
+				<a href="#" class="go-top">
+					<i class="fa fa-angle-up"></i>
+				</a>
+			</div>
+		</footer>
+		<!--footer end-->
 	</section>
-</section>
-<!--main content end-->
 
-<!--footer start-->
-<footer class="site-footer">
-	<div class="text-center">
-		2018 &copy; DreamCar by Team14.
-		<a href="#" class="go-top">
-			<i class="fa fa-angle-up"></i>
-		</a>
-	</div>
-</footer>
-<!--footer end-->
-</section>
+	<!-- js placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="js/jquery.scrollTo.min.js"></script>
+	<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+	<script src="js/jquery.sparkline.js" type="text/javascript"></script>
+	<script src="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+	<script src="js/owl.carousel.js" ></script>
+	<script src="js/jquery.customSelect.min.js" ></script>
+	<script src="js/respond.min.js" ></script>
 
-<!-- js placed at the end of the document so the pages load faster -->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
-<script src="js/jquery.scrollTo.min.js"></script>
-<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-<script src="js/jquery.sparkline.js" type="text/javascript"></script>
-<script src="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
-<script src="js/owl.carousel.js" ></script>
-<script src="js/jquery.customSelect.min.js" ></script>
-<script src="js/respond.min.js" ></script>
+	<!--right slidebar-->
+	<script src="js/slidebars.min.js"></script>
 
-<!--right slidebar-->
-<script src="js/slidebars.min.js"></script>
+	<!--common script for all pages-->
+	<script src="js/common-scripts.js"></script>
 
-<!--common script for all pages-->
-<script src="js/common-scripts.js"></script>
+	<!--script for this page-->
+	<script src="js/sparkline-chart.js"></script>
+	<script src="js/easy-pie-chart.js"></script>
+	<script src="js/count.js"></script>
 
-<!--script for this page-->
-<script src="js/sparkline-chart.js"></script>
-<script src="js/easy-pie-chart.js"></script>
-<script src="js/count.js"></script>
-
-<script>
+	<script>
 
       //owl carousel
 

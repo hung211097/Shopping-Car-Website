@@ -8,6 +8,7 @@
 
   <script src="./assets/jquery-3.1.1.min.js"></script>
   <script src="./assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
   <link rel="stylesheet" type="text/css" href="./assets/bootstrap-3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/index.css">
   <link rel="stylesheet" href="./assets/css/index2.css">
@@ -256,8 +257,8 @@
             <li style="padding-right: 12px;"><a href="cart.html"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">0</span></a></li>
             <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal" id="SignUpNavBtn"><i class="fas fa-user-plus" style="font-size: 16px;"></i> Đăng ký</a></li>
             <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal" id="SignInNavBtn"><i class="fas fa-user"></i> Đăng nhập</a></li>
-            <li><a href="javascript:;" id="InfoUserBtn"></a></li>
-            <li><a href="javascript:;" id="SignOutNavBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+            <li><a href="UserInformation.html" id="InfoUserBtn"></a></li>
+            <li><a href="javascript:;" id="SignOutNavBtn" style="display: none"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
           </ul>
         </div>
       </div>
@@ -282,7 +283,7 @@
 
             <div class="form-group">
               <label for="ID">Tên tài khoản</label>
-              <input type="text" class="form-control" id="ID" placeholder="" name="ID">
+              <input type="text" class="form-control" id="DKID" placeholder="" name="ID">
             </div>
 
             <div class="form-group">
@@ -294,8 +295,9 @@
               <label for="Email">Email</label>
               <input type="email" class="form-control" id="Email" placeholder="" name="Email">
             </div>
-            <div class="text-center">
-              <button class="btn btn-SignUp" type="submit" name="button-SignUp">Đăng Ký</button>
+            <div class="text-center">                
+              <div class="g-recaptcha" data-sitekey="6LdhdlQUAAAAAClavUgx9vWtbjf8sa-bTH8Goty7"></div>
+              <button class="btn btn-SignUp" type="button" name="button-SignUp" id="btnSU">Đăng Ký</button>
               <p>Bạn đã có tài khoản? Hãy <a href="javascript:;" id="OptionBtn" data-dismiss="modal" data-toggle="modal" data-target="#SignInModal">Đăng nhập</a></p>
             </div>
           </form>
@@ -317,7 +319,7 @@
           <form class="formSignIn" action="" method="post" name="SignIn">
             <div class="form-group">
               <label for="ID">Tên tài khoản</label>
-              <input type="text" class="form-control" id="ID" placeholder="" name="ID">
+              <input type="text" class="form-control" id="txtID" placeholder="" name="ID">
             </div>
 
             <div class="form-group">
@@ -567,10 +569,11 @@
           <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <h4>TÀI KHOẢN</h4>
             <ul class="list-unstyled">
-              <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal">Đăng nhập</a></li>
-              <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></li>
-              <li><a href="javascript:;" data-toggle="modal" data-target="#ForgetPassModal">Lấy lại mật khẩu</a></li>
+              <li id="footerSignIn"><a href="javascript:;" data-toggle="modal" data-target="#SignInModal">Đăng nhập</a></li>
+              <li id="footerSignUp"><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal">Đăng ký</a></li>
+              <li id="footerForgetPass"><a href="javascript:;" data-toggle="modal" data-target="#ForgetPassModal">Lấy lại mật khẩu</a></li>
               <li><a href="cart.html">Giỏ hàng</a></li>
+              <li id="footerSignOut"><a href="javascript:;">Đăng xuất</a></li>
             </ul>
           </div>
 
@@ -622,6 +625,7 @@
   </div>
   <!-- End footer -->
   <script type="text/javascript" src="./assets/js/index.js"></script>
+  <script type="text/javascript" src="./assets/js/loadNavHead.js"></script>
   <script type="text/javascript" src="./assets/fontawesome-all.js"></script>
   <script type="text/javascript">
     sessionStorage.Hang = "";
