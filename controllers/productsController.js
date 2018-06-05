@@ -2,6 +2,7 @@ var express = require('express');
 var homeRepo = require('../repos/homeRepo');
 var productRepo = require('../repos/productsRepo');
 var config = require('../config/config');
+var extra_Array = require('../extra_array/exArr');
 
 var router = express.Router();
 
@@ -21,22 +22,8 @@ router.get('/', (req, res) => {
 
   if (!sort)
     sort = "default";
-  var arrSort = [{
-    value: "default",
-    name: "Mặc định"
-  }, {
-    value: "alpha-asc",
-    name: "Từ A - Z"
-  }, {
-    value: "alpha-desc",
-    name: "Từ Z - A"
-  }, {
-    value: "price-asc",
-    name: "Giá tăng dần"
-  }, {
-    value: "price-desc",
-    name: "Giá giảm dần"
-  }];
+
+  var arrSort = extra_Array.Sort;
 
   var arrShowSort = [];
   switch (sort) {
@@ -179,7 +166,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/:FindWhat', (req, res) => {
+router.get('/productsWithBrand/:brand', (req, res) => {
   var page = req.query.page;
   if (!page) {
     page = 1;
@@ -187,77 +174,36 @@ router.get('/:FindWhat', (req, res) => {
   var isFirstPage = false,
     isLastPage = false;
 
-  var FollowHangXe = req.query.isNSX;
-  var FollowDongXe = req.query.isType;
-  var find = req.params.FindWhat;
+  var find = req.params.brand;
   var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
   var p1, p2;
-  var isNSX = false,
+  var isNSX = true,
     isType = false;
   var sort = req.query.sort;
 
   if (!sort)
     sort = "default";
-  var arrSort = [{
-    value: "default",
-    name: "Mặc định"
-  }, {
-    value: "alpha-asc",
-    name: "Từ A - Z"
-  }, {
-    value: "alpha-desc",
-    name: "Từ Z - A"
-  }, {
-    value: "price-asc",
-    name: "Giá tăng dần"
-  }, {
-    value: "price-desc",
-    name: "Giá giảm dần"
-  }];
+  arrSort = extra_Array.Sort;
   var arrShowSort = [];
 
-  if (!FollowDongXe && FollowHangXe) {
-    switch (sort) {
-      case "alpha-asc":
-        p1 = productRepo.loadNSXAZ(find, offset);
-        break;
-      case "alpha-desc":
-        p1 = productRepo.loadNSXZA(find, offset);
-        break;
-      case "price-asc":
-        p1 = productRepo.loadNSXPriceAsc(find, offset);
-        break;
-      case "price-desc":
-        p1 = productRepo.loadNSXPriceDesc(find, offset);
-        break;
-      case "default":
-        p1 = productRepo.loadNSX(find, offset);
-        break;
-    }
-    p2 = productRepo.countByNSX(find);
-    isNSX = true;
-  } else if (FollowDongXe && !FollowHangXe) {
-    switch (sort) {
-      case "alpha-asc":
-        p1 = productRepo.loadTypeAZ(find, offset);
-        break;
-      case "alpha-desc":
-        p1 = productRepo.loadTypeZA(find, offset);
-        break;
-      case "price-asc":
-        p1 = productRepo.loadTypePriceAsc(find, offset);
-        break;
-      case "price-desc":
-        p1 = productRepo.loadTypePriceDesc(find, offset);
-        break;
-      case "default":
-        p1 = productRepo.loadType(find, offset);
-        break;
-    }
-
-    p2 = productRepo.countByType(find);
-    isType = true;
+  switch (sort) {
+    case "alpha-asc":
+      p1 = productRepo.loadNSXAZ(find, offset);
+      break;
+    case "alpha-desc":
+      p1 = productRepo.loadNSXZA(find, offset);
+      break;
+    case "price-asc":
+      p1 = productRepo.loadNSXPriceAsc(find, offset);
+      break;
+    case "price-desc":
+      p1 = productRepo.loadNSXPriceDesc(find, offset);
+      break;
+    case "default":
+      p1 = productRepo.loadNSX(find, offset);
+      break;
   }
+  p2 = productRepo.countByNSX(find);
 
   var p3 = homeRepo.loadTopNSX();
   var p4 = homeRepo.loadTopType();
@@ -284,7 +230,8 @@ router.get('/:FindWhat', (req, res) => {
             isCurPage: i === +page,
             FollowNSX: isNSX,
             FollowType: isType,
-            Sort: sort
+            Sort: sort,
+            Breadcumb: find
           });
       else if (+page === nPages)
         for (var i = nPages - 2; i <= nPages; i++)
@@ -293,7 +240,8 @@ router.get('/:FindWhat', (req, res) => {
             isCurPage: i === +page,
             FollowNSX: isNSX,
             FollowType: isType,
-            Sort: sort
+            Sort: sort,
+            Breadcumb: find
           });
       else {
         numbers.push({
@@ -301,21 +249,24 @@ router.get('/:FindWhat', (req, res) => {
           isCurPage: false,
           FollowNSX: isNSX,
           FollowType: isType,
-          Sort: sort
+          Sort: sort,
+          Breadcumb: find
         });
         numbers.push({
           value: +page,
           isCurPage: true,
           FollowNSX: isNSX,
           FollowType: isType,
-          Sort: sort
+          Sort: sort,
+          Breadcumb: find
         });
         numbers.push({
           value: +page + 1,
           isCurPage: false,
           FollowNSX: isNSX,
           FollowType: isType,
-          Sort: sort
+          Sort: sort,
+          Breadcumb: find
         });
       }
     } else if (nPages < 2) {
@@ -326,7 +277,8 @@ router.get('/:FindWhat', (req, res) => {
         isCurPage: true,
         FollowNSX: isNSX,
         FollowType: isType,
-        Sort: sort
+        Sort: sort,
+        Breadcumb: find
       });
     } else {
       if (+page === 1) {
@@ -337,14 +289,16 @@ router.get('/:FindWhat', (req, res) => {
           isCurPage: true,
           FollowNSX: isNSX,
           FollowType: isType,
-          Sort: sort
+          Sort: sort,
+          Breadcumb: find
         });
         numbers.push({
           value: +page + 1,
           isCurPage: false,
           FollowNSX: isNSX,
           FollowType: isType,
-          Sort: sort
+          Sort: sort,
+          Breadcumb: find
         });
       } else {
         isFirstPage = false;
@@ -354,14 +308,16 @@ router.get('/:FindWhat', (req, res) => {
           isCurPage: false,
           FollowNSX: isNSX,
           FollowType: isType,
-          Sort: sort
+          Sort: sort,
+          Breadcumb: find
         });
         numbers.push({
           value: +page,
           isCurPage: true,
           FollowNSX: isNSX,
           FollowType: isType,
-          Sort: sort
+          Sort: sort,
+          Breadcumb: find
         });
       }
     }
@@ -401,25 +357,248 @@ router.get('/:FindWhat', (req, res) => {
   });
 });
 
+router.get('/productsWithType/:type', (req, res) => {
+  var page = req.query.page;
+  if (!page) {
+    page = 1;
+  }
+  var isFirstPage = false,
+    isLastPage = false;
+
+  var find = req.params.type;
+  var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
+  var p1, p2;
+  var isNSX = false,
+    isType = true;
+  var sort = req.query.sort;
+
+  if (!sort)
+    sort = "default";
+  arrSort = extra_Array.Sort;
+
+  var arrShowSort = [];
+
+  switch (sort) {
+    case "alpha-asc":
+      p1 = productRepo.loadTypeAZ(find, offset);
+      break;
+    case "alpha-desc":
+      p1 = productRepo.loadTypeZA(find, offset);
+      break;
+    case "price-asc":
+      p1 = productRepo.loadTypePriceAsc(find, offset);
+      break;
+    case "price-desc":
+      p1 = productRepo.loadTypePriceDesc(find, offset);
+      break;
+    case "default":
+      p1 = productRepo.loadType(find, offset);
+      break;
+  }
+  p2 = productRepo.countByType(find);
+
+  var p3 = homeRepo.loadTopNSX();
+  var p4 = homeRepo.loadTopType();
+  var p5 = homeRepo.loadAllNSX();
+  var p6 = homeRepo.loadAllType();
+  Promise.all([p1, p2, p3, p4, p5, p6]).then(([pRows, countRows, NSXRows, TypeRows, AllNSXRows, AllTypeRows]) => {
+    var total = countRows[0].total;
+    var nPages = parseInt(total / config.PRODUCTS_PER_PAGE);
+    if (total % config.PRODUCTS_PER_PAGE > 0) {
+      nPages++;
+    }
+
+    if (+page === 1)
+      isFirstPage = true;
+    if (+page === nPages)
+      isLastPage = true;
+
+    var numbers = [];
+    if (nPages > 2) {
+      if (+page === 1)
+        for (var i = 1; i <= 3; i++)
+          numbers.push({
+            value: i,
+            isCurPage: i === +page,
+            FollowNSX: isNSX,
+            FollowType: isType,
+            Sort: sort,
+            Breadcumb: find
+          });
+      else if (+page === nPages)
+        for (var i = nPages - 2; i <= nPages; i++)
+          numbers.push({
+            value: i,
+            isCurPage: i === +page,
+            FollowNSX: isNSX,
+            FollowType: isType,
+            Sort: sort,
+            Breadcumb: find
+          });
+      else {
+        numbers.push({
+          value: +page - 1,
+          isCurPage: false,
+          FollowNSX: isNSX,
+          FollowType: isType,
+          Sort: sort,
+          Breadcumb: find
+        });
+        numbers.push({
+          value: +page,
+          isCurPage: true,
+          FollowNSX: isNSX,
+          FollowType: isType,
+          Sort: sort,
+          Breadcumb: find
+        });
+        numbers.push({
+          value: +page + 1,
+          isCurPage: false,
+          FollowNSX: isNSX,
+          FollowType: isType,
+          Sort: sort,
+          Breadcumb: find
+        });
+      }
+    } else if (nPages < 2) {
+      isFirstPage = true;
+      isLastPage = true;
+      numbers.push({
+        value: +page,
+        isCurPage: true,
+        FollowNSX: isNSX,
+        FollowType: isType,
+        Sort: sort,
+        Breadcumb: find
+      });
+    } else {
+      if (+page === 1) {
+        isFirstPage = true;
+        isLastPage = false;
+        numbers.push({
+          value: +page,
+          isCurPage: true,
+          FollowNSX: isNSX,
+          FollowType: isType,
+          Sort: sort,
+          Breadcumb: find
+        });
+        numbers.push({
+          value: +page + 1,
+          isCurPage: false,
+          FollowNSX: isNSX,
+          FollowType: isType,
+          Sort: sort,
+          Breadcumb: find
+        });
+      } else {
+        isFirstPage = false;
+        isLastPage = true;
+        numbers.push({
+          value: +page - 1,
+          isCurPage: false,
+          FollowNSX: isNSX,
+          FollowType: isType,
+          Sort: sort,
+          Breadcumb: find
+        });
+        numbers.push({
+          value: +page,
+          isCurPage: true,
+          FollowNSX: isNSX,
+          FollowType: isType,
+          Sort: sort,
+          Breadcumb: find
+        });
+      }
+    }
+
+    for (var i = 0; i < arrSort.length; i++)
+      arrShowSort.push({
+        valueSort: arrSort[i].value,
+        nameSort: arrSort[i].name,
+        isSort: sort === arrSort[i].value
+      });
+
+    var vm = {
+      products: pRows,
+      totalItem: total,
+      noProducts: pRows.length === 0,
+      page_numbers: numbers,
+      last_page: nPages,
+      isFirst: isFirstPage,
+      isLast: isLastPage,
+      topNSX: NSXRows,
+      topType: TypeRows,
+      AllNSX: AllNSXRows,
+      AllType: AllTypeRows,
+      FollowNSX: isNSX,
+      FollowType: isType,
+      Breadcumb: find,
+      TypeSort: arrShowSort,
+      Sort: sort
+    };
+
+    for (var i = 0; i < numbers.length; i++)
+      if (numbers[i].isCurPage == true) {
+        vm.CurrentPage = numbers[i].value;
+        break;
+      }
+    res.render('products/index', vm);
+  });
+});
+
+router.get('/detail/:FindWhat', (req, res) => {
+  var name = req.params.FindWhat;
+  var p1 = productRepo.loadSingle(name);
+  var p2 = productRepo.loadMore5NSX(name);
+  var p3 = productRepo.loadMore5Type(name);
+  var p4 = homeRepo.loadTopNSX();
+  var p5 = homeRepo.loadTopType();
+  var p6 = productRepo.IncreaseView(name);
+
+  Promise.all([p1, p2, p3, p4, p5, p6]).then(([result, moreNSXRows, moreTypeRows, NSXRows, TypeRows, Inc]) => {
+    var vm = {
+      Car: result[0],
+      MoreNSX: moreNSXRows,
+      MoreType: moreTypeRows,
+      topNSX: NSXRows,
+      topType: TypeRows
+    }
+    res.render('products/detail', vm);
+  }).catch(error => {
+    res.render('error/index', {
+      layout: false
+    });
+  });
+});
+
 router.post('/', (req, res) => {
   var filter = req.query.sortBox;
   var pageTemp = req.query.page;
-  if(!pageTemp)
+  if (!pageTemp)
     pageTemp = 1;
   res.redirect("/products?page=" + pageTemp + "&sort=" + filter);
 });
 
-router.post('/:FindWhat', (req, res) => {
+router.post('/productsWithBrand/:FindWhat', (req, res) => {
   var filter = req.query.sortBox;
   var pageTemp = req.query.page;
   var find = req.params.FindWhat;
-  var FollowHangXe = req.query.isNSX;
-  var FollowDongXe = req.query.isType;
-  if(!pageTemp)
+  if (!pageTemp)
     pageTemp = 1;
-  if(FollowHangXe)
-    res.redirect("/products/" + find + "?isNSX=true&page=" + pageTemp + "&sort=" + filter);
-  else
-    res.redirect("/products/" + find + "?isType=true&page=" + pageTemp + "&sort=" + filter);
+
+  res.redirect("/products/productsWithBrand/" + find + "?&page=" + pageTemp + "&sort=" + filter);
 });
+
+router.post('/productsWithType/:FindWhat', (req, res) => {
+  var filter = req.query.sortBox;
+  var pageTemp = req.query.page;
+  var find = req.params.FindWhat;
+  if (!pageTemp)
+    pageTemp = 1;
+  res.redirect("/products/productsWithType/" + find + "?&page=" + pageTemp + "&sort=" + filter);
+});
+
 module.exports = router;

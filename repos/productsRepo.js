@@ -76,6 +76,21 @@ exports.loadTypePriceDesc = (type, offset) => {
     return db.load(sql);
 }
 // -------------------------------------------------------------
+exports.loadSingle = (name) => {
+    var sql = `select * from xe x, hangxe h, dongxe d where TenXe = "${name}" and x.HangXe = h.MaHangXe and x.DongXe = d.MaDongXe`;
+    return db.load(sql);
+}
+
+exports.loadMore5NSX = (name) => {
+    var sql = `select x2.* from xe x1, xe x2 where x1.TenXe = "${name}" and x1.TenXe != x2.TenXe and x1.HangXe = x2.HangXe limit 5`;
+    return db.load(sql);
+}
+
+exports.loadMore5Type = (name) => {
+    var sql = `select x2.* from xe x1, xe x2 where x1.TenXe = "${name}" and x1.TenXe != x2.TenXe and x1.DongXe = x2.DongXe limit 5`;
+    return db.load(sql);
+}
+// -------------------------------------------------------------
 exports.countAll = () => {
 	var sql = `select count(*) as total from xe`;
     return db.load(sql);
@@ -89,4 +104,9 @@ exports.countByNSX = NSXxe => {
 exports.countByType = Type => {
 	var sql = `select count(*) as total from xe x, dongxe d where x.DongXe = d.MaDongXe and d.TenDongXe = "${Type}"`;
     return db.load(sql);
+}
+// -------------------------------------------------------------
+exports.IncreaseView = Name => {
+	var sql = `update xe set SoLuotXem = SoLuotXem + 1 where TenXe = "${Name}"`;
+    return db.save(sql);
 }

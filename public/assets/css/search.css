@@ -23,12 +23,12 @@
     border: none;
     box-shadow: none;
     height: 40px;
-    width: 300px;
+    width: 270px;
     float: left;
     line-height: 2.1;
 }
 
-.search-main input[name="query"]:focus
+.search-main input[name="queryInput"]:focus
 {
   border: 1px solid #a4a4a4;
 }
@@ -81,11 +81,12 @@
   font-size: 1em;
   outline: none;
   padding: 0 20px;
-  width: 17%;
+  width: auto;
   max-width: 100%;
   display: block;
   border: 1px solid #a4a4a4;
   margin-left: 15px;
+  padding-right: 65px;
 }
 
 .otherSearch

@@ -8,33 +8,6 @@ $(document).ready(function() {
   var dem = $(document).find('.cartCount');
   dem.text("" + sessionStorage.count);
 
-  // if (!sessionStorage.mangXe)
-  //   for (var i = 0; i < AllProd.length; i++) {
-  //     var xe = {
-  //       tenxe: AllProd[i].ten,
-  //       num: 0,
-  //       gia: parseInt(AllProd[i].gia),
-  //       xem: parseInt(AllProd[i].xem),
-  //       ban: parseInt(AllProd[i].ban),
-  //       nlieu: AllProd[i].nlieu,
-  //       mau: AllProd[i].mau,
-  //       hopso: AllProd[i].hopso,
-  //       cua: AllProd[i].cua,
-  //       cho: AllProd[i].cho
-  //     };
-  //     mang.push(xe);
-  //     sessionStorage.mangXe = JSON.stringify(mang);
-  //   }
-  // if(!sessionStorage.detailXe)
-  //   sessionStorage.detailXe = "";
-  //
-  // if(!sessionStorage.Hang)
-  //     sessionStorage.Hang = "";
-  // if(!sessionStorage.Dong)
-  //     sessionStorage.Dong = "";
-  // if(!sessionStorage.search)
-  //     sessionStorage.search = "";
-
   var dem = $(document).find('.cartCount');
   dem.text("" + sessionStorage.count);
 
@@ -487,8 +460,9 @@ $('.sort-by').on('change', function() {
   if(window.location.search == "")
     $('form.filterForm').attr('action', window.location.pathname + window.location.search + "?page=" + p + "&sortBox=" + x);
   else
-  $('form.filterForm').attr('action', window.location.pathname + window.location.search +  "&sortBox=" + x);
-  $('form.filterForm').submit();
+    $('form.filterForm').attr('action', window.location.pathname + window.location.search +  "&sortBox=" + x);
+
+   $('form.filterForm').submit();
 });
 
 $('#btn-Search').on('click', function() {
@@ -548,46 +522,16 @@ $('#btn-Search-Foot').on('click', function() {
   }
 });
 
-$('#find').bind('keypress', function(e) {
+$('input[name="search"]').bind('keypress', function(e) {
   if(e.keyCode == 13)
   {
-    sessionStorage.search = $(this).val();
-    sessionStorage.SearchPrice = 0;
-    sessionStorage.SearchBrand = 0;
-    sessionStorage.SearchType = 0;
-    var keyword = sessionStorage.search;
-    if(keyword == "")
-      sessionStorage.SearchResult = AllProd.length;
-    else
-    {
-      var dem = 0;
-      var key = new RegExp(keyword, 'i');
-      for(var i = 0; i < AllProd.length; i++)
-        if(AllProd[i].ten.search(key) > -1)
-          dem++;
-      sessionStorage.SearchResult = dem;
-    }
+    $('form[name="SearchForm"]').submit();
   }
 });
 
-$('#findCollapse').bind('keypress', function(e) {
+$('input[name="searchCollapse"]').bind('keypress', function(e) {
   if(e.keyCode == 13)
   {
-    sessionStorage.search = $(this).val();
-    sessionStorage.SearchPrice = 0;
-    sessionStorage.SearchBrand = 0;
-    sessionStorage.SearchType = 0;
-    var keyword = sessionStorage.search;
-    if(keyword == "")
-      sessionStorage.SearchResult = AllProd.length;
-    else
-    {
-      var dem = 0;
-      var key = new RegExp(keyword, 'i');
-      for(var i = 0; i < AllProd.length; i++)
-        if(AllProd[i].ten.search(key) > -1)
-          dem++;
-      sessionStorage.SearchResult = dem;
-    }
+    $('form[name="SearchForm"]').submit();
   }
 });

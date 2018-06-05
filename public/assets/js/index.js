@@ -27,8 +27,8 @@ function AddToCarousel(id, ten, gia, contain) {
   var boxHinh = $(contain);
   boxHinh.owlCarousel('add', `<div class="product-box">
     <div class="product-thumbnail">
-      <a href="javascript:;" title="` + ten + `">
-        <img src="./image/all/` + ten + `.jpg" alt="` + ten + `">
+      <a href="/products/` + ten +`" title="` + ten + `">
+        <img src="/image/all/` + ten + `.jpg" alt="` + ten + `">
       </a>
       <div class="price-box clearfix">
         <div class="special-price">
@@ -40,7 +40,7 @@ function AddToCarousel(id, ten, gia, contain) {
     </div>
     <div class="product-info">
       <h3 class="product-name">
-        <a href="javascript:;" title="` + ten + `">` + ten + `</a>
+        <a href="/products/` + ten +`" title="` + ten + `">` + ten + `</a>
       </h3>
     </div>
     <div class="product-action clearfix ">
@@ -51,7 +51,7 @@ function AddToCarousel(id, ten, gia, contain) {
             Mua hàng
           </a>
 
-          <a href="detail.html" class="btn btn-gray hvr-rectangle-out" name="button-Detail-` + ten +`" title="Chi tiết" style="float: right">
+          <a href="/products/detail/` + ten +`" class="btn btn-gray hvr-rectangle-out" name="button-Detail-` + ten +`" title="Chi tiết" style="float: right">
             <i class="fa fa-eye"></i>
             Chi tiết
           </a>
@@ -62,7 +62,7 @@ function AddToCarousel(id, ten, gia, contain) {
   boxHinh.find('.owl-nav').removeClass('disabled');
   $('a[name="'+contain+'-button-Buy-' + ten + '"]').on('click', function() {
     var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-    hinh.attr('src', './image/all/' + ten + '.jpg');
+    hinh.attr('src', '/image/all/' + ten + '.jpg');
     hinh.attr('alt', ten);
     $('#QuickBuy').find('.product-title').text(ten);
     $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
@@ -98,10 +98,10 @@ function AddBestSellProd(id, ten, gia) {
   var boxHinh = $('#BSell');
   boxHinh.owlCarousel('add', `<div class="prod-grid">
     <a href="javascript:;" title="` + ten + `">
-      <img src="./image/all/` + ten + `.jpg" data-lazyload="./image/BestSell/` + ten + `.jpg" alt="` + ten + `">
+      <img src="/image/all/` + ten + `.jpg" data-lazyload="./image/BestSell/` + ten + `.jpg" alt="` + ten + `">
     </a>
     <div class="infoBestSell">
-      <h3><a href="javascript:;">` + ten + `</a></h3>
+      <h3><a href="/products/` + ten +`">` + ten + `</a></h3>
       <div class="clearfix">
         <div class="special-price">
           <span class="price product-price">
@@ -115,7 +115,7 @@ function AddBestSellProd(id, ten, gia) {
         <a class="button square hvr-rectangle-out" name="BSell-button-Buy-` + ten + `" data-toggle="modal" data-target="#QuickBuy">
           <i class="fa fa-shopping-cart"></i>
         </a>
-        <a href="detail.html" class="button square hvr-rectangle-out" name="button-Detail-` + ten +`">
+        <a href="/products/detail/` + ten + `" class="button square hvr-rectangle-out" name="button-Detail-` + ten +`">
         <i class="fa fa-eye"></i>
         </a>
       </div>
@@ -123,7 +123,7 @@ function AddBestSellProd(id, ten, gia) {
   </div>`).owlCarousel('update');
   $('a[name="BSell-button-Buy-' + ten + '"]').on('click', function() {
     var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-    hinh.attr('src', './image/all/' + ten + '.jpg');
+    hinh.attr('src', '/image/all/' + ten + '.jpg');
     hinh.attr('alt', ten);
     $('#QuickBuy').find('.product-title').text(ten);
     $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
@@ -364,22 +364,9 @@ function CartUpdate() {
 }
 
 $(document).ready(function() {
-  if(!sessionStorage.detailXe)
-    sessionStorage.detailXe = "";
-  if(!sessionStorage.Hang)
-      sessionStorage.Hang = "";
-  if(!sessionStorage.Dong)
-      sessionStorage.Dong = "";
-  if(!sessionStorage.search)
-      sessionStorage.search = "";
   CartUpdate();
   var dem = $(document).find('.cartCount');
   dem.text("" + sessionStorage.count);
-
-});
-
-$('.desc').find('a').on('click', function() {
-  sessionStorage.detailXe = "Toyota Camry";
 });
 
 $('#btn-Search').on('click', function() {
@@ -439,46 +426,16 @@ $('#btn-Search-Foot').on('click', function() {
   }
 });
 
-$('#find').bind('keypress', function(e) {
+$('input[name="search"]').bind('keypress', function(e) {
   if(e.keyCode == 13)
   {
-    sessionStorage.search = $(this).val();
-    sessionStorage.SearchPrice = 0;
-    sessionStorage.SearchBrand = 0;
-    sessionStorage.SearchType = 0;
-    var keyword = sessionStorage.search;
-    if(keyword == "")
-      sessionStorage.SearchResult = AllProd.length;
-    else
-    {
-      var dem = 0;
-      var key = new RegExp(keyword, 'i');
-      for(var i = 0; i < AllProd.length; i++)
-        if(AllProd[i].ten.search(key) > -1)
-          dem++;
-      sessionStorage.SearchResult = dem;
-    }
+    $('form[name="SearchForm"]').submit();
   }
 });
 
-$('#findCollapse').bind('keypress', function(e) {
+$('input[name="searchCollapse"]').bind('keypress', function(e) {
   if(e.keyCode == 13)
   {
-    sessionStorage.search = $(this).val();
-    sessionStorage.SearchPrice = 0;
-    sessionStorage.SearchBrand = 0;
-    sessionStorage.SearchType = 0;
-    var keyword = sessionStorage.search;
-    if(keyword == "")
-      sessionStorage.SearchResult = AllProd.length;
-    else
-    {
-      var dem = 0;
-      var key = new RegExp(keyword, 'i');
-      for(var i = 0; i < AllProd.length; i++)
-        if(AllProd[i].ten.search(key) > -1)
-          dem++;
-      sessionStorage.SearchResult = dem;
-    }
+    $('form[name="SearchFormCollapse"]').submit();
   }
 });

@@ -11,8 +11,8 @@ var MySQLStore = require('express-mysql-session')(session);
 var handle404MDW = require('./middle-wares/handle404');
 
 var homeController = require('./controllers/homeController');
-var detailController = require('./controllers/detailController');
 var productsController = require('./controllers/productsController');
+var searchController = require('./controllers/searchController');
 
 var app = express();
 
@@ -77,9 +77,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/home', homeController);
-app.use('/detail', detailController);
 app.use('/products', productsController);
-// app.use(handle404MDW);
+app.use('/search', searchController);
+app.use(handle404MDW);
 
 app.listen(3000, () => {
     console.log('Site running on port 3000');

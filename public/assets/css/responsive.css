@@ -234,6 +234,12 @@
   }
 }
 
+@media screen and (max-width: 515px) {
+  .btn-cart{
+    margin-left: 93px;
+  }
+}
+
 @media screen and (max-width: 460px) {
   .someNewProducts
   {
@@ -259,6 +265,11 @@
   .someNewProducts
   {
     margin-top: 95px !important;
+  }
+
+  .ileft
+  {
+    width: 100% !important;
   }
 }
 
