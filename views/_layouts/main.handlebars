@@ -88,7 +88,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                       <h3>Hãng xe nổi tiếng</h3>
                       <div class="row text-center">
-                        {{#each topNSX}}
+                        {{#each layoutVM.topNSX}}
                           <div class="NSX-item">
                             <a href="/products/productsWithBrand/{{TenHangXe}}">
                               <div class="brand-box">
@@ -105,7 +105,7 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                       <h3>Các dòng xe</h3>
                       <div class="row text-center">
-                        {{#each topType}}
+                        {{#each layoutVM.topType}}
                           <div class="type-item">
                             <a href="/products/productsWithType/{{TenDongXe}}">
                               <div class="type-box">
@@ -138,7 +138,7 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right" id="rightNavBarHeader">
-            <li style="padding-right: 12px;"><a href="/home/cart"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">0</span></a></li>
+            <li style="padding-right: 12px;"><a href="/cart"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">{{layoutVM.cartCount}}</span></a></li>
             <li><a href="javascript:;" data-toggle="modal" data-target="#SignUpModal" id="SignUpNavBtn"><i class="fas fa-user-plus" style="font-size: 16px;"></i> Đăng ký</a></li>
             <li><a href="javascript:;" data-toggle="modal" data-target="#SignInModal" id="SignInNavBtn"><i class="fas fa-user"></i> Đăng nhập</a></li>
             <li><a href="javascript:;" id="InfoUserBtn"></a></li>
@@ -258,26 +258,29 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">
             <span><i class="fa fa-check"></i></span>
-            Thêm vào giỏ hàng thành công
+            <span>Thêm vào giỏ hàng thành công</span>
           </h4>
         </div>
         <div class="modal-body">
           <div class="media">
             <div class="media-left">
               <div class="thumb-1x1">
-                <img src="./image/all/Aston Martin DB11.jpg" alt="Aston Martin DB11">
+                <img src="/image/all/.jpg" alt="">
               </div>
             </div>
             <div class="media-body">
-              <div class="product-title">Aston Martin DB11</div>
+              <div class="product-title"> </div>
               <div class="product-new-price">
-                <input type="hidden" name="product-new-price" value="4829000000">
-                <span>4.829.000.000đ</span>
+                <input type="hidden" name="product-new-price" value="">
+                <span> </span>
               </div>
             </div>
           </div>
+          <div class="OutofStock">
+            <h4>Sản phẩm đã hết hàng</h4>
+          </div>
           <button type="button" class="btn btn-outline-red" name="button-Quick" data-dismiss="modal">Tiếp tục mua hàng</button>
-          <a href="cart.html" class="btn btn-red">Tiến hành thanh toán »</a>
+          <button class="btn btn-red" onclick="window.location.href='/checkout'">Tiến hành thanh toán »</button>
         </div>
       </div>
     </div>
@@ -383,10 +386,11 @@
       </div>
     </div>
   </div>
+
   <!-- End footer -->
   {{{_sections.js}}}
   <script type="text/javascript" src="/assets/fontawesome-all.js"></script>
-  <script type="text/javascript" src="/assets/js/sweetalert.min.js"></script>
+  {{!-- <script type="text/javascript" src="/assets/js/sweetalert.min.js"></script> --}}
 </body>
 
 </html>

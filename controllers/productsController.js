@@ -45,12 +45,9 @@ router.get('/', (req, res) => {
   }
 
   var p2 = productRepo.countAll();
-
-  var p3 = homeRepo.loadTopNSX();
-  var p4 = homeRepo.loadTopType();
-  var p5 = homeRepo.loadAllNSX();
-  var p6 = homeRepo.loadAllType();
-  Promise.all([p1, p2, p3, p4, p5, p6]).then(([pRows, countRows, NSXRows, TypeRows, AllNSXRows, AllTypeRows]) => {
+  var p3 = homeRepo.loadAllNSX();
+  var p4 = homeRepo.loadAllType();
+  Promise.all([p1, p2, p3, p4]).then(([pRows, countRows, AllNSXRows, AllTypeRows]) => {
     var total = countRows[0].total;
     var nPages = parseInt(total / config.PRODUCTS_PER_PAGE);
     if (total % config.PRODUCTS_PER_PAGE > 0) {
@@ -149,8 +146,6 @@ router.get('/', (req, res) => {
       last_page: nPages,
       isFirst: isFirstPage,
       isLast: isLastPage,
-      topNSX: NSXRows,
-      topType: TypeRows,
       AllNSX: AllNSXRows,
       AllType: AllTypeRows,
       TypeSort: arrShowSort,
@@ -205,11 +200,9 @@ router.get('/productsWithBrand/:brand', (req, res) => {
   }
   p2 = productRepo.countByNSX(find);
 
-  var p3 = homeRepo.loadTopNSX();
-  var p4 = homeRepo.loadTopType();
-  var p5 = homeRepo.loadAllNSX();
-  var p6 = homeRepo.loadAllType();
-  Promise.all([p1, p2, p3, p4, p5, p6]).then(([pRows, countRows, NSXRows, TypeRows, AllNSXRows, AllTypeRows]) => {
+  var p3 = homeRepo.loadAllNSX();
+  var p4 = homeRepo.loadAllType();
+  Promise.all([p1, p2, p3, p4]).then(([pRows, countRows, AllNSXRows, AllTypeRows]) => {
     var total = countRows[0].total;
     var nPages = parseInt(total / config.PRODUCTS_PER_PAGE);
     if (total % config.PRODUCTS_PER_PAGE > 0) {
@@ -337,8 +330,6 @@ router.get('/productsWithBrand/:brand', (req, res) => {
       last_page: nPages,
       isFirst: isFirstPage,
       isLast: isLastPage,
-      topNSX: NSXRows,
-      topType: TypeRows,
       AllNSX: AllNSXRows,
       AllType: AllTypeRows,
       FollowNSX: isNSX,
@@ -397,11 +388,9 @@ router.get('/productsWithType/:type', (req, res) => {
   }
   p2 = productRepo.countByType(find);
 
-  var p3 = homeRepo.loadTopNSX();
-  var p4 = homeRepo.loadTopType();
-  var p5 = homeRepo.loadAllNSX();
-  var p6 = homeRepo.loadAllType();
-  Promise.all([p1, p2, p3, p4, p5, p6]).then(([pRows, countRows, NSXRows, TypeRows, AllNSXRows, AllTypeRows]) => {
+  var p3 = homeRepo.loadAllNSX();
+  var p4 = homeRepo.loadAllType();
+  Promise.all([p1, p2, p3, p4]).then(([pRows, countRows, AllNSXRows, AllTypeRows]) => {
     var total = countRows[0].total;
     var nPages = parseInt(total / config.PRODUCTS_PER_PAGE);
     if (total % config.PRODUCTS_PER_PAGE > 0) {
@@ -529,8 +518,6 @@ router.get('/productsWithType/:type', (req, res) => {
       last_page: nPages,
       isFirst: isFirstPage,
       isLast: isLastPage,
-      topNSX: NSXRows,
-      topType: TypeRows,
       AllNSX: AllNSXRows,
       AllType: AllTypeRows,
       FollowNSX: isNSX,
@@ -554,17 +541,13 @@ router.get('/detail/:FindWhat', (req, res) => {
   var p1 = productRepo.loadSingle(name);
   var p2 = productRepo.loadMore5NSX(name);
   var p3 = productRepo.loadMore5Type(name);
-  var p4 = homeRepo.loadTopNSX();
-  var p5 = homeRepo.loadTopType();
-  var p6 = productRepo.IncreaseView(name);
+  var p4 = productRepo.IncreaseView(name);
 
-  Promise.all([p1, p2, p3, p4, p5, p6]).then(([result, moreNSXRows, moreTypeRows, NSXRows, TypeRows, Inc]) => {
+  Promise.all([p1, p2, p3, p4]).then(([result, moreNSXRows, moreTypeRows, Inc]) => {
     var vm = {
       Car: result[0],
       MoreNSX: moreNSXRows,
-      MoreType: moreTypeRows,
-      topNSX: NSXRows,
-      topType: TypeRows
+      MoreType: moreTypeRows
     }
     res.render('products/detail', vm);
   }).catch(error => {

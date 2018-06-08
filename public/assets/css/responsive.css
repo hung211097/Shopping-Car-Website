@@ -16,11 +16,6 @@
     width: 80%;
   }
 
-  #limousine
-  {
-    margin-top: 15px;
-  }
-
   .search-main .products-view-grid .col-md-4:nth-child(3n+1) {
       clear: left;
   }
