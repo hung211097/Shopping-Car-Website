@@ -99,7 +99,7 @@
                   <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
                     <div class="product-box">
                       <div class="product-thumbnail">
-                        <a href="/products/{{TenXe}}" title="{{TenXe}}">
+                        <a href="/products/detail/{{TenXe}}" title="{{TenXe}}">
                           <img src="/image/all/{{TenXe}}.jpg" alt="{{TenXe}}">
                         </a>
                         <div class="price-box clearfix">
@@ -112,11 +112,13 @@
                       </div>
                       <div class="product-info">
                         <h3 class="product-name">
-                          <a href="/products/{{TenXe}}" title="{{TenXe}}">{{TenXe}}</a>
+                          <a href="/products/detail/{{TenXe}}" title="{{TenXe}}">{{TenXe}}</a>
                         </h3>
                       </div>
                       <div class="product-action clearfix ">
                         <form class="products-view-grid" action="" method="post" data-id="">
+                          <input type="hidden" name="proId" value="{{MaXe}}">
+                          <input type="hidden" name="quantity" value="1">
                           <div>
                             <a class="btn btn-gray hvr-rectangle-out" name="button-Buy-{{TenXe}}" title="Mua hàng" data-toggle="modal" data-target="#QuickBuy">
                               <i class="fa fa-shopping-cart"></i>
@@ -129,9 +131,47 @@
                             </a>
                           </div>
                         </form>
+                        <script type="text/javascript">
+                          $('a[name="button-Buy-{{TenXe}}"]').on('click', function() {
+                            var form = $(this).parents('form');
+                            $.ajax({
+                              type: 'POST',
+                              url: '/cart/add',
+                              async: false,
+                              data: form.serialize(),
+                              dataType: 'json',
+                              error: function() {
+                                $('#QuickBuy').find('h4.modal-title').html('<span><i class="fas fa-times"></i></span> Thêm vào giỏ hàng thất bại');
+                                $('.OutofStock').show();
+
+                                var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+                                hinh.attr('src', '/image/all/{{TenXe}}.jpg');
+                                hinh.attr('alt', '{{TenXe}}');
+                                $('#QuickBuy').find('.product-title').text('{{TenXe}}');
+                                $('#QuickBuy').find('input[name="product-new-price"]').val({{Gia}});
+                                $('#QuickBuy').find('div.product-new-price').find('span').text('{{number_format Gia}}');
+                              },
+                              beforeSend: function() {},
+                              success: function() {
+                                $('#QuickBuy').find('h4.modal-title').html('<span><i class="fa fa-check"></i></span> Thêm vào giỏ hàng thành công');
+                                $('.OutofStock').hide();
+
+                                var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+                                hinh.attr('src', '/image/all/{{TenXe}}.jpg');
+                                hinh.attr('alt', '{{TenXe}}');
+                                $('#QuickBuy').find('.product-title').text('{{TenXe}}');
+                                $('#QuickBuy').find('input[name="product-new-price"]').val({{Gia}});
+                                $('#QuickBuy').find('div.product-new-price').find('span').text('{{number_format Gia}}');
+                                IncreaseNumCar();
+                              },
+                              cache: false
+                            });
+                          });
+                        </script>
                       </div>
                     </div>
                   </div>
+
                 {{/each}}
               </div>
               <div class="text-xs-center col-xs-12">

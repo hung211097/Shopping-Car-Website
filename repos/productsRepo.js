@@ -110,3 +110,8 @@ exports.IncreaseView = Name => {
 	var sql = `update xe set SoLuotXem = SoLuotXem + 1 where TenXe = "${Name}"`;
     return db.save(sql);
 }
+
+exports.single = proId => {
+    var sql = `select * from xe where MaXe = "${proId}"`;
+    return db.load(sql);
+}

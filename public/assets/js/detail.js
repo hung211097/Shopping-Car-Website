@@ -2,22 +2,10 @@ $(document).ready(function() {
   if ($(window).scrollTop() >= 86) {
     $('.modal-dialog').css('z-index', '9999 !important');
   }
-  // sessionStorage.removeItem('count');
-  if (!sessionStorage.count)
-    sessionStorage.count = 0;
-  var dem = $(document).find('.cartCount');
-  dem.text("" + sessionStorage.count);
-
-  var dem = $(document).find('.cartCount');
-  dem.text("" + sessionStorage.count);
-
-
 
   document.SignIn.reset();
   document.SignUp.reset();
 });
-
-var mang = [];
 
 function AddMoreImage(x, count) {
   mySwiper.appendSlide(`<div class="swiper-slide bethua">
@@ -36,14 +24,6 @@ function AddMoreImage(x, count) {
   });
 }
 
-
-
-
-
-$('.btn-cart').on('click', function() {
-  $(this).blur();
-});
-
 $('.qtyminus').on('click', function() {
   var temp = $('#qty').val();
   if(temp > 1)
@@ -53,23 +33,6 @@ $('.qtyminus').on('click', function() {
 $('.qtyplus').on('click', function() {
   var temp = $('#qty').val();
   $('#qty').val(++temp);
-});
-
-$('.btn-cart').on('click', function() {
-  var price = PriceToSring(gia);
-  var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-  hinh.attr('src', './image/all/' + ten + '.jpg');
-  hinh.attr('alt', ten);
-  $('#QuickBuy').find('.product-title').text(ten);
-  $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
-  $('#QuickBuy').find('div.product-new-price').find('span').text(price);
-  var num = parseInt($('#qty').val());
-  IncreaseNumCar(num);
-  var temp = JSON.parse(sessionStorage.mangXe);
-  for (var i = 0; i < temp.length; i++)
-    if (temp[i].tenxe == ten)
-      temp[i].num += num;
-  sessionStorage.mangXe = JSON.stringify(temp);
 });
 
 function insert(str, index, value) {
@@ -110,17 +73,17 @@ function PriceToSring(price) {
 }
 
 function DecreaseNumCar() {
-  if (sessionStorage.count)
-    sessionStorage.count = Number(sessionStorage.count) - 1;
-  var dem = $(document).find('.cartCount');
-  dem.text("" + sessionStorage.count);
+  var cartcount = $(document).find('.cartCount');
+  var dem = parseInt(cartcount.text());
+  dem--;
+  cartcount.text("" + dem);
 }
 
 function IncreaseNumCar(x) {
-  if (sessionStorage.count)
-    sessionStorage.count = Number(sessionStorage.count) + x;
-  var dem = $(document).find('.cartCount');
-  dem.text("" + sessionStorage.count);
+  var cartcount = $(document).find('.cartCount');
+  var dem = parseInt(cartcount.text());
+  dem += x;
+  cartcount.text("" + dem);
 }
 
 function AddToCarousel(id, ten, gia, contain) {
@@ -129,7 +92,7 @@ function AddToCarousel(id, ten, gia, contain) {
 
   boxHinh.owlCarousel('add', `<div class="product-box">
     <div class="product-thumbnail">
-      <a href="/products/` + ten +`" title="` + ten + `">
+      <a href="/products/detail/` + ten +`" title="` + ten + `">
         <img src="/image/all/` + ten + `.jpg" alt="` + ten + `">
       </a>
       <div class="price-box clearfix">
@@ -142,11 +105,13 @@ function AddToCarousel(id, ten, gia, contain) {
     </div>
     <div class="product-info">
       <h3 class="product-name">
-        <a href="/products/` + ten +`" title="` + ten + `">` + ten + `</a>
+        <a href="/products/detail/` + ten +`" title="` + ten + `">` + ten + `</a>
       </h3>
     </div>
     <div class="product-action clearfix ">
-      <form class="products-view-grid" action="" method="post" data-id="">
+      <form class="products-view-grid" action="/cart/add" method="post" data-id="">
+        <input type="hidden" name="proId" value="`+id+`">
+        <input type="hidden" name="quantity" value="1">
         <div>
           <a class="btn btn-gray hvr-rectangle-out" name="`+contain+`-button-Buy-` + ten + `" title="Mua hàng" data-toggle="modal" data-target="#QuickBuy">
             <i class="fa fa-shopping-cart"></i>
@@ -161,96 +126,45 @@ function AddToCarousel(id, ten, gia, contain) {
       </form>
     </div>
   </div>`).owlCarousel('update');
+
   boxHinh.find('.owl-nav').removeClass('disabled');
   $('a[name="'+contain+'-button-Buy-' + ten + '"]').on('click', function() {
-    var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-    hinh.attr('src', '/image/all/' + ten + '.jpg');
-    hinh.attr('alt', ten);
-    $('#QuickBuy').find('.product-title').text(ten);
-    $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
-    $('#QuickBuy').find('div.product-new-price').find('span').text(price);
 
-    IncreaseNumCar();
-    var temp = JSON.parse(sessionStorage.mangXe);
-    var isFind = false;
-    for(var i = 0; i < temp.length; i++)
-      if(temp[i].maxe == id)
-      {
-        temp[i].num += 1;
-        isFind = true;
-        break;
-      }
-    if(isFind == false)
-      temp.push({maxe: id, tenxe: ten, giaxe: gia, num: 1})
-    sessionStorage.mangXe = JSON.stringify(temp);
-  });
+    var form = $(this).parents('form');
+    $.ajax({
+      type: 'POST',
+      url: '/cart/add',
+      async: false,
+      data: form.serialize(),
+      dataType: 'json',
+      error: function() {
+        $('#QuickBuy').find('h4.modal-title').html('<span><i class="fas fa-times"></i></span> Thêm vào giỏ hàng thất bại');
+        $('.OutofStock').show();
 
-  $('a[name="button-Detail-' + ten +'"]').on('click', function(){
-    sessionStorage.detailXe = ten;
-    var temp = JSON.parse(sessionStorage.mangXe);
-    for (var i = 0; i < temp.length; i++)
-      if (temp[i].tenxe == ten)
-        temp[i].xem += 1;
-    sessionStorage.mangXe = JSON.stringify(temp);
+        var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+        hinh.attr('src', '/image/all/' + ten + '.jpg');
+        hinh.attr('alt', ten);
+        $('#QuickBuy').find('.product-title').text(ten);
+        $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
+        $('#QuickBuy').find('div.product-new-price').find('span').text(price);
+      },
+      beforeSend: function() {},
+      success: function() {
+        $('#QuickBuy').find('h4.modal-title').html('<span><i class="fa fa-check"></i></span> Thêm vào giỏ hàng thành công');
+        $('.OutofStock').hide();
+
+        var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+        hinh.attr('src', '/image/all/' + ten + '.jpg');
+        hinh.attr('alt', ten);
+        $('#QuickBuy').find('.product-title').text(ten);
+        $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
+        $('#QuickBuy').find('div.product-new-price').find('span').text(price);
+        IncreaseNumCar();
+      },
+      cache: false
+    });
   });
 }
-
-$('#btn-Search').on('click', function() {
-  sessionStorage.search = $('input#find').val();
-  sessionStorage.SearchPrice = 0;
-  sessionStorage.SearchBrand = 0;
-  sessionStorage.SearchType = 0;
-  var keyword = sessionStorage.search;
-  if(keyword == "")
-    sessionStorage.SearchResult = AllProd.length;
-  else
-  {
-    var dem = 0;
-    var key = new RegExp(keyword, 'i');
-    for(var i = 0; i < AllProd.length; i++)
-      if(AllProd[i].ten.search(key) > -1)
-        dem++;
-    sessionStorage.SearchResult = dem;
-  }
-});
-
-$('#btn-Search-Collapse').on('click', function() {
-  sessionStorage.search = $('input#findCollapse').val();
-  sessionStorage.SearchPrice = 0;
-  sessionStorage.SearchBrand = 0;
-  sessionStorage.SearchType = 0;
-  var keyword = sessionStorage.search;
-  if(keyword == "")
-    sessionStorage.SearchResult = AllProd.length;
-  else
-  {
-    var dem = 0;
-    var key = new RegExp(keyword, 'i');
-    for(var i = 0; i < AllProd.length; i++)
-      if(AllProd[i].ten.search(key) > -1)
-        dem++;
-    sessionStorage.SearchResult = dem;
-  }
-});
-
-$('#btn-Search-Foot').on('click', function() {
-  sessionStorage.search = "";
-  sessionStorage.SearchPrice = 0;
-  sessionStorage.SearchBrand = 0;
-  sessionStorage.SearchType = 0;
-  var keyword = sessionStorage.search;
-  if(keyword == "")
-    sessionStorage.SearchResult = AllProd.length;
-  else
-  {
-    var dem = 0;
-    var key = new RegExp(keyword, 'i');
-    for(var i = 0; i < AllProd.length; i++)
-      if(AllProd[i].ten.search(key) > -1)
-        dem++;
-    sessionStorage.SearchResult = dem;
-  }
-});
 
 $('input[name="search"]').bind('keypress', function(e) {
   if(e.keyCode == 13)

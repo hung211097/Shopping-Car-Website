@@ -231,7 +231,7 @@
                           <td align="left">{{SoLuongTon}}</td>
                         </tr>
                       </tbody>
-                    </table>                    
+                    </table>
                   </div>
                 </div>
               </div>
@@ -278,15 +278,55 @@
                     <div class="form-group form-detail-action">
                       <label for="">Số lượng:</label>
                       <div class="custom-btn-number">
-                        <span class="qtyminus" data-field="quantity">-</span>
-                        <input id="qty" data-field="quantity" title="Số lượng" type="text" name="quantity" maxlength="12" value="1" disabled="disabled">
-                        <span class="qtyplus" data-field="quantity">+</span>
+                        <span class="qtyminus">-</span>
+                        <input type="hidden" name="proId" value="{{MaXe}}">
+                        <input id="qty" title="Số lượng" type="text" name="quantity" maxlength="12" value="1" disabled="disabled">
+                        <span class="qtyplus">+</span>
                       </div>
-                      <a type="button" class="btn btn-lg btn-gray btn-cart hvr-rectangle-out" title="Mua hàng" data-toggle="modal" data-target="#QuickBuy">
+                      <a class="btn btn-lg btn-gray btn-cart hvr-rectangle-out" title="Mua hàng" data-toggle="modal" data-target="#QuickBuy">
                         <i class="fa fa-shopping-cart"></i> Mua hàng
                       </a>
                     </div>
                   </form>
+                  <script type="text/javascript">
+                    $('.btn-cart').on('click', function() {
+                      $(this).blur();
+                      var form = $(this).parents('form');
+                      var num = parseInt($('#qty').val());
+                      $.ajax({
+                        type: 'POST',
+                        url: '/cart/add',
+                        async: false,
+                        data: {proId: '{{MaXe}}', quantity: num},
+                        dataType: 'json',
+                        error: function() {
+                          $('#QuickBuy').find('h4.modal-title').html('<span><i class="fas fa-times"></i></span> Thêm vào giỏ hàng thất bại');
+                          $('.OutofStock').show();
+
+                          var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+                          hinh.attr('src', '/image/all/{{TenXe}}.jpg');
+                          hinh.attr('alt', '{{TenXe}}');
+                          $('#QuickBuy').find('.product-title').text('{{TenXe}}');
+                          $('#QuickBuy').find('input[name="product-new-price"]').val({{Gia}});
+                          $('#QuickBuy').find('div.product-new-price').find('span').text('{{number_format Gia}}');
+                        },
+                        beforeSend: function() {},
+                        success: function() {
+                          $('#QuickBuy').find('h4.modal-title').html('<span><i class="fa fa-check"></i></span> Thêm vào giỏ hàng thành công');
+                          $('.OutofStock').hide();
+
+                          var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+                          hinh.attr('src', '/image/all/{{TenXe}}.jpg');
+                          hinh.attr('alt', '{{TenXe}}');
+                          $('#QuickBuy').find('.product-title').text('{{TenXe}}');
+                          $('#QuickBuy').find('input[name="product-new-price"]').val({{Gia}});
+                          $('#QuickBuy').find('div.product-new-price').find('span').text('{{number_format Gia}}');
+                          IncreaseNumCar(num);
+                        },
+                        cache: false
+                      });
+                    });
+                  </script>
                 </div>
                 <div class="service-wrap">
                   <div class="row">

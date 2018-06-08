@@ -49,11 +49,9 @@ router.get('/', (req, res) => {
     isKey = true;
   }
 
-  var p3 = homeRepo.loadTopNSX();
-  var p4 = homeRepo.loadTopType();
-  var p5 = homeRepo.loadAllNSX();
-  var p6 = homeRepo.loadAllType();
-  Promise.all([p1, p2, p3, p4, p5, p6]).then(([pRows, countRows, NSXRows, TypeRows, AllNSXRows, AllTypeRows]) => {
+  var p3 = homeRepo.loadAllNSX();
+  var p4 = homeRepo.loadAllType();
+  Promise.all([p1, p2, p3, p4]).then(([pRows, countRows, AllNSXRows, AllTypeRows]) => {
     var total = countRows[0].total;
     var nPages = parseInt(total / config.PRODUCTS_PER_SEARCHPAGE);
     if (total % config.PRODUCTS_PER_SEARCHPAGE > 0) {
@@ -206,8 +204,6 @@ router.get('/', (req, res) => {
       last_page: nPages,
       isFirst: isFirstPage,
       isLast: isLastPage,
-      topNSX: NSXRows,
-      topType: TypeRows,
       AllNSX: AllNSXRows,
       AllType: AllTypeRows,
       searchPrice: arrPrice,

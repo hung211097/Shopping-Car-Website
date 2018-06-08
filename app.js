@@ -9,10 +9,13 @@ var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 
 var handle404MDW = require('./middle-wares/handle404');
+var handleLayoutMDW = require('./middle-wares/handleLayout');
 
 var homeController = require('./controllers/homeController');
 var productsController = require('./controllers/productsController');
 var searchController = require('./controllers/searchController');
+var cartController = require('./controllers/cartController');
+var checkoutController = require('./controllers/checkoutController');
 
 var app = express();
 
@@ -71,6 +74,7 @@ app.use(session({
     saveUninitialized: false
 }));
 
+app.use(handleLayoutMDW);
 
 app.get('/', (req, res) => {
     res.redirect('/home');
@@ -79,6 +83,10 @@ app.get('/', (req, res) => {
 app.use('/home', homeController);
 app.use('/products', productsController);
 app.use('/search', searchController);
+app.use('/cart', cartController);
+app.use('/checkout', checkoutController);
+
+
 app.use(handle404MDW);
 
 app.listen(3000, () => {
