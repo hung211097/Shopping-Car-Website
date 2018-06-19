@@ -16,6 +16,7 @@ var productsController = require('./controllers/productsController');
 var searchController = require('./controllers/searchController');
 var cartController = require('./controllers/cartController');
 var checkoutController = require('./controllers/checkoutController');
+var adminController = require('./controllers/adminController');
 
 var app = express();
 
@@ -85,6 +86,7 @@ app.use('/products', productsController);
 app.use('/search', searchController);
 app.use('/cart', cartController);
 app.use('/checkout', checkoutController);
+app.use('/admin', adminController);
 
 
 app.use(handle404MDW);
