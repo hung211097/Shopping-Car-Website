@@ -105,7 +105,10 @@
 {
   padding: 15px 24px 10px;
   font-size: 16px;
+<<<<<<< HEAD
+=======
   margin-left: -30px;
+>>>>>>> TaNguyenHung
 }
 
 .statistic ul {
@@ -316,6 +319,28 @@
   height: auto;
 }
 
+<<<<<<< HEAD
+#img01, #img02
+{
+  text-align: center;
+}
+
+#img01 img
+{
+  width: 60%;
+  margin: 15px 0;
+}
+
+#img02 img
+{
+  width: 60%;
+  margin: 10px 0;
+  margin-bottom: 0;
+}
+
+#SameTypeProduct
+{
+=======
 .describe p {
   text-align: justify;
   line-height: 30px;
@@ -323,7 +348,6 @@
 }
 
 .describe p img{
-{
   width: 60%;
   display: block;
   margin: 0 auto;
@@ -332,7 +356,6 @@
 }
 
 .describe p:last-child img{
-{
   width: 60%;
   display: block;
   margin: 0 auto;
@@ -352,8 +375,8 @@
   margin-bottom: 0;
 } */
 
-#SameTypeProduct
-{
+#SameTypeProduct {
+>>>>>>> TaNguyenHung
   width: auto;
   height: auto;
   margin-bottom: 60px;

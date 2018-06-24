@@ -1,12 +1,4 @@
 $(document).ready(function() {
-  $('.email-format').hide();
-  $('.email-null').hide();
-  $('.name-null').hide();
-  $('.phone-null').hide();
-  $('.address-null').hide();
-  $('.glyphicon-ok').hide();
-  $('.glyphicon-remove').hide();
-
   if ($('input[name="email"]').val() != "" && re.test($('input[name="email"]').val())) {
     $(this).parent().removeClass('has-error');
     $(this).parent().addClass('has-success');

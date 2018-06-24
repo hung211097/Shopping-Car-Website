@@ -5,7 +5,7 @@ var cartRepo = require('../repos/cartRepo'),
 var homeRepo = require('../repos/homeRepo');
 
 var router = express.Router();
-
+const FreeShip = 1000000000;
 router.get('/', (req, res) => {
 
   var arr_p = [];
@@ -22,7 +22,8 @@ router.get('/', (req, res) => {
         var pro = result[i][0];
         pro.Quantity = req.session.cart[i].Quantity;
         pro.Amount = pro.Gia * req.session.cart[i].Quantity;
-
+        if(pro.Gia > FreeShip)
+          Fee[0].PhiVanChuyen = 0;
         items.push(pro);
       }
 
