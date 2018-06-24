@@ -1,0 +1,92 @@
+{{#section 'title'}}
+<title>Đăng nhập</title>
+{{/section}}
+
+{{#section 'css'}}
+    <link rel="stylesheet" href="./assets/css/introduction.css">
+    <link rel="stylesheet" href="/assets/css/register.css">
+{{/section}}
+
+{{#section 'js'}}
+	<script type="text/javascript" src="/assets/js/index.js"></script>
+	<script type="text/javascript" src="./assets/js/loginGuest.js"></script>
+{{/section}}
+
+<div class="introduction-content">
+    <div class="container">
+      <div class="intro-title">
+        <h1 class="title-head">
+          ĐĂNG NHẬP TÀI KHOẢN
+        </h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="page-login" style="margin-bottom: 30px">
+            <div id="login">
+              <span> Nếu bạn đã có tài khoản, đăng nhập tại đây</span>
+              <form id="customer_login" accept-charset="UTF-8" action="" method="post">
+                <div class="form-signup clearfix">
+
+                  <fieldset class="form-group">
+                    <label for="account">Tên tài khoản
+                          <span class="required">*</span>
+                        </label>
+                    <div class="form-group form-account has-feedback" style="margin-bottom: 0px">
+                      <input type="text" name="account" id="account" value="" class="form-control form-control-lg">
+                      <p class="help-block account-null">Vui lòng điền thông tin vào đây!</p>
+                      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                    </div>
+                  </fieldset>
+
+
+                  <fieldset class="form-group">
+                    <label for="password">Mật khẩu
+                      <span class="required">*</span>
+                    </label>
+                    <div class="form-group form-password has-feedback">
+                      <input type="password" name="password" id="password" value="" class="form-control form-control-lg">
+                      <p class="help-block password-null">Vui lòng điền thông tin vào đây!</p>
+                      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                    </div>
+                  </fieldset>
+
+                  <div class="pull-xs-left" style="margin-top: 25px">
+                    <button type="button" class="btn btn-primary" id="loginBtn">Đăng nhập</button>
+                    <p style="margin-top: 15px;">Nếu bạn chưa có tài khoản, hãy <a href="register" id="toRegister">Đăng ký</a></p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+          
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-4">
+          <div id="recover-password" class="form-signup">
+            <span>Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu qua email.</span>
+            <form id="recover_customer_password" accept-charset="UTF-8" action="" method="post">
+              <fieldset class="form-group">
+                <label for="email">Email
+                      <span class="required">*</span>
+                    </label>
+                <div class="form-group form-email has-feedback">
+                  <input type="text" name="email" id="email" value="" class="form-control form-control-lg">
+                  <p class="help-block email-format">Hãy nhập đúng định dạng email!</p>
+                  <p class="help-block email-null">Vui lòng điền thông tin vào đây!</p>
+                  <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                  <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+              </fieldset>
+              <div>
+                <button type="button" class="btn btn-primary" id="forgetBtn" style="margin-top: 20px;">Lấy lại mật khẩu</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

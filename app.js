@@ -16,7 +16,8 @@ var productsController = require('./controllers/productsController');
 var searchController = require('./controllers/searchController');
 var cartController = require('./controllers/cartController');
 var checkoutController = require('./controllers/checkoutController');
-var adminController = require('./controllers/adminController');
+var accountController = require('./controllers/accountController');
+var userinfoController = require('./controllers/userinfoController');
 
 var app = express();
 
@@ -82,11 +83,13 @@ app.get('/', (req, res) => {
 });
 
 app.use('/home', homeController);
+app.use('/account', accountController);
 app.use('/products', productsController);
 app.use('/search', searchController);
 app.use('/cart', cartController);
 app.use('/checkout', checkoutController);
-app.use('/admin', adminController);
+app.use('/UserInfo', userinfoController);
+
 
 
 app.use(handle404MDW);
