@@ -23,7 +23,6 @@ function AddMoreImage(x, count) {
     image.attr('alt',  x);
   });
 }
-
 $('.qtyminus').on('click', function() {
   var temp = $('#qty').val();
   if(temp > 1)
@@ -93,7 +92,7 @@ function AddToCarousel(id, ten, gia, contain) {
   boxHinh.owlCarousel('add', `<div class="product-box">
     <div class="product-thumbnail">
       <a href="/products/detail/` + ten +`" title="` + ten + `">
-        <img src="/image/all/` + ten + `.jpg" alt="` + ten + `">
+        <img src="/image/all/`+ ten + `/` + ten + `_1.jpg" alt="` + ten + `" data-lazyload="/image/all/`+ ten + `/` + ten + `_1.jpg">
       </a>
       <div class="price-box clearfix">
         <div class="special-price">
@@ -129,7 +128,6 @@ function AddToCarousel(id, ten, gia, contain) {
 
   boxHinh.find('.owl-nav').removeClass('disabled');
   $('a[name="'+contain+'-button-Buy-' + ten + '"]').on('click', function() {
-
     var form = $(this).parents('form');
     $.ajax({
       type: 'POST',
@@ -142,7 +140,7 @@ function AddToCarousel(id, ten, gia, contain) {
         $('.OutofStock').show();
 
         var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-        hinh.attr('src', '/image/all/' + ten + '.jpg');
+        hinh.attr('src', '/image/all/'+ ten + '/' + ten + '_1.jpg');
         hinh.attr('alt', ten);
         $('#QuickBuy').find('.product-title').text(ten);
         $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
@@ -154,7 +152,7 @@ function AddToCarousel(id, ten, gia, contain) {
         $('.OutofStock').hide();
 
         var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-        hinh.attr('src', '/image/all/' + ten + '.jpg');
+        hinh.attr('src', '/image/all/'+ ten + '/' + ten + '_1.jpg');
         hinh.attr('alt', ten);
         $('#QuickBuy').find('.product-title').text(ten);
         $('#QuickBuy').find('input[name="product-new-price"]').val(gia);

@@ -58,17 +58,6 @@ function IncreaseNumCar() {
   cartcount.text("" + dem);
 }
 
-function UpdateTotalPrice() {
-  var eachItem = $('input[name="eachTotalPrice"]');
-  var total = 0;
-  for (var i = 0; i < eachItem.length; i++) {
-    total += parseInt(eachItem[i].value);
-  }
-  $('input[name="totalprice"]').val(total);
-  total = PriceToSring(total);
-  $('.all-total-price').text(total);
-}
-
 $('input[name="search"]').bind('keypress', function(e) {
   if (e.keyCode == 13) {
     $('form[name="SearchForm"]').submit();

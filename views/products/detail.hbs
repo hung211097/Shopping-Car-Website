@@ -175,8 +175,8 @@
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 image-part">
             <div class="large-image featured-image">
-              <a id="zoom" href="/image/all/{{TenXe}}.jpg" data-rel="prettyPhoto[product-gallery]">
-                <img src="/image/all/{{TenXe}}.jpg" alt="{{TenXe}}">
+              <a id="zoom" href="/image/all/{{TenXe}}/{{TenXe}}_1.jpg" data-rel="prettyPhoto[product-gallery]">
+                <img src="/image/all/{{TenXe}}/{{TenXe}}_1.jpg" alt="{{TenXe}}">
               </a>
             </div>
             <div id="gallery_01" class="swiper-container swiper-container-vertical more-views">
@@ -304,7 +304,7 @@
                           $('.OutofStock').show();
 
                           var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-                          hinh.attr('src', '/image/all/{{TenXe}}.jpg');
+                          hinh.attr('src', '/image/all/{{TenXe}}/{{TenXe}}_1.jpg');
                           hinh.attr('alt', '{{TenXe}}');
                           $('#QuickBuy').find('.product-title').text('{{TenXe}}');
                           $('#QuickBuy').find('input[name="product-new-price"]').val({{Gia}});
@@ -316,7 +316,7 @@
                           $('.OutofStock').hide();
 
                           var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-                          hinh.attr('src', '/image/all/{{TenXe}}.jpg');
+                          hinh.attr('src', '/image/all/{{TenXe}}/{{TenXe}}_1.jpg');
                           hinh.attr('alt', '{{TenXe}}');
                           $('#QuickBuy').find('.product-title').text('{{TenXe}}');
                           $('#QuickBuy').find('input[name="product-new-price"]').val({{Gia}});
@@ -371,31 +371,27 @@
               <h1 class="title-head">MÔ TẢ</h1>
               <div class="description">
                 <div class="describe">
-                  <p class="content-des">
-                    {{!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consectetur nulla quia assumenda minus quasi, eveniet sapiente eum voluptatem, dolor? Corporis vitae perferendis hic ex molestias, optio at aut vero. --}}
+                  {{!-- <p class="content-des">
                     {{MoTa}}
                   </p>
                   <p class="content-des">
-                    {{!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore accusantium nihil repellat a dicta voluptates autem iure possimus, exercitationem et! Quia incidunt voluptatibus possimus repudiandae porro numquam itaque sit atque! Lorem ipsum dolor sit
-                    amet, consectetur adipisicing elit. Assumenda consequuntur, voluptatum, eveniet rerum tenetur beatae in tempore esse excepturi molestiae repellat enim aliquid aut rem odit numquam voluptatibus veniam obcaecati. --}}
                     {{MoTa}}
                   </p>
                   <div id="img01">
-                    <img src="/image/all/{{TenXe}}/{{TenXe}}_2.jpg" alt="{{TenXe}}">
+                    <img src="/image/all/{{TenXe}}/{{TenXe}}_2.jpg" alt="{{TenXe}}" onerror="this.parentNode.style.display = 'none'">
                   </div>
                   <p>
-                    {{!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                    in reprehenderit in voluptate velit. --}}
+
                     {{MoTa}}
                   </p>
                   <p>
-                    {{!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. --}}
+
                     {{MoTa}}
                   </p>
                   <div id="img02">
-                    <img src="/image/all/{{TenXe}}/{{TenXe}}_3.jpg" alt="{{TenXe}}">
-                  </div>
+                    <img src="/image/all/{{TenXe}}/{{TenXe}}_3.jpg" alt="{{TenXe}}" onerror="this.parentNode.style.display = 'none'">
+                  </div> --}}
+                  {{{MoTa}}}
                 </div>
               </div>
             </div>

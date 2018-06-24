@@ -23,6 +23,7 @@
 </head>
 
 <body>
+  <div class="se-pre-con"></div>
   <!-- Start Header -->
   <div class="top-header">
     <div class="container">
@@ -390,7 +391,14 @@
   <!-- End footer -->
   {{{_sections.js}}}
   <script type="text/javascript" src="/assets/fontawesome-all.js"></script>
-  {{!-- <script type="text/javascript" src="/assets/js/sweetalert.min.js"></script> --}}
+  <script type="text/javascript" src="/assets/js/modernizr.js"></script>
+
+  {{!-- <script type="text/javascript" src="/assets/sweetalert.min.js"></script> --}}
+  <script type="text/javascript">
+    $(window).ready(function() {
+        $(".se-pre-con").fadeOut("slow");
+    });
+  </script>
 </body>
 
 </html>

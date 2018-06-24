@@ -113,7 +113,7 @@ border-spacing:0.2em;
 .statistic {
   padding: 15px 0px 15px;
   font-size: 16px;
-  margin-left: -35px;
+  margin-left: -30px;
 }
 
 .statistic ul {
@@ -323,20 +323,39 @@ border-spacing:0.2em;
   height: auto;
 }
 
-#img01, #img02 {
-  text-align: center;
+.describe p {
+  text-align: justify;
+  line-height: 30px;
+  word-break: keep-all;
 }
 
-#img01 img {
+.describe p img{
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.describe p:last-child img{
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+
+/* #img01 img {
   width: 60%;
   margin: 20px 0;
-}
+} */
 
-#img02 img {
+/* #img02 img {
   width: 60%;
   margin: 15px 0;
   margin-bottom: 0;
-}
+} */
 
 #SameTypeProduct {
   width: auto;
