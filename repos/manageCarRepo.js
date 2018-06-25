@@ -41,7 +41,7 @@ exports.update = (object) => {
     return db.save(sql);
 }
 
-exports.add = user(object) => {
-    var sql = `insert into xe(MaXe, TenXe, HangXe, DongXe, Gia, XuatXu, MoTa, NhienLieu, HopSo, MauSac, SoCua, SoCho, SoLuotXem, SoLuongBan, NgayNhan, SoLuongTon) values('${user.username}', '${user.password}', '${user.name}', '${user.email}', '${user.dob}', ${user.permission})`;
+exports.add = (object) => {
+    var sql = `insert into xe(MaXe, TenXe, HangXe, DongXe, Gia, XuatXu, MoTa, NhienLieu, HopSo, MauSac, SoCua, SoCho, SoLuotXem, SoLuongBan, NgayNhan, SoLuongTon) values('${object.MaXe}', '${object.TenXe}', '${object.HangXe}', '${object.DongXe}', ${object.Gia}, '${object.XuatXu}', '${object.MoTa}', '${object.NhienLieu}', '${object.HopSo}', '${object.MauSac}', ${object.SoCua}, ${object.SoCho}, 0, 0, '${object.NgayNhan}', ${object.SoLuongTon})`;
     return db.save(sql);
 }

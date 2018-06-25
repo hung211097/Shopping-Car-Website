@@ -2,7 +2,29 @@ var express = require('express');
 var manageKindOfCarRepo = require('../repos/manageKindOfCarRepo');
 var manageCarRepo = require('../repos/manageCarRepo');
 var config = require('../config/config');
+var multer = require('multer');
+var mkdirp = require('mkdirp');
+var fs = require('fs');
 var router = express.Router();
+
+const tempContain = './public/image/temp/';
+const newContain = './public/image/type/';
+const pathToImage = '/image/type/';
+var storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+
+    const dir = './public/image/temp';
+    mkdirp(dir, err => cb(err, dir))
+  },
+  filename: function(req, file, cb) {
+    var name = file.originalname;
+    cb(null, name);
+  }
+})
+
+var upload = multer({
+  storage: storage
+});
 
 var isEd = false;
 var isDel = false;
@@ -177,6 +199,72 @@ router.get('/add', (req, res) => {
     res.render('error/index', {layout: false});
   });
 });
+
+router.post('/add', upload.array('photos'), (req, res) => {
+
+  console.log(req.file);
+  var files = req.files;
+  var name = req.body.TenDongXe;
+
+  // var des = req.body.MoTa;
+
+  //var dir = newContain;
+  // mkdirp(dir, err => {
+  //   if (err) {
+  //     throw err;
+  //   }
+  // });
+
+    var currentPath = files.path;
+    var extension = files.filename.substr(files.filename.indexOf('.'));
+
+    var renameFile_path = pathToImage + '/' + name + extension;
+
+    fs.rename(currentPath, renameFile_path, function(err) {
+      if (err) throw err;
+      // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+      fs.unlink(currentPath, function() {
+        if (err) throw err;
+      });
+    });
+
+
+  // var temp = CountAppearance(des, '</p>');
+  // var img = '<p><img src="' + pathToImage + name + '/' + name + '_2' + extension + '"/></p>';
+  // des = ReplaceNthChar(des, '</p>', parseInt(temp / 2), img);
+
+  // temp = CountAppearance(des, '</p>');
+  // img = '<p><img src="' + pathToImage + name + '/' + name + '_3' + extension + '"/></p>';
+  // des = ReplaceNthChar(des, '</p>', temp, img);
+
+  req.body.DuongDan = renameFile_path;
+  console.log(req.body.DuongDan);
+  // manageCarRepo.add(req.body).then(value => {
+  //   isAd = true;
+  //   res.redirect('/manageCar/add');
+  // }).catch(err => {
+  //   res.render('error/index', {layout: false});
+  // });
+
+});
+
+function ReplaceNthChar(string, character, n, replace){
+  var count= 0, i=0;
+  while(count<n && (i=string.indexOf(character,i)+1)){
+    count++;
+  }
+  if(count== n)
+    string = string.substr(0, i + character.length - 1) + replace + string.substr(i + character.length - 1);
+  return string;
+}
+
+function CountAppearance(string, character){
+  var count= 0, i=0;
+  while((i=string.indexOf(character,i)+1)){
+    count++;
+  }
+  return count;
+}
 
 router.get('/edit', (req, res) => {
     manageKindOfCarRepo.single(req.query.ma).then(row => {

@@ -30,6 +30,7 @@ var upload = multer({
 });
 
 var isEd = false;
+var isAd = false;
 var isDel = false;
 var isDelFalse = false;
 router.get('/', (req, res) => {
@@ -206,8 +207,11 @@ router.get('/add', (req, res) => {
       products2: rowsKindOfcar,
       noProducts2: rowsKindOfcar.length === 0,
       maTangDan: maXeTangDan,
+      isAdd: isAd,
       layout: 'layoutAdmin.handlebars'
     }
+    if(isAd)
+          isAd = false;
     res.render('admin/addCar', vm);
   }).catch(err => {
     res.render('error/index', {layout: false});
@@ -288,9 +292,16 @@ router.post('/add', upload.array('photos'), (req, res) => {
   img = '<p><img src="' + pathToImage + name + '/' + name + '_3' + extension + '"/></p>';
   des = ReplaceNthChar(des, '</p>', temp, img);
 
-  //Insert chỗ này.................. des là mô tả t xử lý rồi, cứ gán vào csdl
-
-
+  req.body.MoTa = des;
+  req.body.NgayNhan = moment(req.body.NgayNhan, 'DD/MM/YYYY')
+        .format('YYYY-MM-DD');
+  console.log(req.body.NgayNhan);
+  manageCarRepo.add(req.body).then(value => {
+    isAd = true;
+    res.redirect('/manageCar/add');
+  }).catch(err => {
+    res.render('error/index', {layout: false});
+  });
 
   
   count = 1;

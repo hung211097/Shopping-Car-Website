@@ -27,7 +27,6 @@
 		});
 
 		$('#moTa').froalaEditor();
-
 	</script>
 
 {{/section}}
@@ -50,7 +49,7 @@
 							<label>Chọn hình ảnh xe:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-							<input type="file" name="photos" value="" multiple >
+							<input type="file" name="photos" value="" multiple  required>
 							<small class="form-text text-muted">Có thể chọn nhiều ảnh xe cùng lúc</small>
 						</div>
 					</div>
@@ -61,7 +60,7 @@
 							<label>Mã xe:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-							<input type="text" class="form-control" value="{{maTangDan}}" readonly>
+							<input type="text" name= "MaXe" class="form-control" value="{{maTangDan}}" readonly>
 						</div>
 					</div>
 				</div>
@@ -75,7 +74,7 @@
 							</div>
 
 							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-								<input type="text" name="TenXe" value="" class="form-control">
+								<input type="text" name="TenXe" value="" class="form-control" required>
 								<p class="help-block TenXe-null">Vui lòng điền thông tin vào đây!</p>
 								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -91,7 +90,7 @@
 							</div>
 
 							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-								<input type="number" name="Gia" value="" class="form-control">
+								<input type="number" name="Gia" value="" class="form-control" required>
 								<p class="help-block Gia-null">Vui lòng điền thông tin vào đây!</p>
 								<p class="help-block Gia-format">Vui lòng điền giá trị lớn hơn 0!</p>
 								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -108,9 +107,9 @@
 							<label>Hãng xe:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-							<select id="inputState" class="form-control">
+							<select id="inputState" class="form-control" name="HangXe">
 								{{#each products1}}
-								<option value="{{TenHangXe}}" {{#if isManuSelect}}selected{{/if}}>{{TenHangXe}}</option>
+								<option value="{{MaHangXe}}">{{TenHangXe}}</option>
 								{{/each}}
 							</select>
 						</div>
@@ -122,9 +121,9 @@
 							<label>Dòng xe:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-							<select id="inputState" class="form-control">
+							<select id="inputState" class="form-control" name="DongXe">
 								{{#each products2}}
-								<option value="{{TenDongXe}}" {{#if isKindSelect}}selected{{/if}}>{{TenDongXe}}</option>
+								<option value="{{MaDongXe}}">{{TenDongXe}}</option>
 								{{/each}}
 							</select>
 						</div>
@@ -139,7 +138,7 @@
 							<label>Ngày nhập xe về:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-							<input type="text" id="txtNgayNhap" name="NgayNhan" class="form-control">
+							<input type="text" id="txtNgayNhap" name="NgayNhan" class="form-control" required>
 						</div>
 					</div>
 				</div>
@@ -151,7 +150,7 @@
 							</div>
 
 							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-								<input type="number" name="SoLuongTon" value="" class="form-control">
+								<input type="number" name="SoLuongTon" value="" class="form-control" required>
 								<p class="help-block SoLuongTon-null">Vui lòng điền thông tin vào đây!</p>
 								<p class="help-block SoLuongTon-format">Vui lòng điền giá trị lớn hơn 0!</p>
 								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -162,15 +161,6 @@
 				</div>
 			</div>
 
-			{{!-- <div class="row" id="input">
-				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-					<label>Mô tả:</label>
-				</div>
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<textarea class="form-control" rows="5" id="moTa"></textarea>
-				</div>
-			</div> --}}
-
 			<div class="row">
 				<div class="form-group form-MoTa has-feedback">
 					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -178,7 +168,7 @@
 					</div>
 
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<textarea name="MoTa" rows="5" class="form-control" id="moTa"></textarea>
+						<textarea name="MoTa" rows="5" class="form-control" id="moTa" required></textarea>
 						<p class="help-block MoTa-null">Vui lòng điền thông tin vào đây!</p>
 						<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 						<span class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -196,7 +186,7 @@
 							</div>
 
 							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-								<input type="text" name="XuatXu" value="" class="form-control">
+								<input type="text" name="XuatXu" value="" class="form-control" required>
 								<p class="help-block XuatXu-null">Vui lòng điền thông tin vào đây!</p>
 								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -212,7 +202,7 @@
 							</div>
 
 							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-								<input type="text" name="NhienLieu" value="" class="form-control">
+								<input type="text" name="NhienLieu" value="" class="form-control" required>
 								<p class="help-block NhienLieu-null">Vui lòng điền thông tin vào đây!</p>
 								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -230,7 +220,7 @@
 							</div>
 
 							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-								<input type="text" name="MauSac" value="" class="form-control">
+								<input type="text" name="MauSac" value="" class="form-control" required>
 								<p class="help-block MauSac-null">Vui lòng điền thông tin vào đây!</p>
 								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -246,7 +236,7 @@
 							</div>
 
 							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-								<input type="text" name="HopSo" value="" class="form-control">
+								<input type="text" name="HopSo" value="" class="form-control" required>
 								<p class="help-block HopSo-null">Vui lòng điền thông tin vào đây!</p>
 								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -264,7 +254,7 @@
 							</div>
 
 							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-								<input type="number" name="SoCua" value="" class="form-control">
+								<input type="number" name="SoCua" value="" class="form-control" required>
 								<p class="help-block SoCua-null">Vui lòng điền thông tin vào đây!</p>
 								<p class="help-block SoCua-format">Vui lòng điền giá trị lớn hơn 0!</p>
 								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -281,7 +271,7 @@
 							</div>
 
 							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-								<input type="number" name="SoCho" value="" class="form-control">
+								<input type="number" name="SoCho" value="" class="form-control" required>
 								<p class="help-block SoCho-null">Vui lòng điền thông tin vào đây!</p>
 								<p class="help-block SoCho-format">Vui lòng điền giá trị lớn hơn 0!</p>
 								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -312,3 +302,10 @@
 	</div>
 </div>
 
+{{#if isAdd}}
+	<script type="text/javascript">
+		swal("Thêm xe mới vào danh sách thành công!", {
+			icon: "success",
+		});
+	</script>
+{{/if}}

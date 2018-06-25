@@ -16,7 +16,8 @@
 							<label>Chọn hình ảnh dòng xe:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-							<input type="file" id="i_file"/>
+							<input type="file" name="photos" value="" required>
+							<small class="form-text text-muted">Chỉ có thể chọn 1 ảnh</small>
 						</div>
 					</div>
 				</div>
@@ -40,7 +41,7 @@
 							</div>
 
 							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-								<input type="text" name="TenDongXe" value="" class="form-control">
+								<input type="text" name="TenDongXe" value="" class="form-control" required>
 								<p class="help-block TenDongXe-null">Vui lòng điền thông tin vào đây!</p>
 								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
 								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
