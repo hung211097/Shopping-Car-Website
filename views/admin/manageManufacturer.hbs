@@ -58,7 +58,7 @@
 								<td class="text-center">{{MaHangXe}}</td>
 								<td class="text-center">{{TenHangXe}}</td>
 								<td class="text-center">
-									<a class="btn btn-primary btn-xs" href="/manageManufacturer/edit?id={{MaHangXe}}" role="button">
+									<a class="btn btn-primary btn-xs" href="/manageManufacturer/edit?ma={{MaHangXe}}" role="button">
 								<span class="glyphicon glyphicon-wrench"></span>
 							</a>
 								</td>
@@ -66,7 +66,7 @@
 
 									<!-- Button trigger modal -->
 									<button type="button" class="btn btn-danger btn-xs" id="remove{{MaHangXe}}" data-toggle="modal" data-target="#myModal">
-										<span class="glyphicon glyphicon-remove"></span>
+										<span class="glyphicon glyphicon glyphicon-trash"></span>
 									</button>
 								</td>
 							</tr>
@@ -106,6 +106,14 @@
 
 	</ul>
 
+{{/if}}
+
+{{#if isEdit}}
+	<script type="text/javascript">
+		swal("Chỉnh sửa thông tin thành công!", {
+			icon: "success",
+		});
+	</script>
 {{/if}}
 
 {{#if isDelete}}

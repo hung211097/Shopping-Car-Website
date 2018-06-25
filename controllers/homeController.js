@@ -1,26 +1,6 @@
 var express = require('express');
 var homeRepo = require('../repos/homeRepo');
 var router = express.Router();
-var multer = require('multer');
-var mkdirp = require('mkdirp');
-
-var count = 1;
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    const dir = './public/upload';
-
-    mkdirp(dir, err => cb(err, dir))
-    //cb(null, './public/upload')
-  },
-  filename: function (req, file, cb) {
-      var name = file.originalname;
-
-      name = name.substr(0, name.indexOf('.')) + '_' + count++ + name.substr(name.indexOf('.'));
-    cb(null, name);
-  }
-})
-
-var upload = multer({storage: storage});
 
 router.get('/', (req, res) => {
   var p1 = homeRepo.loadTopSeen();
@@ -57,21 +37,5 @@ router.get('/service', (req, res) => {
 router.get('/contact', (req, res) => {
   res.render('home/contact');
 });
-
-
-router.post('/about', upload.array('photos'), (req, res) => {
-  // for(var i = 0; i < req.files.length; i++)
-  // {
-  //   var name = req.files[i].originalname;
-  //   name = name.substr(0, '.') + '_' + (i + 1) + name.substr('.');
-  //   fs.rename(req.files[i].path, name , function(err){
-  //         if(err){
-  //             throw err;
-  //         }
-  //   });
-  // }
-  count = 1;
-});
-
 
 module.exports = router;

@@ -1,0 +1,71 @@
+{{#section 'title'}}
+<title>Giới thiệu</title>
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/css/introduction.css">
+{{/section}}
+
+
+{{#section 'js'}}
+	<script type="text/javascript" src="/assets/js/index.js"></script>
+{{/section}}
+
+<!-- Start Breadcrumb -->
+<div class="bread-crumb">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<ul class="breadcrumb">
+					<li><a href="/home">Trang chủ</a></li>
+					<li>Giới thiệu</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Breadcrumb -->
+
+<!-- Start Introduction -->
+<div class="introduction-content">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<div class="intro-title">
+					<h1 class="title-head">
+						GIỚI THIỆU
+					</h1>
+				</div>
+				<div class="content-intro">
+					<p><b>I. QUÁ TRÌNH HÌNH THÀNH VÀ PHÁT TRIỂN</b></p>
+					<p>Trong những năm qua, xã hội phát triển, kinh tế tăng trưởng đồng thời chất lượng cuộc sống của người dân ngày càng càng được nâng cao, kèm theo đấy là nhu cầu mua sắm các sản phẩm phục vụ nhu cầu đi lại của mình.</p>
+					<p>Thế giới Ôtô Dreamcar khai trương Showroom tại số 442 Nguyễn Văn Cừ - Phường 2 - Quận 5 - Hồ Chí Minh, chính thức tham gia vào lĩnh vực kinh doanh bán lẻ ô tô, tạo ra một phong cách mua sắm hoàn toàn mới với người dân thủ đô, thông qua cung cấp các sản phẩm và dịch vụ tới người tiêu dùng.</p>
+					<p><b>TẦM NHÌN:</b></p>
+					<p>Công ty số 1 tại Việt Nam trong lĩnh vực phân phối, bán lẻ ô tô và phụ kiện.</p>
+					<p><b>SỨ MỆNH:</b></p>
+					<p>Với kim chỉ nam là “Không ngừng phát triển vì khách hàng” và làm hài lòng khách hàng bằng cách tạo ra những giá trị gia tăng như cung cấp các sản phẩm, dịch vụ tốt nhất.</p>
+					<p><b>MỤC TIÊU CHIẾN LƯỢC:</b></p>
+					<p>1. Tối đa hoá giá trị đầu tư của các cổ đông; giữ vững tốc độ tăng trưởng lợi nhuận và tình hình tài chính lành mạnh.</p>
+					<p>2. Không ngừng nâng cao động lực làm việc và năng lực cán bộ; Dreamcar phải luôn dẫn đầu ngành trong việc sáng tạo, phát triển chính sách đãi ngộ và cơ hội thăng tiến nghề nghiệp cho cán bộ của mình.</p>
+					<p>3. Duy trì sự hài lòng, trung thành và gắn bó của khách hàng với Dreamcar; xây dựng Dreamcar thành một trong những công ty hàng đầu Việt Nam có chất lượng dịch vụ tốt nhất do khách hàng lựa chọn.</p>
+					<p>4. Phát triển Dreamcar thành một trong những công ty hàng đầu Việt Nam về: quản lý tốt nhất, môi trường làm việc tốt nhất, văn hoá doanh nghiệp chú trọng khách hàng, thúc đẩy hợp tác và sáng tạo, linh hoạt nhất khi môi trường kinh doanh thay đổi.</p>
+					<p><b>II. THẾ MẠNH VÀ ĐỊNH HƯỚNG CỦA CÔNG TY</b></p>
+					<p>Với kim chỉ nam là “Không ngừng phát triển vì khách hàng”, Dreamcar đã quy tụ được Ban Lãnh đạo có bề dày kinh nghiệm trong lĩnh vực, không chỉ mạnh về kinh doanh mà còn mạnh về công nghệ có nhiều tiềm năng phát triển, kết hợp với đội ngũ nhân viên trẻ, năng động và chuyên nghiệp tạo lên thế mạnh nòng cốt của công ty để thực hiện tốt các mục tiêu đề ra.</p>
+					<p>Hơn nữa, trên cơ sở nguồn lực của công ty và nhu cầu của xã hội, Dreamcar lựa chọn phát triển kinh doanh các mặt hàng mỹ phẩm phục vụ nhu cầu thiết yếu của người dân với các sản phẩm đa dạng phong phú mang lại giá trị gia tăng cho người tiêu dùng thông qua các dịch vụ sau bán hàng.</p>
+					<p>Qua quá trình phát triển, bên cạnh việc thiết lập được một hệ thống đối tác trong nước và ngoài nước đến từ các doanh nghiệp lớn của Hàn Quốc, Pháp, Mỹ, Nhật Bản, có thế mạnh trong lĩnh vực ô tô như: BMW, Toyota, Honda... Trong thời gian tới Công ty sẽ đầu tư vào các ngành nghề mới như bất động sản, khai thác khoáng, đầu tư tài chính.</p>
+					<p><b>III. ĐỘI NGŨ NHÂN SỰ</b></p>
+					<p>Hội đồng Quản trị do Đại hội đồng cổ đông tín nhiệm bầu ra. Hội đồng quản trị là cơ quan quản trị toàn bộ mọi hoạt động của công ty, các chiến lược, kế hoạch sản xuất và kinh doanh trong nhiệm kỳ của mình.</p>
+					<p>Ban Giám đốc sẽ chịu trách nhiệm về các mặt hoạt động của công ty trước Hội đồng Quản trị và pháp luật hiện hành, quyết định các chủ trương, chính sách, mục tiêu chiến lược của công ty, đồng thời giám sát và kiểm tra tất cả các hoạt động về sản xuất kinh doanh, đầu tư của công ty.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+<<<<<<< HEAD
+	<form class="" action="/home/about" enctype="multipart/form-data" method="post">
+		<input type="file" name="photos" value="" multiple>
+		<button type="submit" class="btn btn-primay" name="button">UPLOAD</button>
+	</form>
+=======
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+</div>
+<!-- End Introduction -->

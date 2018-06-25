@@ -4,9 +4,34 @@ var manageCarRepo = require('../repos/manageCarRepo');
 var manageKindOfCarRepo = require('../repos/manageKindOfCarRepo');
 var manageManufacturerRepo = require('../repos/manageManufacturerRepo');
 var config = require('../config/config');
+var multer = require('multer');
+var mkdirp = require('mkdirp');
+var fs = require('fs');
 var router = express.Router();
 
+var count = 1;
+const tempContain = './public/image/temp/';
+const newContain = './public/image/all/';
+const pathToImage = '/image/all/';
+var storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+
+    const dir = './public/image/temp';
+    mkdirp(dir, err => cb(err, dir))
+  },
+  filename: function(req, file, cb) {
+    var name = file.originalname;
+    cb(null, name);
+  }
+})
+
+var upload = multer({
+  storage: storage
+});
+
+var isEd = false;
 var isDel = false;
+var isDelFalse = false;
 router.get('/', (req, res) => {
   var page = req.query.page;
   if (!page) {
@@ -100,6 +125,8 @@ router.get('/', (req, res) => {
             layout: 'layoutAdmin.handlebars',
             last_page: nPages,
             isDelete: isDel,
+            isDeleteFalse: isDelFalse,
+            isEdit: isEd,
             isFirst: isFirstPage,
             isLast: isLastPage
         };
@@ -110,8 +137,12 @@ router.get('/', (req, res) => {
             break;
           }
 
+        if(isEd)
+          isEd = false;
         if(isDel)
           isDel = false;
+        if(isDelFalse)
+          isDelFalse = false;
     res.render('admin/manageCar', vm);
   }).catch(err => {
     res.render('error/index', {layout: false});
@@ -181,6 +212,113 @@ router.get('/add', (req, res) => {
   }).catch(err => {
     res.render('error/index', {layout: false});
   });
+});
+
+router.get('/edit', (req, res) => {
+  var p1 = manageCarRepo.single(req.query.ma);
+  var p2 = manageManufacturerRepo.loadAllManufacturerNoOffset();
+  var p3 = manageKindOfCarRepo.loadAllKindOfCarNoOffset();
+  Promise.all([p1, p2, p3]).then(([row, rowsManufacturer, rowsKindOfcar])=> {
+    row.NgayNhan = moment(row.NgayNhan).format("DD/MM/YYYY");
+    var isMSelect = row.TenHangXe;
+    var isKSelect = row.TenDongXe;
+    for (var i = 0; i < rowsManufacturer.length; i++) 
+    {
+      if (rowsManufacturer[i].TenHangXe === isMSelect)
+        rowsManufacturer[i].flag = true;
+      else
+        rowsManufacturer[i].flag = false;
+    }
+    for (var i = 0; i < rowsKindOfcar.length; i++) 
+    {
+      if (rowsKindOfcar[i].TenDongXe === isKSelect)
+        rowsKindOfcar[i].flag = true;
+      else
+        rowsKindOfcar[i].flag = false;
+    }
+    var vm = {
+      product: row,
+      products1: rowsManufacturer,
+      noProducts1: rowsManufacturer.length === 0,
+      products2: rowsKindOfcar,
+      noProducts2: rowsKindOfcar.length === 0,
+      layout: 'layoutAdmin.handlebars'
+    };
+    res.render('admin/editCar', vm);
+  }).catch(err => {
+    res.render('error/index', {layout: false});
+  });
+});
+
+router.post('/add', upload.array('photos'), (req, res) => {
+
+  var files = req.files;
+  var name = req.body.TenXe;
+
+  var des = req.body.MoTa;
+
+  var dir = newContain + name;
+  mkdirp(dir, err => {
+    if (err) {
+      throw err;
+    }
+  });
+
+  for (var i = 0; i < files.length; i++) {
+    var currentPath = files[i].path;
+    var extension = files[i].filename.substr(files[i].filename.indexOf('.'));
+
+    var renameFile_path = dir + '/' + name + '_' + count++ + extension;
+
+    fs.rename(currentPath, renameFile_path, function(err) {
+      if (err) throw err;
+      // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+      fs.unlink(currentPath, function() {
+        if (err) throw err;
+      });
+    });
+
+  }
+
+  var temp = CountAppearance(des, '</p>');
+  var img = '<p><img src="' + pathToImage + name + '/' + name + '_2' + extension + '"/></p>';
+  des = ReplaceNthChar(des, '</p>', parseInt(temp / 2), img);
+
+  temp = CountAppearance(des, '</p>');
+  img = '<p><img src="' + pathToImage + name + '/' + name + '_3' + extension + '"/></p>';
+  des = ReplaceNthChar(des, '</p>', temp, img);
+
+  //Insert chỗ này.................. des là mô tả t xử lý rồi, cứ gán vào csdl
+
+
+
+  
+  count = 1;
+});
+
+function ReplaceNthChar(string, character, n, replace){
+  var count= 0, i=0;
+  while(count<n && (i=string.indexOf(character,i)+1)){
+    count++;
+  }
+  if(count== n)
+    string = string.substr(0, i + character.length - 1) + replace + string.substr(i + character.length - 1);
+  return string;
+}
+
+function CountAppearance(string, character){
+  var count= 0, i=0;
+  while((i=string.indexOf(character,i)+1)){
+    count++;
+  }
+  return count;
+}
+
+router.post('/edit', (req, res) => {
+    manageKindOfCarRepo.update(req.body).then(value => {
+        isEd = true;
+        res.redirect('/manageCar');
+    });
 });
 
 router.post('/delete', (req, res) => {

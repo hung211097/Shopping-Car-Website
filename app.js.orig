@@ -16,6 +16,14 @@ var productsController = require('./controllers/productsController');
 var searchController = require('./controllers/searchController');
 var cartController = require('./controllers/cartController');
 var checkoutController = require('./controllers/checkoutController');
+<<<<<<< HEAD
+var accountController = require('./controllers/accountController');
+var userinfoController = require('./controllers/userinfoController');
+=======
+var manageCarController = require('./controllers/manageCarController');
+var manageKindOfCarController = require('./controllers/manageKindOfCarController');
+var manageManufacturerController = require('./controllers/manageManufacturerController');
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 
 var app = express();
 
@@ -52,7 +60,11 @@ app.use(bodyParser.urlencoded({
 //session
 var sessionStore = new MySQLStore({
     host: 'localhost',
+<<<<<<< HEAD
     port: 3306,
+=======
+    port: 3307,
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
     user: 'root',
     database: 'carshopping',
     createDatabaseTable: true,
@@ -81,15 +93,24 @@ app.get('/', (req, res) => {
 });
 
 app.use('/home', homeController);
+<<<<<<< HEAD
+app.use('/account', accountController);
+=======
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 app.use('/products', productsController);
 app.use('/search', searchController);
-<<<<<<< HEAD
-=======
 app.use('/cart', cartController);
 app.use('/checkout', checkoutController);
+<<<<<<< HEAD
+app.use('/UserInfo', userinfoController);
+
+=======
+app.use('/manageCar', manageCarController);
+app.use('/manageKindOfCar', manageKindOfCarController);
+app.use('/manageManufacturer', manageManufacturerController);
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 
 
->>>>>>> TaNguyenHung
 app.use(handle404MDW);
 
 app.listen(3000, () => {

@@ -1,4 +1,351 @@
+var reg = /^\d+$/;
 
+$(document).ready(function() {
+
+	if($('input[name="TenHangXe"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-TenHangXe').find('.glyphicon-ok').show();
+		$('.form-TenHangXe').find('.glyphicon-remove').hide();
+		$('.TenHangXe-null').hide();
+	}
+
+	if($('input[name="TenDongXe"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-TenDongXe').find('.glyphicon-ok').show();
+		$('.form-TenDongXe').find('.glyphicon-remove').hide();
+		$('.TenDongXe-null').hide();
+	}
+
+	if($('input[name="TenXe"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-TenXe').find('.glyphicon-ok').show();
+		$('.form-TenXe').find('.glyphicon-remove').hide();
+		$('.TenXe-null').hide();
+	}
+
+	if($('textarea[name="MoTa"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-MoTa').find('.glyphicon-ok').show();
+		$('.form-MoTa').find('.glyphicon-remove').hide();
+		$('.MoTa-null').hide();
+	}
+
+	if($('input[name="XuatXu"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-XuatXu').find('.glyphicon-ok').show();
+		$('.form-XuatXu').find('.glyphicon-remove').hide();
+		$('.XuatXu-null').hide();
+	}
+
+	if($('input[name="NhienLieu"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-NhienLieu').find('.glyphicon-ok').show();
+		$('.form-NhienLieu').find('.glyphicon-remove').hide();
+		$('.NhienLieu-null').hide();
+	}
+
+	if($('input[name="MauSac"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-MauSac').find('.glyphicon-ok').show();
+		$('.form-MauSac').find('.glyphicon-remove').hide();
+		$('.MauSac-null').hide();
+	}
+
+	if($('input[name="HopSo"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-HopSo').find('.glyphicon-ok').show();
+		$('.form-HopSo').find('.glyphicon-remove').hide();
+		$('.HopSo-null').hide();
+	}
+
+	if($('input[name="Gia"]').val() != "" && reg.test($('input[name="Gia"]').val()))
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-Gia').find('.glyphicon-ok').show();
+		$('.form-Gia').find('.glyphicon-remove').hide();
+		$('.Gia-null').hide();
+		$('.Gia-format').hide();
+	}
+
+	if($('input[name="SoLuongTon"]').val() != "" && reg.test($('input[name="SoLuongTon"]').val()))
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-SoLuongTon').find('.glyphicon-ok').show();
+		$('.form-SoLuongTon').find('.glyphicon-remove').hide();
+		$('.SoLuongTon-null').hide();
+		$('.SoLuongTon-format').hide();
+	}
+
+	if($('input[name="SoCua"]').val() != "" && reg.test($('input[name="SoCua"]').val()))
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-SoCua').find('.glyphicon-ok').show();
+		$('.form-SoCua').find('.glyphicon-remove').hide();
+		$('.SoCua-null').hide();
+		$('.SoCua-format').hide();
+	}
+
+	if($('input[name="SoCho"]').val() != "" && reg.test($('input[name="SoCho"]').val()))
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-SoCho').find('.glyphicon-ok').show();
+		$('.form-SoCho').find('.glyphicon-remove').hide();
+		$('.SoCho-null').hide();
+		$('.SoCho-format').hide();
+	}
+});
+
+$('input[name="TenHangXe"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-TenHangXe').find('.glyphicon-ok').hide();
+    $('.form-TenHangXe').find('.glyphicon-remove').show();
+    $('.TenHangXe-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-TenHangXe').find('.glyphicon-ok').show();
+    $('.form-TenHangXe').find('.glyphicon-remove').hide();
+    $('.TenHangXe-null').hide();
+  }
+});
+
+$('input[name="TenDongXe"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-TenDongXe').find('.glyphicon-ok').hide();
+    $('.form-TenDongXe').find('.glyphicon-remove').show();
+    $('.TenDongXe-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-TenDongXe').find('.glyphicon-ok').show();
+    $('.form-TenDongXe').find('.glyphicon-remove').hide();
+    $('.TenDongXe-null').hide();
+  }
+});
+
+$('input[name="TenXe"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-TenXe').find('.glyphicon-ok').hide();
+    $('.form-TenXe').find('.glyphicon-remove').show();
+    $('.TenXe-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-TenXe').find('.glyphicon-ok').show();
+    $('.form-TenXe').find('.glyphicon-remove').hide();
+    $('.TenXe-null').hide();
+  }
+});
+
+
+$('textarea[name="MoTa"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-MoTa').find('.glyphicon-ok').hide();
+    $('.form-MoTa').find('.glyphicon-remove').show();
+    $('.MoTa-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-MoTa').find('.glyphicon-ok').show();
+    $('.form-MoTa').find('.glyphicon-remove').hide();
+    $('.MoTa-null').hide();
+  }
+});
+
+$('input[name="XuatXu"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-XuatXu').find('.glyphicon-ok').hide();
+    $('.form-XuatXu').find('.glyphicon-remove').show();
+    $('.XuatXu-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-XuatXu').find('.glyphicon-ok').show();
+    $('.form-XuatXu').find('.glyphicon-remove').hide();
+    $('.XuatXu-null').hide();
+  }
+});
+
+$('input[name="NhienLieu"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-NhienLieu').find('.glyphicon-ok').hide();
+    $('.form-NhienLieu').find('.glyphicon-remove').show();
+    $('.NhienLieu-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-NhienLieu').find('.glyphicon-ok').show();
+    $('.form-NhienLieu').find('.glyphicon-remove').hide();
+    $('.NhienLieu-null').hide();
+  }
+});
+
+$('input[name="MauSac"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-MauSac').find('.glyphicon-ok').hide();
+    $('.form-MauSac').find('.glyphicon-remove').show();
+    $('.MauSac-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-MauSac').find('.glyphicon-ok').show();
+    $('.form-MauSac').find('.glyphicon-remove').hide();
+    $('.MauSac-null').hide();
+  }
+});
+
+$('input[name="HopSo"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-HopSo').find('.glyphicon-ok').hide();
+    $('.form-HopSo').find('.glyphicon-remove').show();
+    $('.HopSo-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-HopSo').find('.glyphicon-ok').show();
+    $('.form-HopSo').find('.glyphicon-remove').hide();
+    $('.HopSo-null').hide();
+  }
+});
+
+
+$('input[name="Gia"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-Gia').find('.glyphicon-ok').hide();
+    $('.form-Gia').find('.glyphicon-remove').show();
+    $('.Gia-null').show();
+		$('.Gia-format').hide();
+  } else if(parseInt($(this).val()) <= 0 || !reg.test($(this).val())){
+		$(this).parent().parent().removeClass('has-success');
+		$(this).parent().parent().addClass('has-error');
+		$('.form-Gia').find('.glyphicon-ok').hide();
+		$('.form-Gia').find('.glyphicon-remove').show();
+		$('.Gia-null').hide();
+		$('.Gia-format').show();
+	} else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-Gia').find('.glyphicon-ok').show();
+    $('.form-Gia').find('.glyphicon-remove').hide();
+    $('.Gia-null').hide();
+		$('.Gia-format').hide();
+  }
+});
+
+$('input[name="SoLuongTon"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-SoLuongTon').find('.glyphicon-ok').hide();
+    $('.form-SoLuongTon').find('.glyphicon-remove').show();
+    $('.SoLuongTon-null').show();
+		$('.SoLuongTon-format').hide();
+  } else if(parseInt($(this).val()) <= 0 || !reg.test($(this).val())){
+		$(this).parent().parent().removeClass('has-success');
+		$(this).parent().parent().addClass('has-error');
+		$('.form-SoLuongTon').find('.glyphicon-ok').hide();
+		$('.form-SoLuongTon').find('.glyphicon-remove').show();
+		$('.SoLuongTon-null').hide();
+		$('.SoLuongTon-format').show();
+	} else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-SoLuongTon').find('.glyphicon-ok').show();
+    $('.form-SoLuongTon').find('.glyphicon-remove').hide();
+    $('.SoLuongTon-null').hide();
+		$('.SoLuongTon-format').hide();
+  }
+});
+
+$('input[name="SoCua"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-SoCua').find('.glyphicon-ok').hide();
+    $('.form-SoCua').find('.glyphicon-remove').show();
+    $('.SoCua-null').show();
+		$('.SoCua-format').hide();
+  } else if(parseInt($(this).val()) <= 0 || !reg.test($(this).val())){
+		$(this).parent().parent().removeClass('has-success');
+		$(this).parent().parent().addClass('has-error');
+		$('.form-SoCua').find('.glyphicon-ok').hide();
+		$('.form-SoCua').find('.glyphicon-remove').show();
+		$('.SoCua-null').hide();
+		$('.SoCua-format').show();
+	} else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-SoCua').find('.glyphicon-ok').show();
+    $('.form-SoCua').find('.glyphicon-remove').hide();
+    $('.SoCua-null').hide();
+		$('.SoCua-format').hide();
+  }
+});
+
+$('input[name="SoCho"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-SoCho').find('.glyphicon-ok').hide();
+    $('.form-SoCho').find('.glyphicon-remove').show();
+    $('.SoCho-null').show();
+		$('.SoCho-format').hide();
+  } else if(parseInt($(this).val()) <= 0 || !reg.test($(this).val())){
+		$(this).parent().parent().removeClass('has-success');
+		$(this).parent().parent().addClass('has-error');
+		$('.form-SoCho').find('.glyphicon-ok').hide();
+		$('.form-SoCho').find('.glyphicon-remove').show();
+		$('.SoCho-null').hide();
+		$('.SoCho-format').show();
+	} else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-SoCho').find('.glyphicon-ok').show();
+    $('.form-SoCho').find('.glyphicon-remove').hide();
+    $('.SoCho-null').hide();
+		$('.SoCho-format').hide();
+  }
+});
+
+// -----------------------------------------------------------------------------
 $('#dong').on('blur', function() {
 	if ($('#dong').val() == "")
 	{
