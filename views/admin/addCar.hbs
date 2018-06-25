@@ -1,0 +1,221 @@
+{{#section 'css'}}
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+{{/section}}
+
+{{#section 'js'}}
+	<script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript">
+		$('#txtNgayNhap').datepicker({
+			format: 'd/m/yyyy',
+			autoclose: true
+		});
+	</script>
+{{/section}}
+
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<h3 class="panel-title" style="color: white"></i>Thêm xe mới vào danh sách</h3>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body" id="pad-bot">
+		<form action="process.html" method="POST" role="form">
+			<legend>Thông tin chung</legend>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Chọn hình ảnh xe:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="file" id="i_file"/>
+							<small class="form-text text-muted">This is inline help</small>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Mã xe:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="text" style="pointer-events:none"class="form-control" value="{{maTangDan}}">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Tên xe:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Giá:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="number" class="form-control">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Hãng xe:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<select id="inputState" class="form-control">
+								{{#each products1}}
+								<option>{{TenHangXe}}</option>
+								{{/each}}
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Dòng xe:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<select id="inputState" class="form-control">
+								{{#each products2}}
+								<option>{{TenDongXe}}</option>
+								{{/each}}
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Ngày nhập xe về:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="text" id="txtNgayNhap" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Số xe nhập về</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="number" class="form-control">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" id="input">
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+					<label>Mô tả:</label>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<textarea class="form-control" rows="5" id="moTa"></textarea>
+				</div>
+			</div>
+
+			<legend>Thông số kỹ thuật</legend>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Xuất xứ:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Nhiên liệu:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Màu sắc:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Loại hộp số:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Số cửa:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="number" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Số chỗ:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="number" class="form-control">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+			<div class="row" id="foot">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<button type="submit" class="btn btn-primary" id="btnSub">Thêm</button>
+							<a class="btn btn-default" href="/manageCar" role="button">
+								<span class="glyphicon glyphicon-arrow-left"></span>
+								Quay trở lại xem danh sách xe
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+

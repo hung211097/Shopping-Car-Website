@@ -1,0 +1,125 @@
+{{#section 'activeManageKindOfCar'}}
+  class = "active"
+{{/section}}
+
+<a class="btn btn-large btn-block btn-primary" href="/manageKindOfCar/add" role="button">
+	<span class="glyphicon glyphicon-plus"></span>
+	Thêm dòng xe mới vào danh sách
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document" style="margin: 90px auto">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Xác nhận xóa dòng xe</h4>
+			</div>
+			<div class="modal-body">
+				<h3>Bạn có chắc chắn muốn xóa dòng xe có mã dòng xe là: </h3>
+			</div>
+			<div class="modal-footer">
+				<form action="manageKindOfCar/delete" method="POST" role="form">
+					<input type="hidden" id="madongxe" name="MaDongXe" value="">
+					<button type="submit" id="confirmDelete" class="btn btn-danger">
+						<span class="glyphicon glyphicon-remove"></span>
+						Xóa
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+{{#if noProducts}}
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			Không có dòng xe nào trong hệ thống dữ liệu.
+		</div>
+	</div>
+{{else}}
+	<div class="container-fluid">
+		<div class="row" style="background-color: white">
+			<div class="container-fluid">
+				<h3>Danh sách các dòng xe</h3>
+				<table class="table table-hover table-bordered">
+					<thead>
+						<tr style="background-color: #b8daff; color: black">
+							<th class="text-center col-md-2">Mã dòng xe</th>
+							<th class="text-center">Tên dòng xe</th>
+							<th class="text-center">Sửa</th>
+							<th class="text-center">Xóa</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each products}}
+							<tr id="row{{MaDongXe}}">
+								<td class="text-center">{{MaDongXe}}</td>
+								<td class="text-center">{{TenDongXe}}</td>
+								<td class="text-center">
+									<a class="btn btn-primary btn-xs" href="/manageKindOfCar/edit?id={{MaDongXe}}" role="button">
+								<span class="glyphicon glyphicon-wrench"></span>
+							</a>
+								</td>
+								<td class="text-center">
+
+									<!-- Button trigger modal -->
+									<button type="button" class="btn btn-danger btn-xs" id="remove{{MaDongXe}}" data-toggle="modal" data-target="#myModal">
+										<span class="glyphicon glyphicon-remove"></span>
+									</button>
+								</td>
+							</tr>
+							<script type="text/javascript">
+								$('#remove{{MaDongXe}}').on('click', function() {
+									$('input#madongxe').val('{{MaDongXe}}');
+									$('#myModal').find('h3').text('Bạn có chắc chắn muốn xóa xe có mã xe là: {{MaDongXe}}');
+								});
+							</script>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<ul class="pagination">
+		{{#if isFirst}}
+		<li class="disabled"><a href="javascript:;" id="first" class="page-link">&laquo;</a></li>
+		{{else}}
+		<li><a href="?page=1">&laquo;</a></li>
+		{{/if}}
+
+		{{#each page_numbers}}
+		{{#if isCurPage}}
+		<li class="active"><a href="javascript:;">{{value}}</a></li>
+		{{else}}
+		<li><a href="?page={{value}}">{{value}}</a></li>
+		{{/if}}
+		{{/each}}
+
+		{{#if isLast}}
+		<li class="disabled"><a href="javascript:;" class="page-link" id="last">&raquo;</a></li>
+		{{else}}
+		<li><a href="?page={{last_page}}">&raquo;</a></li>
+		{{/if}}
+
+	</ul>
+
+{{/if}}
+
+{{#if isDelete}}
+	<script type="text/javascript">
+		swal("Xóa thành công!", {
+			icon: "success",
+		});
+	</script>
+{{/if}}
+
+{{#if isDeleteFalse}}
+	<script type="text/javascript">
+		swal("Xóa thất bại do trong hệ thống dữ liệu tồn tại xe có dòng xe thuộc dòng xe bạn muốn xóa!", {
+			icon: "error",
+	});
+	</script>
+{{/if}}
