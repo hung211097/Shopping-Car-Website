@@ -1,0 +1,341 @@
+.swal-text {
+  background-color: #FEFAE3;
+  padding: 17px;
+  border: 1px solid #F0E1A1;
+  display: block;
+  margin: 22px;
+  text-align: center;
+  color: #61534e;
+}
+
+.viewMore1{
+  color: white !important;
+  background-color: #00A2D1;
+  padding: 10px 20px;
+  margin-top: 38px;
+}
+
+.viewMore2{
+  color: white !important;
+  background-color: #00A2D1;
+  padding: 10px 20px;
+  margin-top: 45px;
+}
+
+.viewMore1:hover, .viewMore2:hover{
+  color:#00A2D1 !important;
+  background-color: white;
+  border-color: #00A2D1;
+}
+
+#SignUpModal .modal-title,
+#SignInModal .modal-title,
+#ForgetPassModal .modal-title
+{
+  text-align: center;
+  font-weight: 700;
+  color: #00a2d1;
+}
+
+#SignUpModal .modal-dialog,
+#SignInModal .modal-dialog,
+#ForgetPassModal .modal-dialog
+{
+  margin: 0 auto;
+  width: 35%;
+  top: 5%;
+}
+
+#SignUpModal .modal-body,
+#SignInModal .modal-body,
+#ForgetPassModal .modal-body
+{
+  padding: 15px 35px;
+}
+
+.formSignUp, .formSignIn, .formForgetPass
+{
+  padding: 0 20px;
+}
+
+.btn-SignUp, .btn-SignIn, .btn-ForgetPass
+{
+  background: #00a2d1;
+  color: white;
+  transition: 0.2s;
+  padding: 10px 50px;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.btn-SignUp:hover, .btn-SignIn:hover,
+.btn-ForgetPass:hover
+{
+  background: white;
+  color: #00a2d1;
+  border: 1px solid #00a2d1;
+}
+
+.formSignUp div.text-center p,
+.formSignIn div.text-center p,
+.formForgetPass div.text-center p
+{
+  margin-top: 15px;
+}
+
+.formSignUp div.text-center p a,
+.formSignIn div.text-center p a,
+.formForgetPass div.text-center p a
+{
+  text-decoration: none;
+}
+
+/* Mega Menu */
+#prodHid
+{
+  display: none;
+}
+
+#prod
+{
+  line-height: 20px;
+  display: block;
+  position: relative;
+  padding: 15px 15px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#prod:hover, .drop-down:hover #prod
+{
+  color: black;
+  background-color: white;
+}
+
+.dropdown-content
+{
+  display: none;
+  position: absolute;
+  width: 100%;
+  right: 200%;
+  /* top: 102%; */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.drop-down:hover .dropdown-content {
+    display: block;
+}
+
+.megaMenu
+{
+  background-color: white;
+}
+
+.megaMenu h3
+{
+  font-weight: bold;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.megaMenu .listToChoose h3::after
+{
+  content: "";
+  display: block;
+  width: 200px;
+  height: 1px;
+  margin-top: 10px;
+  background:  #BABABA;
+}
+
+.search
+{
+  border-bottom: 1px solid black;
+  padding: 15px 40px;
+}
+
+ .listToChoose
+ {
+    padding: 10px 40px;
+ }
+
+ .listToChoose a
+ {
+   text-decoration: none;
+   color: black;
+ }
+
+.SearchField .input-group
+{
+  margin-left: 50px;
+}
+
+.SearchField label
+{
+  font-size: 16px;;
+}
+
+.SearchFieldHid
+{
+  display: none;
+}
+
+.brand-box img
+{
+  width: 70%;
+}
+
+.brand-box:hover
+{
+  border: 1px solid black;
+}
+
+.type-box img
+{
+  width: 70%;
+}
+
+.NSX-item, .type-item
+{
+  float: left;
+  width: 32%;
+}
+
+.type-item
+{
+  margin-top: 40px;
+}
+
+.NSX-item:nth-child(3n+1), .type-item:nth-child(3n+1)
+{
+  clear: left;
+}
+
+.type-box p
+{
+  font-weight:bold;
+  font-size: 15px;
+  margin: 0;
+  margin-top:10px;
+}
+
+#limousine
+{
+  width: 90%;
+  margin-top: 18px;
+}
+
+/* Modal Quick Buy */
+#QuickBuy .modal-dialog
+{
+  width: 600px;
+  margin: 0 auto;
+  position: relative;
+  top: 20%;
+}
+
+#QuickBuy .modal-header
+{
+  background-color: #00a2d1;
+  color: #fff;
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 16.42857143px;
+}
+
+#QuickBuy .close
+{
+  border: 0;
+  color: white;
+  padding: 0;
+  background: transparent;
+  position: relative;
+  z-index: 9;
+  opacity: 1;
+  margin-top: -2px;
+}
+
+#QuickBuy .modal-title {
+    padding-left: 6rem;
+    position: relative;
+    min-height: 44px;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: normal;
+    margin: 0;
+    padding-right: 15px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+#QuickBuy .modal-header .modal-title span {
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+    font-size: 23px;
+    text-align: center;
+    line-height: 44px;
+    color: #00a2d1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    background-color: #fff;
+}
+
+.media .media-left {
+    padding-right: 2rem;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.media .thumb-1x1 {
+    width: 7.7rem;
+}
+
+.media .thumb-1x1 img {
+    width: 100%;
+}
+
+.media .media-body
+{
+  display: table-cell;
+  vertical-align: top;
+  width: 100%;
+}
+
+.product-new-price {
+    color: #00a2d1;
+}
+
+.btn-outline-red {
+    background: #fff;
+    color: #00a2d1 !important;
+    font-size: 17px;
+    line-height: normal;
+    padding: 10px 15px;
+    border-radius: 0.5rem;
+    border: 1px solid #00a2d1;
+    text-align: center;
+    margin-top: 1.5rem;
+    width: 100%;
+    font-weight: bold;
+}
+
+.btn-red {
+    background: #00a2d1;
+    color: #fff !important;
+    font-size: 17px;
+    line-height: normal;
+    padding: 10px 15px;
+    border-radius: 0.5rem;
+    border: none;
+    text-align: center;
+    margin-top: 1rem;
+    width: 100%;
+    font-weight: bold;
+}

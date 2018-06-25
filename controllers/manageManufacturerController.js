@@ -4,8 +4,9 @@ var manageCarRepo = require('../repos/manageCarRepo');
 var config = require('../config/config');
 var router = express.Router();
 
+var isEd = false;
 var isDel = false;
-var isDelFalse = false
+var isDelFalse = false;
 router.get('/', (req, res) => {
   var page = req.query.page;
   if (!page) {
@@ -97,6 +98,7 @@ router.get('/', (req, res) => {
             last_page: nPages,
             isDelete: isDel,
             isDeleteFalse: isDelFalse,
+            isEdit: isEd,
             isFirst: isFirstPage,
             isLast: isLastPage
         };
@@ -107,6 +109,8 @@ router.get('/', (req, res) => {
             break;
           }
 
+        if(isEd)
+          isEd = false;
         if(isDel)
           isDel = false;
         if(isDelFalse)
@@ -172,6 +176,23 @@ router.get('/add', (req, res) => {
   }).catch(err => {
     res.render('error/index', {layout: false});
   });
+});
+
+router.get('/edit', (req, res) => {
+    manageManufacturerRepo.single(req.query.ma).then(row => {
+        var vm = {
+            product: row,
+            layout: 'layoutAdmin.handlebars'
+        };
+        res.render('admin/editManufacturer', vm);
+    });
+});
+
+router.post('/edit', (req, res) => {
+    manageManufacturerRepo.update(req.body).then(value => {
+        isEd = true;
+        res.redirect('/manageManufacturer');
+    });
 });
 
 router.post('/delete', (req, res) => {

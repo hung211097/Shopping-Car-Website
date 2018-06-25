@@ -7,7 +7,7 @@
 		</div>
 	</div>
 	<div class="panel-body" id="pad-bot">
-		<form action="process.html" method="POST" role="form">
+		<form action="" method="POST" role="form">
 			<legend>Thông tin chung</legend>
 			<div class="row" id="input">
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -26,7 +26,7 @@
 							<label>Mã dòng xe:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-							<input type="text" style="pointer-events:none"class="form-control" value="{{maTangDan}}">
+							<input type="text" class="form-control" value="{{maTangDan}}" readonly>
 						</div>
 					</div>
 				</div>
@@ -34,11 +34,17 @@
 			<div class="row" id="input">
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 					<div class="row">
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-							<label>Tên dòng xe:</label>
-						</div>
-						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-							<input type="text" class="form-control">
+						<div class="form-group form-TenDongXe has-feedback">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<label>Tên dòng xe:</label>
+							</div>
+
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<input type="text" name="TenDongXe" value="" class="form-control">
+								<p class="help-block TenDongXe-null">Vui lòng điền thông tin vào đây!</p>
+								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
 						</div>
 					</div>
 				</div>

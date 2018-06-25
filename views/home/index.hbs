@@ -1,0 +1,621 @@
+{{#section 'title'}}
+<title>Trang chủ</title>
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/OwlCarousel/dist/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="/assets/OwlCarousel/dist/assets/owl.theme.default.min.css">
+{{/section}}
+
+{{#section 'js'}}
+	<script type="text/javascript" src="/assets/js/index.js"></script>
+	<script src="/assets/OwlCarousel/dist/owl.carousel.min.js"></script>
+	<script type="text/javascript">
+
+	var owl = $('#BSeen');
+	owl.owlCarousel({
+		loop: true,
+		nav: true,
+		items: 10,
+		dots: false,
+		navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
+		lazyLoad: false,
+		margin: 30,
+		video: false,
+		autoWidth: false,
+		responsiveClass: true,
+		responsiveRefreshRate: true,
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 2
+			},
+			970: {
+				items: 2
+			},
+			1175: {
+				items: 3
+			},
+			1366: {
+				items: 4
+			},
+			1920: {
+				items: 4
+			}
+		}
+	});
+
+	var owl2 = $('#NewProd');
+	owl2.owlCarousel({
+		loop: true,
+		nav: true,
+		items: 10,
+		dots: false,
+		navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
+		lazyLoad: false,
+		margin: 30,
+		video: false,
+		autoWidth: false,
+		responsiveClass: true,
+		responsiveRefreshRate: true,
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 2
+			},
+			970: {
+				items: 2
+			},
+			1175: {
+				items: 3
+			},
+			1366: {
+				items: 4
+			},
+			1920: {
+				items: 4
+			}
+		}
+	});
+
+	var owl3 = $('#BSell');
+	owl3.owlCarousel({
+		loop: true,
+		nav: false,
+		items: 10,
+		dots: false,
+		navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
+		lazyLoad: false,
+		margin: 30,
+		video: false,
+		autoWidth: false,
+		responsiveClass: true,
+		responsiveRefreshRate: true,
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 2
+			},
+			970: {
+				items: 2
+			},
+			1175: {
+				items: 3
+			},
+			1366: {
+				items: 4
+			},
+			1920: {
+				items: 4
+			}
+		}
+	});
+
+	var owl4 = $('#Opinion');
+	owl4.owlCarousel({
+		items: 3,
+		dots: true,
+		lazyLoad: false,
+		margin: 30,
+		video: false,
+		autoWidth: false,
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 1
+			},
+			700: {
+				items: 2
+			},
+			1140: {
+				items: 2
+			},
+			1366: {
+				items: 2
+			}
+		}
+	});
+
+	var owl5 = $('#owl-brands');
+	owl5.owlCarousel({
+		loop: true,
+		nav: true,
+		navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
+		items: 11,
+		dots: false,
+		lazyLoad: false,
+		margin: 10,
+		video: false,
+		autoWidth: false,
+		responsive: {
+			0: {
+				items: 1
+			},
+			750: {
+				items: 1
+			},
+			980: {
+				items: 4
+			},
+			1366: {
+				items: 6
+			}
+		}
+	});
+	</script>
+
+	{{#each topSeen}}
+	<script type="text/javascript">
+			AddToCarousel('{{MaXe}}','{{TenXe}}', {{Gia}}, '#BSeen');
+	</script>
+	{{/each}}
+
+	{{#each topNew}}
+	<script type="text/javascript">
+			AddToCarousel('{{MaXe}}','{{TenXe}}', {{Gia}}, '#NewProd');
+	</script>
+	{{/each}}
+
+	{{#each topSell}}
+	<script type="text/javascript">
+		 AddBestSellProd('{{MaXe}}','{{TenXe}}', {{Gia}})
+	</script>
+	{{/each}}
+{{/section}}
+
+	<!-- Start Slider -->
+	<div class="slider">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+				<li data-target="#myCarousel" data-slide-to="4"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="./image/slide1.jpg" alt="Car 1">
+					<!-- <div class="carousel-caption">
+						<div class="container cap">
+							<h1 class="animated bounceInRight">MẠNH MẼ</h1>
+						</div>
+					</div> -->
+				</div>
+
+				<div class="item">
+					<img src="./image/slide2.jpg" alt="Car 2">
+					<!-- <div class="carousel-caption">
+						<div class="container cap">
+							<h1 class="animated bounceInRight">SANG TRỌNG</h1>
+						</div>
+					</div> -->
+				</div>
+
+				<div class="item">
+					<img src="./image/slide3.jpg" alt="Car 3">
+					<!-- <div class="carousel-caption">
+
+					</div> -->
+				</div>
+
+				<div class="item">
+					<img src="./image/slide4.jpg" alt="Car 4">
+					<!-- <div class="carousel-caption">
+
+					</div> -->
+				</div>
+
+				<div class="item">
+					<img src="./image/slide5.jpg" alt="Car 5">
+					<!-- <div class="carousel-caption">
+
+					</div> -->
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+	<!-- End Slider -->
+
+	<!-- Start Banner -->
+	<div class="banner">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 bannerContainer">
+					<img src="./image/banner1.png" alt="banner1">
+				</div>
+				<div class="col-sm-6 bannerContainer">
+					<img src="./image/banner2.png" alt="banner2">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Banner -->
+
+	<!-- Start Best Seen Product -->
+	<div class="bestSeen">
+		<div class="container">
+			<div class="bestSeen-title">
+				<h2>SẢN PHẨM NỔI BẬT</h2>
+			</div>
+
+			<div class="bestSeen-content">
+				<div id="BSeen" class="owl-carousel owl-theme owl-loaded owl-drag">
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Best Seen Product -->
+
+	<!-- Start New Product -->
+	<div class="newProduct">
+		<div class="container">
+			<div>
+				<h2>SẢN PHẨM MỚI</h2>
+			</div>
+
+			<div class="newProduct-contain">
+				<div class="clearfix">
+					<div class="col-md-7 col-md-push-5 newest">
+						<a href="/products/detail/Toyota Camry">
+							<img src="./image/ToyotaCamry.jpg" id="newestCar" alt="ToyotaCamry">
+						</a>
+					</div>
+
+					<div class="col-md-5 col-md-pull-7 newestInfo">
+						<div class="infoNew">
+							<h3><a href="/products/detail/Toyota Camry">Toyota Camry</a></h3>
+							<div class="desc" style="line-height: 1.7; letter-spacing: 0.25px;">
+								<div>
+									<ul>
+										<li>Xăng 1.5L Duratec 16 Van</li>
+										<li>Hệ thống nhiên liệu phun đa điểm</li>
+										<li>Hệ thống lái trợ lực điện điều khiển điện tử</li>
+										<li>Hộp số tự động 6 cấp PowerShift</li>
+									</ul>
+									<p style="margin-bottom: 10px">Hoan nghênh cho các thế hệ trên khắp thế giới về chất lượng tuyệt vời, độ bền và độ tin cậy của nó, là Camry tiến hóa để hình thành thế hệ tiếp theo thoải mái, hiệu quả và sự an tâm, mà kháng cáo cho cả hai người đứng đầu và trái tim.Sự phát
+										triển của một ...</p>
+								</div>
+								<a href="/products/detail/Toyota Camry" class="color-featured">Xem thêm</a>
+							</div>
+							<div class="price-box clearfix">
+								<div class="special-price">
+									<span class="price product-price">
+										2.000.000.000₫
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="clearfix someNewProducts">
+					<div class="newProduct-content">
+						<div id="NewProd" class="owl-carousel owl-theme owl-loaded owl-drag">
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- End New Product -->
+
+	<!-- Start Best Sell Product -->
+	<div class="bestSell">
+		<div class="bestSell-contain">
+			<div class="container">
+				<div>
+					<h2>SẢN PHẨM BÁN CHẠY NHẤT</h2>
+				</div>
+
+				<div class="bestSell-content">
+					<div id="BSell" class="owl-carousel owl-theme owl-loaded owl-drag">
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- End Best Sell Product -->
+
+	<!-- Start Introduction -->
+	<div class="introduction">
+		<div class="container">
+			<div>
+				<h2>GIỚI THIỆU</h2>
+			</div>
+			<div class="clearfix">
+				<div class="info">
+					<h3>DREAMCAR</h3>
+					<p class="desc">
+						Với 15 năm kinh nghiệm với tất cả các hãng xe hàng đầu thế giới. Chúng tôi - DreamCar tự hào là cơ sở duy nhất đáp ứng mọi nhu cầu của khách hàng.
+					</p>
+					<a href="/home/about" class="color-featured">Xem thêm <i class="fa fa-angle-right"></i></a>
+				</div>
+				<div class="image-home">
+					<img src="./image/home-about-img.jpg" alt="Dreamcar">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Introduction -->
+
+	<!-- Start Service -->
+	<div class="service">
+		<div class="container">
+			<div>
+				<h2>DỊCH VỤ CUNG CẤP</h2>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<img src="./image/wrench.svg" alt="Bảo hành">
+					<h3>Bảo hành</h3>
+					<p class="desc">
+						Dịch vụ bảo hành ở tất cả các
+						<br> đại lý trên toàn quốc
+					</p>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<img src="./image/dollar.svg" alt="Bảo hành">
+					<h3>Trả góp</h3>
+					<p class="desc">
+						Xử lý trong vòng 24h sau khi
+						<br> tiếp nhận hồ sơ mua xe
+					</p>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<img src="./image/wheel.svg" alt="Bảo hành">
+					<h3>Lái thử</h3>
+					<p class="desc">
+						DreamCar có dịch vụ lái thử xe
+						<br> tại các đại lý trên toàn quốc
+					</p>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-3">
+					<img src="./image/cycle.svg" alt="Bảo hành">
+					<h3>Đổi trả</h3>
+					<p class="desc">
+						Hoàn trả trong vòng 10 ngày
+						<br> kể từ ngày nhận xe
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Service -->
+
+	<!-- Start Customer Opinion -->
+	<div class="CustomerOpi">
+		<div class="testimonial">
+			<div class="container">
+
+				<div>
+					<h2>Ý kiến khách hàng</h2>
+				</div>
+				<div class="row">
+					<div id="Opinion" class="owl-testimonial owl-carousel owl-loaded owl-drag">
+						<div class="item">
+							<div class="testimonial-box">
+								<div class="image">
+									<img src="./image/avatar1.jpg" class="img-fix" alt="Ngô Hoàng Long">
+								</div>
+								<div class="info">
+									<h3>Ngô Hoàng Long</h3>
+									<p class="content">
+										“Tôi rất hài lòng với chất lượng dịch vụ tại đây. Dưới sự tư vấn của nhân viên DREAMCAR, tôi đã tìm mua được cho mình một chiếc xe ưng ý.”
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="item">
+							<div class="testimonial-box">
+								<div class="image">
+									<img src="./image/avatar2.jpg" class="img-fix" alt="Lê Đức Anh">
+								</div>
+								<div class="info">
+									<h3>Lê Đức Anh</h3>
+									<p class="content">
+										"Dịch vụ sau bán hàng của DREAMCAR rất chuyên nghiệp. Bảo hành, chế độ hậu mãi về sau rất tốt. Tôi rất hài lòng. Cảm ơn DREAMCAR!"
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="item">
+							<div class="testimonial-box">
+								<div class="image">
+									<img src="./image/avatar3.jpg" class="img-fix" alt="Lê Trọng Hiếu">
+								</div>
+								<div class="info">
+									<h3>Lê Trọng Hiếu</h3>
+									<p class="content">
+										“Tôi rất hài lòng với chất lượng dịch vụ tại đây. Dưới sự tư vấn của nhân viên DREAMCAR, tôi đã tìm mua được cho mình một chiếc xe ưng ý.”
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- End Customer Opinion -->
+
+	<!-- Start Brand -->
+	<div class="brands">
+		<div class="container">
+			<div>
+				<h2>THƯƠNG HIỆU NỔI BẬT</h2>
+			</div>
+			<div id="owl-brands" class="owl-carousel owl-loaded owl-drag">
+				<div class="col-xs-12">
+					<div class="item-brand">
+						<div class="image-brand">
+							<img src="./image/brand/brand1.png" alt="Ford" title="Ford">
+						</div>
+						<h3 class="title-brand">
+								Ford
+							</h3>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="item-brand">
+						<div class="image-brand">
+							<img src="./image/brand/brand2.png" alt="Toyota" title="Toyota">
+						</div>
+						<h3 class="title-brand">
+								Toyota
+							</h3>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="item-brand">
+						<div class="image-brand">
+							<img src="./image/brand/brand3.png" alt="Mercedes Benz" title="Mercedes Benz">
+						</div>
+						<h3 class="title-brand">
+								Mercedes Benz
+							</h3>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="item-brand">
+						<div class="image-brand">
+							<img src="./image/brand/brand4.png" alt="Honda" title="Honda">
+						</div>
+						<h3 class="title-brand">
+								Honda
+							</h3>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="item-brand">
+						<div class="image-brand">
+							<img src="./image/brand/brand5.png" alt="BWM" title="BWM">
+						</div>
+						<h3 class="title-brand">
+								BWM
+							</h3>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="item-brand">
+						<div class="image-brand">
+							<img src="./image/brand/brand6.png" alt="Chevrolet" title="Chevrolet">
+						</div>
+						<h3 class="title-brand">
+								Chevrolet
+							</h3>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="item-brand">
+						<div class="image-brand">
+							<img src="./image/brand/brand7.png" alt="Audi" title="Audi">
+						</div>
+						<h3 class="title-brand">
+								Audi
+							</h3>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="item-brand">
+						<div class="image-brand">
+							<img src="./image/brand/brand8.png" alt="KIA" title="KIA">
+						</div>
+						<h3 class="title-brand">
+								KIA
+							</h3>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="item-brand">
+						<div class="image-brand">
+							<img src="./image/brand/brand9.png" alt="Aston Martin" title="Aston Martin">
+						</div>
+						<h3 class="title-brand">
+								Aston Martin
+							</h3>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="item-brand">
+						<div class="image-brand">
+							<img src="./image/brand/brand10.png" alt="Peugeot" title="Peugeot">
+						</div>
+						<h3 class="title-brand">
+								Peugeot
+							</h3>
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<div class="item-brand">
+						<div class="image-brand">
+							<img src="./image/brand/brand11.png" alt="Mazda" title="Mazda">
+						</div>
+						<h3 class="title-brand">
+								Mazda
+							</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Brand -->

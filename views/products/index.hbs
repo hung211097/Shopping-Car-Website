@@ -1,0 +1,248 @@
+{{#section 'title'}}
+  <title>Sản phẩm</title>
+{{/section}}
+
+{{#section 'css'}}
+  <link rel="stylesheet" href="/assets/css/product.css">
+  <link rel="stylesheet" href="/assets/css/introduction.css">
+{{/section}}
+
+{{#section 'js'}}
+  <script type="text/javascript" src="/assets/js/product.js"></script>
+{{/section}}
+
+<!-- Start Breadcrumb -->
+<div class="bread-crumb">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="breadcrumb">
+          <li><a href="/home">Trang chủ</a></li>
+          {{#if FollowNSX}}
+            <li><a href="/products">Sản phẩm</a></li>
+            <li>Hãng xe {{Breadcumb}}</li>
+          {{else}}
+            {{#if FollowType}}
+              <li><a href="/products">Sản phẩm</a></li>
+              <li>Dòng xe {{Breadcumb}}</li>
+            {{else}}
+              <li>Sản phẩm</li>
+            {{/if}}
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Breadcrumb -->
+
+<!-- Start Product -->
+<div class="container product-page">
+  <div class="row">
+    {{#if noProducts}}
+      <h3 style="margin-left: 20px">
+        Không có sản phẩm nào trong cửa hàng
+      </h3>
+    {{else}}
+      <div class="collection col-lg-9 col-lg-push-3">
+        <div class="intro-title">
+          <h1 class="title-head" style="margin-top: 0">
+            {{#if FollowNSX}}
+              HÃNG XE {{Breadcumb}}
+              {{else}}
+              {{#if FollowType}}
+                  DÒNG XE {{Breadcumb}}
+                {{else}}
+                  TẤT CẢ SẢN PHẨM
+              {{/if}}
+            {{/if}}
+          </h1>
+        </div>
+        <div class="category-products">
+          <div class="sortPagiBar">
+            <div class="row">
+              <div class="col-xs-4 col-sm-4">
+                <a href="/products" class="btn btn-default" id="allproduct">Tất cả sản phẩm</a>
+              </div>
+              <div class="col-xs-8 col-sm-8 text-xs-left text-sm-right">
+                <form class="form-inline filterForm" action="/" method="post" style="margin-bottom: 0; float: right">
+                  <input type="hidden" name="pageTemp" value="{{CurrentPage}}">
+                  <div class="form-group" style="padding-bottom: 0px">
+                    <select class="sort-by" name="sortBox">
+                      {{#each TypeSort}}
+                        {{#if isSort}}
+                          <option  selected value="{{valueSort}}">{{nameSort}}</option>
+                        {{else}}
+                          <option value="{{valueSort}}">{{nameSort}}</option>
+                        {{/if}}
+                      {{/each}}
+                  </select>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="products-view">
+            <div class="row">
+              {{#each products}}
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="float: left">
+                  <div class="product-box">
+                    <div class="product-thumbnail">
+                      <a href="/products/detail/{{TenXe}}" title="{{TenXe}}">
+                        <img src="/image/all/{{TenXe}}.jpg" alt="{{TenXe}}">
+                      </a>
+                      <div class="price-box clearfix">
+                        <div class="special-price">
+                          <span class="price product-price">
+                            {{number_format Gia}}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product-info">
+                      <h3 class="product-name">
+                        <a href="/products/detail/{{TenXe}}" title="{{TenXe}}">{{TenXe}}</a>
+                      </h3>
+                    </div>
+                    <div class="product-action clearfix ">
+                      <form class="products-view-grid" action="" method="post" data-id="">
+                        <input type="hidden" name="proId" value="{{MaXe}}">
+                        <input type="hidden" name="quantity" value="1">
+                        <div>
+                          <a class="btn btn-gray hvr-rectangle-out" name="button-Buy-{{TenXe}}" title="Mua hàng" data-toggle="modal" data-target="#QuickBuy">
+                            <i class="fa fa-shopping-cart"></i>
+                            Mua hàng
+                          </a>
+
+                          <a href="/products/detail/{{TenXe}}" class="btn btn-gray hvr-rectangle-out" name="button-Detail-{{TenXe}}" title="Chi tiết" style="float: right">
+                            <i class="fa fa-eye"></i>
+                            Chi tiết
+                          </a>
+                        </div>
+                      </form>
+                      <script type="text/javascript">
+                        $('a[name="button-Buy-{{TenXe}}"]').on('click', function() {
+                          var form = $(this).parents('form');
+                          $.ajax({
+                            type: 'POST',
+                            url: '/cart/add',
+                            async: false,
+                            data: form.serialize(),
+                            dataType: 'json',
+                            error: function() {
+                              $('#QuickBuy').find('h4.modal-title').html('<span><i class="fas fa-times"></i></span> Thêm vào giỏ hàng thất bại');
+                              $('.OutofStock').show();
+
+                              var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+                              hinh.attr('src', '/image/all/{{TenXe}}.jpg');
+                              hinh.attr('alt', '{{TenXe}}');
+                              $('#QuickBuy').find('.product-title').text('{{TenXe}}');
+                              $('#QuickBuy').find('input[name="product-new-price"]').val({{Gia}});
+                              $('#QuickBuy').find('div.product-new-price').find('span').text('{{number_format Gia}}');
+                            },
+                            beforeSend: function() {},
+                            success: function() {
+                              $('#QuickBuy').find('h4.modal-title').html('<span><i class="fa fa-check"></i></span> Thêm vào giỏ hàng thành công');
+                              $('.OutofStock').hide();
+
+                              var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+                              hinh.attr('src', '/image/all/{{TenXe}}.jpg');
+                              hinh.attr('alt', '{{TenXe}}');
+                              $('#QuickBuy').find('.product-title').text('{{TenXe}}');
+                              $('#QuickBuy').find('input[name="product-new-price"]').val({{Gia}});
+                              $('#QuickBuy').find('div.product-new-price').find('span').text('{{number_format Gia}}');
+                              IncreaseNumCar();
+                            },
+                            cache: false
+                          });
+                        });
+                      </script>
+                    </div>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+            <div class="text-xs-center">
+              <nav class="clearfix text-center">
+                <ul class="pagination clearfix">
+                  {{#if isFirst}}
+                    <li class="disabled"><a href="javascript:;" id="first" class="page-link">&laquo;</a></li>
+                  {{else}}
+                    {{#if FollowNSX}}
+                      <li><a href="/products/productsWithBrand/{{Breadcumb}}?page=1&sort={{Sort}}" id="first" class="page-link">&laquo;</a></li>
+                    {{else}}
+                      {{#if FollowType}}
+                        <li><a href="/products/productsWithType/{{Breadcumb}}?page=1&sort={{Sort}}" id="first" class="page-link">&laquo;</a></li>
+                      {{else}}
+                        <li><a href="?page=1&sort={{Sort}}" id="first" class="page-link">&laquo;</a></li>
+                      {{/if}}
+                    {{/if}}
+                  {{/if}}
+
+                  {{#each page_numbers}}
+                    {{#if isCurPage}}
+                      <li class="active page-item"><a href="javascript:;" class="page-link">{{value}}</a></li>
+                    {{else}}
+                      {{#if FollowType}}
+                        <li class="page-item"><a href="/products/productsWithType/{{Breadcumb}}?page={{value}}&sort={{Sort}}" class="page-link">{{value}}</a></li>
+                      {{else}}
+                        {{#if FollowNSX}}
+                          <li class="page-item"><a href="/products/productsWithBrand/{{Breadcumb}}?page={{value}}&sort={{Sort}}" class="page-link">{{value}}</a></li>
+                        {{else}}
+                          <li class="page-item"><a href="?page={{value}}&sort={{Sort}}" class="page-link">{{value}}</a></li>
+                        {{/if}}
+                      {{/if}}
+                    {{/if}}
+                  {{/each}}
+
+                  {{#if isLast}}
+                    <li class="disabled"><a href="javascript:;" class="page-link" id="last">&raquo;</a></li>
+                  {{else}}
+                    {{#if FollowNSX}}
+                      <li><a href="/products/productsWithBrand/{{Breadcumb}}?page={{last_page}}&sort={{Sort}}" class="page-link" id="last">&raquo;</a></li>
+                    {{else}}
+                      {{#if FollowType}}
+                        <li><a href="/products/productsWithType/{{Breadcumb}}?page={{last_page}}&sort={{Sort}}" class="page-link" id="last">&raquo;</a></li>
+                      {{else}}
+                        <li><a href="?page={{last_page}}&sort={{Sort}}" class="page-link" id="last">&raquo;</a></li>
+                      {{/if}}
+                    {{/if}}
+                  {{/if}}
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar col-lg-3 col-lg-pull-9 col-xs-12">
+        <div class="aside-collection">
+          <h2>HÃNG XE</h2>
+          <ul class="list-cate">
+            {{#each AllNSX}}
+              <li>
+                <a href="/products/productsWithBrand/{{TenHangXe}}">
+                <img src="/image/logo-small/{{TenHangXe}}.png" alt="{{TenHangXe}}">
+                {{TenHangXe}}
+              </a>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="aside-collection">
+          <h2>DÒNG XE</h2>
+          <ul class="list-type">
+            {{#each AllType}}
+              <li>
+                <a href="/products/productsWithType/{{TenDongXe}}">
+                {{TenDongXe}}
+              </a>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</div>
+<!-- End Product -->

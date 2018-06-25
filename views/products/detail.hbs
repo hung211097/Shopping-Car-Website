@@ -1,0 +1,424 @@
+{{#section 'title'}}
+  <title>Chi tiết sản phẩm</title>
+{{/section}}
+
+{{#section 'css'}}
+  <link rel="stylesheet" href="/assets/css/detail.css">
+  <link rel="stylesheet" href="/assets/css/introduction.css">
+  <link rel="stylesheet" href="/assets/swiper.min.css">
+  <link rel="stylesheet" href="/assets/OwlCarousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="/assets/OwlCarousel/dist/assets/owl.theme.default.min.css">
+{{/section}}
+
+{{#section 'js'}}
+  <script src="/assets/OwlCarousel/dist/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="/assets/js/detail.js"></script>
+  <script src="/assets/swiper.min.js"></script>
+
+  <script type="text/javascript">
+    var owl6 = $('#SameTypeProduct');
+    owl6.owlCarousel({
+      loop: true,
+      nav: true,
+      items: 5,
+      dots: false,
+      navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
+      lazyLoad: false,
+      margin: 30,
+      autoWidth: false,
+      responsiveClass: true,
+      responsiveRefreshRate: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 2
+        },
+        970: {
+          items: 2
+        },
+        1175: {
+          items: 3
+        },
+        1366: {
+          items: 4
+        },
+        1920: {
+          items: 4
+        }
+      }
+    });
+
+    var owl7 = $('#SameNSXProduct');
+    owl7.owlCarousel({
+      loop: true,
+      nav: true,
+      items: 5,
+      dots: false,
+      navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],
+      lazyLoad: false,
+      margin: 30,
+      autoWidth: false,
+      responsiveClass: true,
+      responsiveRefreshRate: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 2
+        },
+        970: {
+          items: 2
+        },
+        1175: {
+          items: 3
+        },
+        1366: {
+          items: 4
+        },
+        1920: {
+          items: 4
+        }
+      }
+    });
+
+    var NumMoreImage = 5;
+    var mySwiper = new Swiper('#gallery_01', {
+      speed: 400,
+      // slidesPerView: 4,
+      direction: 'vertical',
+      // spaceBetween: 380,
+      grabCursor: true,
+      nextButton: '.swiper-button-next',
+      prevButton: '.swiper-button-prev',
+    });
+
+    function fixSwiper() {
+      if ($(window).width() >= 1200) {
+        mySwiper.params.slidesPerView = 4;
+        mySwiper.params.spaceBetween = 380;
+      } else
+      if ($(window).width() < 1200 && $(window).width() > 960) {
+        mySwiper.params.slidesPerView = 3;
+        mySwiper.params.spaceBetween = 70;
+      } else
+      if ($(window).width() <= 960 && (window).width() > 600) {
+        mySwiper.params.slidesPerView = 2;
+        mySwiper.params.spaceBetween = 0;
+      } else
+      if ($(window).width() <= 600) {
+        mySwiper.params.slidesPerView = 1;
+        mySwiper.params.spaceBetween = 0;
+      }
+      mySwiper.update();
+    }
+
+    $(window).on('resize', function() {
+      fixSwiper();
+    })
+
+    $(document).ready(function() {
+      fixSwiper();
+    });
+
+  </script>
+
+  {{#with Car}}
+    <script type="text/javascript">
+      for(var i = 0; i < NumMoreImage; i++)
+      {
+        AddMoreImage('{{TenXe}}', i + 1);
+      }
+    </script>
+  {{/with}}
+
+  {{#each MoreNSX}}
+    <script type="text/javascript">
+      AddToCarousel('{{MaXe}}','{{TenXe}}', {{Gia}}, '#SameNSXProduct');
+    </script>
+  {{/each}}
+
+  {{#each MoreType}}
+    <script type="text/javascript">
+      AddToCarousel('{{MaXe}}','{{TenXe}}', {{Gia}}, '#SameTypeProduct');
+    </script>
+  {{/each}}
+
+{{/section}}
+
+<!-- Start Breadcrumb -->
+<div class="bread-crumb">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="breadcrumb">
+          <li><a href="/home">Trang chủ</a></li>
+          <li><a href="/products">Sản phẩm</a></li>
+          {{#with Car}}
+            <li>{{TenXe}}</li>
+          {{/with}}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Breadcrumb -->
+
+<!-- Start Detail Product -->
+{{#with Car}}
+<div class="detail-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 details-product">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 image-part">
+            <div class="large-image featured-image">
+              <a id="zoom" href="/image/all/{{TenXe}}.jpg" data-rel="prettyPhoto[product-gallery]">
+                <img src="/image/all/{{TenXe}}.jpg" alt="{{TenXe}}">
+              </a>
+            </div>
+            <div id="gallery_01" class="swiper-container swiper-container-vertical more-views">
+              <div class="swiper-wrapper">
+
+              </div>
+              <div class="more-views">
+                <div class="swiper-button-prev">
+                  <i class="fa fa-angle-up"></i>
+                </div>
+                <div class="swiper-button-next">
+                  <i class="fa fa-angle-down"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-10 col-lg-12 details-pro">
+            <div class="row">
+              <div class="col-lg-10">
+                <div style="position: relative">
+                  <h1 class="title-head">{{TenXe}} </h1>
+                  <div class="price-box clearfix">
+                    <div class="special-price">
+                      <span class="price product-price">
+                        {{number_format Gia}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div style="position: relative">
+                  <div class="detail-header-info">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td><b>Mã sản phẩm: &nbsp;</b></td>
+                          <td align="left">{{MaXe}}</td>
+                        </tr>
+                        <tr>
+                          <td><b>Nhà sản xuất: &nbsp;</b></td>
+                          <td align="left">{{TenHangXe}}</td>
+                        </tr>
+                        <tr>
+                          <td><b>Số lượt xem: &nbsp;</b></td>
+                          <td align="left">{{SoLuotXem}} </td>
+                        </tr>
+                        <tr>
+                          <td><b>Số lượng bán: &nbsp;</b></td>
+                          <td align="left">{{SoLuongBan}}</td>
+                        </tr>
+                        <tr>
+                          <td><b>Số lượng tồn: &nbsp;</b></td>
+                          <td align="left">{{SoLuongTon}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="product-statistic" style="margin-bottom: 10px">
+                  <h1 class="title-head">THÔNG SỐ CƠ BẢN</h1>
+                  <div class="statistic row">
+                    <ul class="ileft">
+                      <li>
+                        <i class="icox kieudang"></i> Kiểu dáng:
+                        <span id="kieu"> {{TenDongXe}} </span>
+                      </li>
+                      <li>
+                        <i class="icox ttp"></i> Xuất xứ:
+                        <span id="xuatxu">{{XuatXu}}</span>
+                      </li>
+                      <li>
+                        <i class="icox nhienlieu"></i> Nhiên liệu:
+                        <span id="nlieu"> {{NhienLieu}} </span>
+                      </li>
+                      <li>
+                        <i class="icox hopso"></i> Loại hộp số:
+                        <span id="loaihop">{{HopSo}} </span>
+                      </li>
+                    </ul>
+                    <ul class="iright">
+                      <li>
+                        <i class="icox mausac"></i> Màu sắc:
+                        <span id="mau">{{MauSac}} </span>
+                      </li>
+                      <li>
+                        <i class="icox socua"></i> Số cửa:
+                        <span id="cua">{{SoCua}} </span>
+                      </li>
+                      <li>
+                        <i class="icox socho"></i> Số chỗ:
+                        <span id="chongoi">{{SoCho}} </span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="purchase-product">
+                  <form class="add-to-cart" action="" method="post">
+                    <div class="form-group form-detail-action">
+                      <label for="">Số lượng:</label>
+                      <div class="custom-btn-number">
+                        <span class="qtyminus">-</span>
+                        <input type="hidden" name="proId" value="{{MaXe}}">
+                        <input id="qty" title="Số lượng" type="text" name="quantity" maxlength="12" value="1" disabled="disabled">
+                        <span class="qtyplus">+</span>
+                      </div>
+                      <a class="btn btn-lg btn-gray btn-cart hvr-rectangle-out" title="Mua hàng" data-toggle="modal" data-target="#QuickBuy">
+                        <i class="fa fa-shopping-cart"></i> Mua hàng
+                      </a>
+                    </div>
+                  </form>
+                  <script type="text/javascript">
+                    $('.btn-cart').on('click', function() {
+                      $(this).blur();
+                      var form = $(this).parents('form');
+                      var num = parseInt($('#qty').val());
+                      $.ajax({
+                        type: 'POST',
+                        url: '/cart/add',
+                        async: false,
+                        data: {proId: '{{MaXe}}', quantity: num},
+                        dataType: 'json',
+                        error: function() {
+                          $('#QuickBuy').find('h4.modal-title').html('<span><i class="fas fa-times"></i></span> Thêm vào giỏ hàng thất bại');
+                          $('.OutofStock').show();
+
+                          var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+                          hinh.attr('src', '/image/all/{{TenXe}}.jpg');
+                          hinh.attr('alt', '{{TenXe}}');
+                          $('#QuickBuy').find('.product-title').text('{{TenXe}}');
+                          $('#QuickBuy').find('input[name="product-new-price"]').val({{Gia}});
+                          $('#QuickBuy').find('div.product-new-price').find('span').text('{{number_format Gia}}');
+                        },
+                        beforeSend: function() {},
+                        success: function() {
+                          $('#QuickBuy').find('h4.modal-title').html('<span><i class="fa fa-check"></i></span> Thêm vào giỏ hàng thành công');
+                          $('.OutofStock').hide();
+
+                          var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+                          hinh.attr('src', '/image/all/{{TenXe}}.jpg');
+                          hinh.attr('alt', '{{TenXe}}');
+                          $('#QuickBuy').find('.product-title').text('{{TenXe}}');
+                          $('#QuickBuy').find('input[name="product-new-price"]').val({{Gia}});
+                          $('#QuickBuy').find('div.product-new-price').find('span').text('{{number_format Gia}}');
+                          IncreaseNumCar(num);
+                        },
+                        cache: false
+                      });
+                    });
+                  </script>
+                </div>
+                <div class="service-wrap">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                      <div class="service-body">
+                        <div class="icon fa fa-truck" style="margin-right: 10px"></div>
+                        <div>
+                          <h5>MIỄN PHÍ VẬN CHUYỂN</h5>
+                          <p>Với mẫu xe trên 1.000.000.000đ</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                      <div class="service-body">
+                        <div class="icon fa fa-undo" style="margin-right: 10px"></div>
+                        <div>
+                          <h5>MIỄN PHÍ BẢO HÀNH</h5>
+                          <p>Với mẫu xe trên 1.000.000.000đ</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                      <div class="service-body">
+                        <div class="icon fa fa-users" style="margin-right: 10px"></div>
+                        <div>
+                          <h5>HỖ TRỢ MIỄN PHÍ</h5>
+                          <p>Với mẫu xe trên 1.000.000.000đ</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="row" style="margin-top: 40px">
+          <div class="col-xs-12 col-md-12 col-lg-12">
+            <div class="product-description">
+              <h1 class="title-head">MÔ TẢ</h1>
+              <div class="description">
+                <div class="describe">
+                  <p class="content-des">
+                    {{!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. In consectetur nulla quia assumenda minus quasi, eveniet sapiente eum voluptatem, dolor? Corporis vitae perferendis hic ex molestias, optio at aut vero. --}}
+                    {{MoTa}}
+                  </p>
+                  <p class="content-des">
+                    {{!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore accusantium nihil repellat a dicta voluptates autem iure possimus, exercitationem et! Quia incidunt voluptatibus possimus repudiandae porro numquam itaque sit atque! Lorem ipsum dolor sit
+                    amet, consectetur adipisicing elit. Assumenda consequuntur, voluptatum, eveniet rerum tenetur beatae in tempore esse excepturi molestiae repellat enim aliquid aut rem odit numquam voluptatibus veniam obcaecati. --}}
+                    {{MoTa}}
+                  </p>
+                  <div id="img01">
+                    <img src="/image/all/{{TenXe}}/{{TenXe}}_2.jpg" alt="{{TenXe}}">
+                  </div>
+                  <p>
+                    {{!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                    in reprehenderit in voluptate velit. --}}
+                    {{MoTa}}
+                  </p>
+                  <p>
+                    {{!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. --}}
+                    {{MoTa}}
+                  </p>
+                  <div id="img02">
+                    <img src="/image/all/{{TenXe}}/{{TenXe}}_3.jpg" alt="{{TenXe}}">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="related-product" style="margin-top: 40px">
+          <div>
+            <h2>SẢN PHẨM CÙNG LOẠI</h2>
+          </div>
+          <div id="SameTypeProduct" class="owl-carousel owl-theme owl-loaded owl-drag">
+
+          </div>
+
+          <div>
+            <h2>SẢN PHẨM CÙNG NHÀ SẢN XUẤT</h2>
+          </div>
+          <div id="SameNSXProduct" class="owl-carousel owl-theme owl-loaded owl-drag">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Detail Product -->
+{{/with}}
