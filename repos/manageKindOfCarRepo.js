@@ -40,3 +40,8 @@ exports.update = (object) => {
     var sql = `update dongxe set TenDongXe = "${object.TenDongXe}" where MaDongXe = "${object.MaDongXe}"`;
     return db.save(sql);
 }
+
+exports.add = (object) => {
+    var sql = `insert into dongxe(MaDongXe, TenDongXe, DuongDan) values('${object.MaDongXe}', '${object.TenDongXe}', '${object.DuongDan}')`;
+    return db.save(sql);
+}

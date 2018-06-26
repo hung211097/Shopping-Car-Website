@@ -1,23 +1,23 @@
 var db = require('../fn/db');
 var config = require('../config/config');
 
-exports.loadAllManufacturer = offset => {
-    var sql = `select * from hangxe ORDER BY MaHangXe ASC limit ${config.PRODUCTS_PER_PAGE_ADMIN} offset ${offset}`;
+exports.loadAllOrder = offset => {
+    var sql = `select * from hoadon ORDER BY NgayDat ASC limit ${config.PRODUCTS_PER_PAGE_ADMIN} offset ${offset}`;
     return db.load(sql);
 }
 
-exports.loadAllManufacturerNoOffset = () => {
-    var sql = `select * from hangxe`;
+exports.loadAllOrderNoOffset = () => {
+    var sql = `select * from hoadon`;
     return db.load(sql);
 }
 
-exports.countManufacturer = () => {
-    var sql = `select count(*) as total from hangxe`;
+exports.countOrder = () => {
+    var sql = `select count(*) as total from hoadon`;
     return db.load(sql);
 }
 
 exports.delete = (ma) => {
-    var sql = `delete from hangxe where MaHangXe = "${ma}"`;
+    var sql = `delete from hoadon where MaHangXe = "${ma}"`;
     return db.save(sql);
 }
 

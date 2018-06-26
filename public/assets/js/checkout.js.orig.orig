@@ -1,5 +1,7 @@
 $(document).ready(function() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
 =======
   $('.email-format').hide();
   $('.email-null').hide();
@@ -10,6 +12,7 @@ $(document).ready(function() {
   $('.glyphicon-remove').hide();
 
 >>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+>>>>>>> origin/NgHuynh
   if ($('input[name="email"]').val() != "" && re.test($('input[name="email"]').val())) {
     $(this).parent().removeClass('has-error');
     $(this).parent().addClass('has-success');
@@ -25,6 +28,16 @@ $(document).ready(function() {
     $('.form-name').find('.glyphicon-remove').hide();
     $('.name-null').hide();
   }
+<<<<<<< HEAD
+=======
+  $('.phone-null').hide();
+  $('.address-null').hide();
+  $('.glyphicon-ok').hide();
+  $('.glyphicon-remove').hide();
+
+>>>>>>> origin/NTHung
+=======
+>>>>>>> origin/NgHuynh
   if ($('input[name="phone"]').val() != "") {
     $(this).parent().removeClass('has-error');
     $(this).parent().addClass('has-success');
@@ -47,6 +60,8 @@ $('.summary-product').on('scroll', function() {
   $(this).removeClass('order-summary--is-scrollable');
 });
 
+<<<<<<< HEAD
+=======
 $('input[name="email"]').on('blur', function() {
   if ($(this).val() == "") {
     $(this).parent().removeClass('has-success');
@@ -88,6 +103,7 @@ $('input[name="fullname"]').on('blur', function() {
   }
 });
 
+>>>>>>> origin/NgHuynh
 $('input[name="phone"]').on('blur', function() {
   if ($(this).val() == "") {
     $(this).parent().removeClass('has-success');
@@ -122,6 +138,11 @@ $('input[name="address"]').on('blur', function() {
 
 $('.btn-checkout').on('click', function() {
   var inform = $('.sidebar__content').find('div.form-group.has-error').find('ul');
+<<<<<<< HEAD
+  var correct = true;
+
+  if ($('input[name="phone"]').val() == "" || $('input[name="address"]').val() == "") {
+=======
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   // inform.remove('li');
   var correct = true;
@@ -131,11 +152,16 @@ $('.btn-checkout').on('click', function() {
   }
 
   if ($('input[name="fullname"]').val() == "" || $('input[name="phone"]') == "" || $('input[name="address"]') == "") {
+>>>>>>> origin/NgHuynh
     correct = false;
     inform.html('<li>Hãy điền đầy đủ thông tin vào form!</li>');
   }
 
   if (correct) {
+<<<<<<< HEAD
+      inform.html('<li>Đã viết hóa đơn!</li>');
+=======
 
+>>>>>>> origin/NgHuynh
   }
 });
