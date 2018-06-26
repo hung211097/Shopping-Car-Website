@@ -139,10 +139,13 @@
 
           <ul class="nav navbar-nav navbar-right" id="rightNavBarHeader">
             <li style="padding-right: 12px;"><a href="/cart"><i class="fas fa-shopping-cart" style="font-size: 17px;"></i><span class="cartCount">{{layoutVM.cartCount}}</span></a></li>
+            {{#if layoutVM.isLogged}}
+            <li><a href="/UserInfo/" id="InfoUserBtn">Xin chào {{layoutVM.curUser.Username}}!</a></li>
+            <li><a href="/account/logout" id="SignOutNavBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+            {{else}}
             <li><a href="/account/register" id="SignUpNavBtn"><i class="fas fa-user-plus" style="font-size: 16px;"></i> Đăng ký</a></li>
             <li><a href="/account/login" id="SignInNavBtn"><i class="fas fa-user"></i> Đăng nhập</a></li>
-            <li><a href="javascript:;" id="InfoUserBtn"></a></li>
-            <li><a href="javascript:;" id="SignOutNavBtn"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+            {{/if}}
           </ul>
         </div>
       </div>

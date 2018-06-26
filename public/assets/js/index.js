@@ -3,8 +3,8 @@ $(document).ready(function() {
     $('.modal-dialog').css('z-index', '9999 !important');
   }
 
-  document.SignIn.reset();
-  document.SignUp.reset();
+//  document.SignIn.reset();
+//  document.SignUp.reset();
 });
 
 function insert(str, index, value) {

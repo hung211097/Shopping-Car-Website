@@ -128,15 +128,15 @@ body { padding-right: 0 !important }
 
 
 
-#InfoUserBtn
+/*#InfoUserBtn
 {
-  display: none;
+  //display: none;
 }
 
 #SignOutNavBtn
 {
-  display: none;
-}
+  //display: none;
+}*/
 /* #section1 {padding-top:50px;height:500px;color: #fff;}
  #section2 {padding-top:50px;height:500px;color: #fff;}
  #section3 {padding-top:50px;height:500px;color: #fff;}
