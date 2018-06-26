@@ -7,7 +7,7 @@
 		</div>
 	</div>
 	<div class="panel-body" id="pad-bot">
-		<form action="" method="POST" role="form">
+		<form action="" method="POST" role="form" enctype="multipart/form-data">
 			<legend>Thông tin chung</legend>
 			<div class="row" id="input">
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -27,7 +27,7 @@
 							<label>Mã dòng xe:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-							<input type="text" class="form-control" value="{{maTangDan}}" readonly>
+							<input type="text" name = "MaDongXe" class="form-control" value="{{maTangDan}}" readonly>
 						</div>
 					</div>
 				</div>
@@ -70,3 +70,10 @@
 	</div>
 </div>
 
+{{#if isAdd}}
+	<script type="text/javascript">
+		swal("Thêm dòng xe mới vào danh sách thành công!", {
+			icon: "success",
+		});
+	</script>
+{{/if}}

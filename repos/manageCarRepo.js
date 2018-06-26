@@ -37,7 +37,7 @@ exports.single = (ma) => {
 }
 
 exports.update = (object) => {
-    var sql = `update xe set TenXe = "${object.TenXe}" where MaXe = "${object.MaXe}"`;
+    var sql = `update xe set TenXe = '${object.TenXe}', Gia = ${object.Gia}, HangXe = '${object.HangXe}', DongXe = '${object.DongXe}', NgayNhan = '${object.NgayNhan}', SoLuongTon = ${object.SoLuongTon}, MoTa = '${object.MoTa}', XuatXu = '${object.XuatXu}', NhienLieu = '${object.NhienLieu}', MauSac = '${object.MauSac}', HopSo = '${object.HopSo}', SoCua = ${object.SoCua}, SoCho = ${object.SoCho} where MaXe = '${object.MaXe}'`;
     return db.save(sql);
 }
 

@@ -218,6 +218,88 @@ router.get('/add', (req, res) => {
   });
 });
 
+
+
+
+
+router.post('/add', upload.array('photos'), (req, res) => {
+
+  var files = req.files;
+  var name = req.body.MaXe;
+
+  var des = req.body.MoTa;
+
+  var dir = newContain + name;
+  mkdirp(dir, err => {
+    if (err) {
+      throw err;
+    }
+  });
+
+  for (var i = 0; i < files.length; i++) {
+    var currentPath = files[i].path;
+    var extension = '.jpg'
+    var renameFile_path = dir + '/' + name + '_' + count++ + extension;
+
+    fs.rename(currentPath, renameFile_path, function(err) {
+      if (err) throw err;
+      // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+      fs.unlink(currentPath, function() {
+        if (err) throw err;
+      });
+    });
+
+  }
+  var temp = CountAppearance(des, '</p>');
+  if (temp === 1)
+  {
+    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    des = ReplaceNthChar(des, '</p>', parseInt(temp), img);
+    console.log(img);
+    console.log(des);
+  }
+  else
+  {
+    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    des = ReplaceNthChar(des, '</p>', parseInt(temp / 2), img);
+
+    temp = CountAppearance(des, '</p>');
+    img = `<p><img src="`+ pathToImage + name + `/` + name + `_3` + extension + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    des = ReplaceNthChar(des, '</p>', temp, img);
+  }
+  
+  req.body.MoTa = des;
+  req.body.NgayNhan = moment(req.body.NgayNhan, 'DD/MM/YYYY')
+        .format('YYYY-MM-DD');
+
+  manageCarRepo.add(req.body).then(value => {
+    isAd = true;
+    res.redirect('/manageCar/add');
+  }).catch(err => {
+    res.render('error/index', {layout: false});
+  });
+  
+  count = 1;
+});
+
+function ReplaceNthChar(string, character, n, replace){
+  var count= 0, i=0;
+  while(count<n && (i=string.indexOf(character,i)+1)){
+    count++;
+  }
+  if(count== n)
+    string = string.substr(0, i + character.length - 1) + replace + string.substr(i + character.length - 1);
+  return string;
+}
+
+function CountAppearance(string, character){
+  var count= 0, i=0;
+  while((i=string.indexOf(character,i)+1)){
+    count++;
+  }
+  return count;
+}
+
 router.get('/edit', (req, res) => {
   var p1 = manageCarRepo.single(req.query.ma);
   var p2 = manageManufacturerRepo.loadAllManufacturerNoOffset();
@@ -254,82 +336,13 @@ router.get('/edit', (req, res) => {
   });
 });
 
-router.post('/add', upload.array('photos'), (req, res) => {
-
-  var files = req.files;
-  var name = req.body.TenXe;
-
-  var des = req.body.MoTa;
-
-  var dir = newContain + name;
-  mkdirp(dir, err => {
-    if (err) {
-      throw err;
-    }
-  });
-
-  for (var i = 0; i < files.length; i++) {
-    var currentPath = files[i].path;
-    var extension = files[i].filename.substr(files[i].filename.indexOf('.'));
-
-    var renameFile_path = dir + '/' + name + '_' + count++ + extension;
-
-    fs.rename(currentPath, renameFile_path, function(err) {
-      if (err) throw err;
-      // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
-      fs.unlink(currentPath, function() {
-        if (err) throw err;
-      });
-    });
-
-  }
-
-  var temp = CountAppearance(des, '</p>');
-  var img = '<p><img src="' + pathToImage + name + '/' + name + '_2' + extension + '"/></p>';
-  des = ReplaceNthChar(des, '</p>', parseInt(temp / 2), img);
-
-  temp = CountAppearance(des, '</p>');
-  img = '<p><img src="' + pathToImage + name + '/' + name + '_3' + extension + '"/></p>';
-  des = ReplaceNthChar(des, '</p>', temp, img);
-
-  req.body.MoTa = des;
-  req.body.NgayNhan = moment(req.body.NgayNhan, 'DD/MM/YYYY')
-        .format('YYYY-MM-DD');
-  console.log(req.body.NgayNhan);
-  manageCarRepo.add(req.body).then(value => {
-    isAd = true;
-    res.redirect('/manageCar/add');
-  }).catch(err => {
-    res.render('error/index', {layout: false});
-  });
-
-  
-  count = 1;
-});
-
-function ReplaceNthChar(string, character, n, replace){
-  var count= 0, i=0;
-  while(count<n && (i=string.indexOf(character,i)+1)){
-    count++;
-  }
-  if(count== n)
-    string = string.substr(0, i + character.length - 1) + replace + string.substr(i + character.length - 1);
-  return string;
-}
-
-function CountAppearance(string, character){
-  var count= 0, i=0;
-  while((i=string.indexOf(character,i)+1)){
-    count++;
-  }
-  return count;
-}
-
 router.post('/edit', (req, res) => {
-    manageKindOfCarRepo.update(req.body).then(value => {
-        isEd = true;
-        res.redirect('/manageCar');
-    });
+  req.body.NgayNhan = moment(req.body.NgayNhan, 'DD/MM/YYYY')
+  .format('YYYY-MM-DD');
+  manageCarRepo.update(req.body).then(value => {
+    isEd = true;
+    res.redirect('/manageCar');
+  });
 });
 
 router.post('/delete', (req, res) => {

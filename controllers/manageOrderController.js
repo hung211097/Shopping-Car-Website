@@ -1,33 +1,13 @@
+var moment = require('moment');
 var express = require('express');
-var manageManufacturerRepo = require('../repos/manageManufacturerRepo');
 var manageCarRepo = require('../repos/manageCarRepo');
+var manageKindOfCarRepo = require('../repos/manageKindOfCarRepo');
+var manageManufacturerRepo = require('../repos/manageManufacturerRepo');
 var config = require('../config/config');
-var multer = require('multer');
-var mkdirp = require('mkdirp');
-var fs = require('fs');
 var router = express.Router();
 
-const tempContain = './public/image/temp/';
-const newContain = './public/image/logo/';
-const pathToImage = '/image/logo/';
-var storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-
-    const dir = './public/image/temp';
-    mkdirp(dir, err => cb(err, dir))
-  },
-  filename: function(req, file, cb) {
-    var name = file.originalname;
-    cb(null, name);
-  }
-})
-
-var upload = multer({
-  storage: storage
-});
-
-var isAd = false;
 var isEd = false;
+var isAd = false;
 var isDel = false;
 var isDelFalse = false;
 router.get('/', (req, res) => {
@@ -38,8 +18,8 @@ router.get('/', (req, res) => {
     var isFirstPage = false,
     isLastPage = false;
   var offset = (page - 1) * config.PRODUCTS_PER_PAGE_ADMIN;
-  var p1 = manageManufacturerRepo.loadAllManufacturer(offset);
-  var p2 = manageManufacturerRepo.countManufacturer();
+  var p1 = manageCarRepo.loadAllCar(offset);
+  var p2 = manageCarRepo.countCar();
   Promise.all([p1, p2]).then(([rows, countRows])=> {
     var total = countRows[0].total;
         var nPages = parseInt(total / config.PRODUCTS_PER_PAGE_ADMIN);
@@ -113,6 +93,9 @@ router.get('/', (req, res) => {
               }
             }
 
+        for (var i = 0; i < rows.length; i++)
+          rows[i].NgayNhan = moment(rows[i].NgayNhan).format("DD/MM/YYYY");
+
         var vm = {
             products: rows,
             noProducts: rows.length === 0,
@@ -138,25 +121,28 @@ router.get('/', (req, res) => {
           isDel = false;
         if(isDelFalse)
           isDelFalse = false;
-    res.render('admin/manageManufacturer', vm);
+    res.render('admin/manageCar', vm);
   }).catch(err => {
     res.render('error/index', {layout: false});
   });
 });
 
 router.get('/add', (req, res) => {
-  var p1 = manageManufacturerRepo.loadAllManufacturerNoOffset().then(rowsManufacturer => {
-    var maHangXeTangDan;
+  var p1 = manageManufacturerRepo.loadAllManufacturerNoOffset();
+  var p2 = manageKindOfCarRepo.loadAllKindOfCarNoOffset();
+  var p3 = manageCarRepo.loadAllCarNoOffset();
+  Promise.all([p1, p2, p3]).then(([rowsManufacturer, rowsKindOfcar, rowsCar])=> {
+    var maXeTangDan;
     var temp = [];
-    for (var i = 0; i < rowsManufacturer.length; i++)
+    for (var i = 0; i < rowsCar.length; i++)
     {
-      var num = rowsManufacturer[i].MaHangXe.split("H");
+      var num = rowsCar[i].MaXe.split("X");
       num = parseInt(num[1]);
       temp.push(num);
     }
-    if (rowsManufacturer.length === 0)
+    if (rowsCar.length === 0)
     {
-      maHangXeTangDan = 1;
+      maXeTangDan = 1;
     }
     else
     {
@@ -164,8 +150,7 @@ router.get('/add', (req, res) => {
       {
         if (i === (temp.length - 1))
         {
-
-          maHangXeTangDan = rowsManufacturer.length + 1;
+          maXeTangDan = rowsCar.length + 1;
           break;
         }
         else
@@ -176,40 +161,62 @@ router.get('/add', (req, res) => {
           {
             if ((numCurr -1) === parseInt(temp[i - 1]))
               continue;
-            maHangXeTangDan = 1;
+            maXeTangDan = 1;
             break;
           }
           if ((numCurr + 1) < numNext)
           {
-            maHangXeTangDan = numCurr + 1;
+            maXeTangDan = numCurr + 1;
             break;
           }
         }
       }
     }
-    if (1 <= maHangXeTangDan && maHangXeTangDan <= 9)
-      maHangXeTangDan = "H0" + maHangXeTangDan;
-    else if (10 <= maHangXeTangDan)
-      maHangXeTangDan = "H" + maHangXeTangDan;
+    if (1 <= maXeTangDan && maXeTangDan <= 9)
+      maXeTangDan = "X00" + maXeTangDan;
+    else if (10 <= maXeTangDan && maXeTangDan <= 99)
+      maXeTangDan = "X0" + maXeTangDan;
+    else if (100 <= maXeTangDan)
+      maXeTangDan = "X" + maXeTangDan;
     var vm = {
-      maTangDan: maHangXeTangDan,
+      products1: rowsManufacturer,
+      noProducts1: rowsManufacturer.length === 0,
+      products2: rowsKindOfcar,
+      noProducts2: rowsKindOfcar.length === 0,
+      maTangDan: maXeTangDan,
       isAdd: isAd,
       layout: 'layoutAdmin.handlebars'
     }
     if(isAd)
           isAd = false;
-    res.render('admin/addManufacturer', vm);
+    res.render('admin/addCar', vm);
   }).catch(err => {
     res.render('error/index', {layout: false});
   });
 });
 
-router.post('/add', upload.single('photos'), (req, res) => {
-  var file = req.file;
-  var name = req.body.MaHangXe;
-    var currentPath = file.path;
-    var extension = file.filename.substr(file.filename.indexOf('.'));
-    var renameFile_path = newContain + name + extension;
+
+
+
+
+router.post('/add', upload.array('photos'), (req, res) => {
+
+  var files = req.files;
+  var name = req.body.MaXe;
+
+  var des = req.body.MoTa;
+
+  var dir = newContain + name;
+  mkdirp(dir, err => {
+    if (err) {
+      throw err;
+    }
+  });
+
+  for (var i = 0; i < files.length; i++) {
+    var currentPath = files[i].path;
+    var extension = '.jpg'
+    var renameFile_path = dir + '/' + name + '_' + count++ + extension;
 
     fs.rename(currentPath, renameFile_path, function(err) {
       if (err) throw err;
@@ -219,50 +226,107 @@ router.post('/add', upload.single('photos'), (req, res) => {
       });
     });
 
-  req.body.DuongDan = pathToImage + name + extension;
-  manageManufacturerRepo.add(req.body).then(value => {
+  }
+  var temp = CountAppearance(des, '</p>');
+  if (temp === 1)
+  {
+    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    des = ReplaceNthChar(des, '</p>', parseInt(temp), img);
+    console.log(img);
+    console.log(des);
+  }
+  else
+  {
+    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    des = ReplaceNthChar(des, '</p>', parseInt(temp / 2), img);
+
+    temp = CountAppearance(des, '</p>');
+    img = `<p><img src="`+ pathToImage + name + `/` + name + `_3` + extension + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    des = ReplaceNthChar(des, '</p>', temp, img);
+  }
+  
+  req.body.MoTa = des;
+  req.body.NgayNhan = moment(req.body.NgayNhan, 'DD/MM/YYYY')
+        .format('YYYY-MM-DD');
+
+  manageCarRepo.add(req.body).then(value => {
     isAd = true;
-    res.redirect('/manageManufacturer/add');
+    res.redirect('/manageCar/add');
   }).catch(err => {
     res.render('error/index', {layout: false});
   });
-
+  
+  count = 1;
 });
 
+function ReplaceNthChar(string, character, n, replace){
+  var count= 0, i=0;
+  while(count<n && (i=string.indexOf(character,i)+1)){
+    count++;
+  }
+  if(count== n)
+    string = string.substr(0, i + character.length - 1) + replace + string.substr(i + character.length - 1);
+  return string;
+}
+
+function CountAppearance(string, character){
+  var count= 0, i=0;
+  while((i=string.indexOf(character,i)+1)){
+    count++;
+  }
+  return count;
+}
+
 router.get('/edit', (req, res) => {
-    manageManufacturerRepo.single(req.query.ma).then(row => {
-        var vm = {
-            product: row,
-            layout: 'layoutAdmin.handlebars'
-        };
-        res.render('admin/editManufacturer', vm);
-    });
+  var p1 = manageCarRepo.single(req.query.ma);
+  var p2 = manageManufacturerRepo.loadAllManufacturerNoOffset();
+  var p3 = manageKindOfCarRepo.loadAllKindOfCarNoOffset();
+  Promise.all([p1, p2, p3]).then(([row, rowsManufacturer, rowsKindOfcar])=> {
+    row.NgayNhan = moment(row.NgayNhan).format("DD/MM/YYYY");
+    var isMSelect = row.TenHangXe;
+    var isKSelect = row.TenDongXe;
+    for (var i = 0; i < rowsManufacturer.length; i++) 
+    {
+      if (rowsManufacturer[i].TenHangXe === isMSelect)
+        rowsManufacturer[i].flag = true;
+      else
+        rowsManufacturer[i].flag = false;
+    }
+    for (var i = 0; i < rowsKindOfcar.length; i++) 
+    {
+      if (rowsKindOfcar[i].TenDongXe === isKSelect)
+        rowsKindOfcar[i].flag = true;
+      else
+        rowsKindOfcar[i].flag = false;
+    }
+    var vm = {
+      product: row,
+      products1: rowsManufacturer,
+      noProducts1: rowsManufacturer.length === 0,
+      products2: rowsKindOfcar,
+      noProducts2: rowsKindOfcar.length === 0,
+      layout: 'layoutAdmin.handlebars'
+    };
+    res.render('admin/editCar', vm);
+  }).catch(err => {
+    res.render('error/index', {layout: false});
+  });
 });
 
 router.post('/edit', (req, res) => {
-    manageManufacturerRepo.update(req.body).then(value => {
-        isEd = true;
-        res.redirect('/manageManufacturer');
-    });
+  req.body.NgayNhan = moment(req.body.NgayNhan, 'DD/MM/YYYY')
+  .format('YYYY-MM-DD');
+  manageCarRepo.update(req.body).then(value => {
+    isEd = true;
+    res.redirect('/manageCar');
+  });
 });
 
 router.post('/delete', (req, res) => {
-  var p1 = manageCarRepo.loadAllCarNoOffset().then(rowsCar => {
-    for (var i = 0; i < rowsCar.length; i++) {
-      if (rowsCar[i].HangXe === req.body.MaHangXe)
-      {
-        isDelFalse = true;
-        res.redirect('/manageManufacturer');
-        return;
-      }
-    }
-    manageManufacturerRepo.delete(req.body.MaHangXe).then(value => {
+    manageCarRepo.delete(req.body.MaXe).then(value => {
         isDel = true;
-        res.redirect('/manageManufacturer');
+        res.redirect('/manageCar');
     });
-  }).catch(err => {
-    res.render('error/index', {layout: false});
-  });
 });
 
 module.exports = router;
