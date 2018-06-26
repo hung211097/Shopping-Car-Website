@@ -45,10 +45,11 @@
                             <img class="product-thumbnail__image" src="/image/all/{{TenXe}}.jpg" alt="{{TenXe}}">
                           </div>
                           <span class="product-thumbnail__quantity">{{Quantity}}</span>
+                          <input type="hidden" name="proQuant{{index}}" value="{{Quantity}}">
                         </div>
                       </td>
                       <td class="product-info">
-                        <input type="hidden" name="proId" value="{{MaXe}}">
+                        <input type="hidden" name="proId{{index}}" value="{{MaXe}}">
                         <span class="product-info-name">
                             {{TenXe}}
                           </span>
@@ -129,20 +130,6 @@
                 </div>
               </div>
               <div class="section__content">
-                <div class="form-group form-email has-feedback">
-                  <input type="text" name="email" required placeholder="Email (bắt buộc)" value="" class="field__input form-control">
-                  <p class="help-block email-format">Hãy nhập đúng định dạng email!</p>
-                  <p class="help-block email-null">Vui lòng điền thông tin vào đây!</p>
-                  <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-                  <span class="glyphicon glyphicon-remove form-control-feedback"></span>
-                </div>
-
-                <div class="form-group form-name has-feedback">
-                  <input type="text" name="fullname" placeholder="Họ và Tên (bắt buộc)" value="" class="field__input form-control">
-                  <p class="help-block name-null">Vui lòng điền thông tin vào đây!</p>
-                  <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-                  <span class="glyphicon glyphicon-remove form-control-feedback"></span>
-                </div>
 
                 <div class="form-group form-phone has-feedback">
                   <input type="text" name="phone" placeholder="Số điện thoại (bắt buộc)" value="" class="field__input form-control">

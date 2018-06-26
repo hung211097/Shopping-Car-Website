@@ -1,0 +1,291 @@
+{{#section 'css'}}
+	<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+{{/section}}
+
+
+
+{{#section 'js'}}
+	<script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript">
+		$('#txtNgayNhap').datepicker({
+			format: 'd/m/yyyy',
+			autoclose: true
+		});
+	</script>
+{{/section}}
+
+{{#with product}}
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<h3 class="panel-title" style="color: white"></i>Sửa thông tin xe</h3>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body" id="pad-bot">
+		<form action="" method="POST" role="form">
+			<legend>Thông tin chung</legend>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Hình ảnh xe:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<div class="thumbnail">
+								<img src="/image/all/{{TenXe}}/{{TenXe}}_1.jpg" alt="{{TenXe}}" title="{{TenXe}}">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Mã xe:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="text" class="form-control" value="{{MaXe}}" readonly>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="form-group form-TenXe has-feedback">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<label>Tên xe:</label>
+							</div>
+
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<input type="text" name="TenXe" value="{{TenXe}}" class="form-control">
+								<p class="help-block TenXe-null">Vui lòng điền thông tin vào đây!</p>
+								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="form-group form-Gia has-feedback">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<label>Giá:</label>
+							</div>
+
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<input type="number" name="Gia" value="{{Gia}}" class="form-control">
+								<p class="help-block Gia-null">Vui lòng điền thông tin vào đây!</p>
+								<p class="help-block Gia-format">Vui lòng điền giá trị lớn hơn 0!</p>
+								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{{/with}}
+
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Hãng xe:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<select id="inputState" name="HangXe" class="form-control">
+								{{#each products1}}
+								<option value="{{TenHangXe}}" {{#if flag}}selected{{/if}}>{{TenHangXe}}</option>
+								{{/each}}
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Dòng xe:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<select id="inputState" name="DongXe"class="form-control">
+								{{#each products2}}
+								<option value="{{TenDongXe}}" {{#if flag}}selected{{/if}}>{{TenDongXe}}</option>
+								{{/each}}
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			{{#with product}}
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Ngày nhập xe về:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="text" id="txtNgayNhap" value="{{NgayNhan}}" name="NgayNhan" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="form-group form-SoLuongTon has-feedback">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<label>Số xe nhập về:</label>
+							</div>
+
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<input type="number" name="SoLuongTon" value="{{SoLuongTon}}" class="form-control">
+								<p class="help-block SoLuongTon-null">Vui lòng điền thông tin vào đây!</p>
+								<p class="help-block SoLuongTon-format">Vui lòng điền giá trị lớn hơn 0!</p>
+								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group form-MoTa has-feedback">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<label>Mô tả:</label>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<textarea name="MoTa" value="{{{MoTa}}}" rows="5" class="form-control"></textarea>
+						<p class="help-block MoTa-null">Vui lòng điền thông tin vào đây!</p>
+						<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+						<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					</div>
+				</div>
+			</div>
+
+			<legend>Thông số kỹ thuật</legend>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="form-group form-XuatXu has-feedback">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<label>Xuất xứ:</label>
+							</div>
+
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<input type="text" name="XuatXu" value="{{XuatXu}}" class="form-control">
+								<p class="help-block XuatXu-null">Vui lòng điền thông tin vào đây!</p>
+								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="form-group form-NhienLieu has-feedback">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<label>Nhiên liệu:</label>
+							</div>
+
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<input type="text" name="NhienLieu" value="{{NhienLieu}}" class="form-control">
+								<p class="help-block NhienLieu-null">Vui lòng điền thông tin vào đây!</p>
+								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="form-group form-MauSac has-feedback">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<label>Màu sắc:</label>
+							</div>
+
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<input type="text" name="MauSac" value="{{MauSac}}" class="form-control">
+								<p class="help-block MauSac-null">Vui lòng điền thông tin vào đây!</p>
+								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="form-group form-HopSo has-feedback">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<label>Loại hộp số:</label>
+							</div>
+
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<input type="text" name="HopSo" value="{{HopSo}}" class="form-control">
+								<p class="help-block HopSo-null">Vui lòng điền thông tin vào đây!</p>
+								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="form-group form-SoCua has-feedback">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<label>Số cửa:</label>
+							</div>
+
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<input type="number" name="SoCua" value="{{SoCua}}" class="form-control">
+								<p class="help-block SoCua-null">Vui lòng điền thông tin vào đây!</p>
+								<p class="help-block SoCua-format">Vui lòng điền giá trị lớn hơn 0!</p>
+								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="form-group form-SoCho has-feedback">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<label>Số chỗ:</label>
+							</div>
+
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<input type="number" name="SoCho" value="{{SoCho}}" class="form-control">
+								<p class="help-block SoCho-null">Vui lòng điền thông tin vào đây!</p>
+								<p class="help-block SoCho-format">Vui lòng điền giá trị lớn hơn 0!</p>
+								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+			<div class="row" id="foot">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<button type="submit" class="btn btn-primary" id="btnSub">Sửa</button>
+							<a class="btn btn-default" href="/manageCar" role="button">
+								<span class="glyphicon glyphicon-arrow-left"></span>
+								Quay trở lại xem danh sách xe
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+{{/with}}

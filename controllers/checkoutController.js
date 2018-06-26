@@ -3,10 +3,11 @@ var cartRepo = require('../repos/cartRepo'),
   productRepo = require('../repos/productsRepo'),
   checkoutRepo = require('../repos/checkoutRepo');
 var homeRepo = require('../repos/homeRepo');
+var restrict = require('../middle-wares/restrict');
 
 var router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', restrict, (req, res) => {
 
   var arr_p = [];
   for (var i = 0; i < req.session.cart.length; i++) {
@@ -22,6 +23,7 @@ router.get('/', (req, res) => {
         var pro = result[i][0];
         pro.Quantity = req.session.cart[i].Quantity;
         pro.Amount = pro.Gia * req.session.cart[i].Quantity;
+        pro.index = i;
 
         items.push(pro);
       }
@@ -42,5 +44,17 @@ router.get('/', (req, res) => {
   });
 });
 
+router.post('/', restrict, (req, res) => {
+    var datetime = new Date();
+    
+    var hoaDon = {
+        KhachHang: req.session.user.Username,
+        NgayDat: datetime,
+        TongTien: a,
+        SDT: a,
+        GhiChu:a,
+        DiaChi: a
+    }
+});
 
 module.exports = router;

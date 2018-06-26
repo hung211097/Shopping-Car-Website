@@ -12,11 +12,14 @@
 
 	<title>DreamCar - Admin</title>
 
+	<script src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/assets/sweetalert.min.js"></script>
+
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/bootstrap-reset.css">
 	<!--external css-->
-	<link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.css"/>
+	<link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="/css/owl.carousel.css">
 
@@ -33,21 +36,16 @@
 
 	<link href="/css/style.css" rel="stylesheet">
 	<link href="/css/style-responsive.css" rel="stylesheet" />
-	<link rel="stylesheet" href="/assets/css/responsive.css">
+	{{!-- <link rel="stylesheet" href="/assets/css/responsive.css"> --}}
 	<link rel="stylesheet" href="/assets/css/animate.css">
 	<link rel="stylesheet" href="/assets/hover/css/hover-min.css">
-	<link rel="stylesheet" href="/assets/OwlCarousel/dist/assets/owl.carousel.min.css">
-	<link rel="stylesheet" href="/assets/OwlCarousel/dist/assets/owl.theme.default.min.css">
+
+	{{!-- <link rel="stylesheet" href="/assets/OwlCarousel/dist/assets/owl.carousel.min.css"> --}}
+	{{!-- <link rel="stylesheet" href="/assets/OwlCarousel/dist/assets/owl.theme.default.min.css"> --}}
 	<link rel="icon" href="/image/car.ico">
-	<link rel="icon" href="/image/car.ico">
 
+	{{{_sections.css}}}
 
-
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-  <![endif]-->
 </head>
 
 <body>
@@ -56,7 +54,7 @@
 		<!--header start-->
 		<header class="header white-bg">
 			<div class="sidebar-toggle-box">
-				<div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+				<div class="fa fa-bars tooltips" id="switchAside" data-placement="right" data-original-title="Toggle Navigation"></div>
 			</div>
 			<!--logo start-->
 			<a href="admin.html" class="logo">Dream<span>Car</span></a>
@@ -99,28 +97,28 @@
 					</li>
 
 					<li class="sub-menu">
-						<a href="manage_car.html" >
+						<a {{{_sections.activeManageCar}}} href="/manageCar" >
 							<i class="fa fa-laptop"></i>
 							<span>Quản lí xe</span>
 						</a>
 					</li>
 
 					<li class="sub-menu">
-						<a href="manage_kind_of_car.html" >
+						<a {{{_sections.activeManageKindOfCar}}} href="/manageKindOfCar" >
 							<i class="fa fa-book"></i>
 							<span>Quản lí dòng xe</span>
 						</a>
 					</li>
 
 					<li class="sub-menu">
-						<a href="manage_manufacturer.html" >
+						<a {{{_sections.activeManageManufacturer}}} href="/manageManufacturer" >
 							<i class="fa fa-cogs"></i>
 							<span>Quản lí hãng xe</span>
 						</a>
 					</li>
 
 					<li class="sub-menu">
-						<a href="manage_order.html" >
+						<a {{{_sections.activeManageOrder}}} href="/manageOrder" >
 							<i class="fa fa-shopping-cart"></i>
 							<span>Quản lí đơn đặt hàng</span>
 						</a>
@@ -138,20 +136,25 @@
 		</section>
 		<!--main content end-->
 
-		<!--footer start-->
-		<footer class="site-footer">
-			<div class="text-center">
-				2018 &copy; DreamCar by Team14.
-				<a href="#" class="go-top">
-					<i class="fa fa-angle-up"></i>
-				</a>
-			</div>
-		</footer>
-		<!--footer end-->
+		{{!-- <!--footer start-->
+		<footer class="site-footer" style="position: bottom-footer;
+		z-index: -1;
+		bottom: 0;
+		left: 0;
+		width: 100%">
+		<div class="text-center" style="padding-left: 220px">
+			© Bản quyền thuộc về Team 14 | Cung cấp bởi Bizweb
+			<a href="#" class="go-top">
+				<i class="fa fa-angle-up"></i>
+			</a>
+		</div>
+	</footer>
+		<!--footer end--> --}}
 	</section>
 
+
+
 	<!-- js placed at the end of the document so the pages load faster -->
-	<script src="/js/jquery.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	<script class="include" type="text/javascript" src="/js/jquery.dcjqaccordion.2.7.js"></script>
 	<script src="/js/jquery.scrollTo.min.js"></script>
@@ -176,7 +179,7 @@
 	<script>
 
       //owl carousel
-
+			var switchFlag = true;
       $(document).ready(function() {
       	$("#owl-demo").owlCarousel({
       		navigation : true,
@@ -194,12 +197,27 @@
       	$('select.styled').customSelect();
       });
 
+			$('#switchAside').on('click',function() {
+				if(switchFlag)
+				{
+					$('.site-footer').find('div').css('padding-left', '0px');
+					switchFlag = false;
+				}
+				else
+				{
+					$('.site-footer').find('div').css('padding-left', '220px');
+					switchFlag = true;
+				}
+			});
   </script>
 
   <!-- <script type="text/javascript" src="./index.js"></script> -->
-  <script src="/assets/OwlCarousel/dist/owl.carousel.min.js"></script>
+  {{!-- <script src="/assets/OwlCarousel/dist/owl.carousel.min.js"></script> --}}
   <script src="/assets/js/admin.js"></script>
 
+{{{_sections.js}}}
+
 </body>
+
 
 </html>

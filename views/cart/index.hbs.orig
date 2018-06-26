@@ -1,0 +1,280 @@
+{{#section 'title'}}
+	<title>Giỏ hàng</title>
+{{/section}}
+
+{{#section 'css'}}
+	<link rel="stylesheet" href="/assets/css/introduction.css">
+	<link rel="stylesheet" href="/assets/css/cart.css">
+{{/section}}
+
+
+{{#section 'js'}}
+	<script type="text/javascript" src="/assets/js/cart.js"></script>
+{{/section}}
+
+<!-- Start Breadcrumb -->
+<div class="bread-crumb">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<ul class="breadcrumb">
+					<li><a href="/home">Trang chủ</a></li>
+					<li>Giỏ hàng</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Breadcrumb -->
+
+<!-- Start Cart -->
+<div class="introduction-content">
+	<div class="container">
+		<div class="intro-title">
+			<h1 class="title-head">
+        GIỎ HÀNG
+      </h1>
+		</div>
+	</div>
+
+	<div class="cart-page">
+		{{#if isEmpty}}
+			<div class="container">
+				<p>Không có sản phẩm nào trong giỏ hàng. Quay lại <a href="/home">Cửa Hàng</a> để tiếp tục mua sắm.</p>
+			</div>
+		{{else}}
+			<div class="container hidden-xs hidden-sm">
+				<div class="col-main cart-main">
+					<div class="cart">
+						<form class="formCart" action="" method="post" name="cartCar">
+							<div class="bg-scroll">
+								<div class="cart-thead">
+									<div style="width: 17%">Ảnh sản phẩm</div>
+									<div style="width: 33%">Tên sản phẩm</div>
+									<div style="width: 15%">Đơn giá</div>
+									<div style="width: 14%">Số lượng</div>
+									<div style="width: 15%">Thành tiền</div>
+									<div style="width: 6%">Xóa</div>
+								</div>
+								<div class="cart-tbody">
+									<div class="item-cart">
+										{{#each items}}
+											<div class="car-image" style="width: 17%" data-name="{{TenXe}}">
+												<a href="/products/detail/{{TenXe}}" class="product-image" title="{{TenXe}}">
+<<<<<<< HEAD
+													<img src="/image/all/{{TenXe}}/{{TenXe}}_1.jpg" alt="{{TenXe}}">
+=======
+													<img src="/image/all/{{TenXe}}.jpg" alt="{{TenXe}}">
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+												</a>
+											</div>
+											<div class="fix-flex" style="width: 33%" data-name="{{TenXe}}">
+												<h2 class="car-name">
+													<a href="/products/detail/{{TenXe}}" title="{{TenXe}}">{{TenXe}}</a>
+												</h2>
+											</div>
+											<div class="fix-flex" style="width: 15%" data-name="{{TenXe}}">
+												<input type="hidden" name="price_{{TenXe}}" value="{{Gia}}">
+												<span class="item-price">{{number_format Gia}}</span>
+											</div>
+											<div style="width: 14%" data-name="{{TenXe}}">
+												<div class="input_qty_pr">
+													<button class="items-count btn-minus" type="button" name="minus_{{TenXe}}">-</button>
+													<input class="number-sidebar" type="text" disabled="disabled" name="num_{{TenXe}}" size="4" min="0" maxlength="12" value="{{Quantity}}">
+													<button class="items-count btn-plus" type="button" name="plus_{{TenXe}}">+</button>
+												</div>
+											</div>
+											<div class="fix-flex" style="width: 15%" data-name="{{TenXe}}">
+												<input type="hidden" name="eachTotalPrice" value="{{Amount}}">
+												<span class="total-price">{{number_format Amount}}</span>
+											</div>
+											<div class="fix-flex" style="width: 6%; padding: 10px 0 6px; position: relative" data-name="{{TenXe}}">
+												<a href="javascript:;" class="btn-remove remove-item" data-name="delete_{{TenXe}}" title="Xóa"></a>
+											</div>
+
+											<script type="text/javascript">
+												$(document).on('click', 'button[name="minus_{{TenXe}}"]', function() {
+													var value = $(document).find('input[name="num_{{TenXe}}"]');
+													Dec(value);
+													var giaItem = parseInt($(document).find('input[name="price_{{TenXe}}"]').val());
+													var soluong = parseInt($(document).find('input[name="num_{{TenXe}}"]').val());
+													var tong = giaItem * soluong;
+													$(document).find('div[data-name="{{TenXe}}"]').find('input[name="eachTotalPrice"]').val(tong);
+													var chuoiTong = PriceToSring(tong);
+													$(document).find('div[data-name="{{TenXe}}"]').find('.total-price').text(chuoiTong);
+
+													// UpdateListCar(ten, soluong);
+													UpdateTotalPrice();
+													var form = $('form.formCart');
+													$.ajax({
+														type: 'POST',
+														url: '/cart/decrease',
+														async: false,
+														data: {
+															proId: '{{MaXe}}',
+															quantity: 1
+														},
+														dataType: 'json',
+														error: function() {},
+														beforeSend: function() {},
+														success: function() {},
+														cache: false
+													});
+												});
+
+												$(document).on('click', 'button[name="plus_{{TenXe}}"]', function() {
+													var value = $(document).find('input[name="num_{{TenXe}}"]');
+													Inc(value);
+													var giaItem = parseInt($(document).find('input[name="price_{{TenXe}}"]').val());
+													var soluong = parseInt($(document).find('input[name="num_{{TenXe}}"]').val());
+													var tong = giaItem * soluong;
+													$(document).find('div[data-name="{{TenXe}}"]').find('input[name="eachTotalPrice"]').val(tong);
+													var chuoiTong = PriceToSring(tong);
+													$(document).find('div[data-name="{{TenXe}}"]').find('.total-price').text(chuoiTong);
+
+													// UpdateListCar(ten, soluong);
+													UpdateTotalPrice();
+													var form = $('form.formCart');
+													$.ajax({
+														type: 'POST',
+														url: '/cart/add',
+														async: false,
+														data: {
+															proId: '{{MaXe}}',
+															quantity: 1
+														},
+														dataType: 'json',
+														error: function() {},
+														beforeSend: function() {},
+														success: function() {},
+														cache: false
+													});
+												});
+
+												$(document).on('click', 'a[data-name="delete_{{TenXe}}"]', function() {
+													var giam = $('input[name="num_{{TenXe}}"]').val();
+
+													DecreaseNumCar(giam);
+													// UpdateListCar(ten, 0);
+													$(document).find('div[data-name="{{TenXe}}"]').remove();
+													UpdateTotalPrice();
+													var form = $('form.formCart');
+													$.ajax({
+														type: 'POST',
+														url: '/cart/remove',
+														async: false,
+														data: {
+															proId: '{{MaXe}}'
+														},
+														dataType: 'json',
+														error: function() {},
+														beforeSend: function() {},
+														success: function(x) {
+															if(x.empty)
+															{
+																$('.cart').parent().parent().hide();
+																$('.cart-mobile').hide();
+																$('.cart-page').html(`	<div class="container noPro">
+																		<p>Không có sản phẩm nào trong giỏ hàng. Quay lại <a href="/home">Cửa Hàng</a> để tiếp tục mua sắm.</p>
+																	</div>`);
+															}
+														},
+														cache: false
+													});
+												});
+											</script>
+										{{/each}}
+									</div>
+								</div>
+							</div>
+						</form>
+						<div class="cart-submit-desktop row">
+							<div class="totals col-sm-7 col-md-5 col-xs-12 col-md-offset-7 col-sm-offset-5">
+								<div class="inner">
+									<table id="shopping-cart-totals-table">
+										<colgroup>
+											<col>
+											<col>
+										</colgroup>
+										<tfoot>
+											<tr>
+												<td colspan="1">
+													<h5><strong>Thanh toán</strong></h5>
+												</td>
+												<td style="text-align: right"></td>
+											</tr>
+											<tr style="border: none">
+												<td colspan="1">
+													<h5>Phí vận chuyển</h5>
+												</td>
+												<td style="text-align: right">
+													<h5>Tính lúc thanh toán</h5>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="1">
+													<h5>Tổng tiền</h5>
+												</td>
+												<td style="text-align: right">
+													<input type="hidden" name="totalprice" value="{{Total}}">
+													<span class="all-total-price">{{number_format Total}}</span>
+												</td>
+											</tr>
+										</tfoot>
+									</table>
+									<ul class="checkout clearfix">
+										<button class="btn btn-checkout" type="submit" name="button-checkout" title="Tiến hành đặt hàng" onclick="window.location.href='/checkout'">Tiến hành đặt hàng</button>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="cart-mobile hidden-md hidden-lg container">
+				<form class="formCartMobile" action="" method="post" name="cartCar" style="margin-bottom: 0px; margin-top: 20px">
+					<div class="cart-mobile-content">
+						<div class="content-product-list">
+							{{#each items}}
+
+								<div class="item-product" data-name="{{TenXe}}">
+									<div class="item-product-cart-mobile">
+<<<<<<< HEAD
+										<a href="/products/detail/{{TenXe}}" title="{{TenXe}}"><img src="/image/all/{{TenXe}}/{{TenXe}}_1.jpg"></a>
+=======
+										<a href="/products/detail/{{TenXe}}" title="{{TenXe}}"><img src="/image/all/{{TenXe}}.jpg"></a>
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+									</div>
+									<div class="title-product-cart-mobile">
+										<h3><a href="/products/detail/{{TenXe}}" title="{{TenXe}}">{{TenXe}}</a></h3>
+										<p>Giá: <span class="item-price">{{number_format Gia}}</span></p>
+									</div>
+									<div class="select-item-qty-mobile">
+										<div class="txt_center">
+											<button class="items-count btn-minus" type="button" name="minus_{{TenXe}}">-</button>
+											<input class="number-sidebar" type="text" disabled="disabled" name="num_{{TenXe}}" size="4" min="0" maxlength="12" value="{{Quantity}}">
+											<button class="items-count btn-plus" type="button" name="plus_{{TenXe}}">+</button>
+										</div>
+										<a href="javascript:;" class="btn-remove remove-item" data-name="delete_{{TenXe}}" title="Xóa"></a>
+									</div>
+								</div>
+							{{/each}}
+						</div>
+						<div class="cart-price-mobile">
+							<div class="title-cart-mobile">
+								<h3 class="text-xs-left">Tổng tiền</h3>
+								<input type="hidden" name="totalprice" value="{{Total}}">
+								<span class="all-total-price text-xs-right">{{number_format Total}}</span>
+							</div>
+							<div class="checkout-mobile">
+								<button class="btn btn-proceed-checkout-mobile" type="button" title="Tiến hành thanh toán" name="button-checkout" onclick="window.location.href='/checkout'">Tiến hành thanh toán</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		{{/if}}
+	</div>
+</div>
+<!-- End Cart-->

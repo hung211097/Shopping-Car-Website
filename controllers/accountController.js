@@ -54,7 +54,7 @@ router.post('/register', (req, res) => {
 //                           console.log('error');
 //                        }
 //                    });
-                    req.session.cart = [];
+                    //req.session.cart = [];
                     res.redirect('/');
                 }, 1500);
                 
@@ -74,7 +74,7 @@ router.post('/login', (req, res) => {
         if (rows.length > 0) {
             req.session.isLogged = true;
             req.session.user = rows[0];
-            req.session.cart = [];
+            //req.session.cart = [];
 
             var url = '/';
             if (req.query.retUrl) {
@@ -95,7 +95,7 @@ router.post('/login', (req, res) => {
 router.get('/logout', (req, res) => {
     req.session.isLogged = false;
     req.session.user = null;
-    // req.session.cart = [];
+    req.session.cart = [];
     res.redirect(req.headers.referer);
 });
 
