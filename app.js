@@ -10,6 +10,7 @@ var MySQLStore = require('express-mysql-session')(session);
 
 var handle404MDW = require('./middle-wares/handle404');
 var handleLayoutMDW = require('./middle-wares/handleLayout');
+var restrict = require('./middle-wares/restrict');
 
 var homeController = require('./controllers/homeController');
 var productsController = require('./controllers/productsController');

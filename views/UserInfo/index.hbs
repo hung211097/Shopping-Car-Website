@@ -37,7 +37,8 @@
             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                 <div class="panel panel-primary" style="border-color: #00a2d1;"> 
                     <div class="panel-heading" style="background-color: #00a2d1; border-color: #00a2d1;"> 
-                        <h3 class="panel-title" style="text-align: center" id="infoName">                            
+                        <h3 class="panel-title" style="text-align: center" id="infoName">     
+                            {{layoutVM.curUser.Username}}                           
                         </h3> 
                     </div> 
                     <div class="panel-body" style="margin-bottom: 20px;" id="BodyInfo"> 
@@ -50,7 +51,7 @@
                             <!--  Info1   -->
                             <div class="row" style="padding-top: 8px; font-size: 18px;">
                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Họ và tên</div>
-                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="realName">Nguyễn Văn A</div>
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="realName">{{layoutVM.curUser.Name}}</div>
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                                     <a href="javascript:;" data-toggle="modal" data-target="#editNameModal" id="editNameBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
                                 </div>
@@ -65,8 +66,8 @@
                             </div>
                             <!--  Info3   -->
                             <div class="row" style="padding-top: 30px; font-size: 18px;">
-                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Số điện thoại</div>
-                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">09xx xxxx xxx</div>        
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Email</div>
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">{{layoutVM.curUser.Email}}</div>        
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" id="editSdtBtn">
                                     <a href="javascript:;" data-toggle="modal" data-target="#editPhoneModal" id="editSDTBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
                                 </div>
@@ -124,13 +125,25 @@
           <h4 class="modal-title">Thay đổi tên tài khoản</h4>
         </div>
         <div class="modal-body">
-          <form class="" action="" method="post" name="EditIDName">
-            <div class="form-group">
+          <form class="" action="editID" method="post" name="EditIDName">
+<!--            <div class="EI-group">
               <label for="IDName">Tên mới</label>
               <input type="text" class="form-control" id="txtIDName" placeholder="" name="IDName">
-            </div>
+              <p class="help-block password-null">Vui lòng điền thông tin vào đây!</p>
+                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+            </div>-->
+              <fieldset class="form-group">
+                        <label for="IDName">Tên mới</label>
+                        <div class="form-group form-account has-feedback">
+                          <input type="text" name="IDName" id="txtIDName"  value="" class="form-control form-control-lg">
+                          <p class="help-block account-null">Vui lòng điền thông tin vào đây!</p>
+                          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                      </fieldset>
             <div class="text-center">
-              <button id="btnEI" class="btn btn-SignIn" type="button" name="button-editName">Xác nhận</button>
+              <button id="btnEI" class="btn btn-SignIn" type="submit" name="button-editName">Xác nhận</button>
             </div>
           </form>
         </div>
@@ -148,13 +161,18 @@
           <h4 class="modal-title">Thay đổi tên khách hàng</h4>
         </div>
         <div class="modal-body">
-          <form class="" action="" method="post" name="EditName">
-            <div class="form-group">
+          <form class="" action="EditName" method="post" name="EditName">
+            <fieldset class="form-group">
               <label for="Name">Họ và tên mới</label>
-              <input type="text" class="form-control" id="txtRealName" placeholder="" name="Name">
-            </div>
+              <div class="form-group form-name has-feedback">
+                <input type="text" class="form-control" id="txtRealName" placeholder="" name="Name">
+                <p class="help-block name-null">Vui lòng điền thông tin vào đây!</p>
+                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+              </div>
+            </fieldset>
             <div class="text-center">
-              <button id="btnEN" class="btn btn-SignIn" type="button" name="button-editName">Xác nhận</button>
+              <button id="btnEN" class="btn btn-SignIn" type="submit" name="button-editName">Xác nhận</button>
             </div>
           </form>
         </div>
@@ -173,15 +191,15 @@
         </div>
         <div class="modal-body">
           <form class="" action="" method="post" name="EditPass">
-            <div class="form-group">
+            <div class="form-oldpass">
               <label for="OldPass">Mật khẩu cũ</label>
               <input type="password" class="form-control" id="txtUserOldPass" placeholder="" name="OldPass">
             </div>
-            <div class="form-group">
+            <div class="form-newpass">
               <label for="NewPass">Mật khẩu mới</label>
               <input type="password" class="form-control" id="txtUserNewPass" placeholder="" name="NewPass">
             </div>
-            <div class="form-group">
+            <div class="form-renewpass">
               <label for="ReNewPass">Nhập lại mật khẩu mới</label>
               <input type="password" class="form-control" id="txtUserReNewPass" placeholder="" name="ReNewPass">
             </div>
