@@ -41,7 +41,7 @@ exports.update = (object) => {
     return db.save(sql);
 }
 
-exports.add = user(object) => {
+exports.add = user => {
     var sql = `insert into xe(MaXe, TenXe, HangXe, DongXe, Gia, XuatXu, MoTa, NhienLieu, HopSo, MauSac, SoCua, SoCho, SoLuotXem, SoLuongBan, NgayNhan, SoLuongTon) values('${user.username}', '${user.password}', '${user.name}', '${user.email}', '${user.dob}', ${user.permission})`;
     return db.save(sql);
 }

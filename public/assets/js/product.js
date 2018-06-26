@@ -2,33 +2,11 @@ $(document).ready(function() {
   if ($(window).scrollTop() >= 86) {
     $('.modal-dialog').css('z-index', '9999 !important');
   }
-
-  document.SignIn.reset();
-  document.SignUp.reset();
 });
 
 function insert(str, index, value) {
   return str.substr(0, index) + value + str.substr(index);
 }
-
-$('#SignUpNavBtn').on('click', function() {
-  document.SignUp.reset();
-});
-
-$('#SignInNavBtn').on('click', function() {
-  document.SignIn.reset();
-});
-
-$('#OptionBtn').on('click', function() {
-  document.SignUp.reset();
-  document.SignIn.reset();
-  document.ForgetPass.reset();
-});
-
-$('#OptionBtnForget').on('click', function() {
-  $('body').css('padding-right', '-17px !important');
-  document.ForgetPass.reset();
-});
 
 function PriceToSring(price) {
   var str = "" + price;

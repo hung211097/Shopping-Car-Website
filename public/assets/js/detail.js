@@ -2,24 +2,21 @@ $(document).ready(function() {
   if ($(window).scrollTop() >= 86) {
     $('.modal-dialog').css('z-index', '9999 !important');
   }
-
-  document.SignIn.reset();
-  document.SignUp.reset();
 });
 
-function AddMoreImage(x, count) {
+function AddMoreImage(id, x, count) {
   mySwiper.appendSlide(`<div class="swiper-slide bethua">
   <a href="javascript:;" name="more-`+ x +`-`+ count +`" class="thumb-link">
-    <img src="/image/all/` + x + `/` + x + `_` + count + `.jpg" alt="`+  x +`" onerror="this.parentNode.style.display = 'none'">
+    <img src="/image/all/` + id + `/` + id + `_` + count + `.jpg" alt="`+  x +`" onerror="this.parentNode.style.display = 'none'">
   </a>
   </div>`);
   mySwiper.update();
 
   $('a[name="more-' + x + '-' + count +'"]').on('click', function() {
     var a = $('#zoom');
-    a.attr('href', '/image/all/' + x + '/' + x + '_' + count + '.jpg');
+    a.attr('href', '/image/all/' + id + '/' + id + '_' + count + '.jpg');
     var image = a.find('img');
-    image.attr('src', '/image/all/' + x + '/' + x + '_' + count + '.jpg');
+    image.attr('src', '/image/all/' + id + '/' + id + '_' + count + '.jpg');
     image.attr('alt',  x);
   });
 }
@@ -37,25 +34,6 @@ $('.qtyplus').on('click', function() {
 function insert(str, index, value) {
   return str.substr(0, index) + value + str.substr(index);
 }
-
-$('#SignUpNavBtn').on('click', function() {
-  document.SignUp.reset();
-});
-
-$('#SignInNavBtn').on('click', function() {
-  document.SignIn.reset();
-});
-
-$('#OptionBtn').on('click', function() {
-  document.SignUp.reset();
-  document.SignIn.reset();
-  document.ForgetPass.reset();
-});
-
-$('#OptionBtnForget').on('click', function() {
-  $('body').css('padding-right', '-17px !important');
-  document.ForgetPass.reset();
-});
 
 function PriceToSring(price) {
   var str = "" + price;
@@ -92,7 +70,7 @@ function AddToCarousel(id, ten, gia, contain) {
   boxHinh.owlCarousel('add', `<div class="product-box">
     <div class="product-thumbnail">
       <a href="/products/detail/` + ten +`" title="` + ten + `">
-        <img src="/image/all/`+ ten + `/` + ten + `_1.jpg" alt="` + ten + `" data-lazyload="/image/all/`+ ten + `/` + ten + `_1.jpg">
+        <img src="/image/all/`+ id + `/` + id + `_1.jpg" alt="` + ten + `" data-lazyload="/image/all/`+ id + `/` + id + `_1.jpg">
       </a>
       <div class="price-box clearfix">
         <div class="special-price">
@@ -140,7 +118,7 @@ function AddToCarousel(id, ten, gia, contain) {
         $('.OutofStock').show();
 
         var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-        hinh.attr('src', '/image/all/'+ ten + '/' + ten + '_1.jpg');
+        hinh.attr('src', '/image/all/'+ id + '/' + id + '_1.jpg');
         hinh.attr('alt', ten);
         $('#QuickBuy').find('.product-title').text(ten);
         $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
@@ -152,7 +130,7 @@ function AddToCarousel(id, ten, gia, contain) {
         $('.OutofStock').hide();
 
         var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-        hinh.attr('src', '/image/all/'+ ten + '/' + ten + '_1.jpg');
+        hinh.attr('src', '/image/all/'+ id + '/' + id + '_1.jpg');
         hinh.attr('alt', ten);
         $('#QuickBuy').find('.product-title').text(ten);
         $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
