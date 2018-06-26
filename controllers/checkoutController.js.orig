@@ -1,0 +1,55 @@
+var express = require('express');
+var cartRepo = require('../repos/cartRepo'),
+  productRepo = require('../repos/productsRepo'),
+  checkoutRepo = require('../repos/checkoutRepo');
+var homeRepo = require('../repos/homeRepo');
+
+var router = express.Router();
+<<<<<<< HEAD
+const FreeShip = 1000000000;
+=======
+
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+router.get('/', (req, res) => {
+
+  var arr_p = [];
+  for (var i = 0; i < req.session.cart.length; i++) {
+    var cartItem = req.session.cart[i];
+    var p = productRepo.single(cartItem.ProId);
+    arr_p.push(p);
+  }
+
+  var items = [];
+  checkoutRepo.loadShipFee().then(Fee => {
+    Promise.all(arr_p).then((result) => {
+      for (var i = 0; i < result.length; i++) {
+        var pro = result[i][0];
+        pro.Quantity = req.session.cart[i].Quantity;
+        pro.Amount = pro.Gia * req.session.cart[i].Quantity;
+<<<<<<< HEAD
+        if(pro.Gia > FreeShip)
+          Fee[0].PhiVanChuyen = 0;
+=======
+
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+        items.push(pro);
+      }
+
+      var total = 0;
+      for (var i = 0; i < items.length; i++)
+        total += items[i].Amount;
+      var vm = {
+        items: items,
+        tempTotal: total,
+        fee: Fee[0].PhiVanChuyen,
+        Total: Fee[0].PhiVanChuyen + total,
+        isScroll: items.length === 5,
+        layout: 'checkoutLayout.handlebars'
+      };
+      res.render('checkout/index', vm);
+    });
+  });
+});
+
+
+module.exports = router;

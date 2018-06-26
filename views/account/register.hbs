@@ -1,0 +1,119 @@
+{{#section 'title'}}
+	<title>Đăng kí</title>
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/css/introduction.css">
+<link rel="stylesheet" href="/assets/css/register.css">
+<script src='https://www.google.com/recaptcha/api.js'></script>
+{{/section}}
+
+{{#section 'js'}}
+	<script type="text/javascript" src="/assets/js/index.js"></script>
+	<script type="text/javascript" src="/assets/js/register.js"></script>
+{{/section}}
+    
+
+<!-- Start Breadcrumb -->
+  <div class="bread-crumb">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="breadcrumb">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li>Đăng ký tài khoản</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Breadcrumb -->
+  
+  <!-- Start Introduction -->
+  <div class="introduction-content">
+    <div class="container">
+      <div class="intro-title">
+        <h1 class="title-head">
+          ĐĂNG KÝ TÀI KHOẢN
+        </h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 ">
+          <div class="page-login">
+            <div id="login">
+              <span>Nếu chưa có tài khoản vui lòng đăng ký tại đây</span>
+              <form id="customer_register" accept-charset="UTF-8" action="" method="post">
+                <div class="form-signup clearfix">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <fieldset class="form-group">
+                        <label for="fullname">Họ và Tên
+                          <span class="required">*</span>
+                        </label>
+                        <div class="form-group form-name has-feedback">
+                          <input type="text" name="SUHoTen" id="fullname"  value="{{#if showError}}{{User.name}}{{/if}}" class="form-control form-control-lg">
+                          <p class="help-block name-null">Vui lòng điền thông tin vào đây!</p>
+                          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="col-md-6">
+                      <fieldset class="form-group">
+                        <label for="account">Tên tài khoản
+                            <span class="required" id="spanAccount">*{{#if showError}} Tên tài khoản '{{User.username}}' đã tồn tại {{/if}}</span>
+                        </label>
+                        <div class="form-group form-account has-feedback">
+                          <input type="text" name="SUID" id="account"  value="{{#if showError}}{{User.username}}{{/if}}" class="form-control form-control-lg">
+                          <p class="help-block account-null">Vui lòng điền thông tin vào đây!</p>
+                          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <fieldset class="form-group">
+                        <label for="email">Email
+                          <span class="required">*</span>
+                        </label>
+                        <div class="form-group form-email has-feedback">
+                          <input type="text" name="SUEmail" id="email"  value="{{#if showError}}{{User.email}}{{/if}}" class="form-control form-control-lg">
+                          <p class="help-block email-format">Hãy nhập đúng định dạng email!</p>
+                          <p class="help-block email-null">Vui lòng điền thông tin vào đây!</p>
+                          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                      </fieldset>
+                    </div>
+
+                    <div class="col-md-6">
+                      <fieldset class="form-group">
+                        <label for="password">Mật khẩu
+                          <span class="required">*</span>
+                        </label>
+                        <div class="form-group form-password has-feedback">
+                          <input type="password" name="SUPass" id="password"  value="" class="form-control form-control-lg">
+                          <p class="help-block password-null">Vui lòng điền thông tin vào đây!</p>
+                          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                  <div class="g-recaptcha" data-sitekey="6LdhdlQUAAAAAClavUgx9vWtbjf8sa-bTH8Goty7" data-callback="isCallBack"></div>
+                  <div class="col-xs-12 text-xs-left" style="margin-top:10px; padding: 0; margin-bottom: 30px">
+                      <button type="submit" class="btn btn-primary" id="registerBtn" disabled>Đăng ký</button>
+                    <p style="margin-top: 15px;">Nếu bạn có tài khoản, hãy <a href="login" id="toLogin">Đăng nhập</a></p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Edn Introduction -->
