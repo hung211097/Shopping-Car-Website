@@ -12,6 +12,18 @@
 	<script type="text/javascript" src="/assets/js/index.js"></script>
 	<script src="/assets/OwlCarousel/dist/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="/assets/js/userInformation.js"></script>
+        {{#if showChange}} 
+            {{#if isChange}} 
+                <script>
+                    swal("Thay đổi mật khẩu thành công", "Mật khẩu đã được thay đổi!", "success");
+                </script>
+            {{else}}
+                <script>
+                    swal("Thay đổi mật khẩu thất bại", "Mật khẩu cũ không chính xác!", "error");
+                </script>
+            {{/if}}
+            {{showChange}} = false;
+        {{/if}}
 {{/section}}
 
   <!-- Start Body -->  
@@ -60,16 +72,16 @@
                             <div class="row" style="padding-top: 30px; font-size: 18px;">
                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Password</div>
                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">******</div>     
-                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" id="editPassBtn">
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                                     <a href="javascript:;" data-toggle="modal" data-target="#editPassModal" id="editPassBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
                                 </div>
                             </div>
                             <!--  Info3   -->
                             <div class="row" style="padding-top: 30px; font-size: 18px;">
                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Email</div>
-                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">{{layoutVM.curUser.Email}}</div>        
-                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" id="editSdtBtn">
-                                    <a href="javascript:;" data-toggle="modal" data-target="#editPhoneModal" id="editSDTBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="Email">{{layoutVM.curUser.Email}}</div>        
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#editEmailModal" id="editEmailBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
                                 </div>
                             </div>
                         </div>
@@ -191,20 +203,36 @@
         </div>
         <div class="modal-body">
           <form class="" action="" method="post" name="EditPass">
-            <div class="form-oldpass">
-              <label for="OldPass">Mật khẩu cũ</label>
-              <input type="password" class="form-control" id="txtUserOldPass" placeholder="" name="OldPass">
-            </div>
-            <div class="form-newpass">
-              <label for="NewPass">Mật khẩu mới</label>
-              <input type="password" class="form-control" id="txtUserNewPass" placeholder="" name="NewPass">
-            </div>
-            <div class="form-renewpass">
-              <label for="ReNewPass">Nhập lại mật khẩu mới</label>
-              <input type="password" class="form-control" id="txtUserReNewPass" placeholder="" name="ReNewPass">
-            </div>
+              <fieldset class="form-group">
+                  <label for="OldPass">Mật khẩu cũ</label>
+                <div class="form-oldpass form-group has-feedback">                  
+                  <input type="password" class="form-control" id="txtUserOldPass" placeholder="" name="OldPass">
+                  <p class="help-block oldpass-null">Vui lòng điền thông tin vào đây!</p>
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+              </fieldset>
+                <fieldset class="form-group">
+                    <label for="NewPass">Mật khẩu mới</label>
+                    <div class="form-newpass  form-group has-feedback">
+                      <input type="password" class="form-control" id="txtUserNewPass" placeholder="" name="NewPass">
+                      <p class="help-block newpass-null">Vui lòng điền thông tin vào đây!</p>
+                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="ReNewPass">Nhập lại mật khẩu mới</label>
+                    <div class="form-renewpass  form-group has-feedback">
+                      <input type="password" class="form-control" id="txtUserReNewPass" placeholder="" name="ReNewPass">
+                      <p class="help-block renewpass-null">Vui lòng điền thông tin vào đây!</p>
+                      <p class="help-block renewpass2-null">Mật khẩu không trùng khớp!</p>
+                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                    </div>
+                </fieldset>
             <div class="text-center">
-              <button id="btnEP" class="btn btn-SignIn" type="button" name="button-editName">Xác nhận</button>
+              <button id="btnEP" class="btn btn-SignIn" type="submit" name="button-editPass">Xác nhận</button>
             </div>
           </form>
         </div>
@@ -214,25 +242,26 @@
   <!-- End Edit pass modal -->
   
   <!-- Start Edit phone modal -->
-  <div id="editPhoneModal" class="modal fade" role="dialog">
+  <div id="editEmailModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Thay đổi số điện thoại</h4>
+          <h4 class="modal-title">Thay đổi email</h4>
         </div>
         <div class="modal-body">
-          <form class="" action="" method="post" name="EditPhone">
-            <div class="form-group">
-              <label for="OldPhone">Số điện thoại cũ</label>
-              <input type="text" class="form-control" id="txtOldPhone" placeholder="" name="OldPhone">
-            </div>
-            <div class="form-group">
-              <label for="NewPhone">Số điện thoại mới</label>
-              <input type="text" class="form-control" id="txtNewPhone" placeholder="" name="NewPhone">
-            </div>
+          <form class="" action="EditEmail" method="post" name="EditEmail">
+              <fieldset class="form-group">
+                <label for="NewEmail">Email mới</label>
+                <div class="form-email form-group has-feedback">
+                  <input type="text" class="form-control" id="txtEmail" placeholder="" name="NewEmail">
+                  <p class="help-block email-null">Vui lòng điền đúng định dạng email!</p>
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+              </fieldset>
             <div class="text-center">
-              <button id="btnEPh" class="btn btn-SignIn" type="button" name="button-editName">Xác nhận</button>
+              <button id="btnEM" class="btn btn-SignIn" type="submit" name="button-editEmail">Xác nhận</button>
             </div>
           </form>
         </div>
@@ -250,7 +279,7 @@
           <h4 class="modal-title">Thông tin chi tiết hóa đơn</h4>
         </div>
         <div class="modal-body">
-            <form class="" action="" method="post" name="EditPhone">
+            <form class="" action="" method="post" name="EditEmail">
                 <div class="form-group">
                     <div class="owl-carousel owl-theme" id="sliderDS">
 <!--                        <div class="item">

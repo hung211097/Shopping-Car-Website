@@ -1,19 +1,4 @@
 $(document).ready(function() {
-  if ($('input[name="email"]').val() != "" && re.test($('input[name="email"]').val())) {
-    $(this).parent().removeClass('has-error');
-    $(this).parent().addClass('has-success');
-    $('.form-email').find('.glyphicon-ok').show();
-    $('.form-email').find('.glyphicon-remove').hide();
-    $('.email-null').hide();
-    $('.email-format').hide();
-  }
-  if ($('input[name="fullname"]').val() != "") {
-    $(this).parent().removeClass('has-error');
-    $(this).parent().addClass('has-success');
-    $('.form-name').find('.glyphicon-ok').show();
-    $('.form-name').find('.glyphicon-remove').hide();
-    $('.name-null').hide();
-  }
   if ($('input[name="phone"]').val() != "") {
     $(this).parent().removeClass('has-error');
     $(this).parent().addClass('has-success');
@@ -34,47 +19,6 @@ var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9
 
 $('.summary-product').on('scroll', function() {
   $(this).removeClass('order-summary--is-scrollable');
-});
-
-$('input[name="email"]').on('blur', function() {
-  if ($(this).val() == "") {
-    $(this).parent().removeClass('has-success');
-    $(this).parent().addClass('has-error');
-    $('.form-email').find('.glyphicon-ok').hide();
-    $('.form-email').find('.glyphicon-remove').show();
-    $('.email-format').hide();
-    $('.email-null').show();
-  } else if (!re.test($(this).val())) {
-    $(this).parent().removeClass('has-success');
-    $(this).parent().addClass('has-error');
-    $('.form-email').find('.glyphicon-ok').hide();
-    $('.form-email').find('.glyphicon-remove').show();
-    $('.email-format').show();
-    $('.email-null').hide();
-  } else {
-    $(this).parent().removeClass('has-error');
-    $(this).parent().addClass('has-success');
-    $('.form-email').find('.glyphicon-ok').show();
-    $('.form-email').find('.glyphicon-remove').hide();
-    $('.email-null').hide();
-    $('.email-format').hide();
-  }
-});
-
-$('input[name="fullname"]').on('blur', function() {
-  if ($(this).val() == "") {
-    $(this).parent().removeClass('has-success');
-    $(this).parent().addClass('has-error');
-    $('.form-name').find('.glyphicon-ok').hide();
-    $('.form-name').find('.glyphicon-remove').show();
-    $('.name-null').show();
-  } else {
-    $(this).parent().removeClass('has-error');
-    $(this).parent().addClass('has-success');
-    $('.form-name').find('.glyphicon-ok').show();
-    $('.form-name').find('.glyphicon-remove').hide();
-    $('.name-null').hide();
-  }
 });
 
 $('input[name="phone"]').on('blur', function() {
@@ -111,20 +55,14 @@ $('input[name="address"]').on('blur', function() {
 
 $('.btn-checkout').on('click', function() {
   var inform = $('.sidebar__content').find('div.form-group.has-error').find('ul');
-  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  // inform.remove('li');
   var correct = true;
-  if (!re.test($('input[name="email"]').val())) {
-    correct = false;
-    inform.html('<li>Hãy nhập đúng định dạng email!</li>');
-  }
 
-  if ($('input[name="fullname"]').val() == "" || $('input[name="phone"]') == "" || $('input[name="address"]') == "") {
+  if ($('input[name="phone"]').val() == "" || $('input[name="address"]').val() == "") {
     correct = false;
     inform.html('<li>Hãy điền đầy đủ thông tin vào form!</li>');
   }
 
   if (correct) {
-
+      inform.html('<li>Đã viết hóa đơn!</li>');
   }
 });

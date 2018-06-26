@@ -42,17 +42,14 @@
                       <td class="product-img">
                         <div class="product-thumbnail">
                           <div class="product-thumbnail__wrapper">
-<<<<<<< HEAD
-                            <img class="product-thumbnail__image" src="/image/all/{{TenXe}}/{{TenXe}}_1.jpg" alt="{{TenXe}}">
-=======
-                            <img class="product-thumbnail__image" src="/image/all/{{TenXe}}.jpg" alt="{{TenXe}}">
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+                            <img class="product-thumbnail__image" src="/image/all/{{MaXe}}/{{MaXe}}_1.jpg" alt="{{TenXe}}">
                           </div>
                           <span class="product-thumbnail__quantity">{{Quantity}}</span>
+                          <input type="hidden" name="proQuant{{index}}" value="{{Quantity}}">
                         </div>
                       </td>
                       <td class="product-info">
-                        <input type="hidden" name="proId" value="{{MaXe}}">
+                        <input type="hidden" name="proId{{index}}" value="{{MaXe}}">
                         <span class="product-info-name">
                             {{TenXe}}
                           </span>
@@ -133,12 +130,9 @@
                 </div>
               </div>
               <div class="section__content">
-                <div class="form-group form-email has-feedback">
 <<<<<<< HEAD
+                <div class="form-group form-email has-feedback">
                   <input type="text" name="email" placeholder="Email (bắt buộc)" value="" class="field__input form-control">
-=======
-                  <input type="text" name="email" required placeholder="Email (bắt buộc)" value="" class="field__input form-control">
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
                   <p class="help-block email-format">Hãy nhập đúng định dạng email!</p>
                   <p class="help-block email-null">Vui lòng điền thông tin vào đây!</p>
                   <span class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -151,6 +145,8 @@
                   <span class="glyphicon glyphicon-ok form-control-feedback"></span>
                   <span class="glyphicon glyphicon-remove form-control-feedback"></span>
                 </div>
+=======
+>>>>>>> origin/NTHung
 
                 <div class="form-group form-phone has-feedback">
                   <input type="text" name="phone" placeholder="Số điện thoại (bắt buộc)" value="" class="field__input form-control">

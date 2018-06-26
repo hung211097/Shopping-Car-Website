@@ -53,69 +53,117 @@ $('#btnEP').on('click', function(){
       event.preventDefault();
     } 
     else {
-      $('#txtUserOldPass').parent().removeClass('has-error');
-      $('#txtUserOldPass').parent().addClass('has-success');
-      $('.form-oldpass').find('.glyphicon-ok').show();
-      $('.form-oldpass').find('.glyphicon-remove').hide();
-      $('.oldpass-null').hide();
-    }
+        $('#txtUserOldPass').parent().removeClass('has-error');
+        $('#txtUserOldPass').parent().addClass('has-success');
+        $('.form-oldpass').find('.glyphicon-ok').show();
+        $('.form-oldpass').find('.glyphicon-remove').hide();
+        $('.oldpass-null').hide();
     
-    if ($('#txtUserNewPass').val() === "") {
-      $('#txtUserNewPass').parent().removeClass('has-success');
-      $('#txtUserNewPass').parent().addClass('has-error');
-      $('.form-newpass').find('.glyphicon-ok').hide();
-      $('.form-newpass').find('.glyphicon-remove').show();
-      $('.newpass-null').show();
-      event.preventDefault();
-    } 
-    else {
-      $('#txtUserNewPass').parent().removeClass('has-error');
-      $('#txtUserNewPass').parent().addClass('has-success');
-      $('.form-newpass').find('.glyphicon-ok').show();
-      $('.form-newpass').find('.glyphicon-remove').hide();
-      $('.newpass-null').hide();
-    }
-    if ($('#txtUserReNewPass').val() === "") {
-      $('#txtUserReNewPass').parent().removeClass('has-success');
-      $('#txtUserReNewPass').parent().addClass('has-error');
-      $('.form-renewpass').find('.glyphicon-ok').hide();
-      $('.form-renewpass').find('.glyphicon-remove').show();
-      $('.renewpass-null').show();
-      event.preventDefault();
-    }
-    else
-    {
-        if($('#txtUserReNewPass').val() !== $('#txtUserNewPass').val())
-        {
-            $('#txtUserReNewPass').parent().removeClass('has-success');
-            $('#txtUserReNewPass').parent().addClass('has-error');
-            $('.form-renewpass').find('.glyphicon-ok').hide();
-            $('.form-renewpass').find('.glyphicon-remove').show();
-            $('.renewpass2-null').show();
-            event.preventDefault();
-        }
+        if ($('#txtUserNewPass').val() === "") {
+          $('#txtUserNewPass').parent().removeClass('has-success');
+          $('#txtUserNewPass').parent().addClass('has-error');
+          $('.form-newpass').find('.glyphicon-ok').hide();
+          $('.form-newpass').find('.glyphicon-remove').show();
+          $('.newpass-null').show();
+          event.preventDefault();
+        } 
         else {
-          $('#txtUserReNewPass').parent().removeClass('has-error');
-          $('#txtUserReNewPass').parent().addClass('has-success');
-          $('.form-renewpass').find('.glyphicon-ok').show();
-          $('.form-renewpass').find('.glyphicon-remove').hide();
-          $('.renewpass-null').hide();
+            $('#txtUserNewPass').parent().removeClass('has-error');
+            $('#txtUserNewPass').parent().addClass('has-success');
+            $('.form-newpass').find('.glyphicon-ok').show();
+            $('.form-newpass').find('.glyphicon-remove').hide();
+            $('.newpass-null').hide();
+        
+            if ($('#txtUserReNewPass').val() === "") {
+              $('#txtUserReNewPass').parent().removeClass('has-success');
+              $('#txtUserReNewPass').parent().addClass('has-error');
+              $('.form-renewpass').find('.glyphicon-ok').hide();
+              $('.form-renewpass').find('.glyphicon-remove').show();
+              $('.renewpass-null').show();
+              $('.renewpass2-null').hide();
+              event.preventDefault();
+            }
+            else
+            {
+                if($('#txtUserReNewPass').val() !== $('#txtUserNewPass').val())
+                {
+                    $('#txtUserReNewPass').parent().removeClass('has-success');
+                    $('#txtUserReNewPass').parent().addClass('has-error');
+                    $('.form-renewpass').find('.glyphicon-ok').hide();
+                    $('.form-renewpass').find('.glyphicon-remove').show();
+                    $('.renewpass-null').hide();
+                    $('.renewpass2-null').show();
+                    event.preventDefault();
+                }
+                else {
+                  $('#txtUserReNewPass').parent().removeClass('has-error');
+                  $('#txtUserReNewPass').parent().addClass('has-success');
+                  $('.form-renewpass').find('.glyphicon-ok').show();
+                  $('.form-renewpass').find('.glyphicon-remove').hide();
+                  $('.renewpass-null').hide();
+                  $('.renewpass2-null').hide();
+                }
+            }
         }
     }
 });
 
 $('#editPassBtn').on('click', function(){
-  $('#txtUserOldPass').attr('placeholder', $('#realName').html()); 
-  $('#txtUserOldPass').val($('#realName').html());
+//  $('#txtUserOldPass').attr('placeholder', $('#realName').html()); 
+//  $('#txtUserOldPass').val($('#realName').html());
   $('#txtUserOldPass').parent().removeClass('has-success');
   $('#txtUserOldPass').parent().removeClass('has-error');
-  $('.form-name').find('.glyphicon-ok').hide();
-  $('.form-name').find('.glyphicon-remove').hide();
-  $('.name-null').hide();
+  $('.form-oldpass').find('.glyphicon-ok').hide();
+  $('.form-oldpass').find('.glyphicon-remove').hide();
+  $('.oldpass-null').hide();
+  $('#txtUserNewPass').parent().removeClass('has-success');
+  $('#txtUserNewPass').parent().removeClass('has-error');
+  $('.form-newpass').find('.glyphicon-ok').hide();
+  $('.form-newpass').find('.glyphicon-remove').hide();
+  $('.newpass-null').hide();
+  $('#txtUserReNewPass').parent().removeClass('has-success');
+  $('#txtUserReNewPass').parent().removeClass('has-error');
+  $('.form-renewpass').find('.glyphicon-ok').hide();
+  $('.form-renewpass').find('.glyphicon-remove').hide();
+  $('.renewpass-null').hide();
+  $('.renewpass2-null').hide();
 });
 
-$('#btnEPh').on('click', function(){
-  $('#editPhoneModal').modal('toggle');  
+$('#editEmailBtn').on('click', function(){
+  $('#txtEmail').attr('placeholder', $('#Email').html()); 
+  $('#txtEmail').val($('#Email').html());
+  $('#txtEmail').parent().removeClass('has-success');
+  $('#txtEmail').parent().removeClass('has-error');
+  $('.form-email').find('.glyphicon-ok').hide();
+  $('.form-email').find('.glyphicon-remove').hide();
+  $('.email-null').hide();
+  $('.email2-null').hide();
+});
+
+$('#btnEM').on('click', function(){
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var correct = true;
+    if (!re.test($('#txtEmail').val())) {
+      correct = false;
+    }
+    
+    if (correct === false)
+    {
+        $('#txtEmail').parent().removeClass('has-success');
+        $('#txtEmail').parent().addClass('has-error');
+        $('.form-email').find('.glyphicon-ok').hide();
+        $('.form-email').find('.glyphicon-remove').show();
+        $('.email-null').show();
+        event.preventDefault();
+    }
+    else
+    {
+        $('#txtEmail').parent().removeClass('has-error');
+        $('#txtEmail').parent().addClass('has-success');
+        $('.form-email').find('.glyphicon-ok').show();
+        $('.form-email').find('.glyphicon-remove').hide();
+        $('.email-null').hide();
+    }
 });
 
 $('#historyBuying').on('click', function(){
