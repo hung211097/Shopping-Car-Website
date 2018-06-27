@@ -2,6 +2,20 @@ var reg = /^\d+$/;
 
 $(document).ready(function() {
 
+	$('tr[name="0"]').addClass('label-danger');
+	$('tr[name="1"]').addClass('label-warning');
+	$('tr[name="2"]').addClass('label-success');
+	$('tr[name="3"]').addClass('label-default');
+
+	if($('input[name="NgayNhan"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-NgayNhan').find('.glyphicon-ok').show();
+		$('.form-NgayNhan').find('.glyphicon-remove').hide();
+		$('.NgayNhan-null').hide();
+	}
+
 	if($('input[name="TenHangXe"]').val() != "")
 	{
 		$(this).parent().parent().removeClass('has-error');
@@ -113,6 +127,23 @@ $(document).ready(function() {
 		$('.SoCho-null').hide();
 		$('.SoCho-format').hide();
 	}
+});
+
+
+$('input[name="NgayNhan"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-NgayNhan').find('.glyphicon-ok').hide();
+    $('.form-NgayNhan').find('.glyphicon-remove').show();
+    $('.NgayNhan-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-NgayNhan').find('.glyphicon-ok').show();
+    $('.form-NgayNhan').find('.glyphicon-remove').hide();
+    $('.NgayNhan-null').hide();
+  }
 });
 
 $('input[name="TenHangXe"]').on('blur', function() {

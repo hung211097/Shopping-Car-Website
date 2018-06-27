@@ -158,7 +158,9 @@ router.get('/add', (req, res) => {
     {
       maDongXeTangDan = 1;
     }
-    else
+    else if (parseInt(temp[0]) == 2)
+      maDongXeTangDan = 1;
+    else 
     {
       for (var i = 0; i < temp.length; i++)
       {
@@ -236,14 +238,18 @@ router.get('/edit', (req, res) => {
             layout: 'layoutAdmin.handlebars'
         };
         res.render('admin/editKindOfCar', vm);
-    });
+    }).catch(err => {
+    res.render('error/index', {layout: false});
+  });
 });
 
 router.post('/edit', (req, res) => {
     manageKindOfCarRepo.update(req.body).then(value => {
         isEd = true;
         res.redirect('/manageKindOfCar');
-    });
+    }).catch(err => {
+    res.render('error/index', {layout: false});
+  });
 });
 
 router.post('/delete', (req, res) => {

@@ -42,27 +42,27 @@
 	<div class="container-fluid">
 		<div class="row" style="background-color: white">
 			<div class="container-fluid">
-				<h3>Danh sách các dòng xe</h3>
-				<table class="table table-hover table-bordered">
+				<h3 style="color: black">Danh sách các dòng xe</h3>
+				<table class="table table-hover table-bordered" style="color: black">
 					<thead>
-						<tr style="background-color: #b8daff; color: black">
-							<th class="text-center col-md-2">Mã dòng xe</th>
-							<th class="text-center">Tên dòng xe</th>
-							<th class="text-center">Sửa</th>
-							<th class="text-center">Xóa</th>
+						<tr style="background-color: #337ab7; color: white">
+							<th class="text-center col-md-2" style="border: 1px solid black">Mã dòng xe</th>
+							<th class="text-center" style="border: 1px solid black">Tên dòng xe</th>
+							<th class="text-center" style="border: 1px solid black">Sửa</th>
+							<th class="text-center" style="border: 1px solid black">Xóa</th>
 						</tr>
 					</thead>
 					<tbody>
 						{{#each products}}
 							<tr id="row{{MaDongXe}}">
-								<td class="text-center">{{MaDongXe}}</td>
-								<td class="text-center">{{TenDongXe}}</td>
-								<td class="text-center">
+								<td class="text-center" style="border: 1px solid black">{{MaDongXe}}</td>
+								<td class="text-center" style="border: 1px solid black">{{TenDongXe}}</td>
+								<td class="text-center" style="border: 1px solid black">
 									<a class="btn btn-primary btn-xs" href="/manageKindOfCar/edit?ma={{MaDongXe}}" role="button">
-								<span class="glyphicon glyphicon-wrench"></span>
-							</a>
+										<span class="glyphicon glyphicon-wrench"></span>
+									</a>
 								</td>
-								<td class="text-center">
+								<td class="text-center" style="border: 1px solid black">
 
 									<!-- Button trigger modal -->
 									<button type="button" class="btn btn-danger btn-xs" id="remove{{MaDongXe}}" data-toggle="modal" data-target="#myModal">
