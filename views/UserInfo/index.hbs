@@ -38,8 +38,18 @@
                         <h3 class="panel-title" style="text-align: center; font-weight: bold;">Thông tin khách hàng</h3>
                     </div>
                     <ul class="vertical-menu">
-                        <li><a class="active" href="javascript:;" id="infoUser">Thông tin cơ bản</a></li>
-                        <li><a href="javascript:;" id="historyBuying">Lịch sử mua hàng</a></li>
+                        {{#if isDetail}}
+                        <li><a href="javascript:;" id="infoUser">Thông tin cơ bản</a></li>
+                        <li><a class="active" href="/UserInfo/History" id="historyBuying">Lịch sử mua hàng</a></li>
+                        {{else}}
+                            {{#if isBack}}
+                            <li><a href="javascript:;" id="infoUser">Thông tin cơ bản</a></li>
+                            <li><a class="active" href="javascript:;" id="historyBuying">Lịch sử mua hàng</a></li>
+                            {{else}}
+                            <li><a class="active" href="javascript:;" id="infoUser">Thông tin cơ bản</a></li>
+                            <li><a href="javascript:;" id="historyBuying">Lịch sử mua hàng</a></li>
+                            {{/if}}
+                        {{/if}}
                     </ul>
                 </div>
             </div>
@@ -56,7 +66,15 @@
                     <div class="panel-body" style="margin-bottom: 20px;" id="BodyInfo"> 
 
                         <!--  InfoUser   -->
-                        <div id="InfoUser">
+                        {{#if isDetail}}
+                        <div id="InfoUser" style="display: none">
+                        {{else}}
+                            {{#if isBack}}
+                            <div id="InfoUser" style="display: none">
+                            {{else}}
+                            <div id="InfoUser">
+                            {{/if}}
+                        {{/if}}
                             <div class="page-header" style="margin-top: 0px;">
                                 <h3 style="margin: 0;">Thông tin cá nhân</h3>
                             </div>
@@ -87,7 +105,40 @@
                         </div>
                         
                         <!--  HistoryBuying   -->
+                        {{#if isDetail}}
+                        <div id="DetailBuying">
+                            <div class="page-header" style="margin-top: 0px;">
+                                <h3 style="margin: 0;">Chi tiết hóa đơn {{index}}</h3>
+                            </div>
+                            <div class="panel-heading">
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center">Số thứ tự</th>
+                                        <th style="text-align: center">&nbsp;</th>
+                                        <th style="text-align: center">Tên xe</th>
+                                        <th style="text-align: center">Số lượng xe</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="danhsach">
+                                    {{#each details}}
+                                    <tr>
+                                        <td style="text-align: center">{{index}}</td>
+                                        <td style="text-align: center">Số thứ tự</td>
+                                        <td style="text-align: center">{{TenXe}}</td>
+                                        <td style="text-align: center">{{SoLuong}}</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                        {{/if}}
+                        {{#if isBack}}
+                        <div id="HistoryBuying">
+                        {{else}}
                         <div id="HistoryBuying" style="display: none">
+                        {{/if}}
                             <div class="page-header" style="margin-top: 0px;">
                                 <h3 style="margin: 0;">Danh sách hóa đơn</h3>
                             </div>
@@ -96,28 +147,29 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Mã hóa đơn</th>
-                                        <th>Ngày đặt hóa đơn</th>
-                                        <th>Số lượng xe</th>
-                                        <th>Tổng giá tiền</th>
-                                        <th>Tình trạng</th>
+                                        <th style="text-align: center">Số thứ tự</th>
+                                        <th style="text-align: center">Ngày đặt hóa đơn</th>
+                                        <th style="text-align: center">Số lượng xe</th>
+                                        <th style="text-align: center">Số điện thoại</th>
+                                        <th style="text-align: center">Địa chỉ</th>
+                                        <th style="text-align: center">Tổng giá tiền</th> 
+                                        <th style="text-align: center">Ghi chú</th>
+                                        <th style="text-align: center">Tình trạng</th>
                                     </tr>
                                 </thead>
                                 <tbody id="danhsach">
+                                    {{#each items}}
                                     <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#billDetail" class="billDetailBtn">#001</a></td>
-                                        <td>24/14/2017</td>
-                                        <td>2</td>
-                                        <td>xxx</td>
-                                        <td>Đã thanh toán</td>
+                                        <td style="text-align: center"><a href="/UserInfo/detail/{{NgayDat}}" class="billDetailBtn">{{index}}</a></td>
+                                        <td style="text-align: center">{{NgayDat}}</td>
+                                        <td style="text-align: center">{{SoLuongXe}}</td>
+                                        <td style="text-align: center">{{SDT}}</td>
+                                        <td style="text-align: center">{{DiaChi}}</td>
+                                        <td style="text-align: center">{{TongTien}}</td>
+                                        <td style="text-align: center">{{GhiChu}}</td>
+                                        <td style="text-align: center">{{TinhTrang}}</td>
                                     </tr>
-                                    <tr>
-                                        <td><a href="javascript:;" data-toggle="modal" data-target="#billDetail" class="billDetailBtn">#002</a></td>
-                                        <td>20/02/2018</td>
-                                        <td>1</td>
-                                        <td>yyy</td>
-                                        <td>Chưa thanh toán</td>
-                                    </tr>
+                                    {{/each}}
                                 </tbody>
                             </table>
                         </div>
