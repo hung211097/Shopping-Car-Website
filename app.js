@@ -23,6 +23,8 @@ var manageCarController = require('./controllers/manageCarController');
 var manageKindOfCarController = require('./controllers/manageKindOfCarController');
 var manageManufacturerController = require('./controllers/manageManufacturerController');
 var manageOrderController = require('./controllers/manageOrderController');
+var loginAdminController = require('./controllers/loginAdminController');
+var signUpAdminController = require('./controllers/signUpAdminController');
 
 var app = express();
 
@@ -98,6 +100,8 @@ app.use('/manageCar', manageCarController);
 app.use('/manageKindOfCar', manageKindOfCarController);
 app.use('/manageManufacturer', manageManufacturerController);
 app.use('/manageOrder', manageOrderController);
+app.use('/loginAdmin', loginAdminController);
+app.use('/signUpAdmin', signUpAdminController);
 
 
 app.use(handle404MDW);
