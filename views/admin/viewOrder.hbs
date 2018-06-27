@@ -1,0 +1,65 @@
+
+	<div class="container-fluid">
+		<div class="row" style="background-color: white">
+			<div class="container-fluid">
+				<h3 style="color: black">Chi tiết hóa đơn vào ngày {{Ngay}} của khách hàng: {{Khach}}</h3>
+				<table class="table table-hover table-bordered" style="color: black">
+					<thead>
+						<tr style="background-color: #337ab7; color: white">
+							<th class="text-center col-md-2" style="border: 1px solid black">Hình ảnh xe</th>
+							<th class="text-center" style="border: 1px solid black">Mã xe</th>
+							<th class="text-center" style="border: 1px solid black">Tên xe</th>
+							<th class="text-center" style="border: 1px solid black">Giá tiền một chiếc xe</th>
+							<th class="text-center" style="border: 1px solid black">Số lượng</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each products}}
+							<tr id="row">
+								<td class="text-center" style="border: 1px solid black">
+									<div class="thumbnail">
+										<img src="/image/all/{{MaXe}}/{{MaXe}}_1.jpg" alt="{{TenXe}}" title="{{TenXe}}">
+									</div>
+								</td>
+								<td class="text-center" style="border: 1px solid black">{{MaXe}}</td>
+								<td class="text-center" style="border: 1px solid black">{{TenXe}}</td>
+								<td class="text-center" style="border: 1px solid black">{{number_format Gia}}</td>
+								<td class="text-center" style="border: 1px solid black">{{SoLuong}}</td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-fluid">
+		<ul class="pagination">
+			{{#if isFirst}}
+			<li class="disabled"><a href="javascript:;" id="first" class="page-link">&laquo;</a></li>
+			{{else}}
+			<li><a href="?page=1">&laquo;</a></li>
+			{{/if}}
+
+			{{#each page_numbers}}
+			{{#if isCurPage}}
+			<li class="active"><a href="javascript:;">{{value}}</a></li>
+			{{else}}
+			<li><a href="?page={{value}}">{{value}}</a></li>
+			{{/if}}
+			{{/each}}
+
+			{{#if isLast}}
+			<li class="disabled"><a href="javascript:;" class="page-link" id="last">&raquo;</a></li>
+			{{else}}
+			<li><a href="?page={{last_page}}">&raquo;</a></li>
+			{{/if}}
+		</ul>
+	</div>
+	
+	<div class="container-fluid">
+		<a class="btn btn-info" href="/manageOrder" role="button">
+			<span class="glyphicon glyphicon-arrow-left"></span>
+			Quay trở lại xem danh sách hóa đơn
+		</a>
+	</div>

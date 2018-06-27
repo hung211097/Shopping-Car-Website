@@ -3,6 +3,7 @@ var express = require('express');
 var manageCarRepo = require('../repos/manageCarRepo');
 var manageKindOfCarRepo = require('../repos/manageKindOfCarRepo');
 var manageManufacturerRepo = require('../repos/manageManufacturerRepo');
+var manageOrderRepo = require('../repos/manageOrderRepo');
 var config = require('../config/config');
 var multer = require('multer');
 var mkdirp = require('mkdirp');
@@ -167,6 +168,8 @@ router.get('/add', (req, res) => {
     {
       maXeTangDan = 1;
     }
+    else if (parseInt(temp[0]) == 2)
+      maXeTangDan = 1;
     else
     {
       for (var i = 0; i < temp.length; i++)
@@ -218,10 +221,6 @@ router.get('/add', (req, res) => {
   });
 });
 
-
-
-
-
 router.post('/add', upload.array('photos'), (req, res) => {
 
   var files = req.files;
@@ -253,18 +252,16 @@ router.post('/add', upload.array('photos'), (req, res) => {
   var temp = CountAppearance(des, '</p>');
   if (temp === 1)
   {
-    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
     des = ReplaceNthChar(des, '</p>', parseInt(temp), img);
-    console.log(img);
-    console.log(des);
   }
   else
   {
-    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
     des = ReplaceNthChar(des, '</p>', parseInt(temp / 2), img);
 
     temp = CountAppearance(des, '</p>');
-    img = `<p><img src="`+ pathToImage + name + `/` + name + `_3` + extension + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    img = `<p><img src="`+ pathToImage + name + `/` + name + `_3` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
     des = ReplaceNthChar(des, '</p>', temp, img);
   }
   
@@ -282,23 +279,7 @@ router.post('/add', upload.array('photos'), (req, res) => {
   count = 1;
 });
 
-function ReplaceNthChar(string, character, n, replace){
-  var count= 0, i=0;
-  while(count<n && (i=string.indexOf(character,i)+1)){
-    count++;
-  }
-  if(count== n)
-    string = string.substr(0, i + character.length - 1) + replace + string.substr(i + character.length - 1);
-  return string;
-}
 
-function CountAppearance(string, character){
-  var count= 0, i=0;
-  while((i=string.indexOf(character,i)+1)){
-    count++;
-  }
-  return count;
-}
 
 router.get('/edit', (req, res) => {
   var p1 = manageCarRepo.single(req.query.ma);
@@ -322,6 +303,22 @@ router.get('/edit', (req, res) => {
       else
         rowsKindOfcar[i].flag = false;
     }
+    var temp = CountAppearance(row.MoTa, '</p>');
+    if (temp === 2)
+    {
+      var name = row.MaXe;
+      var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + `.jpg` + `" alt="` + row.TenXe + `" onerror="this.parentNode.style.display=\'none\'"/></p>`;
+      var des = row.MoTa;
+      row.MoTa = des.substr(0, des.indexOf(img));
+    }
+    else
+    {
+      var name = row.MaXe;
+      var img1 = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + `.jpg` + `" alt="` + row.TenXe + `" onerror="this.parentNode.style.display=\'none\'"/></p>`;
+      var img2 = `<p><img src="`+ pathToImage + name + `/` + name + `_3` + `.jpg` + `" alt="` + row.TenXe + `" onerror="this.parentNode.style.display=\'none\'"/></p>`;
+      var des = row.MoTa;
+      row.MoTa = des.substr(0, des.indexOf(img1)) + des.substring(des.indexOf(img1) + img1.length, des.indexOf(img2)) ;
+    }
     var vm = {
       product: row,
       products1: rowsManufacturer,
@@ -337,19 +334,70 @@ router.get('/edit', (req, res) => {
 });
 
 router.post('/edit', (req, res) => {
+  var name = req.body.MaXe;
+  var des = req.body.MoTa;
+  var extension = '.jpg'
+  var temp = CountAppearance(des, '</p>');
+  if (temp === 1)
+  {
+    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    des = ReplaceNthChar(des, '</p>', parseInt(temp), img);
+  }
+  else
+  {
+    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    des = ReplaceNthChar(des, '</p>', parseInt(temp / 2), img);
+
+    temp = CountAppearance(des, '</p>');
+    img = `<p><img src="`+ pathToImage + name + `/` + name + `_3` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    des = ReplaceNthChar(des, '</p>', temp, img);
+  }
+  req.body.MoTa = des;
   req.body.NgayNhan = moment(req.body.NgayNhan, 'DD/MM/YYYY')
   .format('YYYY-MM-DD');
   manageCarRepo.update(req.body).then(value => {
     isEd = true;
     res.redirect('/manageCar');
+  }).catch(err => {
+    res.render('error/index', {layout: false});
   });
 });
 
 router.post('/delete', (req, res) => {
+  var p1 = manageOrderRepo.loadAllViewOneOrderNoOffset().then(rowsOrder => {
+    for (var i = 0; i < rowsOrder.length; i++) {
+      if (rowsOrder[i].MaXe === req.body.MaXe)
+      {
+        isDelFalse = true;
+        res.redirect('/manageCar');
+        return;
+      }
+    }
     manageCarRepo.delete(req.body.MaXe).then(value => {
         isDel = true;
         res.redirect('/manageCar');
     });
+  }).catch(err => {
+    res.render('error/index', {layout: false});
+  });
 });
+
+function ReplaceNthChar(string, character, n, replace){
+  var count= 0, i=0;
+  while(count<n && (i=string.indexOf(character,i)+1)){
+    count++;
+  }
+  if(count== n)
+    string = string.substr(0, i + character.length - 1) + replace + string.substr(i + character.length - 1);
+  return string;
+}
+
+function CountAppearance(string, character){
+  var count= 0, i=0;
+  while((i=string.indexOf(character,i)+1)){
+    count++;
+  }
+  return count;
+}
 
 module.exports = router;

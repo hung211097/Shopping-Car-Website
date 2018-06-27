@@ -3,11 +3,26 @@ var cartRepo = require('../repos/cartRepo'),
   productRepo = require('../repos/productsRepo'),
   checkoutRepo = require('../repos/checkoutRepo');
 var homeRepo = require('../repos/homeRepo');
+<<<<<<< HEAD
 var restrict = require('../middle-wares/restrict');
+=======
+>>>>>>> origin/NgHuynh
 
 var router = express.Router();
+<<<<<<< HEAD
 const FreeShip = 1000000000;
+<<<<<<< HEAD
+router.get('/', (req, res) => {
+=======
+
 router.get('/', restrict, (req, res) => {
+>>>>>>> origin/NTHung
+=======
+=======
+
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+router.get('/', (req, res) => {
+>>>>>>> origin/NgHuynh
 
   var arr_p = [];
   for (var i = 0; i < req.session.cart.length; i++) {
@@ -23,9 +38,18 @@ router.get('/', restrict, (req, res) => {
         var pro = result[i][0];
         pro.Quantity = req.session.cart[i].Quantity;
         pro.Amount = pro.Gia * req.session.cart[i].Quantity;
+<<<<<<< HEAD
         if(pro.Gia > FreeShip)
           Fee[0].PhiVanChuyen = 0;
+=======
+<<<<<<< HEAD
         pro.index = i;
+
+>>>>>>> origin/NTHung
+=======
+
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+>>>>>>> origin/NgHuynh
         items.push(pro);
       }
 
@@ -45,6 +69,7 @@ router.get('/', restrict, (req, res) => {
   });
 });
 
+<<<<<<< HEAD
 router.post('/', restrict, (req, res) => {
     var datetime = new Date();
     
@@ -57,5 +82,7 @@ router.post('/', restrict, (req, res) => {
         DiaChi: a
     }
 });
+=======
+>>>>>>> origin/NgHuynh
 
 module.exports = router;

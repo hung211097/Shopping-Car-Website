@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 var express = require('express'),
     SHA256 = require('crypto-js/sha256');
+=======
+var express = require('express');
+>>>>>>> origin/NgHuynh
 var restrict = require('../middle-wares/restrict');
 var router = express.Router();
 
@@ -18,6 +22,7 @@ router.post('/EditName', restrict, (req, res) => {
     res.redirect('/UserInfo/');
 });
 
+<<<<<<< HEAD
 router.post('/', restrict, (req, res) => {
     var user = req.session.user;
     var vm = {
@@ -50,4 +55,6 @@ router.post('/EditEmail', restrict, (req, res) => {
     res.redirect('/UserInfo/');
 });
 
+=======
+>>>>>>> origin/NgHuynh
 module.exports = router;

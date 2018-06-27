@@ -42,35 +42,35 @@
 	<div class="container-fluid">
 		<div class="row" style="background-color: white">
 			<div class="container-fluid">
-				<h3>Danh sách các xe</h3>
-				<table class="table table-hover table-bordered">
+				<h3 style="color: black">Danh sách các xe</h3>
+				<table class="table table-hover table-bordered" style="color: black">
 					<thead>
-						<tr style="background-color: #b8daff; color: black">
-							<th class="text-center col-md-1">Mã xe</th>
-							<th class="text-center">Tên xe</th>
-							<th class="text-center">Hãng Xe</th>
-							<th class="text-center">Dòng xe</th>
-							<th class="text-center">Giá</th>
-							<th class="text-center">Ngày nhận</th>
-							<th class="text-center">Sửa</th>
-							<th class="text-center">Xóa</th>
+						<tr style="background-color: #337ab7; color: white">
+							<th class="text-center col-md-1" style="border: 1px solid black">Mã xe</th>
+							<th class="text-center" style="border: 1px solid black">Tên xe</th>
+							<th class="text-center" style="border: 1px solid black">Hãng Xe</th>
+							<th class="text-center" style="border: 1px solid black">Dòng xe</th>
+							<th class="text-center" style="border: 1px solid black">Giá</th>
+							<th class="text-center" style="border: 1px solid black">Ngày nhận</th>
+							<th class="text-center" style="border: 1px solid black">Sửa</th>
+							<th class="text-center" style="border: 1px solid black">Xóa</th>
 						</tr>
 					</thead>
 					<tbody>
 						{{#each products}}
 							<tr id="row{{MaXe}}">
-								<td class="text-center">{{MaXe}}</td>
-								<td class="text-center">{{TenXe}}</td>
-								<td class="text-center">{{TenHangXe}}</td>
-								<td class="text-center">{{TenDongXe}}</td>
-								<td class="text-center">{{number_format Gia}}</td>
-								<td class="text-center">{{NgayNhan}}</td>
-								<td class="text-center">
+								<td class="text-center" style="border: 1px solid black">{{MaXe}}</td>
+								<td class="text-center" style="border: 1px solid black">{{TenXe}}</td>
+								<td class="text-center" style="border: 1px solid black">{{TenHangXe}}</td>
+								<td class="text-center" style="border: 1px solid black">{{TenDongXe}}</td>
+								<td class="text-center" style="border: 1px solid black">{{number_format Gia}}</td>
+								<td class="text-center" style="border: 1px solid black">{{NgayNhan}}</td>
+								<td class="text-center" style="border: 1px solid black">
 									<a class="btn btn-primary btn-xs" href="/manageCar/edit?ma={{MaXe}}" role="button">
-								<span class="glyphicon glyphicon-wrench"></span>
-							</a>
+										<span class="glyphicon glyphicon-wrench"></span>
+									</a>
 								</td>
-								<td class="text-center">
+								<td class="text-center" style="border: 1px solid black">
 
 									<!-- Button trigger modal -->
 									<button type="button" class="btn btn-danger btn-xs" id="remove{{MaXe}}" data-toggle="modal" data-target="#myModal">
@@ -129,5 +129,13 @@
 		swal("Xóa thành công!", {
 			icon: "success",
 		});
+	</script>
+{{/if}}
+
+{{#if isDeleteFalse}}
+	<script type="text/javascript">
+		swal("Xóa thất bại do trong hệ thống dữ liệu tồn tại hóa đơn có mua xe thuộc xe bạn muốn xóa!", {
+			icon: "error",
+	});
 	</script>
 {{/if}}

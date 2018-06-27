@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="/assets/js/index.js"></script>
 	<script src="/assets/OwlCarousel/dist/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="/assets/js/userInformation.js"></script>
+<<<<<<< HEAD
         {{#if showChange}} 
             {{#if isChange}} 
                 <script>
@@ -24,6 +25,8 @@
             {{/if}}
             {{showChange}} = false;
         {{/if}}
+=======
+>>>>>>> origin/NgHuynh
 {{/section}}
 
   <!-- Start Body -->  
@@ -72,16 +75,26 @@
                             <div class="row" style="padding-top: 30px; font-size: 18px;">
                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Password</div>
                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">******</div>     
+<<<<<<< HEAD
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+=======
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" id="editPassBtn">
+>>>>>>> origin/NgHuynh
                                     <a href="javascript:;" data-toggle="modal" data-target="#editPassModal" id="editPassBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
                                 </div>
                             </div>
                             <!--  Info3   -->
                             <div class="row" style="padding-top: 30px; font-size: 18px;">
                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Email</div>
+<<<<<<< HEAD
                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="Email">{{layoutVM.curUser.Email}}</div>        
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                                     <a href="javascript:;" data-toggle="modal" data-target="#editEmailModal" id="editEmailBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
+=======
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">{{layoutVM.curUser.Email}}</div>        
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1" id="editSdtBtn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#editPhoneModal" id="editSDTBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
+>>>>>>> origin/NgHuynh
                                 </div>
                             </div>
                         </div>
@@ -203,6 +216,7 @@
         </div>
         <div class="modal-body">
           <form class="" action="" method="post" name="EditPass">
+<<<<<<< HEAD
               <fieldset class="form-group">
                   <label for="OldPass">Mật khẩu cũ</label>
                 <div class="form-oldpass form-group has-feedback">                  
@@ -233,6 +247,22 @@
                 </fieldset>
             <div class="text-center">
               <button id="btnEP" class="btn btn-SignIn" type="submit" name="button-editPass">Xác nhận</button>
+=======
+            <div class="form-oldpass">
+              <label for="OldPass">Mật khẩu cũ</label>
+              <input type="password" class="form-control" id="txtUserOldPass" placeholder="" name="OldPass">
+            </div>
+            <div class="form-newpass">
+              <label for="NewPass">Mật khẩu mới</label>
+              <input type="password" class="form-control" id="txtUserNewPass" placeholder="" name="NewPass">
+            </div>
+            <div class="form-renewpass">
+              <label for="ReNewPass">Nhập lại mật khẩu mới</label>
+              <input type="password" class="form-control" id="txtUserReNewPass" placeholder="" name="ReNewPass">
+            </div>
+            <div class="text-center">
+              <button id="btnEP" class="btn btn-SignIn" type="button" name="button-editName">Xác nhận</button>
+>>>>>>> origin/NgHuynh
             </div>
           </form>
         </div>
@@ -242,11 +272,16 @@
   <!-- End Edit pass modal -->
   
   <!-- Start Edit phone modal -->
+<<<<<<< HEAD
   <div id="editEmailModal" class="modal fade" role="dialog">
+=======
+  <div id="editPhoneModal" class="modal fade" role="dialog">
+>>>>>>> origin/NgHuynh
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
+<<<<<<< HEAD
           <h4 class="modal-title">Thay đổi email</h4>
         </div>
         <div class="modal-body">
@@ -262,6 +297,22 @@
               </fieldset>
             <div class="text-center">
               <button id="btnEM" class="btn btn-SignIn" type="submit" name="button-editEmail">Xác nhận</button>
+=======
+          <h4 class="modal-title">Thay đổi số điện thoại</h4>
+        </div>
+        <div class="modal-body">
+          <form class="" action="" method="post" name="EditPhone">
+            <div class="form-group">
+              <label for="OldPhone">Số điện thoại cũ</label>
+              <input type="text" class="form-control" id="txtOldPhone" placeholder="" name="OldPhone">
+            </div>
+            <div class="form-group">
+              <label for="NewPhone">Số điện thoại mới</label>
+              <input type="text" class="form-control" id="txtNewPhone" placeholder="" name="NewPhone">
+            </div>
+            <div class="text-center">
+              <button id="btnEPh" class="btn btn-SignIn" type="button" name="button-editName">Xác nhận</button>
+>>>>>>> origin/NgHuynh
             </div>
           </form>
         </div>
@@ -279,7 +330,11 @@
           <h4 class="modal-title">Thông tin chi tiết hóa đơn</h4>
         </div>
         <div class="modal-body">
+<<<<<<< HEAD
             <form class="" action="" method="post" name="EditEmail">
+=======
+            <form class="" action="" method="post" name="EditPhone">
+>>>>>>> origin/NgHuynh
                 <div class="form-group">
                     <div class="owl-carousel owl-theme" id="sliderDS">
 <!--                        <div class="item">

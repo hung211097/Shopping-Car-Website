@@ -295,3 +295,7 @@ width: 100%;
     text-align: center;
     padding: 20px 10px;
 }
+
+.glyphicon-ok, .glyphicon-remove, .email-format, .email-null, .name-null, .phone-null, .address-null{
+  display: none;
+}

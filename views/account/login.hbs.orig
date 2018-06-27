@@ -10,12 +10,15 @@
 {{#section 'js'}}
 	<script type="text/javascript" src="/assets/js/index.js"></script>
 	<script type="text/javascript" src="./assets/js/loginGuest.js"></script>
+<<<<<<< HEAD
         {{#if showError}}
             <script>
                 swal("Đăng nhập thất bại", "Tài khoản hoặc mật khẩu không chính xác!", "error");
             </script>
             {{showError}} = false;
         {{/if}}
+=======
+>>>>>>> origin/NgHuynh
 {{/section}}
 
 <div class="introduction-content">

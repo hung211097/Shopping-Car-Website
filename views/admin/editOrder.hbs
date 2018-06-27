@@ -1,0 +1,50 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<h3 class="panel-title" style="color: white">Sửa trạng thái hóa đơn</h3>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body" id="pad-bot">
+		<form action="" method="POST" role="form">
+			<legend>Thông tin chung</legend>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+							{{#with product}}
+							<input type="hidden" name="KhachHang" value="{{KhachHang}}" class="form-control">
+							<input type="hidden" name="NgayDat" value="{{NgayDat}}" class="form-control">
+							{{/with}}
+							<label>Bạn muốn đổi hóa đơn sang tình trạng:</label>
+						</div>
+						<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+							<select id="inputState" name="TinhTrang" class="form-control">
+								{{#each products1}}
+								<option value="{{MaTinhTrang}}" {{#if flag}}selected{{/if}}>{{TenTinhTrang}}</option>
+								{{/each}}
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="foot">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<button type="submit" class="btn btn-primary" id="btnSub">Sửa</button>
+							<a class="btn btn-default" href="/manageOrder" role="button">
+								<span class="glyphicon glyphicon-arrow-left"></span>
+								Quay trở lại xem danh sách hóa đơn
+							</a>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

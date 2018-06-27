@@ -1,0 +1,92 @@
+{{#section 'activeManageOrder'}}
+  class = "active"
+{{/section}}
+
+{{#if noProducts}}
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			Không có hóa đơn nào trong hệ thống dữ liệu.
+		</div>
+	</div>
+{{else}}
+	<div class="container-fluid">
+		<div class="row" style="background-color: white">
+			<div class="container-fluid">
+				<h3 style="color: black">Danh sách các hóa đơn</h3>
+				<table class="table table-hover table-bordered" style="color: black">
+					<thead>
+						<tr style="background-color: #337ab7; color: white">
+							<th class="text-center col-md-2" style="border: 1px solid black">Khách hàng</th>
+							<th class="text-center" style="border: 1px solid black">Ngày đặt</th>
+							<th class="text-center" style="border: 1px solid black">Tổng tiền</th>
+							<th class="text-center" style="border: 1px solid black">Số điện thoại</th>
+							<th class="text-center" style="border: 1px solid black">Ghi chú</th>
+							<th class="text-center" style="border: 1px solid black">Địa chỉ</th>
+							<th class="text-center" style="border: 1px solid black">Số lượng xe</th>
+							<th class="text-center" style="border: 1px solid black">Xem chi tiết</th>
+							<th class="text-center" style="border: 1px solid black">Tình trạng</th>
+							<th class="text-center" style="border: 1px solid black">Đổi tình trạng</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each products}}
+							<tr id="row{{KhachHang}}{{NgayDat}}" name="{{TinhTrang}}">
+								<td class="text-center" style="border: 1px solid black">{{Name}}</td>
+								<td class="text-center" style="border: 1px solid black">{{NgayDat}}</td>
+								<td class="text-center" style="border: 1px solid black">{{number_format TongTien}}</td>
+								<td class="text-center" style="border: 1px solid black">{{SDT}}</td>
+								<td class="text-center" style="border: 1px solid black">{{GhiChu}}</td>
+								<td class="text-center" style="border: 1px solid black">{{DiaChi}}</td>
+								<td class="text-center" style="border: 1px solid black">{{SoLuongXe}}</td>
+								<td class="text-center" style="border: 1px solid black">
+									<a class="btn btn-primary btn-xs" href="/manageOrder/view?ma={{KhachHang}}&ngay={{NgayDat}}" role="button">
+										<span class="glyphicon glyphicon-eye-open"></span>
+									</a>
+								</td>
+								<td class="text-center" style="border: 1px solid black">{{TenTinhTrang}}</td>
+								<td class="text-center" style="border: 1px solid black">
+									<a class="btn btn-primary btn-xs" href="/manageOrder/edit?ma={{KhachHang}}&ngay={{NgayDat}}" role="button">
+										<span class="glyphicon glyphicon-wrench"></span>
+									</a>
+								</td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<ul class="pagination">
+		{{#if isFirst}}
+		<li class="disabled"><a href="javascript:;" id="first" class="page-link">&laquo;</a></li>
+		{{else}}
+		<li><a href="?page=1">&laquo;</a></li>
+		{{/if}}
+
+		{{#each page_numbers}}
+		{{#if isCurPage}}
+		<li class="active"><a href="javascript:;">{{value}}</a></li>
+		{{else}}
+		<li><a href="?page={{value}}">{{value}}</a></li>
+		{{/if}}
+		{{/each}}
+
+		{{#if isLast}}
+		<li class="disabled"><a href="javascript:;" class="page-link" id="last">&raquo;</a></li>
+		{{else}}
+		<li><a href="?page={{last_page}}">&raquo;</a></li>
+		{{/if}}
+
+	</ul>
+
+{{/if}}
+
+{{#if isEdit}}
+	<script type="text/javascript">
+		swal("Đổi tình trạng hóa đơn thành công!", {
+			icon: "success",
+		});
+	</script>
+{{/if}}
+

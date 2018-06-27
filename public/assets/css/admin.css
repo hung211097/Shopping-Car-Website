@@ -19,6 +19,6 @@
 	right: 15px;
 }
 
-.glyphicon-ok, .glyphicon-remove, .TenDongXe-null, .TenHangXe-null, .TenXe-null, .MoTa-null, .XuatXu-null, .NhienLieu-null, .MauSac-null, .HopSo-null, .Gia-null, .Gia-format, .SoLuongTon-null, .SoLuongTon-format, .SoCua-null, .SoCua-format, .SoCho-null, .SoCho-format{
+.glyphicon-ok, .glyphicon-remove, .NgayNhan-null, .TenDongXe-null, .TenHangXe-null, .TenXe-null, .MoTa-null, .XuatXu-null, .NhienLieu-null, .MauSac-null, .HopSo-null, .Gia-null, .Gia-format, .SoLuongTon-null, .SoLuongTon-format, .SoCua-null, .SoCua-format, .SoCho-null, .SoCho-format{
   display: none;
 }

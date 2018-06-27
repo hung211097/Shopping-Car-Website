@@ -2,9 +2,6 @@ $(document).ready(function() {
   if ($(window).scrollTop() >= 86) {
     $('.modal-dialog').css('z-index', '9999 !important');
   }
-
-  document.SignIn.reset();
-  document.SignUp.reset();
 });
 
 function insert(str, index, value) {
@@ -14,10 +11,11 @@ function insert(str, index, value) {
 function AddToCarousel(id, ten, gia, contain) {
   var price = PriceToSring(gia);
   var boxHinh = $(contain);
+
   boxHinh.owlCarousel('add', `<div class="product-box">
     <div class="product-thumbnail">
       <a href="/products/detail/` + ten +`" title="` + ten + `">
-        <img src="/image/all/` + ten + `.jpg" alt="` + ten + `">
+        <img src="/image/all/`+ id + `/` + id + `_1.jpg" alt="` + ten + `" data-lazyload="/image/all/`+ id + `/` + id + `_1.jpg">
       </a>
       <div class="price-box clearfix">
         <div class="special-price">
@@ -65,7 +63,7 @@ function AddToCarousel(id, ten, gia, contain) {
         $('.OutofStock').show();
 
         var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-        hinh.attr('src', '/image/all/' + ten + '.jpg');
+        hinh.attr('src', '/image/all/'+ id + '/' + id + '_1.jpg');
         hinh.attr('alt', ten);
         $('#QuickBuy').find('.product-title').text(ten);
         $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
@@ -77,7 +75,7 @@ function AddToCarousel(id, ten, gia, contain) {
         $('.OutofStock').hide();
 
         var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-        hinh.attr('src', '/image/all/' + ten + '.jpg');
+        hinh.attr('src', '/image/all/'+ id + '/' + id + '_1.jpg');
         hinh.attr('alt', ten);
         $('#QuickBuy').find('.product-title').text(ten);
         $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
@@ -94,7 +92,7 @@ function AddBestSellProd(id, ten, gia) {
   var boxHinh = $('#BSell');
   boxHinh.owlCarousel('add', `<div class="prod-grid">
     <a href="javascript:;" title="` + ten + `">
-      <img src="/image/all/` + ten + `.jpg" data-lazyload="./image/BestSell/` + ten + `.jpg" alt="` + ten + `">
+      <img src="/image/all/`+ id + `/` + id + `_1.jpg" data-lazyload="/image/all/`+ id + `/` + id + `_1.jpg" alt="` + ten + `">
     </a>
     <div class="infoBestSell">
       <h3><a href="/products/detail/` + ten +`">` + ten + `</a></h3>
@@ -132,7 +130,7 @@ function AddBestSellProd(id, ten, gia) {
         $('.OutofStock').show();
 
         var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-        hinh.attr('src', '/image/all/' + ten + '.jpg');
+        hinh.attr('src', '/image/all/'+ id + '/' + id + '_1.jpg');
         hinh.attr('alt', ten);
         $('#QuickBuy').find('.product-title').text(ten);
         $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
@@ -144,7 +142,7 @@ function AddBestSellProd(id, ten, gia) {
         $('.OutofStock').hide();
 
         var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
-        hinh.attr('src', '/image/all/' + ten + '.jpg');
+        hinh.attr('src', '/image/all/'+ id + '/' + id + '_1.jpg');
         hinh.attr('alt', ten);
         $('#QuickBuy').find('.product-title').text(ten);
         $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
@@ -155,25 +153,6 @@ function AddBestSellProd(id, ten, gia) {
     });
   });
 }
-
-$('#SignUpNavBtn').on('click', function() {
-  document.SignUp.reset();
-});
-
-$('#SignInNavBtn').on('click', function() {
-  document.SignIn.reset();
-});
-
-$('#OptionBtn').on('click', function() {
-  document.SignUp.reset();
-  document.SignIn.reset();
-  document.ForgetPass.reset();
-});
-
-$('#OptionBtnForget').on('click', function() {
-  $('body').css('padding-right', '-17px !important');
-  document.ForgetPass.reset();
-});
 
 function PriceToSring(price) {
   var str = "" + price;
@@ -201,17 +180,6 @@ function IncreaseNumCar() {
   var dem = parseInt(cartcount.text());
   dem++;
   cartcount.text("" + dem);
-}
-
-function UpdateTotalPrice() {
-  var eachItem = $('input[name="eachTotalPrice"]');
-  var total = 0;
-  for (var i = 0; i < eachItem.length; i++) {
-    total += parseInt(eachItem[i].value);
-  }
-  $('input[name="totalprice"]').val(total);
-  total = PriceToSring(total);
-  $('.all-total-price').text(total);
 }
 
 $('input[name="search"]').bind('keypress', function(e) {

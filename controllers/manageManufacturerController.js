@@ -158,6 +158,8 @@ router.get('/add', (req, res) => {
     {
       maHangXeTangDan = 1;
     }
+    else if (parseInt(temp[0]) == 2)
+      maHangXeTangDan = 1;
     else
     {
       for (var i = 0; i < temp.length; i++)
@@ -236,14 +238,18 @@ router.get('/edit', (req, res) => {
             layout: 'layoutAdmin.handlebars'
         };
         res.render('admin/editManufacturer', vm);
-    });
+    }).catch(err => {
+    res.render('error/index', {layout: false});
+  });
 });
 
 router.post('/edit', (req, res) => {
     manageManufacturerRepo.update(req.body).then(value => {
         isEd = true;
         res.redirect('/manageManufacturer');
-    });
+    }).catch(err => {
+    res.render('error/index', {layout: false});
+  });
 });
 
 router.post('/delete', (req, res) => {

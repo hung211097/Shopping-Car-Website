@@ -244,7 +244,7 @@
               <div class="input-group">
                 <input type="text" id="findCollapse" class="form-control" placeholder="Tìm kiếm theo tên sản phẩm ..." name="search-input">
                 <div class="input-group-btn">
-                  <a href="search.html " class="btn btn-default" id="btn-Search-Collapse">
+                  <a href="search.html "class="btn btn-default" id="btn-Search-Collapse">
                     <i class="fas fa-search"></i>
                  </a>
                 </div>
@@ -372,7 +372,7 @@
         <div class="col-xs-12">
           <ul class="breadcrumb">
             <li><a href="index.html">Trang chủ</a></li>
-            <li>Đăng nhập tài khoản</li>
+            <li>Đăng ký tài khoản</li>
           </ul>
         </div>
       </div>
@@ -385,75 +385,84 @@
     <div class="container">
       <div class="intro-title">
         <h1 class="title-head">
-          ĐĂNG NHẬP TÀI KHOẢN
+          ĐĂNG KÝ TÀI KHOẢN
         </h1>
       </div>
       <div class="row">
-        <div class="col-lg-6">
-          <div class="page-login" style="margin-bottom: 30px">
+        <div class="col-lg-12 ">
+          <div class="page-login">
             <div id="login">
-              <span> Nếu bạn đã có tài khoản, đăng nhập tại đây</span>
-              <form id="customer_login" accept-charset="UTF-8" action="" method="post">
+              <span>Nếu chưa có tài khoản vui lòng đăng ký tại đây</span>
+              <form id="customer_register" accept-charset="UTF-8" action="" method="post">
                 <div class="form-signup clearfix">
-
-                  <fieldset class="form-group">
-                    <label for="account">Tên tài khoản
+                  <div class="row">
+                    <div class="col-md-6">
+                      <fieldset class="form-group">
+                        <label for="fullname">Họ và Tên
                           <span class="required">*</span>
                         </label>
-                    <div class="form-group form-account has-feedback" style="margin-bottom: 0px">
-                      <input type="text" name="account" id="account" value="" class="form-control form-control-lg">
-                      <p class="help-block account-null">Vui lòng điền thông tin vào đây!</p>
-                      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-                      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        <div class="form-group form-name has-feedback">
+                          <input type="text" name="fullname" id="fullname"  value="" class="form-control form-control-lg">
+                          <p class="help-block name-null">Vui lòng điền thông tin vào đây!</p>
+                          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                      </fieldset>
                     </div>
-                  </fieldset>
-
-
-                  <fieldset class="form-group">
-                    <label for="password">Mật khẩu
-                      <span class="required">*</span>
-                    </label>
-                    <div class="form-group form-password has-feedback">
-                      <input type="text" name="password" id="password" value="" class="form-control form-control-lg">
-                      <p class="help-block password-null">Vui lòng điền thông tin vào đây!</p>
-                      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-                      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                    <div class="col-md-6">
+                      <fieldset class="form-group">
+                        <label for="account">Tên tài khoản
+                          <span class="required">*</span>
+                        </label>
+                        <div class="form-group form-account has-feedback">
+                          <input type="text" name="account" id="account"  value="" class="form-control form-control-lg">
+                          <p class="help-block account-null">Vui lòng điền thông tin vào đây!</p>
+                          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                      </fieldset>
                     </div>
-                  </fieldset>
+                  </div>
 
-                  <div class="pull-xs-left" style="margin-top: 25px">
-                    <button type="button" class="btn btn-primary" id="loginBtn">Đăng nhập</button>
-                    <p style="margin-top: 15px;">Nếu bạn chưa có tài khoản, hãy <a href="signin.html" id="toRegister">Đăng ký</a></p>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <fieldset class="form-group">
+                        <label for="email">Email
+                          <span class="required">*</span>
+                        </label>
+                        <div class="form-group form-email has-feedback">
+                          <input type="text" name="email" id="email"  value="" class="form-control form-control-lg">
+                          <p class="help-block email-format">Hãy nhập đúng định dạng email!</p>
+                          <p class="help-block email-null">Vui lòng điền thông tin vào đây!</p>
+                          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                      </fieldset>
+                    </div>
+
+                    <div class="col-md-6">
+                      <fieldset class="form-group">
+                        <label for="password">Mật khẩu
+                          <span class="required">*</span>
+                        </label>
+                        <div class="form-group form-password has-feedback">
+                          <input type="text" name="password" id="password"  value="" class="form-control form-control-lg">
+                          <p class="help-block password-null">Vui lòng điền thông tin vào đây!</p>
+                          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                      </fieldset>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 text-xs-left" style="margin-top:10px; padding: 0; margin-bottom: 30px">
+                    <button type="button" class="btn btn-primary" id="registerBtn">Đăng ký</button>
+                    <p style="margin-top: 15px;">Nếu bạn có tài khoản, hãy <a href="login.html" id="toLogin">Đăng nhập</a></p>
                   </div>
                 </div>
               </form>
             </div>
           </div>
         </div>
-
-        <div class="col-lg-6">
-          <div id="recover-password" class="form-signup">
-            <span>Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu qua email.</span>
-            <form id="recover_customer_password" accept-charset="UTF-8" action="" method="post">
-              <fieldset class="form-group">
-                <label for="email">Email
-                      <span class="required">*</span>
-                    </label>
-                <div class="form-group form-email has-feedback">
-                  <input type="text" name="email" id="email" value="" class="form-control form-control-lg">
-                  <p class="help-block email-format">Hãy nhập đúng định dạng email!</p>
-                  <p class="help-block email-null">Vui lòng điền thông tin vào đây!</p>
-                  <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-                  <span class="glyphicon glyphicon-remove form-control-feedback"></span>
-                </div>
-              </fieldset>
-              <div>
-                <button type="button" class="btn btn-primary" id="forgetBtn" style="margin-top: 20px;">Lấy lại mật khẩu</button>
-              </div>
-            </form>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
@@ -561,7 +570,7 @@
   <script type="text/javascript" src="./assets/sweetalert.min.js"></script>
   <!-- <script type="text/javascript" src="./map.js"></script> -->
   <script type="text/javascript" src="./assets/fontawesome-all.js"></script>
-  <script type="text/javascript" src="./assets/js/loginGuest.js"></script>
+  <script type="text/javascript" src="./assets/js/register.js"></script>
 
 </body>
 

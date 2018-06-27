@@ -2,19 +2,6 @@ $(document).ready(function() {
   if ($(window).scrollTop() >= 86) {
     $('.modal-dialog').css('z-index', '9999 !important');
   }
-<<<<<<< HEAD
-  // sessionStorage.removeItem('count');
-  if (!sessionStorage.count)
-    sessionStorage.count = 0;
-  var dem = $(document).find('.cartCount');
-  dem.text("" + sessionStorage.count);
-
-  var dem = $(document).find('.cartCount');
-  dem.text("" + sessionStorage.count);
-
-
-=======
->>>>>>> TaNguyenHung
 
   document.SignIn.reset();
   document.SignUp.reset();
@@ -36,18 +23,10 @@ function AddMoreImage(x, count) {
     image.attr('alt',  x);
   });
 }
-
 <<<<<<< HEAD
-
-
-
-
-$('.btn-cart').on('click', function() {
-  $(this).blur();
-});
-
 =======
->>>>>>> TaNguyenHung
+
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 $('.qtyminus').on('click', function() {
   var temp = $('#qty').val();
   if(temp > 1)
@@ -117,7 +96,11 @@ function AddToCarousel(id, ten, gia, contain) {
   boxHinh.owlCarousel('add', `<div class="product-box">
     <div class="product-thumbnail">
       <a href="/products/detail/` + ten +`" title="` + ten + `">
+<<<<<<< HEAD
+        <img src="/image/all/`+ ten + `/` + ten + `_1.jpg" alt="` + ten + `" data-lazyload="/image/all/`+ ten + `/` + ten + `_1.jpg">
+=======
         <img src="/image/all/` + ten + `.jpg" alt="` + ten + `">
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
       </a>
       <div class="price-box clearfix">
         <div class="special-price">
@@ -153,7 +136,10 @@ function AddToCarousel(id, ten, gia, contain) {
 
   boxHinh.find('.owl-nav').removeClass('disabled');
   $('a[name="'+contain+'-button-Buy-' + ten + '"]').on('click', function() {
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
     var form = $(this).parents('form');
     $.ajax({
       type: 'POST',
@@ -166,7 +152,11 @@ function AddToCarousel(id, ten, gia, contain) {
         $('.OutofStock').show();
 
         var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+<<<<<<< HEAD
+        hinh.attr('src', '/image/all/'+ ten + '/' + ten + '_1.jpg');
+=======
         hinh.attr('src', '/image/all/' + ten + '.jpg');
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
         hinh.attr('alt', ten);
         $('#QuickBuy').find('.product-title').text(ten);
         $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
@@ -178,7 +168,11 @@ function AddToCarousel(id, ten, gia, contain) {
         $('.OutofStock').hide();
 
         var hinh = $('#QuickBuy').find('div.thumb-1x1').find('img');
+<<<<<<< HEAD
+        hinh.attr('src', '/image/all/'+ ten + '/' + ten + '_1.jpg');
+=======
         hinh.attr('src', '/image/all/' + ten + '.jpg');
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
         hinh.attr('alt', ten);
         $('#QuickBuy').find('.product-title').text(ten);
         $('#QuickBuy').find('input[name="product-new-price"]').val(gia);
