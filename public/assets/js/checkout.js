@@ -60,6 +60,7 @@ $('.btn-checkout').on('click', function() {
   if ($('input[name="phone"]').val() == "" || $('input[name="address"]').val() == "") {
     correct = false;
     inform.html('<li>Hãy điền đầy đủ thông tin vào form!</li>');
+    event.preventDefault();
   }
 
   if (correct) {

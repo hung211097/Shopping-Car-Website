@@ -82,39 +82,8 @@ router.post('/', restrict, (req, res) => {
         checkoutRepo.decreaseCar(chitiethoadon);
     }
     
-    var arr_p = [];
-    for (var i = 0; i < req.session.cart.length; i++) {
-      var cartItem = req.session.cart[i];
-      var p = productRepo.single(cartItem.ProId);
-      arr_p.push(p);
-    }
-    var items = [];
-    checkoutRepo.loadShipFee().then(Fee => {
-      Promise.all(arr_p).then((result) => {
-        for (var i = 0; i < result.length; i++) {
-          var pro = result[i][0];
-          pro.Quantity = req.session.cart[i].Quantity;
-          pro.Amount = pro.Gia * req.session.cart[i].Quantity;
-          if(pro.Gia > FreeShip)
-            Fee[0].PhiVanChuyen = 0;
-          pro.index = i;
-          items.push(pro);
-        }
-
-        var total = 0;
-        for (var i = 0; i < items.length; i++)
-          total += items[i].Amount;
-        var vm = {
-          items: items,
-          tempTotal: total,
-          fee: Fee[0].PhiVanChuyen,
-          Total: Fee[0].PhiVanChuyen + total,
-          isScroll: items.length === 5,
-          layout: 'checkoutLayout.handlebars'
-        };
-        res.render('checkout/index', vm);
-      });
-    });
+    req.session.cart = [];
+    res.redirect('UserInfo/History');
 });
 
 module.exports = router;

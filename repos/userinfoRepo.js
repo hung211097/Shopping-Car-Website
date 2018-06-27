@@ -15,3 +15,27 @@ exports.updateEmail = user => {
     return db.save(sql);
 }
 
+exports.selectHoaDon = user => {
+    var sql = `select * from hoadon where KhachHang = '${user}'`;
+    return db.save(sql);
+}
+
+exports.countHoaDon = user => {
+    var sql = `select count(*) as total from hoadon where KhachHang = '${user}'`;
+    return db.load(sql);
+}
+
+exports.selectDetail = user => {
+    var sql = `select * from chitiethoadon, xe where KhachHang = '${user.KhachHang}' and NgayDat = '${user.NgayDat}' and chitiethoadon.MaXe = xe.MaXe`;
+    return db.load(sql);
+}
+
+exports.countDetail = user => {
+    var sql = `select count(*) as total from chitiethoadon, xe where KhachHang = '${user.KhachHang}' and NgayDat = '${user.NgayDat}' and chitiethoadon.MaXe = xe.MaXe`;
+    return db.load(sql);
+}
+
+exports.selectCar = user => {
+    var sql = `select * from xe where MaXe = '${user}'`;
+    return db.load(sql);
+}

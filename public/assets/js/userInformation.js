@@ -246,14 +246,18 @@ $('.billDetailBtn').on('click', function(){
                                   .trigger('refresh.owl.carousel');
     }
     
-    if ($(this).text() === '#001')
-    {
-        AddDetail('Aston Martin DB11', '4829000000');  
-        AddDetail('BMW 4 Series Convertible', '1116000000');
-    }
-    else
-    {
-        AddDetail('Chevrolet Camaro LS 2017', '3200000000');
-    }
+    var index = $(this).text();
+    
+    //alert($(this).parent().parent().find('td:nth-child(3)').text());
+    //alert($('#tenhoadon0_0').val());
+//    if ($(this).text() === '#001')
+//    {
+//        AddDetail('Aston Martin DB11', '4829000000');  
+//        AddDetail('BMW 4 Series Convertible', '1116000000');
+//    }
+//    else
+//    {
+//        AddDetail('Chevrolet Camaro LS 2017', '3200000000');
+//    }
 });
 
