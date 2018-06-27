@@ -36,7 +36,7 @@
 
 	<link href="/css/style.css" rel="stylesheet">
 	<link href="/css/style-responsive.css" rel="stylesheet" />
-	{{!-- <link rel="stylesheet" href="/assets/css/responsive.css"> --}}
+	<link rel="stylesheet" href="/assets/css/responsive.css">
 	<link rel="stylesheet" href="/assets/css/animate.css">
 	<link rel="stylesheet" href="/assets/hover/css/hover-min.css">
 
@@ -57,7 +57,7 @@
 				<div class="fa fa-bars tooltips" id="switchAside" data-placement="right" data-original-title="Toggle Navigation"></div>
 			</div>
 			<!--logo start-->
-			<a href="admin.html" class="logo">Dream<span>Car</span></a>
+			<a href="/dashboard" class="logo">Dream<span>Car</span></a>
 			<!--logo end-->
 			<div class="top-nav ">
 				<!--search & user info start-->
@@ -90,7 +90,7 @@
 				<!-- sidebar menu start-->
 				<ul class="sidebar-menu" id="nav-accordion">
 					<li>
-						<a href="admin.html">
+						<a {{{_sections.activeDashboard}}}href="/dashboard">
 							<i class="fa fa-dashboard"></i>
 							<span>Dashboard</span>
 						</a>
