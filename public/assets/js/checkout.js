@@ -1,9 +1,4 @@
 $(document).ready(function() {
-  $('.phone-null').hide();
-  $('.address-null').hide();
-  $('.glyphicon-ok').hide();
-  $('.glyphicon-remove').hide();
-
   if ($('input[name="phone"]').val() != "") {
     $(this).parent().removeClass('has-error');
     $(this).parent().addClass('has-success');

@@ -37,11 +37,11 @@ exports.single = (ma) => {
 }
 
 exports.update = (object) => {
-    var sql = `update xe set TenXe = "${object.TenXe}" where MaXe = "${object.MaXe}"`;
+    var sql = `update xe set TenXe = '${object.TenXe}', Gia = ${object.Gia}, HangXe = '${object.HangXe}', DongXe = '${object.DongXe}', NgayNhan = '${object.NgayNhan}', SoLuongTon = ${object.SoLuongTon}, MoTa = '${object.MoTa}', XuatXu = '${object.XuatXu}', NhienLieu = '${object.NhienLieu}', MauSac = '${object.MauSac}', HopSo = '${object.HopSo}', SoCua = ${object.SoCua}, SoCho = ${object.SoCho} where MaXe = '${object.MaXe}'`;
     return db.save(sql);
 }
 
-exports.add = user => {
-    var sql = `insert into xe(MaXe, TenXe, HangXe, DongXe, Gia, XuatXu, MoTa, NhienLieu, HopSo, MauSac, SoCua, SoCho, SoLuotXem, SoLuongBan, NgayNhan, SoLuongTon) values('${user.username}', '${user.password}', '${user.name}', '${user.email}', '${user.dob}', ${user.permission})`;
+exports.add = (object) => {
+    var sql = `insert into xe(MaXe, TenXe, HangXe, DongXe, Gia, XuatXu, MoTa, NhienLieu, HopSo, MauSac, SoCua, SoCho, SoLuotXem, SoLuongBan, NgayNhan, SoLuongTon) values('${object.MaXe}', '${object.TenXe}', '${object.HangXe}', '${object.DongXe}', ${object.Gia}, '${object.XuatXu}', '${object.MoTa}', '${object.NhienLieu}', '${object.HopSo}', '${object.MauSac}', ${object.SoCua}, ${object.SoCho}, 0, 0, '${object.NgayNhan}', ${object.SoLuongTon})`;
     return db.save(sql);
 }

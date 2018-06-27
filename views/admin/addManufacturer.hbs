@@ -7,18 +7,17 @@
 		</div>
 	</div>
 	<div class="panel-body" id="pad-bot">
-		<form action="" method="POST" role="form">
+		<form action="" method="POST" role="form" enctype="multipart/form-data">
 			<legend>Thông tin chung</legend>
 			<div class="row" id="input">
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<div class="row">
-						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 							<label>Chọn hình ảnh hãng xe:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-							<input type="file" id="i_file"/>
+							<input type="file" name="photos" value="" required>
+							<small class="form-text text-muted">Chỉ có thể chọn 1 ảnh</small>
 						</div>
-					</div>
 				</div>
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 					<div class="row">
@@ -26,7 +25,7 @@
 							<label>Mã hãng xe:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-							<input type="text" class="form-control" value="{{maTangDan}}" readonly>
+							<input type="text" name="MaHangXe" class="form-control" value="{{maTangDan}}" readonly>
 						</div>
 					</div>
 				</div>
@@ -69,3 +68,10 @@
 	</div>
 </div>
 
+{{#if isAdd}}
+	<script type="text/javascript">
+		swal("Thêm hãng xe mới vào danh sách thành công!", {
+			icon: "success",
+		});
+	</script>
+{{/if}}

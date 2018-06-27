@@ -1,0 +1,268 @@
+{{#section 'title'}}
+  <title>Thanh toán</title>
+{{/section}}
+
+<div class="banner">
+  <div class="wrap">
+    <div class="shop logo logo--left ">
+      <h1 class="shop_name">
+        <a href="/home">Dream Car</a>
+      </h1>
+    </div>
+  </div>
+</div>
+<div class="order-summary-toggle">
+  <div class="wrap">
+    <h2>
+      <label class="control-label">Đơn hàng</label>
+      <label class="control-label hidden-small-device">({{layoutVM.cartCount}} sản phẩm)</label>
+      <label class="control-label visible-small-device inline">({{layoutVM.cartCount}})</label>
+    </h2>
+    <!-- <a  class="underline-none expandable pull-right" href="javascript:;">Xem chi tiết</a> -->
+  </div>
+</div>
+<form class="content stateful-form formCheckout" action="" method="post" data-toggle="validator">
+  <div class="wrap infoCheckout">
+    <div class="sidebar">
+      <div class="sidebar_header">
+        <h2>
+          <label class="control-label">Đơn hàng</label>
+          <label class="control-label">({{layoutVM.cartCount}} sản phẩm)</label>
+        </h2>
+        <hr class="full_width">
+      </div>
+      <div class="sidebar__content">
+        <div class="order-summary order-summary--product-list order-summary--is-collapsed">
+          <div class="summary-body summary-section summary-product order-summary--is-scrollable">
+            <div class="summary-product-list">
+              <table class="product-table">
+                <tbody>
+                  {{#each items}}
+                    <tr class="product product-has-image clearfix">
+                      <td class="product-img">
+                        <div class="product-thumbnail">
+                          <div class="product-thumbnail__wrapper">
+<<<<<<< HEAD
+                            <img class="product-thumbnail__image" src="/image/all/{{MaXe}}/{{MaXe}}_1.jpg" alt="{{TenXe}}">
+                          </div>
+                          <span class="product-thumbnail__quantity">{{Quantity}}</span>
+                          <input type="hidden" name="proQuant{{index}}" value="{{Quantity}}">
+                        </div>
+                      </td>
+                      <td class="product-info">
+                        <input type="hidden" name="proId{{index}}" value="{{MaXe}}">
+=======
+<<<<<<< HEAD
+                            <img class="product-thumbnail__image" src="/image/all/{{TenXe}}/{{TenXe}}_1.jpg" alt="{{TenXe}}">
+=======
+                            <img class="product-thumbnail__image" src="/image/all/{{TenXe}}.jpg" alt="{{TenXe}}">
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+                          </div>
+                          <span class="product-thumbnail__quantity">{{Quantity}}</span>
+                        </div>
+                      </td>
+                      <td class="product-info">
+                        <input type="hidden" name="proId" value="{{MaXe}}">
+>>>>>>> origin/NgHuynh
+                        <span class="product-info-name">
+                            {{TenXe}}
+                          </span>
+                      </td>
+                      <td class="product-price text-right">
+                        {{number_format Gia}}
+                      </td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+              {{#if isScroll}}
+                <div class="order-summary__scroll-indicator">
+                  Cuộn chuột để xem thêm
+                  <i class="fas fa-arrow-down"></i>
+                </div>
+              {{/if}}
+            </div>
+          </div>
+          <hr class="m0">
+        </div>
+        <div class="order-summary order-summary--total-lines">
+          <div class="summary-section border-top-none--mobile">
+            <div class="total-line total-line-subtotal clearfix">
+              <input type="hidden" name="tempTotal" value="{{tempTotal}}">
+              <span class="total-line-name pull-left">Tạm tính</span>
+              <span class="total-line-subprice pull-right">{{number_format tempTotal}}</span>
+            </div>
+            <div class="total-line total-line-shipping clearfix">
+              <input type="hidden" name="ShippingFee" value="{{fee}}">
+              <span class="total-line-name pull-left">Phí vận chuyển</span>
+              <span class="total-line-shipping pull-right">{{number_format fee}}</span>
+            </div>
+            <div class="total-line total-line-total clearfix">
+              <span class="total-line-name pull-left">Tổng cộng</span>
+              <input type="hidden" name="TotalPrice" value="{{Total}}">
+              <span class="total-line-price pull-right">{{number_format Total}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group clearfix hidden-sm hidden-xs">
+          <div class="field__input-btn-wrapper mt10">
+            <a href="/cart" class="previous-link">
+              <i class="fa fa-angle-left fa-lg"></i>
+              <span>Quay về giỏ hàng</span>
+            </a>
+
+            <button class="btn btn-primary btn-checkout" data-loading-text="Đang xử lý" type="button" name="button">ĐẶT HÀNG</button>
+          </div>
+        </div>
+        <div class="form-group has-error">
+          <div class="help-block">
+            <ul class="list-unstyled">
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main" role="main">
+      <div class="main_header">
+        <div class="shop logo logo--left ">
+          <h1 class="shop__name">
+            <a href="/home">Dream Car</a>
+          </h1>
+        </div>
+      </div>
+      <div class="main_content">
+        <div class="row">
+          <div class="col-md-6 col-lg-6">
+            <div class="section">
+              <div class="section__header">
+                <div class="layout-flex layout-flex--wrap">
+                  <h2 class="section__title layout-flex__item layout-flex__item--stretch">
+                    <i class="far fa-id-card fa-lg hidden-md hidden-lg"></i>
+                    <label class="control-label">Thông tin mua hàng</label>
+                  </h2>
+                </div>
+              </div>
+              <div class="section__content">
+<<<<<<< HEAD
+<<<<<<< HEAD
+                <div class="form-group form-email has-feedback">
+                  <input type="text" name="email" placeholder="Email (bắt buộc)" value="" class="field__input form-control">
+=======
+                <div class="form-group form-email has-feedback">
+<<<<<<< HEAD
+                  <input type="text" name="email" placeholder="Email (bắt buộc)" value="" class="field__input form-control">
+=======
+                  <input type="text" name="email" required placeholder="Email (bắt buộc)" value="" class="field__input form-control">
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+>>>>>>> origin/NgHuynh
+                  <p class="help-block email-format">Hãy nhập đúng định dạng email!</p>
+                  <p class="help-block email-null">Vui lòng điền thông tin vào đây!</p>
+                  <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                  <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+
+                <div class="form-group form-name has-feedback">
+                  <input type="text" name="fullname" placeholder="Họ và Tên (bắt buộc)" value="" class="field__input form-control">
+                  <p class="help-block name-null">Vui lòng điền thông tin vào đây!</p>
+                  <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                  <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+<<<<<<< HEAD
+=======
+>>>>>>> origin/NTHung
+=======
+>>>>>>> origin/NgHuynh
+
+                <div class="form-group form-phone has-feedback">
+                  <input type="text" name="phone" placeholder="Số điện thoại (bắt buộc)" value="" class="field__input form-control">
+                  <p class="help-block phone-null">Vui lòng điền thông tin vào đây!</p>
+                  <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                  <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+
+                <div class="form-group form-address has-feedback">
+                  <input type="text" name="address" placeholder="Địa chỉ (bắt buộc)" value="" class="field__input form-control">
+                  <p class="help-block address-null">Vui lòng điền thông tin vào đây!</p>
+                  <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                  <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+
+                <textarea name="note" rows="8" cols="80" placeholder="Ghi chú" class="field__input form-control"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <div class="section shipping-method">
+              <div class="section__header">
+                <h2 class="section__title">
+                  <i class="fas fa-truck fa-lg hidden-md hidden-lg"></i>
+
+                  <label class="control-label">Vận chuyển</label>
+                </h2>
+              </div>
+              <div class="section__content">
+                <div class="content-box">
+                  <div class="content-box__row">
+                    <div class="radio-wrapper">
+                      <div class="radio__input">
+                        <input type="radio" checked class="input-radio" id="shipping" name="shippingMethod" value="">
+                      </div>
+                      <label for="shipping" class="radio__label">
+                        <span class="radio__label__primary">Giao hàng tận nơi</span>
+                        <span class="radio__label__accessory">
+                          <span class="content-box__emphasis">{{number_format fee}}</span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section payment-methods">
+              <div class="section__header">
+                <h2 class="section__title">
+                  <i class="far fa-credit-card fa-lg hidden-md hidden-lg"></i>
+                  <label class="control-label">Thanh toán</label>
+                </h2>
+              </div>
+              <div class="section__content">
+                <div class="content-box">
+                  <div class="content-box__row">
+                    <div class="radio-wrapper">
+                      <div class="radio__input">
+                        <input type="radio" checked class="input-radio" id="payment" name="paymentMethod" value="">
+                      </div>
+                      <label for="payment" class="radio__label">
+                        <span class="radio__label__primary">Thanh toán khi giao hàng (COD)</span>
+                        <span class="radio__label__accessory">
+                          <span class="payment-icon-v2 ">
+                            <i class="far fa-money-bill-alt payment-icon-fa"></i>
+                          </span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="section hidden-md hidden-lg">
+              <div class="form-group clearfix m0">
+                <button class="btn btn-primary btn-checkout" data-loading-text="Đang xử lý" type="button" name="button">ĐẶT HÀNG</button>
+              </div>
+              <div class="text-center mt20">
+                <a href="/cart" class="previous-link">
+                  <i class="fa fa-angle-left fa-lg"></i>
+                  <span>Quay về giỏ hàng</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main_footer footer unprint">
+        <div class="mt10"></div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -19,6 +19,9 @@ var cartController = require('./controllers/cartController');
 var checkoutController = require('./controllers/checkoutController');
 var accountController = require('./controllers/accountController');
 var userinfoController = require('./controllers/userinfoController');
+var manageCarController = require('./controllers/manageCarController');
+var manageKindOfCarController = require('./controllers/manageKindOfCarController');
+var manageManufacturerController = require('./controllers/manageManufacturerController');
 
 var app = express();
 
@@ -90,7 +93,9 @@ app.use('/search', searchController);
 app.use('/cart', cartController);
 app.use('/checkout', checkoutController);
 app.use('/UserInfo', userinfoController);
-
+app.use('/manageCar', manageCarController);
+app.use('/manageKindOfCar', manageKindOfCarController);
+app.use('/manageManufacturer', manageManufacturerController);
 
 
 app.use(handle404MDW);

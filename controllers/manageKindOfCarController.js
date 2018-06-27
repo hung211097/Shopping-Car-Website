@@ -2,8 +2,31 @@ var express = require('express');
 var manageKindOfCarRepo = require('../repos/manageKindOfCarRepo');
 var manageCarRepo = require('../repos/manageCarRepo');
 var config = require('../config/config');
+var multer = require('multer');
+var mkdirp = require('mkdirp');
+var fs = require('fs');
 var router = express.Router();
 
+const tempContain = './public/image/temp/';
+const newContain = './public/image/type/';
+const pathToImage = '/image/type/';
+var storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+
+    const dir = './public/image/temp';
+    mkdirp(dir, err => cb(err, dir))
+  },
+  filename: function(req, file, cb) {
+    var name = file.originalname;
+    cb(null, name);
+  }
+})
+
+var upload = multer({
+  storage: storage
+});
+
+var isAd = false;
 var isEd = false;
 var isDel = false;
 var isDelFalse = false;
@@ -170,12 +193,40 @@ router.get('/add', (req, res) => {
       maDongXeTangDan = "T" + maDongXeTangDan;
     var vm = {
       maTangDan: maDongXeTangDan,
+      isAdd: isAd,
       layout: 'layoutAdmin.handlebars'
     }
+    if(isAd)
+          isAd = false;
     res.render('admin/addKindOfCar', vm);
   }).catch(err => {
     res.render('error/index', {layout: false});
   });
+});
+
+router.post('/add', upload.single('photos'), (req, res) => {
+  var file = req.file;
+  var name = req.body.MaDongXe;
+    var currentPath = file.path;
+    var extension = file.filename.substr(file.filename.indexOf('.'));
+    var renameFile_path = newContain + name + extension;
+
+    fs.rename(currentPath, renameFile_path, function(err) {
+      if (err) throw err;
+      // delete the temporary file, so that the explicitly set temporary upload dir does not get filled with unwanted files
+      fs.unlink(currentPath, function() {
+        if (err) throw err;
+      });
+    });
+
+  req.body.DuongDan = pathToImage + name + extension;
+  manageKindOfCarRepo.add(req.body).then(value => {
+    isAd = true;
+    res.redirect('/manageKindOfCar/add');
+  }).catch(err => {
+    res.render('error/index', {layout: false});
+  });
+
 });
 
 router.get('/edit', (req, res) => {
