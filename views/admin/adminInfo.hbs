@@ -1,0 +1,62 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<h3 class="panel-title" style="color: white"></h3>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body" id="pad-bot">
+		<form action="" method="POST" role="form" enctype="multipart/form-data">
+			<legend>Thông tin chung</legend>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Username:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<h3 class="panel-title" style="text-align: center">     
+								{{layoutVM.curAdmin.Username}}                           
+							</h3> 
+						</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Password:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<h3 class="panel-title" style="text-align: center">     
+								********                           
+							</h3> 
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Họ tên:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<h3 class="panel-title" style="text-align: center">     
+								{{layoutVM.curAdmin.Name}}                           
+							</h3> 
+						</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Email:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<h3 class="panel-title" style="text-align: center">     
+								{{layoutVM.curAdmin.Email}}                           
+							</h3> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

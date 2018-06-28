@@ -1,3 +1,4 @@
+var restrict = require('../middle-wares/restrictAdmin');
 var moment = require('moment');
 var express = require('express');
 var manageCarRepo = require('../repos/manageCarRepo');
@@ -34,7 +35,7 @@ var isEd = false;
 var isAd = false;
 var isDel = false;
 var isDelFalse = false;
-router.get('/', (req, res) => {
+router.get('/', restrict, (req, res) => {
   var page = req.query.page;
   if (!page) {
       page = 1;
@@ -151,7 +152,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/add', (req, res) => {
+router.get('/add', restrict, (req, res) => {
   var p1 = manageManufacturerRepo.loadAllManufacturerNoOffset();
   var p2 = manageKindOfCarRepo.loadAllKindOfCarNoOffset();
   var p3 = manageCarRepo.loadAllCarNoOffset();
@@ -281,7 +282,7 @@ router.post('/add', upload.array('photos'), (req, res) => {
 
 
 
-router.get('/edit', (req, res) => {
+router.get('/edit', restrict, (req, res) => {
   var p1 = manageCarRepo.single(req.query.ma);
   var p2 = manageManufacturerRepo.loadAllManufacturerNoOffset();
   var p3 = manageKindOfCarRepo.loadAllKindOfCarNoOffset();

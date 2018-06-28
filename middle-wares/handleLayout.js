@@ -6,6 +6,10 @@ module.exports = (req, res, next) => {
     req.session.isLogged = false;
   }
 
+  if (req.session.isAdminLogged === undefined) {
+    req.session.isAdminLogged = false;
+  }
+
 	if (req.session.cart === undefined) {
     req.session.cart = [];
   }
@@ -19,7 +23,9 @@ module.exports = (req, res, next) => {
     res.locals.layoutVM = {
       cartCount: dem,
       isLogged: req.session.isLogged,
+      isAdminLogged: req.session.isAdminLogged,
       curUser: req.session.user,
+      curAdmin: req.session.admin,
       topNSX: NSXRows,
       topType: TypeRows
     };

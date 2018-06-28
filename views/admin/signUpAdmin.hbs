@@ -1,19 +1,19 @@
 <div class="container">
 
-  <form class="form-signin" action="/loginAdmin" method="POST" role="form">
+  <form class="form-signin" action="" method="POST" role="form" onsubmit="return validate();">
     <h2 class="form-signin-heading">Tạo tài khoản Admin</h2>
     <div class="login-wrap">
       <span class="pull-left">Nhập username:</span>
-      <input type="text" class="form-control" placeholder="Username" autofocus required>
+      <input type="text" class="form-control" name="Username" placeholder="Username" value="{{#if showError}}{{User.username}}{{/if}}"autofocus required>
       <span class="pull-left">Nhập password:</span>
-      <input type="password" class="form-control" placeholder="Password"required>
+      <input type="password" class="form-control" id="txtPWD"name="Password" placeholder="Password" required>
       <span class="pull-left">Nhập lại password:</span>
-      <input type="password" class="form-control" placeholder="Re-Password"required>
+      <input type="password" class="form-control" id="txtCPWD"placeholder="Re-Password" required>
       <span class="pull-left">Nhập họ và tên:</span>
-      <input type="password" class="form-control" placeholder="Họ và tên"required>
+      <input type="text" class="form-control" name="Name" placeholder="Họ và tên" value="{{#if showError}}{{User.name}}{{/if}}" required>
       <span class="pull-left">Nhập email:</span>
-      <input type="password" class="form-control" placeholder="Email"required>
-      <button class="btn btn-lg btn-login btn-block" type="submit">Đăng nhập</button>
+      <input type="text" class="form-control" name="Email" placeholder="Email" value="{{#if showError}}{{User.email}}{{/if}}" required>
+      <button class="btn btn-lg btn-login btn-block" type="submit">Đăng ký</button>
       <div class="registration">
         Bạn đã có tài khoản Admin?
         <a class="" href="/loginAdmin">
@@ -25,3 +25,22 @@
   </form>
 
 </div>
+{{#if showError}}
+  <script type="text/javascript">
+          swal("Username đã tồn tại!", {
+            icon: "error",
+          });            
+  </script>
+{{/if}}
+
+  <script type="text/javascript">
+    var validate = function() {
+        if ($('#txtPWD').val() !== $('#txtCPWD').val()) {
+          swal("Password nhập lại không trùng khớp!", {
+            icon: "error",
+          });            
+          return false;
+        }
+        return true;
+    }
+  </script>

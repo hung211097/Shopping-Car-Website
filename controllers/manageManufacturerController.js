@@ -1,4 +1,5 @@
 var express = require('express');
+var restrict = require('../middle-wares/restrictAdmin');
 var manageManufacturerRepo = require('../repos/manageManufacturerRepo');
 var manageCarRepo = require('../repos/manageCarRepo');
 var config = require('../config/config');
@@ -30,7 +31,7 @@ var isAd = false;
 var isEd = false;
 var isDel = false;
 var isDelFalse = false;
-router.get('/', (req, res) => {
+router.get('/', restrict, (req, res) => {
   var page = req.query.page;
   if (!page) {
       page = 1;
@@ -144,7 +145,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/add', (req, res) => {
+router.get('/add', restrict, (req, res) => {
   var p1 = manageManufacturerRepo.loadAllManufacturerNoOffset().then(rowsManufacturer => {
     var maHangXeTangDan;
     var temp = [];
@@ -231,7 +232,7 @@ router.post('/add', upload.single('photos'), (req, res) => {
 
 });
 
-router.get('/edit', (req, res) => {
+router.get('/edit', restrict, (req, res) => {
     manageManufacturerRepo.single(req.query.ma).then(row => {
         var vm = {
             product: row,

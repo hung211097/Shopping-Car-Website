@@ -4,9 +4,36 @@
   }
 }
 
+@media screen and (max-width: 1350px) {
+  .title-dashboard{
+    left: 380px !important;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .title-dashboard{
+    top: 35px;
+    left: 350px !important;
+  }
+
+  .title-dashboard h1 {
+      font-size: 70px !important;
+  }
+}
+
 @media screen and (max-width: 1280px) {
   .right-top-head {
     padding-top: 37px;
+  }
+
+  .title-dashboard{
+    left: 330px !important;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .title-dashboard{
+    left: 300px !important;
   }
 }
 
@@ -22,14 +49,19 @@
   .search-main .products-view-grid .col-lg-3:nth-child(4n+1) {
       clear: none;
   }
+
+  .title-dashboard{
+    left: 270px !important;
+  }
 }
 
-@media screen and (max-width: 1100px) {
-  #SignUpModal .modal-dialog,
-  #SignInModal .modal-dialog,
-  #ForgetPassModal .modal-dialog
-  {
-    width: 50%;
+@media screen and (max-width: 1065px) {
+  .title-dashboard{
+    left: 240px !important;
+  }
+
+  .title-dashboard h1 {
+      font-size: 60px !important;
   }
 }
 
@@ -101,7 +133,36 @@
       clear: left;
   }
 
+  .title-dashboard{
+    left: 220px !important;
+  }
 }
+
+
+@media screen and (max-width: 940px) {
+  .title-dashboard{
+    left: 210px !important;
+  }
+}
+
+
+@media screen and (max-width: 880px) {
+  .title-dashboard{
+    top: 40px !important;
+    left: 200px !important;
+  }
+
+  .title-dashboard h1 {
+      font-size: 50px !important;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .title-dashboard{
+    left: 165px !important;
+  }
+}
+
 
 @media screen and (max-width: 770px) {
   .right-nav-text {
@@ -167,11 +228,19 @@
   {
     width: 100%;
   }
+
+  .title-dashboard{
+    left: 250px !important;
+  }
 }
 
 @media screen and (max-width: 740px) {
   #newestCar {
     height: 468px;
+  }
+
+  .title-dashboard{
+    left: 220px !important;
   }
 }
 
@@ -182,6 +251,10 @@
   .search-main select
   {
     width: 30%;
+  }
+
+  .title-dashboard{
+    left: 210px !important;
   }
 }
 
@@ -196,6 +269,10 @@
   {
     width: auto;
   }
+
+  .title-dashboard{
+    left: 200px !important;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -209,6 +286,17 @@
   .search-main select[name="SearchWithBrand"]
   {
     margin-left: 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .title-dashboard{
+    top: 50px !important;
+    left: 170px !important;
+  }
+
+  .title-dashboard h1{
+    font-size: 40px !important;
   }
 }
 
@@ -232,6 +320,10 @@
 @media screen and (max-width: 515px) {
   .btn-cart{
     margin-left: 93px;
+  }
+
+  .title-dashboard{
+    left: 140px !important;
   }
 }
 
@@ -266,6 +358,10 @@
   {
     width: 100% !important;
   }
+
+  .title-dashboard{
+    left: 100px !important;
+  }
 }
 
 @media screen and (max-width: 353px) {
@@ -279,11 +375,19 @@
   .someNewProducts{
     margin-top: 175px !important;
   }
+
+  .title-dashboard{
+    left: 80px !important;
+  }
 }
 
 @media screen and (max-width: 303px) {
 
   .someNewProducts{
     margin-top: 200px !important;
+  }
+
+  .title-dashboard{
+    left: 50px !important;
   }
 }
