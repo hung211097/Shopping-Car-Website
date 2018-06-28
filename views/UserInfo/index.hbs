@@ -39,11 +39,11 @@
                     </div>
                     <ul class="vertical-menu">
                         {{#if isDetail}}
-                        <li><a href="javascript:;" id="infoUser">Thông tin cơ bản</a></li>
+                        <li><a href="/UserInfo/" id="infoUser">Thông tin cơ bản</a></li>
                         <li><a class="active" href="/UserInfo/History" id="historyBuying">Lịch sử mua hàng</a></li>
                         {{else}}
                             {{#if isBack}}
-                            <li><a href="javascript:;" id="infoUser">Thông tin cơ bản</a></li>
+                            <li><a href="/UserInfo/" id="infoUser">Thông tin cơ bản</a></li>
                             <li><a class="active" href="javascript:;" id="historyBuying">Lịch sử mua hàng</a></li>
                             {{else}}
                             <li><a class="active" href="javascript:;" id="infoUser">Thông tin cơ bản</a></li>
@@ -112,26 +112,28 @@
                             </div>
                             <div class="panel-heading">
                             </div>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th style="text-align: center">Số thứ tự</th>
-                                        <th style="text-align: center">&nbsp;</th>
-                                        <th style="text-align: center">Tên xe</th>
-                                        <th style="text-align: center">Số lượng xe</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="danhsach">
-                                    {{#each details}}
-                                    <tr>
-                                        <td style="text-align: center">{{index}}</td>
-                                        <td style="text-align: center"><img src="/image/all/{{MaXe}}/{{MaXe}}_1.jpg" height="100"></td>
-                                        <td style="text-align: center">{{TenXe}}</td>
-                                        <td style="text-align: center">{{SoLuong}}</td>
-                                    </tr>
-                                    {{/each}}
-                                </tbody>
-                            </table>
+                            <div style="overflow-x: hidden; overflow-y: auto; height: 300px">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center">Số thứ tự</th>
+                                            <th style="text-align: center">&nbsp;</th>
+                                            <th style="text-align: center">Tên xe</th>
+                                            <th style="text-align: center">Số lượng xe</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="danhsach" >
+                                        {{#each details}}
+                                        <tr>
+                                            <td style="text-align: center">{{index}}</td>
+                                            <td style="text-align: center"><img src="/image/all/{{MaXe}}/{{MaXe}}_1.jpg" height="100"></td>
+                                            <td style="text-align: center">{{TenXe}}</td>
+                                            <td style="text-align: center">{{SoLuong}}</td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         {{/if}}
                         {{#if isBack}}
@@ -175,6 +177,9 @@
                         </div>
                     </div>                   
                 </div>
+                {{#if isDetail}}
+                <a href="/UserInfo/History" class="btn btn-info" style="font-size: 15px">Quay về danh sách hóa đơn</a>
+                {{/if}}
             </div>
         </div>
   </div>

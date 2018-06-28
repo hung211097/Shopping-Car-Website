@@ -22,13 +22,14 @@ router.get('/', restrict, (req, res) => {
                 index: i + 1,
                 KhachHang: username,
                 NgayDat: moment(rows[i].NgayDat).format('YYYY-MM-DD HH:mm:ss'),
-                SoLuongXe: rows[0].SoLuongXe,
+                SoLuongXe: rows[i].SoLuongXe,
                 DiaChi: rows[i].DiaChi,
                 SDT: rows[i].SDT,
                 GhiChu: rows[i].GhiChu,
                 TongTien: rows[i].TongTien,
-                TinhTrang: rows[i].TinhTrang
-            }
+                TinhTrang: rows[i].TenTinhTrang
+            };
+            
             items.push(khachhang);
         }
         
@@ -135,13 +136,14 @@ router.get('/History', restrict, (req, res) => {
                 index: i + 1,
                 KhachHang: username,
                 NgayDat: moment(rows[i].NgayDat).format('YYYY-MM-DD HH:mm:ss'),
-                SoLuongXe: rows[0].SoLuongXe,
+                SoLuongXe: rows[i].SoLuongXe,
                 DiaChi: rows[i].DiaChi,
                 SDT: rows[i].SDT,
                 GhiChu: rows[i].GhiChu,
                 TongTien: rows[i].TongTien,
-                TinhTrang: rows[i].TinhTrang
-            }
+                TinhTrang: rows[i].TenTinhTrang
+            };
+            
             items.push(khachhang);
         }
         

@@ -16,7 +16,7 @@ exports.updateEmail = user => {
 }
 
 exports.selectHoaDon = user => {
-    var sql = `select * from hoadon where KhachHang = '${user}'`;
+    var sql = `select * from hoadon, tinhtrang where hoadon.KhachHang = '${user}' and hoadon.TinhTrang = tinhtrang.MaTinhTrang ORDER BY NgayDat DESC`;
     return db.save(sql);
 }
 
