@@ -260,4 +260,3 @@ $('.billDetailBtn').on('click', function(){
 //        AddDetail('Chevrolet Camaro LS 2017', '3200000000');
 //    }
 });
-

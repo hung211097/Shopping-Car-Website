@@ -16,6 +16,6 @@ exports.addCtHoaDon = hoadon => {
 }
 
 exports.decreaseCar = xe => {
-    var sql = `update xe set SoLuongTon = SoLuongTon - '${xe.SoLuong}' where MaXe = '${xe.MaXe}'`;
+    var sql = `update xe set SoLuongTon = SoLuongTon - '${xe.SoLuong}', SoLuongBan = SoLuongBan + '${xe.SoLuong}' where MaXe = '${xe.MaXe}'`;
     return db.save(sql);
 }
