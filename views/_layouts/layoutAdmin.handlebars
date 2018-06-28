@@ -23,6 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="/css/owl.carousel.css">
 
+	<link rel="stylesheet" href="/assets/css/admin.css">
 	<link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/index2.css">
     <link rel="stylesheet" href="/assets/css/index3.css">
@@ -49,7 +50,7 @@
 </head>
 
 <body>
-
+	<div class="loader"></div>
 	<section id="container" >
 		<!--header start-->
 		<header class="header white-bg">
@@ -206,12 +207,19 @@
 				}
 			});
   </script>
+  {{{_sections.js}}}
 
   <!-- <script type="text/javascript" src="./index.js"></script> -->
   {{!-- <script src="/assets/OwlCarousel/dist/owl.carousel.min.js"></script> --}}
   <script src="/assets/js/admin.js"></script>
 
-{{{_sections.js}}}
+
+
+<script type="text/javascript">
+$(window).ready(function() {
+	$(".loader").fadeOut("slow");
+});
+</script>
 
 </body>
 
