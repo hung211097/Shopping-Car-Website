@@ -1,11 +1,12 @@
 var moment = require('moment');
+var restrict = require('../middle-wares/restrictAdmin');
 var express = require('express');
 var manageOrderRepo = require('../repos/manageOrderRepo');
 var config = require('../config/config');
 var router = express.Router();
 
 var isEd = false;
-router.get('/', (req, res) => {
+router.get('/', restrict, (req, res) => {
   var page = req.query.page;
   if (!page) {
       page = 1;
@@ -118,7 +119,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/view', (req, res) => {
+router.get('/view', restrict, (req, res) => {
   req.query.ngay = moment(req.query.ngay, 'DD/MM/YYYY HH:mm:ss')
         .format('YYYY-MM-DD HH:mm:ss');
   var page = req.query.page;
@@ -227,7 +228,7 @@ router.get('/view', (req, res) => {
   });
 });
 
-router.get('/edit', (req, res) => {
+router.get('/edit', restrict, (req, res) => {
   req.query.ngay = moment(req.query.ngay, 'DD/MM/YYYY HH:mm:ss')
         .format('YYYY-MM-DD HH:mm:ss');
   var p1 = manageOrderRepo.single(req.query.ma, req.query.ngay);

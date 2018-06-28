@@ -26,6 +26,7 @@ var manageOrderController = require('./controllers/manageOrderController');
 var loginAdminController = require('./controllers/loginAdminController');
 var signUpAdminController = require('./controllers/signUpAdminController');
 var adminController = require('./controllers/adminController');
+var adminInfoController = require('./controllers/adminInfoController');
 
 var app = express();
 
@@ -104,6 +105,7 @@ app.use('/manageOrder', manageOrderController);
 app.use('/loginAdmin', loginAdminController);
 app.use('/signUpAdmin', signUpAdminController);
 app.use('/dashboard', adminController);
+app.use('/adminInfo', adminInfoController);
 
 
 app.use(handle404MDW);

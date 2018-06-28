@@ -8,13 +8,7 @@ router.get('/', restrict, (req, res) => {
         var vm = {
             layout: 'layoutAdmin.handlebars'
         };
-    res.render('admin/dashboard', vm);
-});
-
-router.get('/info', restrict, (req, res) => {
-        var vm = {
-            layout: 'layoutAdmin.handlebars'
-        };
     res.render('admin/adminInfo', vm);
 });
+
 module.exports = router;
