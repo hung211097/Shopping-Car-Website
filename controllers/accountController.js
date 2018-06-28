@@ -92,7 +92,7 @@ router.post('/login', (req, res) => {
     });
 });
 
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
     req.session.isLogged = false;
     req.session.user = null;
     req.session.cart = [];

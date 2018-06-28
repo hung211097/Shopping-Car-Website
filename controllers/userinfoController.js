@@ -103,6 +103,7 @@ router.get('/detail/:NgayDat', (req, res) => {
         {
             var details = {
                     index: i + 1,
+                    MaXe: rows[i].MaXe,
                     TenXe: rows[i].TenXe,
                     SoLuong: rows[i].SoLuong
                 }
