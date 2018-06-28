@@ -1,11 +1,55 @@
 var reg = /^\d+$/;
 
 $(document).ready(function() {
-
 	$('tr[name="0"]').addClass('label-danger');
 	$('tr[name="1"]').addClass('label-warning');
 	$('tr[name="2"]').addClass('label-success');
 	$('tr[name="3"]').addClass('label-default');
+
+	if($('input[name="Username"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-Username').find('.glyphicon-ok').show();
+		$('.form-Username').find('.glyphicon-remove').hide();
+		$('.Username-null').hide();
+	}
+
+	if($('input[name="Password"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-Password').find('.glyphicon-ok').show();
+		$('.form-Password').find('.glyphicon-remove').hide();
+		$('.Password-null').hide();
+	}
+
+	if($('input[name="Re-Password"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-Re-Password').find('.glyphicon-ok').show();
+		$('.form-Re-Password').find('.glyphicon-remove').hide();
+		$('.Re-Password-null').hide();
+	}
+
+	if($('input[name="Name"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-Name').find('.glyphicon-ok').show();
+		$('.form-Name').find('.glyphicon-remove').hide();
+		$('.Name-null').hide();
+	}
+
+	if($('input[name="Email"]').val() != "")
+	{
+		$(this).parent().parent().removeClass('has-error');
+		$(this).parent().parent().addClass('has-success');
+		$('.form-Email').find('.glyphicon-ok').show();
+		$('.form-Email').find('.glyphicon-remove').hide();
+		$('.Email-null').hide();
+	}
 
 	if($('input[name="NgayNhan"]').val() != "")
 	{
@@ -43,7 +87,7 @@ $(document).ready(function() {
 		$('.TenXe-null').hide();
 	}
 
-	if($('textarea[name="MoTa"]').val() != "")
+	if($('.fr-element.fr-view').html() != "<p><br></p>")
 	{
 		$(this).parent().parent().removeClass('has-error');
 		$(this).parent().parent().addClass('has-success');
@@ -129,6 +173,85 @@ $(document).ready(function() {
 	}
 });
 
+$('input[name="Username"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-Username').find('.glyphicon-ok').hide();
+    $('.form-Username').find('.glyphicon-remove').show();
+    $('.Username-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-Username').find('.glyphicon-ok').show();
+    $('.form-Username').find('.glyphicon-remove').hide();
+    $('.Username-null').hide();
+  }
+});
+
+$('input[name="Password"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-Password').find('.glyphicon-ok').hide();
+    $('.form-Password').find('.glyphicon-remove').show();
+    $('.Password-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-Password').find('.glyphicon-ok').show();
+    $('.form-Password').find('.glyphicon-remove').hide();
+    $('.Password-null').hide();
+  }
+});
+
+$('input[name="Re-Password"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-Re-Password').find('.glyphicon-ok').hide();
+    $('.form-Re-Password').find('.glyphicon-remove').show();
+    $('.Re-Password-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-Re-Password').find('.glyphicon-ok').show();
+    $('.form-Re-Password').find('.glyphicon-remove').hide();
+    $('.Re-Password-null').hide();
+  }
+});
+
+$('input[name="Name"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-Name').find('.glyphicon-ok').hide();
+    $('.form-Name').find('.glyphicon-remove').show();
+    $('.Name-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-Name').find('.glyphicon-ok').show();
+    $('.form-Name').find('.glyphicon-remove').hide();
+    $('.Name-null').hide();
+  }
+});
+
+$('input[name="Email"]').on('blur', function() {
+	if($(this).val() == ""){
+		$(this).parent().parent().removeClass('has-success');
+    $(this).parent().parent().addClass('has-error');
+    $('.form-Email').find('.glyphicon-ok').hide();
+    $('.form-Email').find('.glyphicon-remove').show();
+    $('.Email-null').show();
+  } else {
+    $(this).parent().parent().removeClass('has-error');
+    $(this).parent().parent().addClass('has-success');
+    $('.form-Email').find('.glyphicon-ok').show();
+    $('.form-Email').find('.glyphicon-remove').hide();
+    $('.Email-null').hide();
+  }
+});
 
 $('input[name="NgayNhan"]').on('blur', function() {
 	if($(this).val() == ""){
@@ -195,8 +318,8 @@ $('input[name="TenXe"]').on('blur', function() {
 });
 
 
-$('textarea[name="MoTa"]').on('blur', function() {
-	if($(this).val() == ""){
+$('.fr-element.fr-view').on('blur', function() {
+	if($(this).html() == "<p><br></p>"){
 		$(this).parent().parent().removeClass('has-success');
     $(this).parent().parent().addClass('has-error');
     $('.form-MoTa').find('.glyphicon-ok').hide();
