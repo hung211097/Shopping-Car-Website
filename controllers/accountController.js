@@ -2,14 +2,14 @@ var express = require('express'),
     SHA256 = require('crypto-js/sha256');
 
 var accountRepo = require('../repos/accountRepo');
-
+var restrict = require('../middle-wares/restrictlogin');
 var router = express.Router();
 
-router.get('/register', (req, res) => {
+router.get('/register', restrict, (req, res) => {
     res.render('account/register');
 });
 
-router.get('/login', (req, res) => {
+router.get('/login', restrict, (req, res) => {
     res.render('account/login');
 });
 
@@ -60,7 +60,8 @@ router.post('/register', (req, res) => {
                         errorMsg: 'Register successful',
                         User: user
                     };
-                    res.redirect('/');
+                    res.render('account/register', vm);
+
                 // }, 1500);
 
             });

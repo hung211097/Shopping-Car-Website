@@ -2,10 +2,12 @@ var express = require('express'),
     SHA256 = require('crypto-js/sha256');
 var accountAdminRepo = require('../repos/accountAdminRepo');
 var config = require('../config/config');
+var restrict = require('../middle-wares/restrictLoginAdmin');
+
 var router = express.Router();
 
 var isEd = false;
-router.get('/', (req, res) => {
+router.get('/', restrict, (req, res) => {
   var vm = {
     layout: 'layoutLoginAdmin.handlebars'
   }
