@@ -29,6 +29,8 @@ $(document).ready(function() {
     $('.form-password').find('.glyphicon-remove').hide();
     $('.password-null').hide();
   }
+<<<<<<< HEAD
+=======
 
   $('input[name="SURePass"]').parent().removeClass('has-error');
   $('input[name="SURePass"]').parent().removeClass('has-success');
@@ -36,6 +38,7 @@ $(document).ready(function() {
   $('.form-repassword').find('.glyphicon-remove').hide();
   $('.repassword-null').hide();
   $('.repassword2-null').hide();
+>>>>>>> TaNguyenHung
 });
 
 var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -113,6 +116,8 @@ $('input[name="SUPass"]').on('blur', function() {
   }
 });
 
+<<<<<<< HEAD
+=======
 $('input[name="SURePass"]').on('blur', function() {
   if ($(this).val() == "") {
     $(this).parent().removeClass('has-success');
@@ -141,6 +146,7 @@ $('input[name="SURePass"]').on('blur', function() {
   }
 });
 
+>>>>>>> TaNguyenHung
 $('#registerBtn').on('click', function() {
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   var correct = true;
@@ -148,6 +154,24 @@ $('#registerBtn').on('click', function() {
     correct = false;
   }
 
+<<<<<<< HEAD
+  if ($('input[id="fullname"]').val() === "" || $('input[id="account"]').val() === "" || $('input[id="password"]').val() === "") {
+    correct = false;
+  }
+
+  if (correct) {
+      swal({
+        type: 'success',
+        title: 'Đăng ký thành công',
+        showConfirmButton: false,
+        timer: 1500
+      });
+  }
+  else
+  {
+    swal("Đăng ký thất bại", "Hãy kiểm tra lại thông tin!", "error");
+    event.preventDefault();
+=======
   if ($('input[id="fullname"]').val() === "" || $('input[id="account"]').val() === "" || $('input[id="password"]').val() === ""  || ($('input[id="password"]').val() !== $('input[id="repassword"]').val())) {
     correct = false;
   }
@@ -155,12 +179,16 @@ $('#registerBtn').on('click', function() {
   if (!correct) {    
       swal("Đăng ký thất bại", "Hãy kiểm tra lại thông tin!", "error");
       event.preventDefault();
+>>>>>>> TaNguyenHung
   }
 });
 
 function isCallBack()
 {
     $('#registerBtn').removeAttr('disabled');
+<<<<<<< HEAD
+};
+=======
 };
 
 $(window).on('resize', function() {
@@ -212,3 +240,4 @@ $(window).on('resize', function() {
       </fieldset>
     </div>`);
 })
+>>>>>>> TaNguyenHung

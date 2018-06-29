@@ -1,7 +1,10 @@
+<<<<<<< HEAD
+=======
 {{#section 'title'}}
 	Dashboard
 {{/section}}
 
+>>>>>>> TaNguyenHung
 {{#section 'activeDashboard'}}
   class = "active"
 {{/section}}

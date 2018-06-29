@@ -1,7 +1,10 @@
+<<<<<<< HEAD
+=======
 {{#section 'title'}}
 	Đăng ký
 {{/section}}
 
+>>>>>>> TaNguyenHung
 <div class="container">
 
   <form class="form-signin" action="" method="POST" role="form" onsubmit="return validate();">
@@ -53,7 +56,11 @@
   <script type="text/javascript">
           swal("Username đã tồn tại!", {
             icon: "error",
+<<<<<<< HEAD
+          });            
+=======
           });
+>>>>>>> TaNguyenHung
   </script>
 {{/if}}
 
@@ -62,9 +69,17 @@
         if ($('#txtPWD').val() !== $('#txtCPWD').val()) {
           swal("Password nhập lại không trùng khớp!", {
             icon: "error",
+<<<<<<< HEAD
+          });            
+=======
           });
+>>>>>>> TaNguyenHung
           return false;
         }
         return true;
     }
+<<<<<<< HEAD
   </script>
+=======
+  </script>
+>>>>>>> TaNguyenHung

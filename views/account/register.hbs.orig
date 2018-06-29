@@ -1,8 +1,11 @@
 {{#section 'title'}}
 	<title>Đăng kí</title>
+<<<<<<< HEAD
+=======
 	{{#if showSuccess}}
 	<meta http-equiv="refresh" content="2; URL=/">
 	{{/if}}
+>>>>>>> TaNguyenHung
 {{/section}}
 
 {{#section 'css'}}
@@ -14,6 +17,10 @@
 {{#section 'js'}}
 	<script type="text/javascript" src="/assets/js/index.js"></script>
 	<script type="text/javascript" src="/assets/js/register.js"></script>
+<<<<<<< HEAD
+{{/section}}
+    
+=======
         {{#if showSuccess}}
         <script>
         swal("Đăng ký thành công", "Đăng ký thành công, sẽ chuyển về trang chủ trong 2 giây!", "success");
@@ -22,6 +29,8 @@
         {{/if}}
 {{/section}}
 
+
+>>>>>>> TaNguyenHung
 
 <!-- Start Breadcrumb -->
   <div class="bread-crumb">
@@ -37,7 +46,11 @@
     </div>
   </div>
   <!-- End Breadcrumb -->
+<<<<<<< HEAD
+  
+=======
 
+>>>>>>> TaNguyenHung
   <!-- Start Introduction -->
   <div class="introduction-content">
     <div class="container">
@@ -112,15 +125,22 @@
                       </fieldset>
                     </div>
                   </div>
+<<<<<<< HEAD
+                  <div class="g-recaptcha" data-sitekey="6LdhdlQUAAAAAClavUgx9vWtbjf8sa-bTH8Goty7" data-callback="isCallBack"></div>
+                  <div class="col-xs-12 text-xs-left" style="margin-top:10px; padding: 0; margin-bottom: 30px">
+                      <button type="submit" class="btn btn-primary" id="registerBtn" disabled>Đăng ký</button>
+                    <p style="margin-top: 15px;">Nếu bạn có tài khoản, hãy <a href="login" id="toLogin">Đăng nhập</a></p>
+                  </div>
+=======
 
-		<div class="row rePass">
-			<div class="col-md-6">
-				<div class="g-recaptcha" data-sitekey="6LdhdlQUAAAAAClavUgx9vWtbjf8sa-bTH8Goty7" data-callback="isCallBack"></div>
+									<div class="row rePass">
+										<div class="col-md-6">
+											<div class="g-recaptcha" data-sitekey="6LdhdlQUAAAAAClavUgx9vWtbjf8sa-bTH8Goty7" data-callback="isCallBack"></div>
 		                  <div class="col-xs-12 text-xs-left" style="margin-top:10px; padding: 0; margin-bottom: 30px">
 		                      <button type="submit" class="btn btn-primary" id="registerBtn" disabled>Đăng ký</button>
 		                    <p style="margin-top: 15px;">Nếu bạn có tài khoản, hãy <a href="login" id="toLogin">Đăng nhập</a></p>
 		                  </div>
-                    	</div>
+                    </div>
 
                     <div class="col-md-6">
                       <fieldset class="form-group">
@@ -138,6 +158,7 @@
                     </div>
                   </div>
 
+>>>>>>> TaNguyenHung
                 </div>
               </form>
             </div>
@@ -146,4 +167,8 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
   <!-- Edn Introduction -->
+=======
+  <!-- Edn Introduction -->
+>>>>>>> TaNguyenHung

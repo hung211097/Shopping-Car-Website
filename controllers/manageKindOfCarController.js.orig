@@ -161,7 +161,11 @@ router.get('/add', restrict, (req, res) => {
     }
     else if (parseInt(temp[0]) == 2)
       maDongXeTangDan = 1;
+<<<<<<< HEAD
+    else 
+=======
     else
+>>>>>>> TaNguyenHung
     {
       for (var i = 0; i < temp.length; i++)
       {
@@ -263,7 +267,11 @@ router.post('/delete', (req, res) => {
         return;
       }
     }
+<<<<<<< HEAD
+    manageKindOfCarsRepo.delete(req.body.MaDongXe).then(value => {
+=======
     manageKindOfCarRepo.delete(req.body.MaDongXe).then(value => {
+>>>>>>> TaNguyenHung
         isDel = true;
         res.redirect('/manageKindOfCar');
     });

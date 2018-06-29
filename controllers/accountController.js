@@ -39,10 +39,10 @@ router.post('/register', (req, res) => {
             res.render('account/register', vm);
         }
         else
-        {            
+        {
             accountRepo.add(user).then(value => {
-                setTimeout(function() {
-                    console.log('Register successful');
+                // setTimeout(function() {
+                    // console.log('Register successful');
                     req.session.isLogged = true;
 //                    accountRepo.login(user).then(row => {
 //                        if (row.length > 0){
@@ -55,13 +55,18 @@ router.post('/register', (req, res) => {
 //                        }
 //                    });
                     //req.session.cart = [];
+                    var vm = {
+                        showSuccess: true,
+                        errorMsg: 'Register successful',
+                        User: user
+                    };
                     res.redirect('/');
-                }, 1500);
-                
+                // }, 1500);
+
             });
         }
     });
-    
+
 });
 
 router.post('/login', (req, res) => {

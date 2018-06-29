@@ -2,7 +2,11 @@ var db = require('../fn/db');
 var config = require('../config/config');
 
 exports.loadAllOrder = offset => {
+<<<<<<< HEAD
+    var sql = `select * from hoadon hd, users us, tinhtrang tr where hd.KhachHang = us.Username and tr.MaTinhTrang = hd.TinhTrang ORDER BY hd.NgayDat ASC, hd.KhachHang ASC limit ${config.PRODUCTS_PER_PAGE_ADMIN} offset ${offset}`;
+=======
     var sql = `select * from hoadon hd, users us, tinhtrang tr where hd.KhachHang = us.Username and tr.MaTinhTrang = hd.TinhTrang ORDER BY hd.NgayDat DESC, hd.KhachHang ASC limit ${config.PRODUCTS_PER_PAGE_ADMIN} offset ${offset}`;
+>>>>>>> TaNguyenHung
     return db.load(sql);
 }
 
@@ -54,4 +58,8 @@ exports.single = (kh, ngay) => {
             reject(err);
         });
     });
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> TaNguyenHung

@@ -1,7 +1,10 @@
+<<<<<<< HEAD
+=======
 {{#section 'title'}}
 	Quản lý xe
 {{/section}}
 
+>>>>>>> TaNguyenHung
 {{#section 'activeManageCar'}}
   class = "active"
 {{/section}}
@@ -94,7 +97,11 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
+	
+=======
 
+>>>>>>> TaNguyenHung
 	<ul class="pagination">
 		{{#if isFirst}}
 		<li class="disabled"><a href="javascript:;" id="first" class="page-link">&laquo;</a></li>
@@ -142,4 +149,8 @@
 			icon: "error",
 	});
 	</script>
+<<<<<<< HEAD
 {{/if}}
+=======
+{{/if}}
+>>>>>>> TaNguyenHung

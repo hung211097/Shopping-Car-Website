@@ -1,6 +1,9 @@
+<<<<<<< HEAD
+=======
 {{#section 'title'}}
 	Đăng nhập
 {{/section}}
+>>>>>>> TaNguyenHung
 <div class="container">
 
   <form class="form-signin" action="" method="POST" role="form">
@@ -33,6 +36,12 @@
   <script type="text/javascript">
           swal("Đăng nhập thất bai! Username hoặc Password không đúng!", {
             icon: "error",
+<<<<<<< HEAD
+          });            
+  </script>
+{{/if}}
+=======
           });
   </script>
 {{/if}}
+>>>>>>> TaNguyenHung

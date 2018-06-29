@@ -1,7 +1,10 @@
+<<<<<<< HEAD
+=======
 {{#section 'title'}}
 	Quản lý đơn hàng
 {{/section}}
 
+>>>>>>> TaNguyenHung
 {{#section 'activeManageOrder'}}
   class = "active"
 {{/section}}
@@ -60,7 +63,11 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
+	
+=======
 
+>>>>>>> TaNguyenHung
 	<ul class="pagination">
 		{{#if isFirst}}
 		<li class="disabled"><a href="javascript:;" id="first" class="page-link">&laquo;</a></li>
@@ -93,3 +100,7 @@
 		});
 	</script>
 {{/if}}
+<<<<<<< HEAD
+
+=======
+>>>>>>> TaNguyenHung

@@ -1,6 +1,10 @@
+<<<<<<< HEAD
+
+=======
 {{#section 'title'}}
 	Chi tiết đơn hàng
 {{/section}}
+>>>>>>> TaNguyenHung
 	<div class="container-fluid">
 		<div class="row" style="background-color: white">
 			<div class="container-fluid">
@@ -34,7 +38,11 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
+	
+=======
 
+>>>>>>> TaNguyenHung
 	<div class="container-fluid">
 		<ul class="pagination">
 			{{#if isFirst}}
@@ -58,10 +66,18 @@
 			{{/if}}
 		</ul>
 	</div>
+<<<<<<< HEAD
+	
+=======
 
+>>>>>>> TaNguyenHung
 	<div class="container-fluid">
 		<a class="btn btn-info" href="/manageOrder" role="button">
 			<span class="glyphicon glyphicon-arrow-left"></span>
 			Quay trở lại xem danh sách hóa đơn
 		</a>
+<<<<<<< HEAD
 	</div>
+=======
+	</div>
+>>>>>>> TaNguyenHung

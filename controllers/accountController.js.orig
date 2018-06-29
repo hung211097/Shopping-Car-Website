@@ -39,10 +39,17 @@ router.post('/register', (req, res) => {
             res.render('account/register', vm);
         }
         else
+<<<<<<< HEAD
         {            
             accountRepo.add(user).then(value => {
                 setTimeout(function() {
                     console.log('Register successful');
+=======
+        {
+            accountRepo.add(user).then(value => {
+                // setTimeout(function() {
+                    // console.log('Register successful');
+>>>>>>> TaNguyenHung
                     req.session.isLogged = true;
 //                    accountRepo.login(user).then(row => {
 //                        if (row.length > 0){
@@ -54,11 +61,8 @@ router.post('/register', (req, res) => {
 //                           console.log('error');
 //                        }
 //                    });
-<<<<<<< HEAD
                     //req.session.cart = [];
-=======
-                    req.session.cart = [];
->>>>>>> origin/NgHuynh
+<<<<<<< HEAD
                     res.redirect('/');
                 }, 1500);
                 
@@ -66,6 +70,20 @@ router.post('/register', (req, res) => {
         }
     });
     
+=======
+                    var vm = {
+                        showSuccess: true,
+                        errorMsg: 'Register successful',
+                        User: user
+                    };
+                    res.redirect('/');
+                // }, 1500);
+
+            });
+        }
+    });
+
+>>>>>>> TaNguyenHung
 });
 
 router.post('/login', (req, res) => {
@@ -78,11 +96,7 @@ router.post('/login', (req, res) => {
         if (rows.length > 0) {
             req.session.isLogged = true;
             req.session.user = rows[0];
-<<<<<<< HEAD
             //req.session.cart = [];
-=======
-            req.session.cart = [];
->>>>>>> origin/NgHuynh
 
             var url = '/';
             if (req.query.retUrl) {
@@ -103,12 +117,12 @@ router.post('/login', (req, res) => {
 router.get('/logout', (req, res) => {
     req.session.isLogged = false;
     req.session.user = null;
-<<<<<<< HEAD
     req.session.cart = [];
-=======
-    // req.session.cart = [];
->>>>>>> origin/NgHuynh
     res.redirect(req.headers.referer);
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> TaNguyenHung

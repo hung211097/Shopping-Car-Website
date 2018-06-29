@@ -1,7 +1,10 @@
+<<<<<<< HEAD
+=======
 {{#section 'title'}}
 	Thông tin admin
 {{/section}}
 
+>>>>>>> TaNguyenHung
 <div class="panel panel-primary">
 	<div class="panel-heading">
 		<div class="row">
@@ -19,9 +22,15 @@
 							<label>Username:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+<<<<<<< HEAD
+							<h3 class="panel-title" style="text-align: center">     
+								{{layoutVM.curAdmin.Username}}                           
+							</h3> 
+=======
 							<h3 class="panel-title" style="text-align: center">
 								{{layoutVM.curAdmin.Username}}
 							</h3>
+>>>>>>> TaNguyenHung
 						</div>
 				</div>
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -30,9 +39,15 @@
 							<label>Password:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+<<<<<<< HEAD
+							<h3 class="panel-title" style="text-align: center">     
+								********                           
+							</h3> 
+=======
 							<h3 class="panel-title" style="text-align: center">
 								********
 							</h3>
+>>>>>>> TaNguyenHung
 						</div>
 					</div>
 				</div>
@@ -43,9 +58,15 @@
 							<label>Họ tên:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+<<<<<<< HEAD
+							<h3 class="panel-title" style="text-align: center">     
+								{{layoutVM.curAdmin.Name}}                           
+							</h3> 
+=======
 							<h3 class="panel-title" style="text-align: center">
 								{{layoutVM.curAdmin.Name}}
 							</h3>
+>>>>>>> TaNguyenHung
 						</div>
 				</div>
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -54,13 +75,23 @@
 							<label>Email:</label>
 						</div>
 						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+<<<<<<< HEAD
+							<h3 class="panel-title" style="text-align: center">     
+								{{layoutVM.curAdmin.Email}}                           
+							</h3> 
+=======
 							<h3 class="panel-title" style="text-align: center">
 								{{layoutVM.curAdmin.Email}}
 							</h3>
+>>>>>>> TaNguyenHung
 						</div>
 					</div>
 				</div>
 			</div>
 		</form>
 	</div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> TaNguyenHung

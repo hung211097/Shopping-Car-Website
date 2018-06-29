@@ -10,26 +10,24 @@
 	<meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 	<link rel="shortcut icon" href="/img/favicon.html">
 
-	<title>DreamCar - Admin</title>
-
 <<<<<<< HEAD
+	<title>DreamCar - Admin</title>
 =======
+	<title>{{{_sections.title}}}</title>
+>>>>>>> TaNguyenHung
+
 	<script src="/js/jquery.js"></script>
 	<script type="text/javascript" src="/assets/sweetalert.min.js"></script>
 
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/bootstrap-reset.css">
 	<!--external css-->
-<<<<<<< HEAD
-	<link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.css"/>
-=======
 	<link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css"/>
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 	<link rel="stylesheet" type="text/css" href="/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" media="screen"/>
 	<link rel="stylesheet" type="text/css" href="/css/owl.carousel.css">
 
+	<link rel="stylesheet" href="/assets/css/admin.css">
 	<link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/index2.css">
     <link rel="stylesheet" href="/assets/css/index3.css">
@@ -43,24 +41,7 @@
 
 	<link href="/css/style.css" rel="stylesheet">
 	<link href="/css/style-responsive.css" rel="stylesheet" />
-<<<<<<< HEAD
 	<link rel="stylesheet" href="/assets/css/responsive.css">
-	<link rel="stylesheet" href="/assets/css/animate.css">
-	<link rel="stylesheet" href="/assets/hover/css/hover-min.css">
-	<link rel="stylesheet" href="/assets/OwlCarousel/dist/assets/owl.carousel.min.css">
-	<link rel="stylesheet" href="/assets/OwlCarousel/dist/assets/owl.theme.default.min.css">
-	<link rel="icon" href="/image/car.ico">
-	<link rel="icon" href="/image/car.ico">
-
-
-
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-  <![endif]-->
-=======
-	{{!-- <link rel="stylesheet" href="/assets/css/responsive.css"> --}}
 	<link rel="stylesheet" href="/assets/css/animate.css">
 	<link rel="stylesheet" href="/assets/hover/css/hover-min.css">
 
@@ -70,41 +51,32 @@
 
 	{{{_sections.css}}}
 
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 </head>
 
 <body>
-
+	<div class="loader"></div>
 	<section id="container" >
 		<!--header start-->
 		<header class="header white-bg">
 			<div class="sidebar-toggle-box">
-<<<<<<< HEAD
-				<div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-=======
 				<div class="fa fa-bars tooltips" id="switchAside" data-placement="right" data-original-title="Toggle Navigation"></div>
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 			</div>
 			<!--logo start-->
-			<a href="admin.html" class="logo">Dream<span>Car</span></a>
+			<a href="/dashboard" class="logo">Dream<span>Car</span></a>
 			<!--logo end-->
 			<div class="top-nav ">
 				<!--search & user info start-->
 				<ul class="nav pull-right top-menu">
-					<li>
-						<input type="text" class="form-control search" placeholder="Search">
-					</li>
 					<!-- user login dropdown start-->
 					<li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="img/avatar1_small.jpg">
-                            <span class="username">Nguyễn Gia Huỳnh</span>
+                            <span class="username">Xin chào! {{layoutVM.curAdmin.Name}}</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
-                            <li style="width: 100%"><a href="profile_admin.html"><i class=" fa fa-suitcase"></i>Hồ sơ cá nhân</a></li>
-                            <li><a href="login.html"><i class="fa fa-key"></i>Đăng xuất</a></li>
+                            <li style="width: 100%"><a href="/adminInfo"><i class=" fa fa-suitcase"></i>Hồ sơ cá nhân</a></li>
+                            <li><a href="/loginAdmin/logout"><i class="fa fa-key"></i>Đăng xuất</a></li>
                         </ul>
                     </li>
 					<!-- user login dropdown end -->
@@ -119,51 +91,43 @@
 				<!-- sidebar menu start-->
 				<ul class="sidebar-menu" id="nav-accordion">
 					<li>
-						<a href="admin.html">
+						<a {{{_sections.activeDashboard}}}href="/dashboard">
 							<i class="fa fa-dashboard"></i>
 							<span>Dashboard</span>
 						</a>
 					</li>
 
 					<li class="sub-menu">
-<<<<<<< HEAD
-						<a href="manage_car.html" >
-=======
 						<a {{{_sections.activeManageCar}}} href="/manageCar" >
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+<<<<<<< HEAD
 							<i class="fa fa-laptop"></i>
+=======
+							<i class="fa fa-car"></i>
+>>>>>>> TaNguyenHung
 							<span>Quản lí xe</span>
 						</a>
 					</li>
 
 					<li class="sub-menu">
-<<<<<<< HEAD
-						<a href="manage_kind_of_car.html" >
-=======
 						<a {{{_sections.activeManageKindOfCar}}} href="/manageKindOfCar" >
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+<<<<<<< HEAD
 							<i class="fa fa-book"></i>
+=======
+							<i class="fa fa-tasks"></i>
+>>>>>>> TaNguyenHung
 							<span>Quản lí dòng xe</span>
 						</a>
 					</li>
 
 					<li class="sub-menu">
-<<<<<<< HEAD
-						<a href="manage_manufacturer.html" >
-=======
 						<a {{{_sections.activeManageManufacturer}}} href="/manageManufacturer" >
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 							<i class="fa fa-cogs"></i>
 							<span>Quản lí hãng xe</span>
 						</a>
 					</li>
 
 					<li class="sub-menu">
-<<<<<<< HEAD
-						<a href="manage_order.html" >
-=======
 						<a {{{_sections.activeManageOrder}}} href="/manageOrder" >
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 							<i class="fa fa-shopping-cart"></i>
 							<span>Quản lí đơn đặt hàng</span>
 						</a>
@@ -181,22 +145,6 @@
 		</section>
 		<!--main content end-->
 
-<<<<<<< HEAD
-		<!--footer start-->
-		<footer class="site-footer">
-			<div class="text-center">
-				2018 &copy; DreamCar by Team14.
-				<a href="#" class="go-top">
-					<i class="fa fa-angle-up"></i>
-				</a>
-			</div>
-		</footer>
-		<!--footer end-->
-	</section>
-
-	<!-- js placed at the end of the document so the pages load faster -->
-	<script src="/js/jquery.js"></script>
-=======
 		{{!-- <!--footer start-->
 		<footer class="site-footer" style="position: bottom-footer;
 		z-index: -1;
@@ -216,7 +164,6 @@
 
 
 	<!-- js placed at the end of the document so the pages load faster -->
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 	<script src="/js/bootstrap.min.js"></script>
 	<script class="include" type="text/javascript" src="/js/jquery.dcjqaccordion.2.7.js"></script>
 	<script src="/js/jquery.scrollTo.min.js"></script>
@@ -241,11 +188,7 @@
 	<script>
 
       //owl carousel
-<<<<<<< HEAD
-
-=======
 			var switchFlag = true;
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
       $(document).ready(function() {
       	$("#owl-demo").owlCarousel({
       		navigation : true,
@@ -263,12 +206,6 @@
       	$('select.styled').customSelect();
       });
 
-<<<<<<< HEAD
-  </script>
-
-  <!-- <script type="text/javascript" src="./index.js"></script> -->
-  <script src="/assets/OwlCarousel/dist/owl.carousel.min.js"></script>
-=======
 			$('#switchAside').on('click',function() {
 				if(switchFlag)
 				{
@@ -282,17 +219,21 @@
 				}
 			});
   </script>
+  {{{_sections.js}}}
 
   <!-- <script type="text/javascript" src="./index.js"></script> -->
   {{!-- <script src="/assets/OwlCarousel/dist/owl.carousel.min.js"></script> --}}
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
   <script src="/assets/js/admin.js"></script>
+
+
+
+<script type="text/javascript">
+$(window).ready(function() {
+	$(".loader").fadeOut("slow");
+});
+</script>
 
 </body>
 
-<<<<<<< HEAD
-=======
-{{{_sections.js}}}
 
->>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 </html>

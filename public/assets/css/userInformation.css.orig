@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 18 Apr, 2018, 11:53:00 PM
     Author     : Pavilion
 */
@@ -11,9 +11,9 @@ and open the template in the editor.
 .vertical-menu a {
     background-color: #fff;
     color: black;
-    display: block; 
-    padding: 12px; 
-    text-decoration: none; 
+    display: block;
+    padding: 12px;
+    text-decoration: none;
 }
 
 .vertical-menu a:hover {
@@ -22,7 +22,7 @@ and open the template in the editor.
 }
 
 .vertical-menu a.active {
-    background-color: #4CAF50; 
+    background-color: #00a2d1;
     color: white;
 }
 
@@ -30,7 +30,6 @@ and open the template in the editor.
     list-style-type: none;
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
 }
 
 
@@ -59,6 +58,46 @@ and open the template in the editor.
 
 .containerUI:hover .middleUI {
   opacity: 1;
-=======
->>>>>>> 5ee0f9dceef5061e138b62cb43d8b8d34f7599cf
 }
+
+.priceArea {
+    color: gold;
+    text-align: center;
+}
+
+.douDots:after {
+    content: ':';
+    position: absolute;
+    right: 0;
+}
+
+.table-fixed{
+  width: 100%;
+  tbody{
+    height:300px;
+    overflow-y:auto;
+    width: 100%;
+    }
+  thead,tbody,tr,td,th{
+    display:block;
+  }
+  tbody{
+    td{
+      float:left;
+    }
+  }
+  thead {
+    tr{
+      th{
+        float:left;
+      }
+    }
+  }
+}
+<<<<<<< HEAD
+=======
+
+td{
+	vertical-align: middle !important;
+}
+>>>>>>> TaNguyenHung

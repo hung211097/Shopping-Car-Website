@@ -32,3 +32,19 @@
 .glyphicon-ok, .glyphicon-remove, .Username-null, .Password-null, .Re-Password-null, .Name-null, .Email-null, .NgayNhan-null, .TenDongXe-null, .TenHangXe-null, .TenXe-null, .MoTa-null, .XuatXu-null, .NhienLieu-null, .MauSac-null, .HopSo-null, .Gia-null, .Gia-format, .SoLuongTon-null, .SoLuongTon-format, .SoCua-null, .SoCua-format, .SoCho-null, .SoCho-format{
   display: none;
 }
+
+td{
+	vertical-align: middle !important;
+}
+
+th{
+	background-color: #00A2D1 !important;
+}
+
+.btn-info{
+	background-color: #00A2D1 !important;
+}
+
+.active a{
+	background-color: #00A2D1 !important;
+}

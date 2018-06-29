@@ -16,7 +16,11 @@ body, input, textarea, button, select {
     color: red;
 }
 
+<<<<<<< HEAD
+input[type="text"]:focus{
+=======
 input[type="text"]:focus, input[type="password"]:focus{
+>>>>>>> TaNguyenHung
   border: 1px solid #c8c8c8;
 }
 
@@ -80,6 +84,10 @@ input[type="text"]:focus, input[type="password"]:focus{
   top: 3px;
 }
 
+<<<<<<< HEAD
+.glyphicon-ok, .glyphicon-remove, .email-format, .email-null, .name-null, .account-null, .password-null{
+=======
 .glyphicon-ok, .glyphicon-remove, .email-format, .email-null, .name-null, .account-null, .password-null, .repassword-null, .repassword2-null{
+>>>>>>> TaNguyenHung
   display: none;
 }

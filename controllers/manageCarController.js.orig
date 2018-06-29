@@ -253,11 +253,25 @@ router.post('/add', upload.array('photos'), (req, res) => {
   var temp = CountAppearance(des, '</p>');
   if (temp === 1)
   {
+<<<<<<< HEAD
+    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+=======
     var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display = \\'none\\'"></p>`;
+>>>>>>> TaNguyenHung
     des = ReplaceNthChar(des, '</p>', parseInt(temp), img);
   }
   else
   {
+<<<<<<< HEAD
+    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    des = ReplaceNthChar(des, '</p>', parseInt(temp / 2), img);
+
+    temp = CountAppearance(des, '</p>');
+    img = `<p><img src="`+ pathToImage + name + `/` + name + `_3` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    des = ReplaceNthChar(des, '</p>', temp, img);
+  }
+  
+=======
     var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display = \\'none\\'"></p>`;
     des = ReplaceNthChar(des, '</p>', parseInt(temp / 2), img);
 
@@ -266,6 +280,7 @@ router.post('/add', upload.array('photos'), (req, res) => {
     des = ReplaceNthChar(des, '</p>', temp, img);
   }
 
+>>>>>>> TaNguyenHung
   req.body.MoTa = des;
   req.body.NgayNhan = moment(req.body.NgayNhan, 'DD/MM/YYYY')
         .format('YYYY-MM-DD');
@@ -276,10 +291,19 @@ router.post('/add', upload.array('photos'), (req, res) => {
   }).catch(err => {
     res.render('error/index', {layout: false});
   });
+<<<<<<< HEAD
+  
+  count = 1;
+});
+
+
+
+=======
 
   count = 1;
 });
 
+>>>>>>> TaNguyenHung
 router.get('/edit', restrict, (req, res) => {
   var p1 = manageCarRepo.single(req.query.ma);
   var p2 = manageManufacturerRepo.loadAllManufacturerNoOffset();
@@ -288,14 +312,22 @@ router.get('/edit', restrict, (req, res) => {
     row.NgayNhan = moment(row.NgayNhan).format("DD/MM/YYYY");
     var isMSelect = row.TenHangXe;
     var isKSelect = row.TenDongXe;
+<<<<<<< HEAD
+    for (var i = 0; i < rowsManufacturer.length; i++) 
+=======
     for (var i = 0; i < rowsManufacturer.length; i++)
+>>>>>>> TaNguyenHung
     {
       if (rowsManufacturer[i].TenHangXe === isMSelect)
         rowsManufacturer[i].flag = true;
       else
         rowsManufacturer[i].flag = false;
     }
+<<<<<<< HEAD
+    for (var i = 0; i < rowsKindOfcar.length; i++) 
+=======
     for (var i = 0; i < rowsKindOfcar.length; i++)
+>>>>>>> TaNguyenHung
     {
       if (rowsKindOfcar[i].TenDongXe === isKSelect)
         rowsKindOfcar[i].flag = true;
@@ -306,17 +338,30 @@ router.get('/edit', restrict, (req, res) => {
     if (temp === 2)
     {
       var name = row.MaXe;
+<<<<<<< HEAD
+      var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + `.jpg` + `" alt="` + row.TenXe + `" onerror="this.parentNode.style.display=\'none\'"/></p>`;
+=======
       var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + `.jpg` + `" alt="` + row.TenXe + `" onerror="this.parentNode.style.display = 'none'"></p>`;
+>>>>>>> TaNguyenHung
       var des = row.MoTa;
       row.MoTa = des.substr(0, des.indexOf(img));
     }
     else
     {
       var name = row.MaXe;
+<<<<<<< HEAD
+      var img1 = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + `.jpg` + `" alt="` + row.TenXe + `" onerror="this.parentNode.style.display=\'none\'"/></p>`;
+      var img2 = `<p><img src="`+ pathToImage + name + `/` + name + `_3` + `.jpg` + `" alt="` + row.TenXe + `" onerror="this.parentNode.style.display=\'none\'"/></p>`;
+      var des = row.MoTa;
+      row.MoTa = des.substr(0, des.indexOf(img1)) + des.substring(des.indexOf(img1) + img1.length, des.indexOf(img2)) ;
+=======
       var img1 = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + `.jpg` + `" alt="` + row.TenXe + `" onerror="this.parentNode.style.display = 'none'"></p>`;
       var img2 = `<p><img src="`+ pathToImage + name + `/` + name + `_3` + `.jpg` + `" alt="` + row.TenXe + `" onerror="this.parentNode.style.display = 'none'"></p>`;
       var des = row.MoTa;
-      row.MoTa = des.substr(0, des.indexOf(img1)) + des.substring(des.indexOf(img1) + img1.length, des.indexOf(img2));
+      row.MoTa = des.substr(0, des.indexOf(img1)) + des.substring(des.indexOf(img1) + img1.length, des.indexOf(img2)) ;
+      console.log(row.MoTa);
+
+>>>>>>> TaNguyenHung
     }
     var vm = {
       product: row,
@@ -339,16 +384,28 @@ router.post('/edit', (req, res) => {
   var temp = CountAppearance(des, '</p>');
   if (temp === 1)
   {
+<<<<<<< HEAD
+    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+=======
     var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display = \\'none\\'"></p>`;
+>>>>>>> TaNguyenHung
     des = ReplaceNthChar(des, '</p>', parseInt(temp), img);
   }
   else
   {
+<<<<<<< HEAD
+    var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+    des = ReplaceNthChar(des, '</p>', parseInt(temp / 2), img);
+
+    temp = CountAppearance(des, '</p>');
+    img = `<p><img src="`+ pathToImage + name + `/` + name + `_3` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display=\\'none\\'"/></p>`;
+=======
     var img = `<p><img src="`+ pathToImage + name + `/` + name + `_2` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display = \\'none\\'"></p>`;
     des = ReplaceNthChar(des, '</p>', parseInt(temp / 2), img);
 
     temp = CountAppearance(des, '</p>');
     img = `<p><img src="`+ pathToImage + name + `/` + name + `_3` + extension + `" alt="` + req.body.TenXe + `" onerror="this.parentNode.style.display = \\'none\\'"></p>`;
+>>>>>>> TaNguyenHung
     des = ReplaceNthChar(des, '</p>', temp, img);
   }
   req.body.MoTa = des;

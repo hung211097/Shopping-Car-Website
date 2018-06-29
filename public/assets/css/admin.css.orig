@@ -3,7 +3,11 @@
 	left: 0px;
 	top: 0px;
 	width: 100%;
+<<<<<<< HEAD
 	height: 100%;	
+=======
+	height: 100%;
+>>>>>>> TaNguyenHung
 	z-index: 9999;
 	background: url('/image/loader.gif') center no-repeat #fff;
 }
@@ -24,9 +28,6 @@
 #pad-bot{
 	padding-bottom: 0;
 }
-<<<<<<< HEAD
-.glyphicon-ok, .glyphicon-remove, .NgayNhan-null, .TenDongXe-null, .TenHangXe-null, .TenXe-null, .MoTa-null, .XuatXu-null, .NhienLieu-null, .MauSac-null, .HopSo-null, .Gia-null, .Gia-format, .SoLuongTon-null, .SoLuongTon-format, .SoCua-null, .SoCua-format, .SoCho-null, .SoCho-format{
-=======
 
 .form-control-feedback {
 	right: 15px;
@@ -35,4 +36,22 @@
 .glyphicon-ok, .glyphicon-remove, .Username-null, .Password-null, .Re-Password-null, .Name-null, .Email-null, .NgayNhan-null, .TenDongXe-null, .TenHangXe-null, .TenXe-null, .MoTa-null, .XuatXu-null, .NhienLieu-null, .MauSac-null, .HopSo-null, .Gia-null, .Gia-format, .SoLuongTon-null, .SoLuongTon-format, .SoCua-null, .SoCua-format, .SoCho-null, .SoCho-format{
   display: none;
 }
->>>>>>> origin/NgHuynh
+<<<<<<< HEAD
+=======
+
+td{
+	vertical-align: middle !important;
+}
+
+th{
+	background-color: #00A2D1 !important;
+}
+
+.btn-info{
+	background-color: #00A2D1 !important;
+}
+
+.active a{
+	background-color: #00A2D1 !important;
+}
+>>>>>>> TaNguyenHung

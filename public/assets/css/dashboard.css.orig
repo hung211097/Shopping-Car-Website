@@ -10,7 +10,11 @@
 .container-dashboard img{
   width: 100%;
   z-index: -1;
+<<<<<<< HEAD
+  height: 520px;
+=======
   height: 540px;
+>>>>>>> TaNguyenHung
 }
 
 .title-dashboard{

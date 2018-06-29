@@ -12,8 +12,8 @@
 	<script type="text/javascript" src="/assets/js/index.js"></script>
 	<script src="/assets/OwlCarousel/dist/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="/assets/js/userInformation.js"></script>
-        {{#if showChange}} 
-            {{#if isChange}} 
+        {{#if showChange}}
+            {{#if isChange}}
                 <script>
                     swal("Thay đổi mật khẩu thành công", "Mật khẩu đã được thay đổi!", "success");
                 </script>
@@ -26,7 +26,7 @@
         {{/if}}
 {{/section}}
 
-  <!-- Start Body -->  
+  <!-- Start Body -->
   <div class="container" style="margin-top: 50px">
         <div class="row">
 
@@ -57,13 +57,13 @@
             <!--  Right content   -->
 
             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                <div class="panel panel-primary" style="border-color: #00a2d1;"> 
-                    <div class="panel-heading" style="background-color: #00a2d1; border-color: #00a2d1;"> 
-                        <h3 class="panel-title" style="text-align: center" id="infoName">     
-                            {{layoutVM.curUser.Username}}                           
-                        </h3> 
-                    </div> 
-                    <div class="panel-body" style="margin-bottom: 20px;" id="BodyInfo"> 
+                <div class="panel panel-primary" style="border-color: #00a2d1;">
+                    <div class="panel-heading" style="background-color: #00a2d1; border-color: #00a2d1;">
+                        <h3 class="panel-title" style="text-align: center" id="infoName">
+                            {{layoutVM.curUser.Username}}
+                        </h3>
+                    </div>
+                    <div class="panel-body" style="margin-bottom: 20px;" id="BodyInfo">
 
                         <!--  InfoUser   -->
                         {{#if isDetail}}
@@ -89,7 +89,7 @@
                             <!--  Info2   -->
                             <div class="row" style="padding-top: 30px; font-size: 18px;">
                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Password</div>
-                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">******</div>     
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">******</div>
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                                     <a href="javascript:;" data-toggle="modal" data-target="#editPassModal" id="editPassBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
                                 </div>
@@ -97,13 +97,13 @@
                             <!--  Info3   -->
                             <div class="row" style="padding-top: 30px; font-size: 18px;">
                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Email</div>
-                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="Email">{{layoutVM.curUser.Email}}</div>        
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="Email">{{layoutVM.curUser.Email}}</div>
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                                     <a href="javascript:;" data-toggle="modal" data-target="#editEmailModal" id="editEmailBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!--  HistoryBuying   -->
                         {{#if isDetail}}
                         <div id="DetailBuying">
@@ -146,45 +146,48 @@
                             </div>
                             <div class="panel-heading">
                             </div>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th style="text-align: center">Số thứ tự</th>
-                                        <th style="text-align: center">Ngày đặt hóa đơn</th>
-                                        <th style="text-align: center">Số lượng xe</th>
-                                        <th style="text-align: center">Số điện thoại</th>
-                                        <th style="text-align: center">Địa chỉ</th>
-                                        <th style="text-align: center">Tổng giá tiền</th> 
-                                        <th style="text-align: center">Ghi chú</th>
-                                        <th style="text-align: center">Tình trạng</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="danhsach">
-                                    {{#each items}}
-                                    <tr>
-                                        <td style="text-align: center"><a href="/UserInfo/detail/{{NgayDat}}" class="billDetailBtn">{{index}}</a></td>
-                                        <td style="text-align: center">{{NgayDat}}</td>
-                                        <td style="text-align: center">{{SoLuongXe}}</td>
-                                        <td style="text-align: center">{{SDT}}</td>
-                                        <td style="text-align: center">{{DiaChi}}</td>
-                                        <td style="text-align: center">{{TongTien}}</td>
-                                        <td style="text-align: center">{{GhiChu}}</td>
-                                        <td style="text-align: center">{{TinhTrang}}</td>
-                                    </tr>
-                                    {{/each}}
-                                </tbody>
-                            </table>
+				<div style="overflow-x: hidden; overflow-y: auto; height: 300px">
+					<table class="table table-striped">
+	                                <thead>
+	                                    <tr>
+	                                        <th style="text-align: center">Số thứ tự</th>
+	                                        <th style="text-align: center">Ngày đặt hóa đơn</th>
+	                                        <th style="text-align: center">Số lượng xe</th>
+	                                        <th style="text-align: center">Số điện thoại</th>
+	                                        <th style="text-align: center">Địa chỉ</th>
+	                                        <th style="text-align: center">Tổng giá tiền</th>
+	                                        <th style="text-align: center">Ghi chú</th>
+	                                        <th style="text-align: center">Tình trạng</th>
+	                                    </tr>
+	                                </thead>
+	                                <tbody id="danhsach">
+	                                    {{#each items}}
+	                                    <tr>
+	                                        <td style="text-align: center"><a href="/UserInfo/detail/{{NgayDat}}" class="billDetailBtn">{{index}}</a></td>
+	                                        <td style="text-align: center">{{NgayDat}}</td>
+	                                        <td style="text-align: center">{{SoLuongXe}}</td>
+	                                        <td style="text-align: center">{{SDT}}</td>
+	                                        <td style="text-align: center">{{DiaChi}}</td>
+	                                        <td style="text-align: center">{{TongTien}}</td>
+	                                        <td style="text-align: center">{{GhiChu}}</td>
+	                                        <td style="text-align: center">{{TinhTrang}}</td>
+	                                    </tr>
+	                                    {{/each}}
+	                                </tbody>
+	                            </table>
+				</div>
+
                         </div>
-                    </div>                   
+                    </div>
                 </div>
                 {{#if isDetail}}
-                <a href="/UserInfo/History" class="btn btn-info" style="font-size: 15px">Quay về danh sách hóa đơn</a>
+                <a href="/UserInfo/History" class="btn btn-info" style="font-size: 15px; background-color:#00A2D1 !important">Quay về danh sách hóa đơn</a>
                 {{/if}}
             </div>
         </div>
   </div>
   <!-- End Body -->
-  
+
   <!-- Start Edit IDname modal -->
   <div id="editIDNameModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -220,7 +223,7 @@
     </div>
   </div>
   <!-- End Edit IDname modal -->
-  
+
   <!-- Start Edit name modal -->
   <div id="editNameModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -249,7 +252,7 @@
     </div>
   </div>
   <!-- End Edit name modal -->
-  
+
   <!-- Start Edit pass modal -->
   <div id="editPassModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -262,7 +265,7 @@
           <form class="" action="" method="post" name="EditPass">
               <fieldset class="form-group">
                   <label for="OldPass">Mật khẩu cũ</label>
-                <div class="form-oldpass form-group has-feedback">                  
+                <div class="form-oldpass form-group has-feedback">
                   <input type="password" class="form-control" id="txtUserOldPass" placeholder="" name="OldPass">
                   <p class="help-block oldpass-null">Vui lòng điền thông tin vào đây!</p>
                     <span class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -297,7 +300,7 @@
     </div>
   </div>
   <!-- End Edit pass modal -->
-  
+
   <!-- Start Edit phone modal -->
   <div id="editEmailModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -326,7 +329,7 @@
     </div>
   </div>
   <!-- End Edit phone modal -->
-  
+
   <!-- Start Edit phone modal -->
   <div id="billDetail" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -357,4 +360,3 @@
     </div>
   </div>
   <!-- End Edit phone modal -->
- 
