@@ -110,6 +110,6 @@ app.use('/adminInfo', adminInfoController);
 
 app.use(handle404MDW);
 
-app.listen(3000, () => {
+app.listen(process.env.port || 3000, () => {
     console.log('Site running on port 3000');
 });
