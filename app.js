@@ -10,12 +10,23 @@ var MySQLStore = require('express-mysql-session')(session);
 
 var handle404MDW = require('./middle-wares/handle404');
 var handleLayoutMDW = require('./middle-wares/handleLayout');
+var restrict = require('./middle-wares/restrict');
 
 var homeController = require('./controllers/homeController');
 var productsController = require('./controllers/productsController');
 var searchController = require('./controllers/searchController');
 var cartController = require('./controllers/cartController');
 var checkoutController = require('./controllers/checkoutController');
+var accountController = require('./controllers/accountController');
+var userinfoController = require('./controllers/userinfoController');
+var manageCarController = require('./controllers/manageCarController');
+var manageKindOfCarController = require('./controllers/manageKindOfCarController');
+var manageManufacturerController = require('./controllers/manageManufacturerController');
+var manageOrderController = require('./controllers/manageOrderController');
+var loginAdminController = require('./controllers/loginAdminController');
+var signUpAdminController = require('./controllers/signUpAdminController');
+var adminController = require('./controllers/adminController');
+var adminInfoController = require('./controllers/adminInfoController');
 
 var app = express();
 
@@ -81,10 +92,20 @@ app.get('/', (req, res) => {
 });
 
 app.use('/home', homeController);
+app.use('/account', accountController);
 app.use('/products', productsController);
 app.use('/search', searchController);
 app.use('/cart', cartController);
 app.use('/checkout', checkoutController);
+app.use('/UserInfo', userinfoController);
+app.use('/manageCar', manageCarController);
+app.use('/manageKindOfCar', manageKindOfCarController);
+app.use('/manageManufacturer', manageManufacturerController);
+app.use('/manageOrder', manageOrderController);
+app.use('/loginAdmin', loginAdminController);
+app.use('/signUpAdmin', signUpAdminController);
+app.use('/dashboard', adminController);
+app.use('/adminInfo', adminInfoController);
 
 
 app.use(handle404MDW);

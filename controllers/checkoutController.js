@@ -3,10 +3,11 @@ var cartRepo = require('../repos/cartRepo'),
   productRepo = require('../repos/productsRepo'),
   checkoutRepo = require('../repos/checkoutRepo');
 var homeRepo = require('../repos/homeRepo');
+var restrict = require('../middle-wares/restrict');
 
 var router = express.Router();
 const FreeShip = 1000000000;
-router.get('/', (req, res) => {
+router.get('/', restrict, (req, res) => {
 
   var arr_p = [];
   for (var i = 0; i < req.session.cart.length; i++) {
@@ -24,6 +25,7 @@ router.get('/', (req, res) => {
         pro.Amount = pro.Gia * req.session.cart[i].Quantity;
         if(pro.Gia > FreeShip)
           Fee[0].PhiVanChuyen = 0;
+        pro.index = i;
         items.push(pro);
       }
 
@@ -43,5 +45,65 @@ router.get('/', (req, res) => {
   });
 });
 
+router.post('/', restrict, (req, res) => {
+    var currentdate = new Date();
+    var datetime = '' + currentdate.getFullYear() + "/"
+                    + (currentdate.getMonth()+1)  + "/"
+                    + currentdate.getDate()+ "  "
+                    + currentdate.getHours() + ":"
+                    + currentdate.getMinutes() + ":"
+                    + currentdate.getSeconds();
+    var dem = 0;
+    for(var i = 0; i < req.session.cart.length; i++)
+            dem += req.session.cart[i].Quantity;
+
+    var hoaDon = {
+        KhachHang: req.session.user.Username,
+        NgayDat: datetime,
+        TongTien: req.body.TotalPrice,
+        SDT: req.body.phone,
+        GhiChu: req.body.note,
+        DiaChi: req.body.address,
+        SoLuongXe: dem
+    }
+
+    // checkoutRepo.addHoaDon(hoaDon);
+    //
+    // for(var i = 0; i < req.session.cart.length; i++)
+    // {
+    //     var chitiethoadon = {
+    //         KhachHang: req.session.user.Username,
+    //         NgayDat: datetime,
+    //         MaXe: req.session.cart[i].ProId,
+    //         SoLuong: req.session.cart[i].Quantity
+    //     }
+    //
+    //     checkoutRepo.addCtHoaDon(chitiethoadon);
+    //     checkoutRepo.decreaseCar(chitiethoadon);
+    // }
+    //
+    // req.session.cart = [];
+    // res.redirect('UserInfo/History');
+
+    checkoutRepo.addHoaDon(hoaDon).then(() => {
+      var arr = [];
+      for(var i = 0; i < req.session.cart.length; i++)
+      {
+          var chitiethoadon = {
+              KhachHang: req.session.user.Username,
+              NgayDat: datetime,
+              MaXe: req.session.cart[i].ProId,
+              SoLuong: req.session.cart[i].Quantity
+          }
+
+          arr.push(checkoutRepo.addCtHoaDon(chitiethoadon));
+          arr.push(checkoutRepo.decreaseCar(chitiethoadon));
+      }
+      Promise.all(arr).then(() =>{
+        req.session.cart = [];
+        res.redirect('UserInfo/History');
+      });
+    });  
+});
 
 module.exports = router;

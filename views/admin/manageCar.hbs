@@ -1,0 +1,145 @@
+{{#section 'title'}}
+	Quản lý xe
+{{/section}}
+
+{{#section 'activeManageCar'}}
+  class = "active"
+{{/section}}
+
+<a class="btn btn-large btn-block btn-primary" href="/manageCar/add" role="button">
+	<span class="glyphicon glyphicon-plus"></span>
+	Thêm xe mới vào danh sách
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document" style="margin: 90px auto">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Xác nhận xóa xe</h4>
+			</div>
+			<div class="modal-body">
+				<h3>Bạn có chắc chắn muốn xóa xe có mã xe là: </h3>
+			</div>
+			<div class="modal-footer">
+				<form action="manageCar/delete" method="POST" role="form">
+					<input type="hidden" id="maxe" name="MaXe" value="">
+					<button type="submit" id="confirmDelete" class="btn btn-danger">
+						<span class="glyphicon glyphicon-remove"></span>
+						Xóa
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+{{#if noProducts}}
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			Không có xe nào trong hệ thống dữ liệu.
+		</div>
+	</div>
+{{else}}
+	<div class="container-fluid">
+		<div class="row" style="background-color: white">
+			<div class="container-fluid">
+				<h3 style="color: black">Danh sách các xe</h3>
+				<table class="table table-hover table-bordered" style="color: black">
+					<thead>
+						<tr style="background-color: #337ab7; color: white">
+							<th class="text-center col-md-1" style="border: 1px solid black">Mã xe</th>
+							<th class="text-center" style="border: 1px solid black">Tên xe</th>
+							<th class="text-center" style="border: 1px solid black">Hãng Xe</th>
+							<th class="text-center" style="border: 1px solid black">Dòng xe</th>
+							<th class="text-center" style="border: 1px solid black">Giá</th>
+							<th class="text-center" style="border: 1px solid black">Ngày nhận</th>
+							<th class="text-center" style="border: 1px solid black">Sửa</th>
+							<th class="text-center" style="border: 1px solid black">Xóa</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each products}}
+							<tr id="row{{MaXe}}">
+								<td class="text-center" style="border: 1px solid black">{{MaXe}}</td>
+								<td class="text-center" style="border: 1px solid black">{{TenXe}}</td>
+								<td class="text-center" style="border: 1px solid black">{{TenHangXe}}</td>
+								<td class="text-center" style="border: 1px solid black">{{TenDongXe}}</td>
+								<td class="text-center" style="border: 1px solid black">{{number_format Gia}}</td>
+								<td class="text-center" style="border: 1px solid black">{{NgayNhan}}</td>
+								<td class="text-center" style="border: 1px solid black">
+									<a class="btn btn-primary btn-xs" href="/manageCar/edit?ma={{MaXe}}" role="button">
+										<span class="glyphicon glyphicon-wrench"></span>
+									</a>
+								</td>
+								<td class="text-center" style="border: 1px solid black">
+
+									<!-- Button trigger modal -->
+									<button type="button" class="btn btn-danger btn-xs" id="remove{{MaXe}}" data-toggle="modal" data-target="#myModal">
+										<span class="glyphicon glyphicon glyphicon-trash"></span>
+									</button>
+								</td>
+							</tr>
+							<script type="text/javascript">
+								$('#remove{{MaXe}}').on('click', function() {
+									$('input#maxe').val('{{MaXe}}');
+									$('#myModal').find('h3').text('Bạn có chắc chắn muốn xóa xe có mã xe là: {{MaXe}}');
+								});
+							</script>
+						{{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<ul class="pagination">
+		{{#if isFirst}}
+		<li class="disabled"><a href="javascript:;" id="first" class="page-link">&laquo;</a></li>
+		{{else}}
+		<li><a href="?page=1">&laquo;</a></li>
+		{{/if}}
+
+		{{#each page_numbers}}
+		{{#if isCurPage}}
+		<li class="active"><a href="javascript:;">{{value}}</a></li>
+		{{else}}
+		<li><a href="?page={{value}}">{{value}}</a></li>
+		{{/if}}
+		{{/each}}
+
+		{{#if isLast}}
+		<li class="disabled"><a href="javascript:;" class="page-link" id="last">&raquo;</a></li>
+		{{else}}
+		<li><a href="?page={{last_page}}">&raquo;</a></li>
+		{{/if}}
+
+	</ul>
+
+{{/if}}
+
+{{#if isEdit}}
+	<script type="text/javascript">
+		swal("Chỉnh sửa thông tin thành công!", {
+			icon: "success",
+		});
+	</script>
+{{/if}}
+
+{{#if isDelete}}
+	<script type="text/javascript">
+		swal("Xóa thành công!", {
+			icon: "success",
+		});
+	</script>
+{{/if}}
+
+{{#if isDeleteFalse}}
+	<script type="text/javascript">
+		swal("Xóa thất bại do trong hệ thống dữ liệu tồn tại hóa đơn có mua xe thuộc xe bạn muốn xóa!", {
+			icon: "error",
+	});
+	</script>
+{{/if}}

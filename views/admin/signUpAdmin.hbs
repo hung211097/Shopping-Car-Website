@@ -1,0 +1,70 @@
+{{#section 'title'}}
+	Đăng ký
+{{/section}}
+
+<div class="container">
+
+  <form class="form-signin" action="" method="POST" role="form" onsubmit="return validate();">
+    <h2 class="form-signin-heading">Tạo tài khoản Admin</h2>
+    <div class="login-wrap">
+      <span class="pull-left">Nhập username:</span>
+      <input type="text" class="form-control" name="Username" placeholder="Username" value="{{#if showError}}{{User.username}}{{/if}}" required>
+      <p class="help-block Username-null">Vui lòng điền thông tin vào đây!</p>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+
+      <span class="pull-left">Nhập password:</span>
+      <input type="password" class="form-control" id="txtPWD"name="Password" placeholder="Password" required>
+      <p class="help-block Password-null">Vui lòng điền thông tin vào đây!</p>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+
+      <span class="pull-left">Nhập lại password:</span>
+      <input type="password" class="form-control" id="txtCPWD"placeholder="Re-Password" required>
+      <p class="help-block Re-Password-null">Vui lòng điền thông tin vào đây!</p>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+
+      <span class="pull-left">Nhập họ và tên:</span>
+      <input type="text" class="form-control" name="Name" placeholder="Họ và tên" value="{{#if showError}}{{User.name}}{{/if}}" required>
+      <p class="help-block Name-null">Vui lòng điền thông tin vào đây!</p>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+
+      <span class="pull-left">Nhập email:</span>
+      <input type="text" class="form-control" name="Email" placeholder="Email" value="{{#if showError}}{{User.email}}{{/if}}" required>
+      <p class="help-block Email-null">Vui lòng điền thông tin vào đây!</p>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+
+      <button class="btn btn-lg btn-login btn-block" type="submit">Đăng ký</button>
+      <div class="registration">
+        Bạn đã có tài khoản Admin?
+        <a class="" href="/loginAdmin">
+          Đăng nhập
+        </a>
+      </div>
+
+    </div>
+  </form>
+
+</div>
+{{#if showError}}
+  <script type="text/javascript">
+          swal("Username đã tồn tại!", {
+            icon: "error",
+          });
+  </script>
+{{/if}}
+
+  <script type="text/javascript">
+    var validate = function() {
+        if ($('#txtPWD').val() !== $('#txtCPWD').val()) {
+          swal("Password nhập lại không trùng khớp!", {
+            icon: "error",
+          });
+          return false;
+        }
+        return true;
+    }
+  </script>

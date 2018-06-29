@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "Font Neue Regular";
+    src: url('/fonts/BebasNeue Regular.otf') format("truetype");
+}
+
+.container-dashboard{
+  position: relative;
+}
+
+.container-dashboard img{
+  width: 100%;
+  z-index: -1;
+  height: 540px;
+}
+
+.title-dashboard{
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 30px;
+  left: 400px;
+}
+
+.title-dashboard h1 {
+    font-family: "Font Neue Regular";
+    font-size: 75px;
+    letter-spacing: 0.1em;
+}
+
+hr{
+  border: none;
+    height: 5px;
+    /* Set the hr color */
+    color: #fff; /* old IE */
+    background-color: #fff; /* Modern Browsers */
+}

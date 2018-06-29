@@ -9,15 +9,21 @@ var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 
 var handle404MDW = require('./middle-wares/handle404');
+var handleLayoutMDW = require('./middle-wares/handleLayout');
 
 var homeController = require('./controllers/homeController');
-<<<<<<< HEAD
-var detailController = require('./controllers/detailController');
-var productsController = require('./controllers/productsController');
-=======
 var productsController = require('./controllers/productsController');
 var searchController = require('./controllers/searchController');
->>>>>>> TaNguyenHung
+var cartController = require('./controllers/cartController');
+var checkoutController = require('./controllers/checkoutController');
+<<<<<<< HEAD
+var accountController = require('./controllers/accountController');
+var userinfoController = require('./controllers/userinfoController');
+=======
+var manageCarController = require('./controllers/manageCarController');
+var manageKindOfCarController = require('./controllers/manageKindOfCarController');
+var manageManufacturerController = require('./controllers/manageManufacturerController');
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 
 var app = express();
 
@@ -54,7 +60,11 @@ app.use(bodyParser.urlencoded({
 //session
 var sessionStore = new MySQLStore({
     host: 'localhost',
+<<<<<<< HEAD
     port: 3306,
+=======
+    port: 3307,
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
     user: 'root',
     database: 'carshopping',
     createDatabaseTable: true,
@@ -76,6 +86,7 @@ app.use(session({
     saveUninitialized: false
 }));
 
+app.use(handleLayoutMDW);
 
 app.get('/', (req, res) => {
     res.redirect('/home');
@@ -83,13 +94,24 @@ app.get('/', (req, res) => {
 
 app.use('/home', homeController);
 <<<<<<< HEAD
-app.use('/detail', detailController);
-app.use('/products', productsController);
+app.use('/account', accountController);
 =======
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
 app.use('/products', productsController);
 app.use('/search', searchController);
->>>>>>> TaNguyenHung
-// app.use(handle404MDW);
+app.use('/cart', cartController);
+app.use('/checkout', checkoutController);
+<<<<<<< HEAD
+app.use('/UserInfo', userinfoController);
+
+=======
+app.use('/manageCar', manageCarController);
+app.use('/manageKindOfCar', manageKindOfCarController);
+app.use('/manageManufacturer', manageManufacturerController);
+>>>>>>> 4a339b0fca2af1f86503531deb8c868a23573017
+
+
+app.use(handle404MDW);
 
 app.listen(3000, () => {
     console.log('Site running on port 3000');

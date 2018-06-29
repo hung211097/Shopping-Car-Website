@@ -1,0 +1,81 @@
+{{#section 'title'}}
+	Thêm mới hãng xe
+{{/section}}
+
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<h3 class="panel-title" style="color: white">Thêm hãng xe mới vào danh sách</h3>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body" id="pad-bot">
+		<form action="" method="POST" role="form" enctype="multipart/form-data">
+			<legend>Thông tin chung</legend>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Chọn hình ảnh hãng xe:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="file" name="photos" value="" required>
+							<small class="form-text text-muted">Chỉ có thể chọn 1 ảnh</small>
+						</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label>Mã hãng xe:</label>
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<input type="text" name="MaHangXe" class="form-control" value="{{maTangDan}}" readonly>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="input">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="form-group form-TenHangXe has-feedback">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<label>Tên hãng xe:</label>
+							</div>
+
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<input type="text" name="TenHangXe" value="" class="form-control">
+								<p class="help-block TenHangXe-null">Vui lòng điền thông tin vào đây!</p>
+								<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row" id="foot">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<div class="row">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+						</div>
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+							<button type="submit" class="btn btn-primary" id="btnSub">Thêm</button>
+							<a class="btn btn-default" href="/manageManufacturer" role="button">
+								<span class="glyphicon glyphicon-arrow-left"></span>
+								Quay trở lại xem danh sách hãng xe
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+{{#if isAdd}}
+	<script type="text/javascript">
+		swal("Thêm hãng xe mới vào danh sách thành công!", {
+			icon: "success",
+		});
+	</script>
+{{/if}}

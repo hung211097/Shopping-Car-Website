@@ -1,0 +1,362 @@
+{{#section 'title'}}
+	<title>Thông tin cá nhân</title>
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/OwlCarousel/dist/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="/assets/OwlCarousel/dist/assets/owl.theme.default.min.css">
+<link rel="stylesheet" href="/assets/css/userInformation.css">
+{{/section}}
+
+{{#section 'js'}}
+	<script type="text/javascript" src="/assets/js/index.js"></script>
+	<script src="/assets/OwlCarousel/dist/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="/assets/js/userInformation.js"></script>
+        {{#if showChange}}
+            {{#if isChange}}
+                <script>
+                    swal("Thay đổi mật khẩu thành công", "Mật khẩu đã được thay đổi!", "success");
+                </script>
+            {{else}}
+                <script>
+                    swal("Thay đổi mật khẩu thất bại", "Mật khẩu cũ không chính xác!", "error");
+                </script>
+            {{/if}}
+            {{showChange}} = false;
+        {{/if}}
+{{/section}}
+
+  <!-- Start Body -->
+  <div class="container" style="margin-top: 50px">
+        <div class="row">
+
+            <!--  Left content   -->
+
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="panel panel-default" style="border-color: #00a2d1">
+                    <div class="panel-heading" style="background-color: #ddd;">
+                        <h3 class="panel-title" style="text-align: center; font-weight: bold;">Thông tin khách hàng</h3>
+                    </div>
+                    <ul class="vertical-menu">
+                        {{#if isDetail}}
+                        <li><a href="/UserInfo/" id="infoUser">Thông tin cơ bản</a></li>
+                        <li><a class="active" href="/UserInfo/History" id="historyBuying">Lịch sử mua hàng</a></li>
+                        {{else}}
+                            {{#if isBack}}
+                            <li><a href="/UserInfo/" id="infoUser">Thông tin cơ bản</a></li>
+                            <li><a class="active" href="javascript:;" id="historyBuying">Lịch sử mua hàng</a></li>
+                            {{else}}
+                            <li><a class="active" href="javascript:;" id="infoUser">Thông tin cơ bản</a></li>
+                            <li><a href="javascript:;" id="historyBuying">Lịch sử mua hàng</a></li>
+                            {{/if}}
+                        {{/if}}
+                    </ul>
+                </div>
+            </div>
+
+            <!--  Right content   -->
+
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                <div class="panel panel-primary" style="border-color: #00a2d1;">
+                    <div class="panel-heading" style="background-color: #00a2d1; border-color: #00a2d1;">
+                        <h3 class="panel-title" style="text-align: center" id="infoName">
+                            {{layoutVM.curUser.Username}}
+                        </h3>
+                    </div>
+                    <div class="panel-body" style="margin-bottom: 20px;" id="BodyInfo">
+
+                        <!--  InfoUser   -->
+                        {{#if isDetail}}
+                        <div id="InfoUser" style="display: none">
+                        {{else}}
+                            {{#if isBack}}
+                            <div id="InfoUser" style="display: none">
+                            {{else}}
+                            <div id="InfoUser">
+                            {{/if}}
+                        {{/if}}
+                            <div class="page-header" style="margin-top: 0px;">
+                                <h3 style="margin: 0;">Thông tin cá nhân</h3>
+                            </div>
+                            <!--  Info1   -->
+                            <div class="row" style="padding-top: 8px; font-size: 18px;">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Họ và tên</div>
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="realName">{{layoutVM.curUser.Name}}</div>
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#editNameModal" id="editNameBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
+                                </div>
+                            </div>
+                            <!--  Info2   -->
+                            <div class="row" style="padding-top: 30px; font-size: 18px;">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Password</div>
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="passWord">******</div>
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#editPassModal" id="editPassBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
+                                </div>
+                            </div>
+                            <!--  Info3   -->
+                            <div class="row" style="padding-top: 30px; font-size: 18px;">
+                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 douDots">Email</div>
+                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="Email">{{layoutVM.curUser.Email}}</div>
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#editEmailModal" id="editEmailBtn"><span class="fas fa-edit" aria-hidden="true"></span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--  HistoryBuying   -->
+                        {{#if isDetail}}
+                        <div id="DetailBuying">
+                            <div class="page-header" style="margin-top: 0px;">
+                                <h3 style="margin: 0;">Chi tiết hóa đơn {{index}}</h3>
+                            </div>
+                            <div class="panel-heading">
+                            </div>
+                            <div style="overflow-x: hidden; overflow-y: auto; height: 300px">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: center">Số thứ tự</th>
+                                            <th style="text-align: center">&nbsp;</th>
+                                            <th style="text-align: center">Tên xe</th>
+                                            <th style="text-align: center">Số lượng xe</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="danhsach" >
+                                        {{#each details}}
+                                        <tr>
+                                            <td style="text-align: center">{{index}}</td>
+                                            <td style="text-align: center"><img src="/image/all/{{MaXe}}/{{MaXe}}_1.jpg" height="100"></td>
+                                            <td style="text-align: center">{{TenXe}}</td>
+                                            <td style="text-align: center">{{SoLuong}}</td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {{/if}}
+                        {{#if isBack}}
+                        <div id="HistoryBuying">
+                        {{else}}
+                        <div id="HistoryBuying" style="display: none">
+                        {{/if}}
+                            <div class="page-header" style="margin-top: 0px;">
+                                <h3 style="margin: 0;">Danh sách hóa đơn</h3>
+                            </div>
+                            <div class="panel-heading">
+                            </div>
+														<div style="overflow-x: hidden; overflow-y: auto; height: 300px">
+															<table class="table table-striped">
+	                                <thead>
+	                                    <tr>
+	                                        <th style="text-align: center">Số thứ tự</th>
+	                                        <th style="text-align: center">Ngày đặt hóa đơn</th>
+	                                        <th style="text-align: center">Số lượng xe</th>
+	                                        <th style="text-align: center">Số điện thoại</th>
+	                                        <th style="text-align: center">Địa chỉ</th>
+	                                        <th style="text-align: center">Tổng giá tiền</th>
+	                                        <th style="text-align: center">Ghi chú</th>
+	                                        <th style="text-align: center">Tình trạng</th>
+	                                    </tr>
+	                                </thead>
+	                                <tbody id="danhsach">
+	                                    {{#each items}}
+	                                    <tr>
+	                                        <td style="text-align: center"><a href="/UserInfo/detail/{{NgayDat}}" class="billDetailBtn">{{index}}</a></td>
+	                                        <td style="text-align: center">{{NgayDat}}</td>
+	                                        <td style="text-align: center">{{SoLuongXe}}</td>
+	                                        <td style="text-align: center">{{SDT}}</td>
+	                                        <td style="text-align: center">{{DiaChi}}</td>
+	                                        <td style="text-align: center">{{TongTien}}</td>
+	                                        <td style="text-align: center">{{GhiChu}}</td>
+	                                        <td style="text-align: center">{{TinhTrang}}</td>
+	                                    </tr>
+	                                    {{/each}}
+	                                </tbody>
+	                            </table>
+														</div>
+
+                        </div>
+                    </div>
+                </div>
+                {{#if isDetail}}
+                <a href="/UserInfo/History" class="btn btn-info" style="font-size: 15px; background-color:#00A2D1 !important">Quay về danh sách hóa đơn</a>
+                {{/if}}
+            </div>
+        </div>
+  </div>
+  <!-- End Body -->
+
+  <!-- Start Edit IDname modal -->
+  <div id="editIDNameModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thay đổi tên tài khoản</h4>
+        </div>
+        <div class="modal-body">
+          <form class="" action="editID" method="post" name="EditIDName">
+<!--            <div class="EI-group">
+              <label for="IDName">Tên mới</label>
+              <input type="text" class="form-control" id="txtIDName" placeholder="" name="IDName">
+              <p class="help-block password-null">Vui lòng điền thông tin vào đây!</p>
+                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+            </div>-->
+              <fieldset class="form-group">
+                        <label for="IDName">Tên mới</label>
+                        <div class="form-group form-account has-feedback">
+                          <input type="text" name="IDName" id="txtIDName"  value="" class="form-control form-control-lg">
+                          <p class="help-block account-null">Vui lòng điền thông tin vào đây!</p>
+                          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        </div>
+                      </fieldset>
+            <div class="text-center">
+              <button id="btnEI" class="btn btn-SignIn" type="submit" name="button-editName">Xác nhận</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit IDname modal -->
+
+  <!-- Start Edit name modal -->
+  <div id="editNameModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thay đổi tên khách hàng</h4>
+        </div>
+        <div class="modal-body">
+          <form class="" action="EditName" method="post" name="EditName">
+            <fieldset class="form-group">
+              <label for="Name">Họ và tên mới</label>
+              <div class="form-group form-name has-feedback">
+                <input type="text" class="form-control" id="txtRealName" placeholder="" name="Name">
+                <p class="help-block name-null">Vui lòng điền thông tin vào đây!</p>
+                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+              </div>
+            </fieldset>
+            <div class="text-center">
+              <button id="btnEN" class="btn btn-SignIn" type="submit" name="button-editName">Xác nhận</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit name modal -->
+
+  <!-- Start Edit pass modal -->
+  <div id="editPassModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thay đổi mật khẩu</h4>
+        </div>
+        <div class="modal-body">
+          <form class="" action="" method="post" name="EditPass">
+              <fieldset class="form-group">
+                  <label for="OldPass">Mật khẩu cũ</label>
+                <div class="form-oldpass form-group has-feedback">
+                  <input type="password" class="form-control" id="txtUserOldPass" placeholder="" name="OldPass">
+                  <p class="help-block oldpass-null">Vui lòng điền thông tin vào đây!</p>
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+              </fieldset>
+                <fieldset class="form-group">
+                    <label for="NewPass">Mật khẩu mới</label>
+                    <div class="form-newpass  form-group has-feedback">
+                      <input type="password" class="form-control" id="txtUserNewPass" placeholder="" name="NewPass">
+                      <p class="help-block newpass-null">Vui lòng điền thông tin vào đây!</p>
+                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="ReNewPass">Nhập lại mật khẩu mới</label>
+                    <div class="form-renewpass  form-group has-feedback">
+                      <input type="password" class="form-control" id="txtUserReNewPass" placeholder="" name="ReNewPass">
+                      <p class="help-block renewpass-null">Vui lòng điền thông tin vào đây!</p>
+                      <p class="help-block renewpass2-null">Mật khẩu không trùng khớp!</p>
+                        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                    </div>
+                </fieldset>
+            <div class="text-center">
+              <button id="btnEP" class="btn btn-SignIn" type="submit" name="button-editPass">Xác nhận</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit pass modal -->
+
+  <!-- Start Edit phone modal -->
+  <div id="editEmailModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thay đổi email</h4>
+        </div>
+        <div class="modal-body">
+          <form class="" action="EditEmail" method="post" name="EditEmail">
+              <fieldset class="form-group">
+                <label for="NewEmail">Email mới</label>
+                <div class="form-email form-group has-feedback">
+                  <input type="text" class="form-control" id="txtEmail" placeholder="" name="NewEmail">
+                  <p class="help-block email-null">Vui lòng điền đúng định dạng email!</p>
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+              </fieldset>
+            <div class="text-center">
+              <button id="btnEM" class="btn btn-SignIn" type="submit" name="button-editEmail">Xác nhận</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit phone modal -->
+
+  <!-- Start Edit phone modal -->
+  <div id="billDetail" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Thông tin chi tiết hóa đơn</h4>
+        </div>
+        <div class="modal-body">
+            <form class="" action="" method="post" name="EditEmail">
+                <div class="form-group">
+                    <div class="owl-carousel owl-theme" id="sliderDS">
+<!--                        <div class="item">
+                            <div class="containerUI">
+                                <div class="imageUI"><img src="./image/BestSeen/Aston Martin DB11.jpg" alt="Aston Martin DB11"></div>
+
+                                <a type="button" class="button square hvr-rectangle-out middleUI" name="Detail" id="DetailBtn">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                            </div>
+                        </div>-->
+                        <!--<div class="item imageUI"><img src="./image/BestSeen/BMW 4 Series Convertible.jpg" alt="BMW 4 Series Convertible"></div>-->
+                    </div>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Edit phone modal -->
